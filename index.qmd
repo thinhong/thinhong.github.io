@@ -1,0 +1,28 @@
+---
+title: "Thinh Ong"
+image: profile.png
+about:
+  template: trestles
+  image-shape: round
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/iamthinhong/
+    - icon: github
+      text: Github
+      href: https://github.com/thinhong/
+    - icon: linkedin
+      text: Linkedin
+      href: https://www.linkedin.com/in/thinh-ong/
+comments: false
+---
+
+Hello! I'm **Thinh** - feel free to pronounce it as ***"think"***. I'm a medical doctor focusing on preventive medicine. I'm pursuing my DPhil degree in Mathematical Modelling at the University of Oxford.
+
+I've documented everything I've learned throughout my career on this website. Here you can find:
+
+* Practical guides for **leadership**, **management** and other **transferable skills** (on my [**blog**](/blog.html))
+
+* Quick and dirty tips for **R programming**, **data analysis**, **visualization** (on my [**blog**](/blog.html))
+  
+* My teaching materials on **mathematical modelling** methods for **infectious diseases** (on my [**teaching**](/teaching.html))

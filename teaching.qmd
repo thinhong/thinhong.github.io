@@ -1,0 +1,8 @@
+---
+title: "Teaching"
+listing: 
+  contents: teaching
+  type: default
+  sort: "date desc"
+  categories: true # allows you to sort posts by assigned categories 
+---

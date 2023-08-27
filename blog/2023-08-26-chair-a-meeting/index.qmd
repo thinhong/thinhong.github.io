@@ -1,0 +1,110 @@
+---
+title: "10 simple tips to chair a meeting"
+description: "A survival kit when you are thrust into the chairing role"
+date: 2023-08-26
+categories: [leadership]
+citation: 
+  url: https://thinhong.github.io/blog/2023-08-26-chair-a-meeting/
+draft: false
+image: preview.svg
+---
+
+## Take home messages
+
+::: {.callout-note appearance="simple" icon=false}
+
+Before the meeting:
+
+1. Always aim for a structured meeting
+
+2. Remind what you expect attendees to do one day before the meeting
+
+During the meeting:
+
+3. Mind where you sit
+
+4. Start with ice-breakers and introductions for new faces
+
+5. Stick to the agenda, make sure to achieve meeting objectives
+
+6. Speak up if it's quiet, listen when others talk
+
+7. Stop overexcited people, encourage the quieters
+
+8. Gather opinions: volunteers first, introverts next
+
+9. At the end, discuss agenda and assign tasks for next meeting
+
+10. Relax and remember that you don't need to be perfect
+
+:::
+
+## 1. Always aim for a structured meeting
+
+If you're like me, standing in front of a group can turn your brain into a blank slate. Without agenda, a meeting becomes a symphony of confusion. Who talks when? What's the point of all this? No plan, total chaos.
+
+So, what's the secret recipe for a structured meeting, you ask?
+
+1. **Objectives:** What we want to gain.
+
+2. **Agenda:** A detailed list of all topics and activities with timing.
+
+3. **Responsibilities:** Be very specific, who must do what. No guessing games here. Be super clear and make sure attendees fully understand their tasks.
+
+## 2. Remind what you expect attendees to do one day before the meeting
+
+I've got a memory like a leaky bucket. But I know I'm not alone. Kindly remind attendees of their responsibilities one day ahead. Any attendee will fall into one of these two typical types: (1) those who get things ready right after your nudge, or (2) those who do so about an hour before the meeting kicks off. A single day prior to the meeting is somewhat ideal to recall what they must bring.
+
+## 3. Mind where you sit
+
+Now, the meeting begins as you step into the room. You can find many online guides on where to sit, depending on the meeting's purpose. I follow one rule: **I sit where I can see everyone's faces, and they can see mine**.
+
+I made a mistake once by sitting in the same row as my team. When I talked to someone on my left, I turned my back to those on my right. There was no way to keep track of everybody as I always ended up missing half of the room.
+
+## 4. Start with ice-breakers and introductions for new faces
+
+You've got a great seat. However, it's common that not everyone arrives on time. Someone will always be late, and you've decided to wait a few minutes for them. Even if no one is late, it's better to ease everyone a bit before moving on to the main session. All eyes are on you now, and it's time to begin.
+
+* If everyone is new, start by introducing yourself and then let each person take a turn to introduce themselves. To break the ice, choose someone at random and ask a question; they'll surely appreciate it.
+
+* If there are only some new faces, let them introduce and pose 1-2 questions to them.
+
+* If you're already familiar with the group, kick off by randomly selecting someone and ask how it's going last week. Add a joke or two if you're in the mood.
+
+## 5. Stick to the agenda, make sure to achieve meeting objectives
+
+Here is why structured meetings matter. The agenda has it all, and you simply follow it step by step, sticking to the plan. Even if the projector stages a rebellion and only display cat videos, you have the agenda, so you will be fine. But make sure that you achieve each objective before moving on to the next topic. If you only focus on timing and changing topics, people should bring in a robot to chair the meeting instead of you.
+
+## 6. Speak up if it's quiet, listen when others talk
+
+Be ready, because everyone might expect the chairperson talks the most in the meeting. If it becomes quiet (unintentionally), you have to start talking. If you're not sure what to say, ask the most outgoing person in the group.
+
+But, when everyone is happily talking, you better off shutting your mouth. Act as a keen listener and resist the urge to interrupt. You only step in when matters violate Tip 7.
+
+## 7. Stop overexcited people, encourage the quieters
+
+Have you come across a single person dominating the entire group in a discussion (the Monopolizer)? How about a funny person who takes it a bit too far and starts to irritate others (the Clown)? Or maybe someone who consistently goes off-topic, putting meeting objectives at risk (the Diverter)? It is **your responsibility** to bring them back on track. Who else holds more authority than you in this meeting?
+
+There are many ways to handle this, but from my view, two steps work: (1) recognize their points, (2) asking someone else to share their thoughts. This is a chance to encourage quieter individuals to speak up. Pay attention to them because otherwise they will always keep silent. Also, this approach sends a signal to those who talk a lot, reminding them to give others a chance.
+
+## 8. Gather opinions: volunteers first, introverts next
+
+When seeking input, start with volunteers. If it's quiet, turn to an introvert. If you ask an extrovert first, it's very likely that the introverts will only say "I agree", end of story. And you know what? The volunteers are very likely to be extroverts anyway.
+
+## 9. At the end, discuss agenda and assign tasks for next meeting
+
+You've met all the meeting goals, so it's time to conclude. Decide if another meeting is needed. If yes, use this chance while everyone's here to discuss the plan, assign tasks, and get agreement. Now, you're good to say goodbye.
+
+## 10. Relax and remember that you don't need to be perfect
+
+***Perfect*** is the enemy of ***very good***. Most of your life, being good is enough. If you make a mistake, people will likely forget it 5 minutes later. So, just say what you want without worrying too much. Mistakes are okay – they help you learn and get better.
+
+## Acknowledgments
+
+Special thanks to **Dr. Leigh Jones**, my mentor, for her valuable insights that helped shape these tips. A big thank you to **Ms. Gaye Proctor** for the classification of participant behaviors in her ***Train the Trainer*** workshop, a valuable resource for my Tip 7.
+
+::: {style="font-size: 80%; text-align: right;"}
+
+Preview image by [storyset](https://www.freepik.com/free-vector/team-concept-illustration_8961437.htm) on Freepik
+
+:::
