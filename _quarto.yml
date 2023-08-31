@@ -26,8 +26,7 @@ website:
         
 format:
   html:
-    theme: zephyr
-    css: styles.css
+    theme: [litera, theme.scss]
     toc: true
 
 comments:
