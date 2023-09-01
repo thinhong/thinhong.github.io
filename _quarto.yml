@@ -4,12 +4,15 @@ project:
 
 website:
   title: "thinhong"
+  google-analytics: "G-RVRBE7Y1R2"
   navbar:
     left:
       - text: About
         href: about.qmd
       - text: Research
         href: https://scholar.google.com/citations?user=PkfvVs0AAAAJ
+      - text: Talks
+        href: talks.qmd
       - text: Teaching
         href: teaching.qmd
       - text: Software

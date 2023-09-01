@@ -8,7 +8,14 @@
   {
     "listing": "/teaching.html",
     "items": [
-      "/teaching/idm-intro/index.html"
+      "/teaching/modelling/idm-intro/index.html",
+      "/teaching/r-programming/r-beginners/index.html"
+    ]
+  },
+  {
+    "listing": "/talks.html",
+    "items": [
+      "/talks/is-this-a-good-journal/index.html"
     ]
   }
 ]

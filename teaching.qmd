@@ -1,8 +1,24 @@
 ---
 title: "Teaching"
 listing: 
-  contents: teaching
-  type: default
-  sort: "date desc"
-  categories: true # allows you to sort posts by assigned categories 
+  - id: modelling
+    contents: "teaching/modelling/*/*.qmd"
+    type: table
+    fields: [image, title, description]
+    sort: "date desc"
+  - id: r-programming
+    contents: "teaching/r-programming/*/*.qmd"
+    type: table
+    fields: [image, title, description]
+    sort: "date desc"
 ---
+
+## R programming
+
+:::{#r-programming}
+:::
+
+## Modelling
+
+:::{#modelling}
+:::

@@ -1,0 +1,7 @@
+---
+title: "Is this a good journal?"
+description: "Learn how to identify trustworthy scientific journals and avoid predatory ones"
+draft: false
+execute:
+  eval: false
+---

@@ -1,13 +1,12 @@
 ---
 title: "Introduction to infectious disease modelling"
-description: "A super short course of compartmental models and reproduction numbers"
+description: "A short course on compartmental models"
 date: 2023-03-02
 author:
   - name: Phung Khanh Lam
   - name: Thinh Ong
     url: https://thinhong.github.io
     orcid: 0000-0001-6772-9291
-categories: [modelling]
 image: preview.svg
 draft: false
 execute:
