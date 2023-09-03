@@ -1,3 +1,14 @@
 /*-- scss:defaults --*/
 
 $font-family-serif: default;
+
+// Colors
+$dark-gray: #5A5856;
+
+
+/*-- scss:rules --*/
+
+.btn {
+  color: $dark-gray;
+  border-color: $dark-gray;
+}

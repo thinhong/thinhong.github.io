@@ -1,0 +1,49 @@
+---
+title: "Nhận biết tạp chí khoa học uy tín"
+format: revealjs
+---
+
+## Bài tập
+
+- "The International Journal of Public Healths Systems"
+- Thành lập cách đây 3 tháng
+- Tạp chí công bố impact factor = 1.5
+- Thời gian trung bình từ lúc nộp đến publish là 2 tuần
+- Số báo mới nhất có 10 bài, tất cả tác giả đến từ Trung Quốc
+- Phí nộp bài vào hệ thống (submission) là $150
+- Địa chỉ email của tổng biên tập: professorliu@gmail.com
+
+## Bài tập
+
+- "The International Journal of Public **Healths** Systems"
+- Thành lập cách đây **3 tháng**
+- Tạp chí công bố **impact factor = 1.5**
+- Thời gian trung bình từ lúc nộp đến publish là **2 tuần**
+- Số báo mới nhất có 10 bài, **tất cả** tác giả đến từ **Trung Quốc**
+- **Phí** nộp bài vào hệ thống (**submission**) là $150
+- Địa chỉ email của tổng biên tập: professorliu**@gmail.com**
+
+## Impact Factor (IF)
+
+$$IF = \frac{\text{Tổng số trích dẫn}}{\text{Tổng số bài báo}}$$
+
+- Tính trong 2 năm liên tiếp gần nhất (2-year Impact Factor) hoặc 5 năm liên tiếp gần nhất (5-year Impact Factor)
+- Nguồn chính thức: do ISI (Institute of Scientific Information) tính toán và công bố
+- Tập san nào thuộc danh mục của ISI (database tên là Web of Science) mới có IF
+
+## Q1-Q4
+
+- Xếp hạng trong cùng 1 chuyên ngành
+- IF khác nhau giữa các chuyên ngành: tập san khoa học cơ bản thường IF rất cao (trung bình >4-5), tập san lâm sàng thì thấp hơn (trung bình 2-3)
+- Q1, Q2 được xem là uy tín
+
+## mdpi
+
+## Nhà xuất bản uy tín
+
+Nguồn: Danh mục tạp chí khoa học được tính điểm năm 2023. Hội đồng Giáo sư Nhà nước.
+
+## Indexing
+
+## Bài tập tạp chí 3: tạp chí mới nhưng sau 1 thời gian thì IF cao (NAR Genomics & Bioinformatics)
+

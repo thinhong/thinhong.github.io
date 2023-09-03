@@ -1,0 +1,8 @@
+---
+title: "About me"
+comments: false
+---
+
+::: {.center-text}
+[{{< fa file >}} Slide](slide.qmd){.btn role="button"}
+:::

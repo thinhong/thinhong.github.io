@@ -5,3 +5,7 @@ draft: false
 execute:
   eval: false
 ---
+
+::: {.center-text}
+[{{< fa file >}} Slide](slide.qmd){.btn role="button"}
+:::

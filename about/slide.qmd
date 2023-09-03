@@ -1,0 +1,78 @@
+---
+title: "Thinh Ong"
+subtitle: "About me"
+format: revealjs
+---
+
+## Education
+
+::: columns
+::: {.column width="20%"}
+![](img/oxford.png){fig-align="center"}
+:::
+
+::: {.column width="80%"}
+2022-2026
+
+Doctor of Philosophy in Clinical Medicine
+
+University of Oxford, United Kingdom
+:::
+
+::: {.column width="20%"}
+![](img/ump.jpg){fig-align="center"}
+:::
+
+::: {.column width="80%"}
+2012-2018
+
+Doctor of Medicine in Preventive Medicine
+
+University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam
+:::
+:::
+
+## Awards
+
+::: columns
+::: {.column width="20%"}
+![](img/oxford.png){fig-align="center"}
+:::
+
+::: {.column width="80%"}
+Full DPhil studentship
+:::
+
+::: {.column width="20%"}
+![](img/ump.jpg){fig-align="center"}
+:::
+
+::: {.column width="80%"}
+Valedictorian, the only distinction grade in the fixed-curriculum system (prior to 2021)
+
+The highest GPA in the history of the school
+
+The highest score in dissertation
+:::
+
+:::
+
+## Research
+
+| Field | Experience |
+|-------|------------|
+| Mathematical modelling | Dr. Marc Choisy <br> ![](img/oucru.jpg){height="90px"} |
+| Bioinformatics | Prof. Susan Clark, Dr. Phuc-Loi Luu <br>![](img/garvan.png){height="90px"} |
+| Biostatistics | Clinical trials, public health institutions <br> ![](img/tudu.png){height="90px"} ![](img/huph.png){height="90px"} ![](img/bvdhyd.png){height="90px"} ![](img/nhitw.svg){height="90px"} |
+
+: {tbl-colwidths="[25,75]"}
+
+## Achievements
+
+-   14 research articles (international journals)
+
+-   4 international conferences
+
+-   4 software
+
+-   1 book chapter
