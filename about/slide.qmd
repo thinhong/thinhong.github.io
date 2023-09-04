@@ -1,7 +1,10 @@
 ---
 title: "Thinh Ong"
 subtitle: "About me"
-format: revealjs
+format:
+  revealjs:
+    theme: simple
+    footer: "[thinhong](https://thinhong.github.io/)"
 ---
 
 ## Education
@@ -32,7 +35,7 @@ University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam
 :::
 :::
 
-## Awards
+## Awards and honours
 
 ::: columns
 ::: {.column width="20%"}
@@ -48,7 +51,7 @@ Full DPhil studentship
 :::
 
 ::: {.column width="80%"}
-Valedictorian, the only distinction grade in the fixed-curriculum system (prior to 2021)
+Valedictorian, the only graduation with distinction grade in the fixed-curriculum system (prior to 2022)
 
 The highest GPA in the history of the school
 
@@ -57,7 +60,7 @@ The highest score in dissertation
 
 :::
 
-## Research
+## Research {.smaller}
 
 | Field | Experience |
 |-------|------------|

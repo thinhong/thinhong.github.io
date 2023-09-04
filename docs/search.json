@@ -298,14 +298,14 @@
     "href": "about/slide.html#achievements",
     "title": "Thinh Ong",
     "section": "Achievements",
-    "text": "Achievements\n\n14 research articles (international journals)\n4 international conferences\n4 software\n1 book chapter"
+    "text": "Achievements\n\n14 research articles (international journals)\n4 international conferences\n4 software\n1 book chapter\n\n\n\nthinhong"
   },
   {
     "objectID": "about/index.html",
     "href": "about/index.html",
     "title": "About me",
     "section": "",
-    "text": "Slide\n\n\n\n\n Back to top"
+    "text": "Slide"
   },
   {
     "objectID": "talks/is-this-a-good-journal/index.html",
@@ -313,5 +313,54 @@
     "title": "Is this a good journal?",
     "section": "",
     "text": "Slide\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "about/index.html#education",
+    "href": "about/index.html#education",
+    "title": "About me",
+    "section": "Education",
+    "text": "Education\n\nDoctor of Philosophy in Clinical Medicine, University of Oxford, United Kingdom (2022-2026)\nDoctor of Medicine in Preventive Medicine, University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam (2012-2018)"
+  },
+  {
+    "objectID": "about/index.html#memberships",
+    "href": "about/index.html#memberships",
+    "title": "About me",
+    "section": "Memberships",
+    "text": "Memberships\n\nMember,\nAffiliate,"
+  },
+  {
+    "objectID": "about/index.html#adventures",
+    "href": "about/index.html#adventures",
+    "title": "About me",
+    "section": "Adventures",
+    "text": "Adventures\nI’m a regular guy from a developing country. Going abroad used to be a dream. My research has given me the chance to visit different countries, connect with collaborators, attend international conferences and workshops. This map notes all my visits.\n\ncountries = JSON.parse(data)\nvisited = JSON.parse(data2)\nbertin = require(\"bertin@1.2.4\")\n\nbertin.draw({\n  params: { projection: \"Eckert3\" },\n  layers: [\n    {\n      type: \"layer\",\n      geojson: visited,\n      tooltip: [\"$NAMEen\", \"$visit1\", \"$visit2\"],\n      fill: {\n        type: \"typo\",\n        values: \"visit1\"\n      }\n    },\n    {\n      type: \"layer\",\n      geojson: countries,\n      fill: \"white\",\n      fillOpacity: 0.5\n    },\n    { type: \"graticule\" },\n    { type: \"outline\" }\n  ]\n})"
+  },
+  {
+    "objectID": "about/slide.html#awards-and-honours",
+    "href": "about/slide.html#awards-and-honours",
+    "title": "Thinh Ong",
+    "section": "Awards and honours",
+    "text": "Awards and honours\n\n\n\n\n\n\n\n\nFull DPhil studentship\n\n\n\n\n\n\n\nValedictorian, the only graduation with distinction grade in the fixed-curriculum system (prior to 2022)\nThe highest GPA in the history of the school\nThe highest score in dissertation"
+  },
+  {
+    "objectID": "about/index.html#awards-and-honours",
+    "href": "about/index.html#awards-and-honours",
+    "title": "About me",
+    "section": "Awards and honours",
+    "text": "Awards and honours\n\nFull DPhil studentship, issued by Oxford University Clinical Research Unit and University of Oxford (2022)\nAcademic Distinction Award (Valedictorian), issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nDissertation Distinction Award, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nStudent with the highest GPA, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2014, 2016, 2017)"
+  },
+  {
+    "objectID": "about/index.html#employment-history",
+    "href": "about/index.html#employment-history",
+    "title": "About me",
+    "section": "Employment history",
+    "text": "Employment history\n\nResearch Assistant, Oxford University Clinical Research Unit, Vietnam (2021-2022)\nResearch Assistant, Hanoi University of Public Health, Vietnam (2020)\nResearch Intern, Garvan Institute of Medical Research, Australia (remote, 2019)\nStatistical consultant, Tu Du hospital, Vietnam (freelance, 2018-2023)"
+  },
+  {
+    "objectID": "about/index.html#society-memberships",
+    "href": "about/index.html#society-memberships",
+    "title": "About me",
+    "section": "Society memberships",
+    "text": "Society memberships\n\nMember, Modelling Infectious Diseases in South East Asia\nAffiliate, Vaccine Impact Modelling Consortium"
   }
 ]

@@ -1,8 +1,81 @@
 ---
 title: "About me"
 comments: false
+execute:
+  echo: false
+  warning: false
 ---
 
 ::: {.center-text}
 [{{< fa file >}} Slide](slide.qmd){.btn role="button"}
 :::
+
+## Education
+
+- Doctor of Philosophy in Clinical Medicine, University of Oxford, United Kingdom (2022-2026)
+- Doctor of Medicine in Preventive Medicine, University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam (2012-2018)
+
+## Awards and honours
+
+- Full DPhil studentship, issued by Oxford University Clinical Research Unit and University of Oxford (2022)
+- Academic Distinction Award (Valedictorian), issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)
+- Dissertation Distinction Award, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)
+- Student with the highest GPA, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2014, 2016, 2017)
+
+## Employment history
+
+- Research Assistant, Oxford University Clinical Research Unit, Vietnam (2021-2022)
+- Research Assistant, Hanoi University of Public Health, Vietnam (2020)
+- Research Intern, Garvan Institute of Medical Research, Australia (remote, 2019)
+- Statistical consultant, Tu Du hospital, Vietnam (freelance, 2018-2023)
+
+## Society memberships
+
+- Member, [Modelling Infectious Diseases in South East Asia](https://midsea.network/)
+- Affiliate, [Vaccine Impact Modelling Consortium](https://www.vaccineimpact.org/)
+
+## Adventures
+
+I'm a regular guy from a developing country. Going abroad used to be a dream. My research has given me the chance to visit different countries, connect with collaborators, attend international conferences and workshops. This map notes all my visits.
+
+```{r}
+library(sf)
+library(geojsonsf)
+
+geom <- geojson_sf("world.geojson")
+travel <- read.csv("travel.csv", sep = ";")
+travel <- merge(geom, travel, by.x = "ISO3", by.y = "id", all.y = T)
+
+ojs_define(data = sf_geojson(geom))
+ojs_define(data2 = sf_geojson(travel))
+```
+
+```{ojs}
+countries = JSON.parse(data)
+visited = JSON.parse(data2)
+bertin = require("bertin@1.2.4")
+
+bertin.draw({
+  params: { projection: "Eckert3" },
+  layers: [
+    {
+      type: "layer",
+      geojson: visited,
+      tooltip: ["$NAMEen", "$visit1", "$visit2"],
+      fill: {
+        type: "typo",
+        values: "visit1"
+      }
+    },
+    {
+      type: "layer",
+      geojson: countries,
+      fill: "white",
+      fillOpacity: 0.5
+    },
+    { type: "graticule" },
+    { type: "outline" }
+  ]
+})
+```
+
