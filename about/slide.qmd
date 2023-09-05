@@ -3,7 +3,6 @@ title: "Thinh Ong"
 subtitle: "About me"
 format:
   revealjs:
-    theme: simple
     footer: "[thinhong](https://thinhong.github.io/)"
 ---
 

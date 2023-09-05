@@ -1,9 +1,11 @@
 ---
 title: "Nhận biết tạp chí khoa học uy tín"
-format: revealjs
+format:
+  revealjs:
+    footer: "[thinhong](https://thinhong.github.io/)"
 ---
 
-## Bài tập
+## Bài tập^[Scientific Writing Workshop. Dr. Leigh Jones, Regional Academic Training Leader for OUCRU and MORU]
 
 - "The International Journal of Public Healths Systems"
 - Thành lập cách đây 3 tháng
@@ -13,7 +15,7 @@ format: revealjs
 - Phí nộp bài vào hệ thống (submission) là $150
 - Địa chỉ email của tổng biên tập: professorliu@gmail.com
 
-## Bài tập
+## Bài tập^[Scientific Writing Workshop. Dr. Leigh Jones, Regional Academic Training Leader for OUCRU and MORU]
 
 - "The International Journal of Public **Healths** Systems"
 - Thành lập cách đây **3 tháng**

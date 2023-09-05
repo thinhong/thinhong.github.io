@@ -21,8 +21,6 @@ Hello! I'm **Thinh** - feel free to pronounce it as ***"think"***. I'm a medical
 
 I've documented everything I've learned throughout my career on this website. Here you can find:
 
-* Practical guides for **leadership**, **management** and other **transferable skills** (on my [**blog**](/blog.html))
-
-* Quick and dirty tips for **R programming**, **data analysis**, **visualization** (on my [**blog**](/blog.html))
+* Practical guides for **leadership**, **management**, **R programming**, and **data science** (on my [**blog**](/blog.html))
   
-* My teaching materials on **mathematical modelling** methods for **infectious diseases** (on my [**teaching**](/teaching.html))
+* My teaching materials on **mathematical modelling** methods for **infectious diseases** and **R programming** (on my [**teaching**](/teaching.html))

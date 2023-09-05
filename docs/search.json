@@ -102,7 +102,7 @@
     "href": "index.html",
     "title": "Thinh Ong",
     "section": "",
-    "text": "Hello! I’m Thinh - feel free to pronounce it as “think”. I’m a medical doctor focusing on preventive medicine. I’m pursuing my DPhil degree in Mathematical Modelling at the University of Oxford.\nI’ve documented everything I’ve learned throughout my career on this website. Here you can find:\n\nPractical guides for leadership, management and other transferable skills (on my blog)\nQuick and dirty tips for R programming, data analysis, visualization (on my blog)\nMy teaching materials on mathematical modelling methods for infectious diseases (on my teaching)\n\n\n\n Back to top"
+    "text": "Hello! I’m Thinh - feel free to pronounce it as “think”. I’m a medical doctor focusing on preventive medicine. I’m pursuing my DPhil degree in Mathematical Modelling at the University of Oxford.\nI’ve documented everything I’ve learned throughout my career on this website. Here you can find:\n\nPractical guides for leadership, management, R programming, and data science (on my blog)\nMy teaching materials on mathematical modelling methods for infectious diseases and R programming (on my teaching)\n\n\n\n Back to top"
   },
   {
     "objectID": "teaching/idm-intro/index.html",
@@ -214,7 +214,7 @@
     "href": "talks/is-this-a-good-journal/slide.html#bài-tập-tạp-chí-3-tạp-chí-mới-nhưng-sau-1-thời-gian-thì-if-cao-nar-genomics-bioinformatics",
     "title": "Nhận biết tạp chí khoa học uy tín",
     "section": "Bài tập tạp chí 3: tạp chí mới nhưng sau 1 thời gian thì IF cao (NAR Genomics & Bioinformatics)",
-    "text": "Bài tập tạp chí 3: tạp chí mới nhưng sau 1 thời gian thì IF cao (NAR Genomics & Bioinformatics)"
+    "text": "Bài tập tạp chí 3: tạp chí mới nhưng sau 1 thời gian thì IF cao (NAR Genomics & Bioinformatics)\n\n\nthinhong"
   },
   {
     "objectID": "talks/is-this-a-good-journal/slide.html#tạp-chí-1-1",
@@ -234,15 +234,15 @@
     "objectID": "talks/is-this-a-good-journal/slide.html#bài-tập",
     "href": "talks/is-this-a-good-journal/slide.html#bài-tập",
     "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Bài tập",
-    "text": "Bài tập\n\n“The International Journal of Public Healths Systems”\nThành lập cách đây 3 tháng\nTạp chí công bố impact factor = 1.5\nThời gian trung bình từ lúc nộp đến publish là 2 tuần\nSố báo mới nhất có 10 bài, tất cả tác giả đến từ Trung Quốc\nPhí nộp bài vào hệ thống (submission) là $150\nĐịa chỉ email của tổng biên tập: professorliu@gmail.com"
+    "section": "Bài tập1",
+    "text": "Bài tập1\n\n“The International Journal of Public Healths Systems”\nThành lập cách đây 3 tháng\nTạp chí công bố impact factor = 1.5\nThời gian trung bình từ lúc nộp đến publish là 2 tuần\nSố báo mới nhất có 10 bài, tất cả tác giả đến từ Trung Quốc\nPhí nộp bài vào hệ thống (submission) là $150\nĐịa chỉ email của tổng biên tập: professorliu@gmail.com\n\nScientific Writing Workshop. Dr. Leigh Jones, Regional Academic Training Leader for OUCRU and MORU"
   },
   {
     "objectID": "talks/is-this-a-good-journal/slide.html#bài-tập-1",
     "href": "talks/is-this-a-good-journal/slide.html#bài-tập-1",
     "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Bài tập",
-    "text": "Bài tập\n\n“The International Journal of Public Healths Systems”\nThành lập cách đây 3 tháng\nTạp chí công bố impact factor = 1.5\nThời gian trung bình từ lúc nộp đến publish là 2 tuần\nSố báo mới nhất có 10 bài, tất cả tác giả đến từ Trung Quốc\nPhí nộp bài vào hệ thống (submission) là $150\nĐịa chỉ email của tổng biên tập: professorliu@gmail.com"
+    "section": "Bài tập1",
+    "text": "Bài tập1\n\n“The International Journal of Public Healths Systems”\nThành lập cách đây 3 tháng\nTạp chí công bố impact factor = 1.5\nThời gian trung bình từ lúc nộp đến publish là 2 tuần\nSố báo mới nhất có 10 bài, tất cả tác giả đến từ Trung Quốc\nPhí nộp bài vào hệ thống (submission) là $150\nĐịa chỉ email của tổng biên tập: professorliu@gmail.com\n\nScientific Writing Workshop. Dr. Leigh Jones, Regional Academic Training Leader for OUCRU and MORU"
   },
   {
     "objectID": "talks/is-this-a-good-journal/slide.html#mdpi",
@@ -354,7 +354,7 @@
     "href": "about/index.html#employment-history",
     "title": "About me",
     "section": "Employment history",
-    "text": "Employment history\n\nResearch Assistant, Oxford University Clinical Research Unit, Vietnam (2021-2022)\nResearch Assistant, Hanoi University of Public Health, Vietnam (2020)\nResearch Intern, Garvan Institute of Medical Research, Australia (remote, 2019)\nStatistical consultant, Tu Du hospital, Vietnam (freelance, 2018-2023)"
+    "text": "Employment history\n\nResearch Assistant, Oxford University Clinical Research Unit, Vietnam (2021-2022)\nResearch Assistant, Hanoi University of Public Health, Vietnam (2020)\nResearch Intern, Garvan Institute of Medical Research, Australia (remote, 2019-2020)\nStatistical consultant, Tu Du hospital, Vietnam (freelance, 2018-2023)"
   },
   {
     "objectID": "about/index.html#society-memberships",
