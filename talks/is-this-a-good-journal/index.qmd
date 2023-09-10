@@ -9,3 +9,8 @@ execute:
 ::: {.center-text}
 [{{< fa file >}} Slide](slide.qmd){.btn role="button"}
 :::
+
+Date: 25 September 2023.
+
+Venue: Ho Chi Minh city's Centre for Diseases Control.
+

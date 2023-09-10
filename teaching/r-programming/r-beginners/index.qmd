@@ -8,8 +8,19 @@ author:
     orcid: 0000-0001-6772-9291
 image: preview.png
 draft: false
-execute:
-  eval: false
+filters:
+  - lightbox
+lightbox: auto
 ---
 
-This course 
+This course has been taught for staff members of Ho Chi Minh city's Centre for Diseases Control.
+
+::: {layout="[1, 1]"}
+![](img/hcdc1.jpg){group="my-gallery"}
+
+![](img/hcdc2.jpg){group="my-gallery"}
+:::
+
+:::{.credit}
+Preview image by [Freepik](https://www.freepik.com/free-vector/flat-design-stages-baby-boy_14410275.htm)
+:::

@@ -1,14 +1,27 @@
 /*-- scss:defaults --*/
 
-$font-family-serif: default;
+$font-size-base:              1.05rem !default;
+$headings-font-weight:        700 !default;
 
 // Colors
 $dark-gray: #5A5856;
 
+// Rounded buttons
+$enable-rounded:              true !default;
+$input-btn-padding-y:         .5rem !default;
+$input-btn-padding-x:         1.1rem !default;
+$btn-border-radius:           1.078em !default;
+$btn-border-radius-lg:        1.688em !default;
+$btn-border-radius-sm:        .844em !default;
 
 /*-- scss:rules --*/
 
 .btn {
   color: $dark-gray;
   border-color: $dark-gray;
+}
+
+.credit {
+  font-size: 80%;
+  text-align: right;
 }

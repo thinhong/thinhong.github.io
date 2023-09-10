@@ -103,8 +103,6 @@ You've met all the meeting goals, so it's time to conclude. Decide if another me
 
 Special thanks to **Dr. Leigh Jones**, my mentor, for her valuable insights that helped shape these tips. A big thank you to **Ms. Gaye Proctor** for the classification of participant behaviors in her ***Train the Trainer*** workshop, a valuable resource for my Tip 7.
 
-::: {style="font-size: 80%; text-align: right;"}
-
+:::{.credit}
 Preview image by [storyset](https://www.freepik.com/free-vector/team-concept-illustration_8961437.htm) on Freepik
-
 :::

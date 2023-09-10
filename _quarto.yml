@@ -30,7 +30,7 @@ website:
         
 format:
   html:
-    theme: [litera, theme.scss]
+    theme: [cosmo, theme.scss]
     toc: true
 
 comments:

@@ -25,27 +25,90 @@ format:
 - **Phí** nộp bài vào hệ thống (**submission**) là $150
 - Địa chỉ email của tổng biên tập: professorliu**@gmail.com**
 
+## Indexing (1)
+
+![](img/hdgs1.png)
+
+Hội đồng Giáo sư Nhà nước. ***Danh mục tạp chí khoa học được tính điểm năm 2023.***
+
+## Indexing (2)
+
+![](img/isi.png)
+
+- ISI: Institute for Scientific Information
+  - Cơ sở dữ liệu tạp chí và chỉ số trích dẫn
+  - Hiện 
+
+## Indexing (2)
+
+
+
+## Indexing (2)
+
+![](img/hdgs2.png)
+
+Hội đồng Giáo sư Nhà nước. ***Danh mục tạp chí khoa học được tính điểm năm 2023.***
+
 ## Impact Factor (IF)
 
 $$IF = \frac{\text{Tổng số trích dẫn}}{\text{Tổng số bài báo}}$$
 
 - Tính trong 2 năm liên tiếp gần nhất (2-year Impact Factor) hoặc 5 năm liên tiếp gần nhất (5-year Impact Factor)
-- Nguồn chính thức: do ISI (Institute of Scientific Information) tính toán và công bố
+- Nguồn chính thức: do ISI (Institute of Scientific Information) hay hiện tại là Web of Science thống kê và công bố
 - Tập san nào thuộc danh mục của ISI (database tên là Web of Science) mới có IF
 
-## Q1-Q4
+## SCImago Journal Rank (SJR) (1)
 
-- Xếp hạng trong cùng 1 chuyên ngành
-- IF khác nhau giữa các chuyên ngành: tập san khoa học cơ bản thường IF rất cao (trung bình >4-5), tập san lâm sàng thì thấp hơn (trung bình 2-3)
+- IF khác nhau giữa các chuyên ngành: tạp chí khoa học cơ bản thường IF rất cao (trung bình >4-5), tạp chí lâm sàng, y tế công cộng thấp hơn (trung bình 2-3)
+- Xếp hạng IF trong cùng 1 chuyên ngành
 - Q1, Q2 được xem là uy tín
+
+## SCImago Journal Rank (SJR) (2)
+
+![](img/naturecomm.png)
+
+## SCImago Journal Rank (SJR) (3)
+
+![](img/naturecomm2.png)
+
+## SCImago Journal Rank (SJR) (4)
+
+:::{.center}
+[https://www.scimagojr.com/](https://www.scimagojr.com/)
+:::
+
+![](img/scimago.png)
+
+## Bài tập
+
+Tìm Impact factor và SJR của các tạp chí sau:
+
+- The Lancet Infectious Diseases
+- PLoS Neglected Tropical Diseases
+- BMC Infectious Diseases
+
+## Tạp chí và nhà xuất bản
+
+![](img/naturecomm.png)
 
 ## mdpi
 
-## Nhà xuất bản uy tín
 
-Nguồn: Danh mục tạp chí khoa học được tính điểm năm 2023. Hội đồng Giáo sư Nhà nước.
 
 ## Indexing
 
-## Bài tập tạp chí 3: tạp chí mới nhưng sau 1 thời gian thì IF cao (NAR Genomics & Bioinformatics)
+## Open access
+
+## Bài tập:
+
+- Thành lập cách đây 3 tháng
+- Tạp chí chưa được indexed vào ISI, Scopus
+- Tạp chí ghi là chưa có impact factor
+- Thời gian trung bình từ lúc nộp đến publish là 12 tuần
+- Số báo mới nhất có 10 bài, tác giả đến từ tất cả các nước
+- Không có phí nộp bài vào hệ thống nhưng có phí open access là ...
+- Địa chỉ email của tổng biên tập: 
+
+![](img/nar-gen-bioinfo.png)
+
 

@@ -3,12 +3,12 @@ title: "Teaching"
 listing: 
   - id: modelling
     contents: "teaching/modelling/*/*.qmd"
-    type: table
+    type: grid
     fields: [image, title, description]
     sort: "date desc"
   - id: r-programming
     contents: "teaching/r-programming/*/*.qmd"
-    type: table
+    type: grid
     fields: [image, title, description]
     sort: "date desc"
 ---
