@@ -207,7 +207,7 @@ Tìm nhà xuất bản của các tạp chí sau
 - Thời gian trung bình từ lúc nộp đến publish là 8 tuần
 - Số báo mới nhất có 10 bài, tác giả đến từ nhiều quốc gia khác nhau
 - Không có phí nộp bài, phí open access là $2,634
-- Địa chỉ email của tổng biên tập: cedric.notredame@crg.eu
+- Địa chỉ email của tổng biên tập: editor@crg.eu
 
 ## Bài tập
 
