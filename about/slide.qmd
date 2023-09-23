@@ -1,6 +1,6 @@
 ---
 title: "Thinh Ong"
-subtitle: "About me"
+subtitle: "[thinhong.github.io](https://thinhong.github.io/)"
 format:
   revealjs:
     footer: "[thinhong](https://thinhong.github.io/)"

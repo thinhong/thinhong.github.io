@@ -8,54 +8,123 @@ format:
 ## Bài tập^[Scientific Writing Workshop. Dr. Leigh Jones, Regional Academic Training Leader for OUCRU and MORU]
 
 - "The International Journal of Public Healths Systems"
-- Thành lập cách đây 3 tháng
-- Tạp chí công bố impact factor = 1.5
+- Thành lập cách đây 3 tháng, công bố impact factor = 1.5
 - Thời gian trung bình từ lúc nộp đến publish là 2 tuần
 - Số báo mới nhất có 10 bài, tất cả tác giả đến từ Trung Quốc
 - Phí nộp bài vào hệ thống (submission) là $150
 - Địa chỉ email của tổng biên tập: professorliu@gmail.com
+- Hỏi thêm 1 câu?
 
 ## Bài tập^[Scientific Writing Workshop. Dr. Leigh Jones, Regional Academic Training Leader for OUCRU and MORU]
 
-- "The International Journal of Public **Healths** Systems"
-- Thành lập cách đây **3 tháng**
-- Tạp chí công bố **impact factor = 1.5**
-- Thời gian trung bình từ lúc nộp đến publish là **2 tuần**
-- Số báo mới nhất có 10 bài, **tất cả** tác giả đến từ **Trung Quốc**
-- **Phí** nộp bài vào hệ thống (**submission**) là $150
-- Địa chỉ email của tổng biên tập: professorliu**@gmail.com**
+- "The International Journal of Public [**Healths**]{style="color:blue"} Systems"
+- Thành lập cách đây [**3 tháng**]{style="color:blue"}, công bố [**impact factor = 1.5**]{style="color:blue"}
+- Thời gian trung bình từ lúc nộp đến publish là [**2 tuần**]{style="color:blue"}
+- Số báo mới nhất có 10 bài, [**tất cả**]{style="color:blue"} tác giả đến từ [**Trung Quốc**]{style="color:blue"}
+- [**Phí**]{style="color:blue"} nộp bài vào hệ thống ([**submission**]{style="color:blue"}) là $150
+- Địa chỉ email của tổng biên tập: professorliu[**@gmail.com**]{style="color:blue"}
+- [**Tạp chí này có nằm trong danh mục nào không?**]{style="color:blue"}
 
-## Indexing (1)
+## Mục tiêu
+
+1. Danh mục ISI, Scopus
+2. Impact factor
+3. SCImago Journal Rank
+4. Nhà xuất bản uy tín
+5. Open access
+
+## Indexing
 
 ![](img/hdgs1.png)
 
-Hội đồng Giáo sư Nhà nước. ***Danh mục tạp chí khoa học được tính điểm năm 2023.***
+Hội đồng Giáo sư Nhà nước. *Danh mục tạp chí khoa học được tính điểm năm 2023.*
 
-## Indexing (2)
+## ISI
 
-![](img/isi.png)
+:::: {layout="[60,40]"}
 
-- ISI: Institute for Scientific Information
-  - Cơ sở dữ liệu tạp chí và chỉ số trích dẫn
-  - Hiện 
+::: {#first-column}
+- [Institute for Scientific Information](https://clarivate.com/the-institute-for-scientific-information/)
+- Cơ sở dữ liệu tạp chí và chỉ số trích dẫn (impact factor)
+- Gồm 3 phân mục:
+  - Science Citation Index (SCI)
+  - Social Sciences Citation Index (SSCI)
+  - Arts and Humanities Citation Index (AHCI)
+:::
 
-## Indexing (2)
+::: {#second-column}
+![](img/garfield.png)
 
+Dr. Eugene Garfield (1925 - 2017)
 
+:::
 
-## Indexing (2)
+::::
 
-![](img/hdgs2.png)
+## ISI
 
-Hội đồng Giáo sư Nhà nước. ***Danh mục tạp chí khoa học được tính điểm năm 2023.***
+::: {layout="[1,1]"}
 
-## Impact Factor (IF)
+![](img/clarivate-1.png)
+
+![](img/clarivate-2.png)
+
+:::
+
+## [Web of Science](https://mjl.clarivate.com/home)
+
+![](img/wos.png)
+
+## [Web of Science](https://mjl.clarivate.com/home)
+
+- Gồm 4 phân mục:
+  - Science Citation Index Expanded (SCIE)
+  - Social Sciences Citation Index (SSCI)
+  - Arts & Humanities Citation Index (AHCI)
+  - Emerging Sources Citation Index (ESCI)
+  
+## Impact Factor
 
 $$IF = \frac{\text{Tổng số trích dẫn}}{\text{Tổng số bài báo}}$$
 
 - Tính trong 2 năm liên tiếp gần nhất (2-year Impact Factor) hoặc 5 năm liên tiếp gần nhất (5-year Impact Factor)
-- Nguồn chính thức: do ISI (Institute of Scientific Information) hay hiện tại là Web of Science thống kê và công bố
-- Tập san nào thuộc danh mục của ISI (database tên là Web of Science) mới có IF
+- Do ISI (hiện tại là Web of Science) thống kê và công bố
+- Tạp chí thuộc danh mục của Web of Science mới có IF
+
+## Impact Factor
+
+![](img/hdgs2.png)
+
+Hội đồng Giáo sư Nhà nước. *Danh mục tạp chí khoa học được tính điểm năm 2023.*
+
+## [Scopus](https://www.scopus.com/)
+
+::: {layout="[70,30]"}
+
+![](img/scopus.png)
+
+![](img/elsevier.svg)
+
+:::
+
+- Cơ sở dữ liệu giống như ISI
+- Thuộc sở hữu của nhà xuất bản Elsevier
+
+## [Scopus](https://www.scopus.com/)
+
+::: {layout="[35,65]"}
+
+![](img/thai-scopus-1.png)
+
+![](img/thai-scopus-2.png)
+
+:::
+
+- Tiêu chuẩn vào Scopus dễ hơn ISI, nên thông thường các tạp chí phấn đấu vào Scopus trước, sau đó vào ISI
+
+## Scopus metrics
+
+![](img/scopus-metrics.png)
 
 ## SCImago Journal Rank (SJR) (1)
 
@@ -81,34 +150,84 @@ $$IF = \frac{\text{Tổng số trích dẫn}}{\text{Tổng số bài báo}}$$
 
 ## Bài tập
 
-Tìm Impact factor và SJR của các tạp chí sau:
+Tìm impact factor và journal rank của các tạp chí sau:
 
 - The Lancet Infectious Diseases
 - PLoS Neglected Tropical Diseases
 - BMC Infectious Diseases
 
-## Tạp chí và nhà xuất bản
+## Nhà xuất bản uy tín
+
+![](img/publisher-hdgs.png)
+
+## Nhà xuất bản uy tín
 
 ![](img/naturecomm.png)
 
-## mdpi
+## Nhà xuất bản uy tín
 
+![](img/publisher-nejm.png)
 
+## Nhà xuất bản uy tín
 
-## Indexing
+![](img/publisher-lancet.png)
+
+## mdpi^[Brainard J. Fast-growing open-access journals lose impact factors. Science. 2023 Mar;379(6639):1283-4.]
+
+![](img/mdpi-1.png)
+
+## mdpi^[Brainard J. Fast-growing open-access journals lose impact factors. Science. 2023 Mar;379(6639):1283-4.]
+
+![](img/mdpi-2.png)
+
+## Bài tập
+
+Tìm nhà xuất bản của các tạp chí sau
+
+- PLoS Neglected Tropical Diseases
+- BMC Infectious Diseases
 
 ## Open access
 
-## Bài tập:
+![](img/wellcome-oa-1.png)
 
-- Thành lập cách đây 3 tháng
-- Tạp chí chưa được indexed vào ISI, Scopus
-- Tạp chí ghi là chưa có impact factor
-- Thời gian trung bình từ lúc nộp đến publish là 12 tuần
-- Số báo mới nhất có 10 bài, tác giả đến từ tất cả các nước
-- Không có phí nộp bài vào hệ thống nhưng có phí open access là ...
-- Địa chỉ email của tổng biên tập: 
+## Open access
+
+![](img/wellcome-oa-2.png)
+
+## Open access
+
+- Các nhà tài trợ khuyến khích công bố ở tạp chí open access
+- Phí Article Processing Charge (APC) chỉ được thanh toán khi bài báo đã được chấp nhận đăng, không phải ở giai đoạn nộp bài (submission)
+
+## Bài tập
+
+- "NAR Genomics & Bioinformatics"
+- Thành lập cách đây 3 tháng, chưa có impact factor
+- Thời gian trung bình từ lúc nộp đến publish là 8 tuần
+- Số báo mới nhất có 10 bài, tác giả đến từ nhiều quốc gia khác nhau
+- Không có phí nộp bài, phí open access là $2,634
+- Địa chỉ email của tổng biên tập: cedric.notredame@crg.eu
+
+## Bài tập
+
+::: {layout="[65,35]"}
 
 ![](img/nar-gen-bioinfo.png)
 
+![](img/nar-gen-bioinfo-if.png)
 
+:::
+
+- Tạp chí con của NAR (Nucleic Acids Research, IF = 14.9)
+- Thời điểm đó chưa có IF nhưng hiện tại IF = 4.6
+
+## Tóm tắt
+
+1. Danh mục ISI, Scopus
+2. Impact factor
+3. SCImago Journal Rank
+4. Nhà xuất bản uy tín
+5. Open access
+
+# Xin cảm ơn{style="text-align: center"}

@@ -1,6 +1,9 @@
 ---
 title: "Is this a good journal?"
 description: "Learn how to identify trustworthy scientific journals and avoid predatory ones"
+date: 2023-09-25
+citation:
+  url: https://thinhong.github.io/talks/is-this-a-good-journal
 draft: false
 execute:
   eval: false
@@ -9,8 +12,6 @@ execute:
 ::: {.center-text}
 [{{< fa file >}} Slide](slide.qmd){.btn role="button"}
 :::
-
-Date: 25 September 2023.
 
 Venue: Ho Chi Minh city's Centre for Diseases Control.
 
