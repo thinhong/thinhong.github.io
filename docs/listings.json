@@ -6,16 +6,16 @@
     ]
   },
   {
-    "listing": "/teaching.html",
-    "items": [
-      "/teaching/modelling/idm-intro/index.html",
-      "/teaching/r-programming/r-beginners/index.html"
-    ]
-  },
-  {
     "listing": "/talks.html",
     "items": [
       "/talks/is-this-a-good-journal/index.html"
+    ]
+  },
+  {
+    "listing": "/teaching.html",
+    "items": [
+      "/teaching/modelling/idm-intro/index.html",
+      "/teaching/r-programming/r-babies/index.html"
     ]
   }
 ]

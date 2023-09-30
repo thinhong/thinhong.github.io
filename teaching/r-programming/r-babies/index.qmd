@@ -1,5 +1,5 @@
 ---
-title: "R for beginners"
+title: "R for babies"
 description: "Basic R programming for data science"
 date: 2023-08-18
 author:

@@ -1,5 +1,47 @@
 [
   {
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "About me",
+    "section": "",
+    "text": "Slide"
+  },
+  {
+    "objectID": "about/index.html#education",
+    "href": "about/index.html#education",
+    "title": "About me",
+    "section": "Education",
+    "text": "Education\n\nDoctor of Philosophy in Clinical Medicine, University of Oxford, United Kingdom (2022-2026)\nDoctor of Medicine in Preventive Medicine, University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam (2012-2018)"
+  },
+  {
+    "objectID": "about/index.html#awards-and-honours",
+    "href": "about/index.html#awards-and-honours",
+    "title": "About me",
+    "section": "Awards and honours",
+    "text": "Awards and honours\n\nFull DPhil studentship, issued by Oxford University Clinical Research Unit and University of Oxford (2022)\nAcademic Distinction Award (Valedictorian), issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nDissertation Distinction Award, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nStudent with the highest GPA, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2014, 2016, 2017)"
+  },
+  {
+    "objectID": "about/index.html#employment-history",
+    "href": "about/index.html#employment-history",
+    "title": "About me",
+    "section": "Employment history",
+    "text": "Employment history\n\nResearch Assistant, Oxford University Clinical Research Unit, Vietnam (2021-2022)\nResearch Assistant, Hanoi University of Public Health, Vietnam (2020)\nResearch Intern, Garvan Institute of Medical Research, Australia (remote, 2019-2020)\nStatistical consultant, Tu Du hospital, Vietnam (freelance, 2018-2023)"
+  },
+  {
+    "objectID": "about/index.html#society-memberships",
+    "href": "about/index.html#society-memberships",
+    "title": "About me",
+    "section": "Society memberships",
+    "text": "Society memberships\n\nMember, Modelling Infectious Diseases in South East Asia\nAffiliate, Vaccine Impact Modelling Consortium"
+  },
+  {
+    "objectID": "about/index.html#adventures",
+    "href": "about/index.html#adventures",
+    "title": "About me",
+    "section": "Adventures",
+    "text": "Adventures\nI’m a regular guy from a developing country. Going abroad used to be a dream. My research has given me the chance to visit different countries, connect with collaborators, attend international conferences and workshops. This map notes all my visits.\n\ncountries = JSON.parse(data)\nvisited = JSON.parse(data2)\nbertin = require(\"bertin@1.2.4\")\n\nbertin.draw({\n  params: { projection: \"Eckert3\" },\n  layers: [\n    {\n      type: \"layer\",\n      geojson: visited,\n      tooltip: [\"$NAMEen\", \"$visit1\", \"$visit2\"],\n      fill: {\n        type: \"typo\",\n        values: \"visit1\"\n      }\n    },\n    {\n      type: \"layer\",\n      geojson: countries,\n      fill: \"white\",\n      fillOpacity: 0.5\n    },\n    { type: \"graticule\" },\n    { type: \"outline\" }\n  ]\n})"
+  },
+  {
     "objectID": "blog/2023-08-26-chair-a-meeting/index.html",
     "href": "blog/2023-08-26-chair-a-meeting/index.html",
     "title": "10 simple tips to chair a meeting",
@@ -105,508 +147,32 @@
     "text": "Hello! I’m Thinh - feel free to pronounce it as “think”. I’m a medical doctor focusing on preventive medicine. I’m pursuing my DPhil degree in Mathematical Modelling at the University of Oxford.\nI’ve documented everything I’ve learned throughout my career on this website. Here you can find:\n\nPractical guides for leadership, management, R programming, and data science (on my blog)\nMy teaching materials on mathematical modelling methods for infectious diseases and R programming (on my teaching)\n\n\n(*) Special thanks to Đặng Nhật Vũ for the awesome profile photo!\n\n\n\n Back to top"
   },
   {
-    "objectID": "teaching/idm-intro/index.html",
-    "href": "teaching/idm-intro/index.html",
-    "title": "Introduction to infectious disease modelling",
-    "section": "",
-    "text": "Date:\nLocation:\nImage by svstudioart on Freepik"
-  },
-  {
-    "objectID": "teaching.html",
-    "href": "teaching.html",
-    "title": "Teaching",
-    "section": "",
-    "text": "Basic R programming for data science\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "teaching.html#modelling",
-    "href": "teaching.html#modelling",
-    "title": "Teaching",
-    "section": "Modelling",
-    "text": "Modelling\n\n\n\n\n\n\n\n\n\n\nIntroduction to infectious disease modelling\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "teaching.html#r-programming",
-    "href": "teaching.html#r-programming",
-    "title": "Teaching",
-    "section": "",
-    "text": "Basic R programming for data science\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "teaching/modelling/idm-intro/index.html",
-    "href": "teaching/modelling/idm-intro/index.html",
-    "title": "Introduction to infectious disease modelling",
-    "section": "",
-    "text": "Date:\nLocation:\nImage by svstudioart on Freepik\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "teaching/r-programming/r-beginners/index.html",
-    "href": "teaching/r-programming/r-beginners/index.html",
-    "title": "R for beginners",
-    "section": "",
-    "text": "This course has been taught for staff members of Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreview image by Freepik\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#getting-up",
-    "href": "talks/is-this-a-good-journal/slide.html#getting-up",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Getting up",
-    "text": "Getting up\n\nTurn off alarm\nGet out of bed"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#going-to-sleep",
-    "href": "talks/is-this-a-good-journal/slide.html#going-to-sleep",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Going to sleep",
-    "text": "Going to sleep\n\nGet in bed\nCount sheep"
-  },
-  {
-    "objectID": "talks.html",
-    "href": "talks.html",
-    "title": "Talks",
-    "section": "",
-    "text": "Is this a good journal?\n\n\nLearn how to identify trustworthy scientific journals and avoid predatory ones\n\n\n\nThinh Ong\n\n\nSep 25, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#nhà-xuất-bản-uy-tín",
-    "href": "talks/is-this-a-good-journal/slide.html#nhà-xuất-bản-uy-tín",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Nhà xuất bản uy tín",
-    "text": "Nhà xuất bản uy tín"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#impact-factor-if",
-    "href": "talks/is-this-a-good-journal/slide.html#impact-factor-if",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Impact Factor (IF)",
-    "text": "Impact Factor (IF)\n\\[IF = \\frac{\\text{Tổng số trích dẫn}}{\\text{Tổng số bài báo}}\\]\n\nTính trong 2 năm liên tiếp gần nhất (2-year Impact Factor) hoặc 5 năm liên tiếp gần nhất (5-year Impact Factor)\nDo ISI hay hiện tại là Web of Science thống kê và công bố\nTạp chí thuộc danh mục của ISI (database tên là Web of Science) mới có IF"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#q1-q4",
-    "href": "talks/is-this-a-good-journal/slide.html#q1-q4",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Q1-Q4",
-    "text": "Q1-Q4\n\nXếp hạng trong cùng 1 chuyên ngành\nIF khác nhau giữa các chuyên ngành: tập san khoa học cơ bản thường IF rất cao (trung bình &gt;4-5), tập san lâm sàng thì thấp hơn (trung bình 2-3)\nQ1, Q2 được xem là uy tín"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#breakfast",
-    "href": "talks/is-this-a-good-journal/slide.html#breakfast",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Breakfast",
-    "text": "Breakfast\n\nEat eggs\nDrink coffee"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#tạp-chí-ăn-thịt-predatory-journals",
-    "href": "talks/is-this-a-good-journal/slide.html#tạp-chí-ăn-thịt-predatory-journals",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Tạp chí “ăn thịt” (predatory journals)",
-    "text": "Tạp chí “ăn thịt” (predatory journals)\nTạp chí 1\n\nTên tạp chí: “The International Journal of Public Healths Systems”\nThành lập cách đây 3 tháng\nTạp chí công bố impact factor = 1.5\nThời gian từ lúc\nEat eggs\nDrink coffee"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#tạp-chí-1",
-    "href": "talks/is-this-a-good-journal/slide.html#tạp-chí-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Tạp chí 1",
-    "text": "Tạp chí 1\n\n“The International Journal of Public Healths Systems”\nThành lập cách đây 3 tháng\nTạp chí công bố impact factor = 1.5\nThời gian bình duyệt trung bình là 2 tuần\nSố báo mới nhất có 10 bài, tất cả tác giả đến từ Đông Nam Á\nPhí nộp bài vào hệ thống (submission) là $150\nĐịa chỉ email của tổng biên tập: professorliu@gmail.com"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#bài-tập-tạp-chí-3-tạp-chí-mới-nhưng-sau-1-thời-gian-thì-if-cao-nar-genomics-bioinformatics",
-    "href": "talks/is-this-a-good-journal/slide.html#bài-tập-tạp-chí-3-tạp-chí-mới-nhưng-sau-1-thời-gian-thì-if-cao-nar-genomics-bioinformatics",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Bài tập tạp chí 3: tạp chí mới nhưng sau 1 thời gian thì IF cao (NAR Genomics & Bioinformatics)",
-    "text": "Bài tập tạp chí 3: tạp chí mới nhưng sau 1 thời gian thì IF cao (NAR Genomics & Bioinformatics)\n\n\nthinhong"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#tạp-chí-1-1",
-    "href": "talks/is-this-a-good-journal/slide.html#tạp-chí-1-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Tạp chí 1",
-    "text": "Tạp chí 1\n\n“The International Journal of Public Healths Systems”\nThành lập cách đây 3 tháng\nTạp chí công bố impact factor = 1.5\nThời gian bình duyệt trung bình là 2 tuần\nSố báo mới nhất có 10 bài, tất cả tác giả đến từ Đông Nam Á\nPhí nộp bài vào hệ thống (submission) là $150\nĐịa chỉ email của tổng biên tập: professorliu@gmail.com"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#indexing",
-    "href": "talks/is-this-a-good-journal/slide.html#indexing",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Indexing",
-    "text": "Indexing\n\nHội đồng Giáo sư Nhà nước. Danh mục tạp chí khoa học được tính điểm năm 2023."
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#bài-tập",
-    "href": "talks/is-this-a-good-journal/slide.html#bài-tập",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Bài tập1",
-    "text": "Bài tập1\n\n“The International Journal of Public Healths Systems”\nThành lập cách đây 3 tháng, công bố impact factor = 1.5\nThời gian trung bình từ lúc nộp đến publish là 2 tuần\nSố báo mới nhất có 10 bài, tất cả tác giả đến từ Trung Quốc\nPhí nộp bài vào hệ thống (submission) là $150\nĐịa chỉ email của tổng biên tập: professorliu@gmail.com\nHỏi thêm 1 câu?\n\nScientific Writing Workshop. Dr. Leigh Jones, Regional Academic Training Leader for OUCRU and MORU"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#bài-tập-1",
-    "href": "talks/is-this-a-good-journal/slide.html#bài-tập-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Bài tập1",
-    "text": "Bài tập1\n\n“The International Journal of Public Healths Systems”\nThành lập cách đây 3 tháng, công bố impact factor = 1.5\nThời gian trung bình từ lúc nộp đến publish là 2 tuần\nSố báo mới nhất có 10 bài, tất cả tác giả đến từ Trung Quốc\nPhí nộp bài vào hệ thống (submission) là $150\nĐịa chỉ email của tổng biên tập: professorliu@gmail.com\nTạp chí này có nằm trong danh mục nào không?\n\nScientific Writing Workshop. Dr. Leigh Jones, Regional Academic Training Leader for OUCRU and MORU"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#mdpi",
-    "href": "talks/is-this-a-good-journal/slide.html#mdpi",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "mdpi1",
-    "text": "mdpi1\n\nBrainard J. Fast-growing open-access journals lose impact factors. Science. 2023 Mar;379(6639):1283-4."
-  },
-  {
-    "objectID": "about/slide.html",
-    "href": "about/slide.html",
-    "title": "Thinh Ong",
-    "section": "",
-    "text": "2022-2026: Doctor of Philosophy in Clinical Medicine. University of Oxford, United Kingdom.\n2012-2018: Doctor of Medicine (Specialized in Preventive Medicine). University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam"
-  },
-  {
-    "objectID": "about/slide.html#education",
-    "href": "about/slide.html#education",
+    "objectID": "slides/about/index.html#education",
+    "href": "slides/about/index.html#education",
     "title": "Thinh Ong",
     "section": "Education",
     "text": "Education\n\n\n\n\n\n\n\n\n2022-2026\nDoctor of Philosophy in Clinical Medicine\nUniversity of Oxford, United Kingdom\n\n\n\n\n\n\n\n2012-2018\nDoctor of Medicine in Preventive Medicine\nUniversity of Medicine and Pharmacy at Ho Chi Minh City, Vietnam"
   },
   {
-    "objectID": "about/slide.html#awards",
-    "href": "about/slide.html#awards",
-    "title": "Thinh Ong",
-    "section": "Awards",
-    "text": "Awards\n\n\n\n\n\n\n\n\nFull DPhil studentship\n\n\n\n\n\n\n\nValedictorian, the only distinction grade in the fixed-curriculum system (prior to 2021)\nThe highest GPA in the history of the school\nThe highest score in dissertation"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html",
-    "href": "talks/is-this-a-good-journal/slide.html",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "",
-    "text": "“The International Journal of Public Healths Systems”\nThành lập cách đây 3 tháng\nTạp chí công bố impact factor = 1.5\nThời gian trung bình từ lúc nộp đến publish là 2 tuần\nSố báo mới nhất có 10 bài, tất cả tác giả đến từ Trung Quốc\nPhí nộp bài vào hệ thống (submission) là $150\nĐịa chỉ email của tổng biên tập: professorliu@gmail.com"
-  },
-  {
-    "objectID": "about/slide.html#research",
-    "href": "about/slide.html#research",
-    "title": "Thinh Ong",
-    "section": "Research",
-    "text": "Research\n\n\n\n\n\n\n\nField\nExperience\n\n\n\n\nMathematical modelling\nDr. Marc Choisy  \n\n\nBioinformatics\nProf. Susan Clark, Dr. Phuc-Loi Luu \n\n\nBiostatistics\nClinical trials, public health institutions"
-  },
-  {
-    "objectID": "about/slide.html#publications",
-    "href": "about/slide.html#publications",
-    "title": "Thinh Ong",
-    "section": "Publications",
-    "text": "Publications\n\n14 research articles (international journals)\n5 software\n1 book chapter"
-  },
-  {
-    "objectID": "about/slide.html#achievements",
-    "href": "about/slide.html#achievements",
-    "title": "Thinh Ong",
-    "section": "Achievements",
-    "text": "Achievements\n\n14 research articles (international journals)\n4 international conferences\n4 software\n1 book chapter\n\n\n\nthinhong"
-  },
-  {
-    "objectID": "about/index.html",
-    "href": "about/index.html",
-    "title": "About me",
-    "section": "",
-    "text": "Slide"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/index.html",
-    "href": "talks/is-this-a-good-journal/index.html",
-    "title": "Is this a good journal?",
-    "section": "",
-    "text": "Slide\n\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {Is This a Good Journal?},\n  date = {2023-09-25},\n  url = {https://thinhong.github.io/talks/is-this-a-good-journal},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “Is This a Good Journal?” September 25,\n2023. https://thinhong.github.io/talks/is-this-a-good-journal."
-  },
-  {
-    "objectID": "about/index.html#education",
-    "href": "about/index.html#education",
-    "title": "About me",
-    "section": "Education",
-    "text": "Education\n\nDoctor of Philosophy in Clinical Medicine, University of Oxford, United Kingdom (2022-2026)\nDoctor of Medicine in Preventive Medicine, University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam (2012-2018)"
-  },
-  {
-    "objectID": "about/index.html#memberships",
-    "href": "about/index.html#memberships",
-    "title": "About me",
-    "section": "Memberships",
-    "text": "Memberships\n\nMember,\nAffiliate,"
-  },
-  {
-    "objectID": "about/index.html#adventures",
-    "href": "about/index.html#adventures",
-    "title": "About me",
-    "section": "Adventures",
-    "text": "Adventures\nI’m a regular guy from a developing country. Going abroad used to be a dream. My research has given me the chance to visit different countries, connect with collaborators, attend international conferences and workshops. This map notes all my visits.\n\ncountries = JSON.parse(data)\nvisited = JSON.parse(data2)\nbertin = require(\"bertin@1.2.4\")\n\nbertin.draw({\n  params: { projection: \"Eckert3\" },\n  layers: [\n    {\n      type: \"layer\",\n      geojson: visited,\n      tooltip: [\"$NAMEen\", \"$visit1\", \"$visit2\"],\n      fill: {\n        type: \"typo\",\n        values: \"visit1\"\n      }\n    },\n    {\n      type: \"layer\",\n      geojson: countries,\n      fill: \"white\",\n      fillOpacity: 0.5\n    },\n    { type: \"graticule\" },\n    { type: \"outline\" }\n  ]\n})"
-  },
-  {
-    "objectID": "about/slide.html#awards-and-honours",
-    "href": "about/slide.html#awards-and-honours",
+    "objectID": "slides/about/index.html#awards-and-honours",
+    "href": "slides/about/index.html#awards-and-honours",
     "title": "Thinh Ong",
     "section": "Awards and honours",
     "text": "Awards and honours\n\n\n\n\n\n\n\n\nFull DPhil studentship\n\n\n\n\n\n\n\nValedictorian, the only graduation with distinction grade in the fixed-curriculum system (prior to 2022)\nThe highest GPA in the history of the school\nThe highest score in dissertation"
   },
   {
-    "objectID": "about/index.html#awards-and-honours",
-    "href": "about/index.html#awards-and-honours",
-    "title": "About me",
-    "section": "Awards and honours",
-    "text": "Awards and honours\n\nFull DPhil studentship, issued by Oxford University Clinical Research Unit and University of Oxford (2022)\nAcademic Distinction Award (Valedictorian), issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nDissertation Distinction Award, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nStudent with the highest GPA, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2014, 2016, 2017)"
+    "objectID": "slides/about/index.html#research",
+    "href": "slides/about/index.html#research",
+    "title": "Thinh Ong",
+    "section": "Research",
+    "text": "Research\n\n\n\n\n\n\n\nField\nExperience\n\n\n\n\nMathematical modelling\nDr. Marc Choisy  \n\n\nBioinformatics\nProf. Susan Clark, Dr. Phuc-Loi Luu \n\n\nBiostatistics\nClinical trials, public health institutions"
   },
   {
-    "objectID": "about/index.html#employment-history",
-    "href": "about/index.html#employment-history",
-    "title": "About me",
-    "section": "Employment history",
-    "text": "Employment history\n\nResearch Assistant, Oxford University Clinical Research Unit, Vietnam (2021-2022)\nResearch Assistant, Hanoi University of Public Health, Vietnam (2020)\nResearch Intern, Garvan Institute of Medical Research, Australia (remote, 2019-2020)\nStatistical consultant, Tu Du hospital, Vietnam (freelance, 2018-2023)"
-  },
-  {
-    "objectID": "about/index.html#society-memberships",
-    "href": "about/index.html#society-memberships",
-    "title": "About me",
-    "section": "Society memberships",
-    "text": "Society memberships\n\nMember, Modelling Infectious Diseases in South East Asia\nAffiliate, Vaccine Impact Modelling Consortium"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#scimago-journal-rank-sjr-1",
-    "href": "talks/is-this-a-good-journal/slide.html#scimago-journal-rank-sjr-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "SCImago Journal Rank (SJR) (1)",
-    "text": "SCImago Journal Rank (SJR) (1)\n\nIF khác nhau giữa các chuyên ngành: tạp chí khoa học cơ bản thường IF rất cao (trung bình &gt;4-5), tạp chí lâm sàng, y tế công cộng thấp hơn (trung bình 2-3)\nXếp hạng IF trong cùng 1 chuyên ngành\nQ1, Q2 được xem là uy tín"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#scimago-journal-rank-sjr-2",
-    "href": "talks/is-this-a-good-journal/slide.html#scimago-journal-rank-sjr-2",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "SCImago Journal Rank (SJR) (2)",
-    "text": "SCImago Journal Rank (SJR) (2)"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#scimago-journal-rank-sjr-3",
-    "href": "talks/is-this-a-good-journal/slide.html#scimago-journal-rank-sjr-3",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "SCImago Journal Rank (SJR) (3)",
-    "text": "SCImago Journal Rank (SJR) (3)"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#scimago-journal-rank-sjr-4",
-    "href": "talks/is-this-a-good-journal/slide.html#scimago-journal-rank-sjr-4",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "SCImago Journal Rank (SJR) (4)",
-    "text": "SCImago Journal Rank (SJR) (4)\n\nhttps://www.scimagojr.com/"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#scimago-journal-rank-sjr-5",
-    "href": "talks/is-this-a-good-journal/slide.html#scimago-journal-rank-sjr-5",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "SCImago Journal Rank (SJR) (5)",
-    "text": "SCImago Journal Rank (SJR) (5)\nTìm SJR của các tạp chí sau:\n\nThe Lancet Infectious Diseases\nPLoS Neglected Tropical Diseases\nBMC Infectious Diseases"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#tạp-chí-và-nhà-xuất-bản",
-    "href": "talks/is-this-a-good-journal/slide.html#tạp-chí-và-nhà-xuất-bản",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Tạp chí và nhà xuất bản",
-    "text": "Tạp chí và nhà xuất bản"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#indexing-1",
-    "href": "talks/is-this-a-good-journal/slide.html#indexing-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Indexing",
-    "text": "Indexing"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#indexing-2",
-    "href": "talks/is-this-a-good-journal/slide.html#indexing-2",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Indexing (2)",
-    "text": "Indexing (2)\n\nHội đồng Giáo sư Nhà nước. Danh mục tạp chí khoa học được tính điểm năm 2023."
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#indexing-2-1",
-    "href": "talks/is-this-a-good-journal/slide.html#indexing-2-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Indexing (2)",
-    "text": "Indexing (2)\nScopus dễ hơn ISI\nThường các tạp chí mới phấn đấu vào Scopus trước, sau đó vào ISI (chuyện kinh nghiệm Thái Lan)"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#indexing-2-2",
-    "href": "talks/is-this-a-good-journal/slide.html#indexing-2-2",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Indexing (2)",
-    "text": "Indexing (2)\n\nHội đồng Giáo sư Nhà nước. Danh mục tạp chí khoa học được tính điểm năm 2023."
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#bài-tập-2",
-    "href": "talks/is-this-a-good-journal/slide.html#bài-tập-2",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Bài tập",
-    "text": "Bài tập\nTìm impact factor và journal rank của các tạp chí sau:\n\nThe Lancet Infectious Diseases\nPLoS Neglected Tropical Diseases\nBMC Infectious Diseases"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#bài-tập-3",
-    "href": "talks/is-this-a-good-journal/slide.html#bài-tập-3",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Bài tập",
-    "text": "Bài tập\nTìm nhà xuất bản của các tạp chí sau\n\nPLoS Neglected Tropical Diseases\nBMC Infectious Diseases"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#open-access",
-    "href": "talks/is-this-a-good-journal/slide.html#open-access",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Open access",
-    "text": "Open access"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#footnotes",
-    "href": "talks/is-this-a-good-journal/slide.html#footnotes",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nScientific Writing Workshop. Dr. Leigh Jones, Regional Academic Training Leader for OUCRU and MORU↩︎\nScientific Writing Workshop. Dr. Leigh Jones, Regional Academic Training Leader for OUCRU and MORU↩︎"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#isi",
-    "href": "talks/is-this-a-good-journal/slide.html#isi",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "ISI",
-    "text": "ISI\n\n\n\n\nInstitute for Scientific Information\nCơ sở dữ liệu tạp chí và chỉ số trích dẫn (impact factor)\nGồm 3 phân mục:\n\nScience Citation Index (SCI)\nSocial Sciences Citation Index (SSCI)\nArts and Humanities Citation Index (AHCI)\n\n\n\n\n\nDr. Eugene Garfield (1925 - 2017)"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#isi-1",
-    "href": "talks/is-this-a-good-journal/slide.html#isi-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "ISI",
-    "text": "ISI"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#scopus",
-    "href": "talks/is-this-a-good-journal/slide.html#scopus",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Scopus",
-    "text": "Scopus\n\n\n\n\n\n\n\n\n\n\n\nCơ sở dữ liệu giống như ISI\nThuộc sở hữu của nhà xuất bản Elsevier"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#isi-2",
-    "href": "talks/is-this-a-good-journal/slide.html#isi-2",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "ISI",
-    "text": "ISI\n\n\nGồm Science Citation Index (SCI) hay Science Citation Index-Expanded (SCIE), Social Sciences Citation Index (SSCI) Arts and Humanities Citation Index (AHCI)"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#web-of-science",
-    "href": "talks/is-this-a-good-journal/slide.html#web-of-science",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Web of Science",
-    "text": "Web of Science"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#web-of-science-1",
-    "href": "talks/is-this-a-good-journal/slide.html#web-of-science-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Web of Science",
-    "text": "Web of Science\n\nGồm 4 phân mục:\n\nScience Citation Index Expanded (SCIE)\nSocial Sciences Citation Index (SSCI)\nArts & Humanities Citation Index (AHCI)\nEmerging Sources Citation Index (ESCI)"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#impact-factor",
-    "href": "talks/is-this-a-good-journal/slide.html#impact-factor",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Impact Factor",
-    "text": "Impact Factor\n\\[IF = \\frac{\\text{Tổng số trích dẫn}}{\\text{Tổng số bài báo}}\\]\n\nTính trong 2 năm liên tiếp gần nhất (2-year Impact Factor) hoặc 5 năm liên tiếp gần nhất (5-year Impact Factor)\nDo ISI (hiện tại là Web of Science) thống kê và công bố\nTạp chí thuộc danh mục của Web of Science mới có IF"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#impact-factor-1",
-    "href": "talks/is-this-a-good-journal/slide.html#impact-factor-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Impact Factor",
-    "text": "Impact Factor\n\nHội đồng Giáo sư Nhà nước. Danh mục tạp chí khoa học được tính điểm năm 2023."
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#nhà-xuất-bản-uy-tín-1",
-    "href": "talks/is-this-a-good-journal/slide.html#nhà-xuất-bản-uy-tín-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Nhà xuất bản uy tín",
-    "text": "Nhà xuất bản uy tín"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#nhà-xuất-bản-uy-tín-2",
-    "href": "talks/is-this-a-good-journal/slide.html#nhà-xuất-bản-uy-tín-2",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Nhà xuất bản uy tín",
-    "text": "Nhà xuất bản uy tín"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#nhà-xuất-bản-uy-tín-3",
-    "href": "talks/is-this-a-good-journal/slide.html#nhà-xuất-bản-uy-tín-3",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Nhà xuất bản uy tín",
-    "text": "Nhà xuất bản uy tín"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#bài-tập-4",
-    "href": "talks/is-this-a-good-journal/slide.html#bài-tập-4",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Bài tập",
-    "text": "Bài tập\n\n“NAR Genomics & Bioinformatics”\nThành lập cách đây 3 tháng, chưa có impact factor\nThời gian trung bình từ lúc nộp đến publish là 8 tuần\nSố báo mới nhất có 10 bài, tác giả đến từ nhiều quốc gia khác nhau\nKhông có phí nộp bài, phí open access là $2,634\nĐịa chỉ email của tổng biên tập: editor@crg.eu"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#scopus-1",
-    "href": "talks/is-this-a-good-journal/slide.html#scopus-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Scopus",
-    "text": "Scopus\n\n\n\n\n\n\n\n\n\n\n\nTiêu chuẩn vào Scopus dễ hơn ISI, nên thông thường các tạp chí phấn đấu vào Scopus trước, sau đó vào ISI"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#scopus-metrics",
-    "href": "talks/is-this-a-good-journal/slide.html#scopus-metrics",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Scopus metrics",
-    "text": "Scopus metrics"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#mục-tiêu",
-    "href": "talks/is-this-a-good-journal/slide.html#mục-tiêu",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Mục tiêu",
-    "text": "Mục tiêu\n\nDanh mục ISI, Scopus\nImpact factor\nSCImago Journal Rank\nNhà xuất bản uy tín\nOpen access"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#bài-tập-5",
-    "href": "talks/is-this-a-good-journal/slide.html#bài-tập-5",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Bài tập",
-    "text": "Bài tập\n\n\n\n\n\n\n\n\n\n\n\nTạp chí con của NAR (Nucleic Acids Research, IF = 14.9)\nThời điểm đó chưa có IF nhưng hiện tại IF = 4.6"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#open-access-1",
-    "href": "talks/is-this-a-good-journal/slide.html#open-access-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Open access",
-    "text": "Open access"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#open-access-2",
-    "href": "talks/is-this-a-good-journal/slide.html#open-access-2",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Open access",
-    "text": "Open access\n\nCác nhà tài trợ khuyến khích công bố ở tạp chí open access\nPhí Article Processing Charge (APC) chỉ được thanh toán khi bài báo đã được chấp nhận đăng, không phải ở giai đoạn nộp bài (submission)"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#mdpi-1",
-    "href": "talks/is-this-a-good-journal/slide.html#mdpi-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "mdpi1",
-    "text": "mdpi1\n\nBrainard J. Fast-growing open-access journals lose impact factors. Science. 2023 Mar;379(6639):1283-4."
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/slide.html#tóm-tắt",
-    "href": "talks/is-this-a-good-journal/slide.html#tóm-tắt",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Tóm tắt",
-    "text": "Tóm tắt\n\nDanh mục ISI, Scopus\nImpact factor\nSCImago Journal Rank\nNhà xuất bản uy tín\nOpen access"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html",
-    "href": "slides/is-this-a-good-journal/index.html",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "",
-    "text": "“The International Journal of Public Healths Systems”\nThành lập cách đây 3 tháng, công bố impact factor = 1.5\nThời gian trung bình từ lúc nộp đến publish là 2 tuần\nSố báo mới nhất có 10 bài, tất cả tác giả đến từ Trung Quốc\nPhí nộp bài vào hệ thống (submission) là $150\nĐịa chỉ email của tổng biên tập: professorliu@gmail.com\nHỏi thêm 1 câu?"
+    "objectID": "slides/about/index.html#achievements",
+    "href": "slides/about/index.html#achievements",
+    "title": "Thinh Ong",
+    "section": "Achievements",
+    "text": "Achievements\n\n14 research articles (international journals)\n4 international conferences\n4 software\n1 book chapter"
   },
   {
     "objectID": "slides/is-this-a-good-journal/index.html#bài-tập",
@@ -826,45 +392,52 @@
     "text": "Tóm tắt\n\nDanh mục ISI, Scopus\nImpact factor\nSCImago Journal Rank\nNhà xuất bản uy tín\nOpen access"
   },
   {
-    "objectID": "slides/is-this-a-good-journal/index.html#footnotes",
-    "href": "slides/is-this-a-good-journal/index.html#footnotes",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nScientific Writing Workshop. Dr. Leigh Jones, Regional Academic Training Leader for OUCRU and MORU↩︎\nScientific Writing Workshop. Dr. Leigh Jones, Regional Academic Training Leader for OUCRU and MORU↩︎\nBrainard J. Fast-growing open-access journals lose impact factors. Science. 2023 Mar;379(6639):1283-4.↩︎\nBrainard J. Fast-growing open-access journals lose impact factors. Science. 2023 Mar;379(6639):1283-4.↩︎"
-  },
-  {
-    "objectID": "slides/about/index.html",
-    "href": "slides/about/index.html",
-    "title": "Thinh Ong",
+    "objectID": "talks/is-this-a-good-journal/index.html",
+    "href": "talks/is-this-a-good-journal/index.html",
+    "title": "Is this a good journal?",
     "section": "",
-    "text": "2022-2026\nDoctor of Philosophy in Clinical Medicine\nUniversity of Oxford, United Kingdom\n\n\n\n\n\n\n\n2012-2018\nDoctor of Medicine in Preventive Medicine\nUniversity of Medicine and Pharmacy at Ho Chi Minh City, Vietnam"
+    "text": "Slide\n\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {Is This a Good Journal?},\n  date = {2023-09-25},\n  url = {https://thinhong.github.io/talks/is-this-a-good-journal},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “Is This a Good Journal?” September 25,\n2023. https://thinhong.github.io/talks/is-this-a-good-journal."
   },
   {
-    "objectID": "slides/about/index.html#education",
-    "href": "slides/about/index.html#education",
-    "title": "Thinh Ong",
-    "section": "Education",
-    "text": "Education\n\n\n\n\n\n\n\n\n2022-2026\nDoctor of Philosophy in Clinical Medicine\nUniversity of Oxford, United Kingdom\n\n\n\n\n\n\n\n2012-2018\nDoctor of Medicine in Preventive Medicine\nUniversity of Medicine and Pharmacy at Ho Chi Minh City, Vietnam"
+    "objectID": "talks.html",
+    "href": "talks.html",
+    "title": "Talks",
+    "section": "",
+    "text": "Is this a good journal?\n\n\nLearn how to identify trustworthy scientific journals and avoid predatory ones\n\n\n\nThinh Ong\n\n\nSep 25, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
-    "objectID": "slides/about/index.html#awards-and-honours",
-    "href": "slides/about/index.html#awards-and-honours",
-    "title": "Thinh Ong",
-    "section": "Awards and honours",
-    "text": "Awards and honours\n\n\n\n\n\n\n\n\nFull DPhil studentship\n\n\n\n\n\n\n\nValedictorian, the only graduation with distinction grade in the fixed-curriculum system (prior to 2022)\nThe highest GPA in the history of the school\nThe highest score in dissertation"
+    "objectID": "teaching/modelling/idm-intro/index.html",
+    "href": "teaching/modelling/idm-intro/index.html",
+    "title": "Introduction to infectious disease modelling",
+    "section": "",
+    "text": "Date:\nLocation:\nImage by svstudioart on Freepik\n\n\n\n Back to top"
   },
   {
-    "objectID": "slides/about/index.html#research",
-    "href": "slides/about/index.html#research",
-    "title": "Thinh Ong",
-    "section": "Research",
-    "text": "Research\n\n\n\n\n\n\n\nField\nExperience\n\n\n\n\nMathematical modelling\nDr. Marc Choisy  \n\n\nBioinformatics\nProf. Susan Clark, Dr. Phuc-Loi Luu \n\n\nBiostatistics\nClinical trials, public health institutions"
+    "objectID": "teaching/r-programming/r-babies/index.html",
+    "href": "teaching/r-programming/r-babies/index.html",
+    "title": "R for babies",
+    "section": "",
+    "text": "This course has been taught for staff members of Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreview image by Freepik\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "slides/about/index.html#achievements",
-    "href": "slides/about/index.html#achievements",
-    "title": "Thinh Ong",
-    "section": "Achievements",
-    "text": "Achievements\n\n14 research articles (international journals)\n4 international conferences\n4 software\n1 book chapter"
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "Basic R programming for data science\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "teaching.html#r-programming",
+    "href": "teaching.html#r-programming",
+    "title": "Teaching",
+    "section": "",
+    "text": "Basic R programming for data science\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "teaching.html#modelling",
+    "href": "teaching.html#modelling",
+    "title": "Teaching",
+    "section": "Modelling",
+    "text": "Modelling\n\n\n\n\n\n\n\n\n\n\nIntroduction to infectious disease modelling\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\nNo matching items"
   }
 ]
