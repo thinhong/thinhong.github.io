@@ -1,8 +1,9 @@
 ---
 title: "Nhận biết tạp chí khoa học uy tín"
-format:
-  revealjs:
-    footer: "[thinhong](https://thinhong.github.io/)"
+author:
+  - name: Thinh Ong
+    url: https://thinhong.github.io
+    orcid: 0000-0001-6772-9291
 ---
 
 ## Bài tập^[Scientific Writing Workshop. Dr. Leigh Jones, Regional Academic Training Leader for OUCRU and MORU]

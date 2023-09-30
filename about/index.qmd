@@ -7,7 +7,7 @@ execute:
 ---
 
 ::: {.center-text}
-[{{< fa file >}} Slide](slide.qmd){.btn role="button"}
+[{{< fa file >}} Slide](/slides/about){.btn role="button"}
 :::
 
 ## Education

@@ -3,10 +3,11 @@ project:
   output-dir: docs
 
 website:
-  title: "thinhong"
+  favicon: logo-icon.svg
   google-analytics: "G-RVRBE7Y1R2"
   back-to-top-navigation: true
   navbar:
+    logo: logo.svg
     left:
       - text: About
         href: about/index.qmd

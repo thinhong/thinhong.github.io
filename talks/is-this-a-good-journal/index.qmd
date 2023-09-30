@@ -10,7 +10,7 @@ execute:
 ---
 
 ::: {.center-text}
-[{{< fa file >}} Slide](slide.qmd){.btn role="button"}
+[{{< fa file >}} Slide](/slides/is-this-a-good-journal){.btn role="button"}
 :::
 
 Venue: Ho Chi Minh city's Centre for Diseases Control.

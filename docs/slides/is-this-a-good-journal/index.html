@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
+<link href="../../logo-icon.svg" rel="icon" type="image/svg+xml">
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -11,7 +12,7 @@
   <meta name="generator" content="quarto-1.3.353">
 
   <meta name="author" content="Thinh Ong">
-  <title>thinhong - Nhận biết tạp chí khoa học uy tín</title>
+  <title>Nhận biết tạp chí khoa học uy tín</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -607,8 +608,9 @@
 <section id="xin-cảm-ơn" class="title-slide slide level1 center" style="text-align: center">
 <h1>Xin cảm ơn</h1>
 
-<div class="footer footer-default">
-<p><a href="https://thinhong.github.io/">thinhong</a></p>
+
+<img src="../../logo.svg" class="slide-logo r-stretch"><div class="footer footer-default">
+
 </div>
 </section>
 
@@ -665,7 +667,7 @@
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -971,6 +973,24 @@
     });
     </script>
     <script src="https://giscus.app/client.js" data-repo="thinhong/thinhong.github.io" data-repo-id="R_kgDOKLfuQw" data-category="General" data-category-id="DIC_kwDOKL9B-s4CY4zC" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+    </script>
+    <script type="text/javascript">
+      function hyperlink_logo() {
+        let logo = document.querySelector('img.slide-logo');
+        const logo_cloned = logo.cloneNode(true);
+        const link = document.createElement('a');
+        // -----------------------------------------------------------
+        // set the link for the logo here in `link.href` within quotes
+        link.href = 'https://thinhong.github.io';
+        // -----------------------------------------------------------
+        link.target = '_blank';
+        link.appendChild(logo_cloned);
+        logo.replaceWith(link);
+      };
+      
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        hyperlink_logo();
+      });
     </script>
     
 

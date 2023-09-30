@@ -24,3 +24,7 @@ I've documented everything I've learned throughout my career on this website. He
 * Practical guides for **leadership**, **management**, **R programming**, and **data science** (on my [**blog**](/blog.html))
   
 * My teaching materials on **mathematical modelling** methods for **infectious diseases** and **R programming** (on my [**teaching**](/teaching.html))
+
+:::{.credit}
+(*) Special thanks to [Đặng Nhật Vũ](https://www.facebook.com/nhatvud) for the awesome profile photo!
+:::

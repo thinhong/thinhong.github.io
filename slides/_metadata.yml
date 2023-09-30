@@ -1,0 +1,28 @@
+# prevents posts from re-rendering unless explicitly told to do so (for more, see https://quarto.org/docs/projects/code-execution.html#freeze)
+freeze: true
+
+# Add logo and hyperlink for logo
+format:
+  revealjs:
+    slide-number: true
+    logo: /logo.svg
+include-after-body:
+  text: |
+    <script type="text/javascript">
+      function hyperlink_logo() {
+        let logo = document.querySelector('img.slide-logo');
+        const logo_cloned = logo.cloneNode(true);
+        const link = document.createElement('a');
+        // -----------------------------------------------------------
+        // set the link for the logo here in `link.href` within quotes
+        link.href = 'https://thinhong.github.io';
+        // -----------------------------------------------------------
+        link.target = '_blank';
+        link.appendChild(logo_cloned);
+        logo.replaceWith(link);
+      };
+      
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        hyperlink_logo();
+      });
+    </script>
