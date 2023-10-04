@@ -11,7 +11,7 @@
     "href": "about/index.html#education",
     "title": "About me",
     "section": "Education",
-    "text": "Education\n\nDoctor of Philosophy in Clinical Medicine, University of Oxford, United Kingdom (2022-2026)\nDoctor of Medicine in Preventive Medicine, University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam (2012-2018)"
+    "text": "Education\n\nDoctor of Philosophy in Clinical Medicine, University of Oxford, United Kingdom (Graduation expected 2026)\nDoctor of Medicine in Preventive Medicine, University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam (2012-2018)"
   },
   {
     "objectID": "about/index.html#awards-and-honours",
@@ -144,7 +144,7 @@
     "href": "index.html",
     "title": "Thinh Ong",
     "section": "",
-    "text": "Hello! I’m Thinh - feel free to pronounce it as “think”. I’m a medical doctor focusing on preventive medicine. I’m pursuing my DPhil degree in Mathematical Modelling at the University of Oxford.\nI’ve documented everything I’ve learned throughout my career on this website. Here you can find:\n\nPractical guides for leadership, management, R programming, and data science (on my blog)\nMy teaching materials on mathematical modelling methods for infectious diseases and R programming (on my teaching)\n\n\n(*) Special thanks to Đặng Nhật Vũ for the awesome profile photo!\n\n\n\n Back to top"
+    "text": "Hello! I’m Thinh - feel free to pronounce it as “think”. I’m a medical doctor pursuing my DPhil degree in Mathematical Modelling at the University of Oxford.\nI’ve documented everything I’ve learned throughout my career on this website. Here you can find:\n\nPractical guides for leadership, management, R programming, and data science (on my blog)\nMy teaching materials on mathematical modelling methods for infectious diseases and R programming (on my teaching)\n\n\n(*) Special thanks to Đặng Nhật Vũ for the awesome profile photo!\n\n\n\n Back to top"
   },
   {
     "objectID": "slides/about/index.html#education",
@@ -396,7 +396,7 @@
     "href": "talks/is-this-a-good-journal/index.html",
     "title": "Is this a good journal?",
     "section": "",
-    "text": "Slide\n\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {Is This a Good Journal?},\n  date = {2023-09-25},\n  url = {https://thinhong.github.io/talks/is-this-a-good-journal},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “Is This a Good Journal?” September 25,\n2023. https://thinhong.github.io/talks/is-this-a-good-journal."
+    "text": "Slide\n\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\nPreview image by Freepik\n\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {Is This a Good Journal?},\n  date = {2023-09-25},\n  url = {https://thinhong.github.io/talks/is-this-a-good-journal},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “Is This a Good Journal?” September 25,\n2023. https://thinhong.github.io/talks/is-this-a-good-journal."
   },
   {
     "objectID": "talks.html",
@@ -410,7 +410,14 @@
     "href": "teaching/modelling/idm-intro/index.html",
     "title": "Introduction to infectious disease modelling",
     "section": "",
-    "text": "Date:\nLocation:\nImage by svstudioart on Freepik\n\n\n\n Back to top"
+    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\nPreview image by svstudioart on Freepik\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "teaching/modelling/mathmodpedia/index.html",
+    "href": "teaching/modelling/mathmodpedia/index.html",
+    "title": "MathModpedia",
+    "section": "",
+    "text": "Book homepage\n\nPreview image by Freepik - Flaticon\n\n\n\n\n Back to top"
   },
   {
     "objectID": "teaching/r-programming/r-babies/index.html",
@@ -424,20 +431,20 @@
     "href": "teaching.html",
     "title": "Teaching",
     "section": "",
-    "text": "Basic R programming for data science\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "teaching.html#r-programming",
-    "href": "teaching.html#r-programming",
-    "title": "Teaching",
-    "section": "",
-    "text": "Basic R programming for data science\n\n\n\n\n\n\n\nNo matching items"
+    "text": "A mathematical modelling encyclopedia made by Mathematical Modelling group, OUCRU Vietnam\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "teaching.html#modelling",
     "href": "teaching.html#modelling",
     "title": "Teaching",
-    "section": "Modelling",
-    "text": "Modelling\n\n\n\n\n\n\n\n\n\n\nIntroduction to infectious disease modelling\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\nNo matching items"
+    "section": "",
+    "text": "A mathematical modelling encyclopedia made by Mathematical Modelling group, OUCRU Vietnam\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "teaching.html#r-programming",
+    "href": "teaching.html#r-programming",
+    "title": "Teaching",
+    "section": "R programming",
+    "text": "R programming\n\n\n\n\n\n\n\n\n\n\nR for babies\n\n\nBasic R programming for data science\n\n\n\n\n\n\n\nNo matching items"
   }
 ]

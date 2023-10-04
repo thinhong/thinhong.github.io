@@ -1,0 +1,22 @@
+---
+title: "MathModpedia"
+description: "A mathematical modelling encyclopedia made by Mathematical Modelling group, OUCRU Vietnam"
+author:
+  - name: Marc Choisy
+  - name: Thinh Ong
+    url: https://thinhong.github.io
+    orcid: 0000-0001-6772-9291
+  - name: Tuyen Huynh
+  - name: Nguyen Pham
+  - name: Lam Nguyen
+image: preview.png
+draft: false
+execute:
+  eval: false
+---
+
+[{{< fa link >}} Book homepage](https://oucru-modelling.github.io/mathmodpedia/){.btn role="button"}
+
+:::{.credit}
+Preview image by [Freepik - Flaticon](https://www.flaticon.com/free-icon/mammoth_2206701?term=mammoth&page=1&position=9&origin=tag&related_id=2206701)
+:::

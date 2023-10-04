@@ -13,8 +13,10 @@ execute:
   eval: false
 ---
 
-**Date:**
+[{{< fa link >}} Course homepage](https://lampk.github.io/IDMIntro/){.btn role="button"}
 
-**Location:**
+**Venue:** Ho Chi Minh city's Centre for Diseases Control.
 
-<a href="https://www.freepik.com/free-vector/fight-protect-coronavirus-concept-medical-staff-fight-protective-shield-with-pandemic_14723849.htm#query=infectious%20disease%20modelling&position=20&from_view=search&track=ais">Image by svstudioart</a> on Freepik
+:::{.credit}
+Preview image by svstudioart on [Freepik](https://www.freepik.com/free-vector/fight-protect-coronavirus-concept-medical-staff-fight-protective-shield-with-pandemic_14723849.htm)
+:::

@@ -4,6 +4,7 @@ description: "Learn how to identify trustworthy scientific journals and avoid pr
 date: 2023-09-25
 citation:
   url: https://thinhong.github.io/talks/is-this-a-good-journal
+image: preview.svg
 draft: false
 execute:
   eval: false
@@ -14,4 +15,10 @@ execute:
 :::
 
 Venue: Ho Chi Minh city's Centre for Diseases Control.
+
+![](img/hcdc.jpg)
+
+:::{.credit}
+Preview image by [Freepik](https://www.freepik.com/free-vector/flat-people-asking-questions-illustration_13454088.htm)
+:::
 

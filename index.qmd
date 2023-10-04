@@ -17,7 +17,7 @@ about:
 comments: false
 ---
 
-Hello! I'm **Thinh** - feel free to pronounce it as ***"think"***. I'm a medical doctor focusing on preventive medicine. I'm pursuing my DPhil degree in Mathematical Modelling at the University of Oxford.
+Hello! I'm **Thinh** - feel free to pronounce it as ***"think"***. I'm a medical doctor pursuing my DPhil degree in Mathematical Modelling at the University of Oxford.
 
 I've documented everything I've learned throughout my career on this website. Here you can find:
 

@@ -10,15 +10,15 @@ listing:
     contents: "teaching/r-programming/*/*.qmd"
     type: grid
     fields: [image, title, description]
-    sort: "date desc"
+    sort: "title"
 ---
-
-## R programming
-
-:::{#r-programming}
-:::
 
 ## Modelling
 
 :::{#modelling}
+:::
+
+## R programming
+
+:::{#r-programming}
 :::
