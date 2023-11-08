@@ -2,7 +2,7 @@
 title: "Nhận biết tạp chí khoa học uy tín"
 author:
   - name: Thinh Ong
-    url: https://thinhong.github.io
+    url: https://drthinhong.com
     orcid: 0000-0001-6772-9291
 ---
 

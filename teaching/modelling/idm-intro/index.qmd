@@ -5,7 +5,7 @@ date: 2023-03-02
 author:
   - name: Phung Khanh Lam
   - name: Thinh Ong
-    url: https://thinhong.github.io
+    url: https://drthinhong.com
     orcid: 0000-0001-6772-9291
 image: preview.svg
 draft: false

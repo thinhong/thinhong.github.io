@@ -3,7 +3,7 @@ title: "Introductory math for infectious disease modeling"
 description: "A short course on compartmental models"
 author:
   - name: Thinh Ong
-    url: https://thinhong.github.io
+    url: https://drthinhong.com
     orcid: 0000-0001-6772-9291
 image: preview.png
 draft: true

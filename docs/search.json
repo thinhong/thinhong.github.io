@@ -1,5 +1,82 @@
 [
   {
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "A mathematical modelling encyclopedia made by Mathematical Modelling group, OUCRU Vietnam\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "teaching.html#modelling",
+    "href": "teaching.html#modelling",
+    "title": "Teaching",
+    "section": "",
+    "text": "A mathematical modelling encyclopedia made by Mathematical Modelling group, OUCRU Vietnam\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "teaching.html#r-programming",
+    "href": "teaching.html#r-programming",
+    "title": "Teaching",
+    "section": "R programming",
+    "text": "R programming\n\n\n\n\n\n\n\n\n\n\nR for babies\n\n\nBasic R programming for data science\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "teaching/modelling/mathmodpedia/index.html",
+    "href": "teaching/modelling/mathmodpedia/index.html",
+    "title": "MathModpedia",
+    "section": "",
+    "text": "Book homepage\n\nPreview image by Freepik - Flaticon\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "teaching/modelling/idm-intro/index.html",
+    "href": "teaching/modelling/idm-intro/index.html",
+    "title": "Introduction to infectious disease modelling",
+    "section": "",
+    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\nPreview image by svstudioart on Freepik\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "talks/is-this-a-good-journal/index.html",
+    "href": "talks/is-this-a-good-journal/index.html",
+    "title": "Is this a good journal?",
+    "section": "",
+    "text": "Slide\n\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\nPreview image by Freepik\n\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {Is This a Good Journal?},\n  date = {2023-09-25},\n  url = {https://drthinhong.com/talks/is-this-a-good-journal},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “Is This a Good Journal?” September 25,\n2023. https://drthinhong.com/talks/is-this-a-good-journal."
+  },
+  {
+    "objectID": "slides/about/index.html#education",
+    "href": "slides/about/index.html#education",
+    "title": "Thinh Ong",
+    "section": "Education",
+    "text": "Education\n\n\n\n\n\n\n\n\n2022-2026\nDoctor of Philosophy in Clinical Medicine\nUniversity of Oxford, United Kingdom\n\n\n\n\n\n\n\n2012-2018\nDoctor of Medicine in Preventive Medicine\nUniversity of Medicine and Pharmacy at Ho Chi Minh City, Vietnam"
+  },
+  {
+    "objectID": "slides/about/index.html#awards-and-honours",
+    "href": "slides/about/index.html#awards-and-honours",
+    "title": "Thinh Ong",
+    "section": "Awards and honours",
+    "text": "Awards and honours\n\n\n\n\n\n\n\n\nFull DPhil studentship\n\n\n\n\n\n\n\nValedictorian, the only graduation with distinction grade in the fixed-curriculum system (prior to 2022)\nThe highest GPA in the history of the school\nThe highest score in dissertation"
+  },
+  {
+    "objectID": "slides/about/index.html#research",
+    "href": "slides/about/index.html#research",
+    "title": "Thinh Ong",
+    "section": "Research",
+    "text": "Research\n\n\n\n\n\n\n\nField\nExperience\n\n\n\n\nMathematical modelling\nDr. Marc Choisy  \n\n\nBioinformatics\nProf. Susan Clark, Dr. Phuc-Loi Luu \n\n\nBiostatistics\nClinical trials, public health institutions"
+  },
+  {
+    "objectID": "slides/about/index.html#achievements",
+    "href": "slides/about/index.html#achievements",
+    "title": "Thinh Ong",
+    "section": "Achievements",
+    "text": "Achievements\n\n14 research articles (international journals)\n4 international conferences\n4 software\n1 book chapter"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "10 simple tips to chair a meeting\n\n\n\nleadership\n\n\n\nA survival kit when you are thrust into the chairing role\n\n\n\nThinh Ong\n\n\nAug 26, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
     "objectID": "about/index.html",
     "href": "about/index.html",
     "title": "About me",
@@ -133,46 +210,11 @@
     "text": "Acknowledgments\nSpecial thanks to Dr. Leigh Jones, my mentor, for her valuable insights that helped shape these tips. A big thank you to Ms. Gaye Proctor for the classification of participant behaviors in her Train the Trainer workshop, a valuable resource for my Tip 7.\n\nPreview image by storyset on Freepik"
   },
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Blog",
-    "section": "",
-    "text": "10 simple tips to chair a meeting\n\n\n\nleadership\n\n\n\nA survival kit when you are thrust into the chairing role\n\n\n\nThinh Ong\n\n\nAug 26, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Thinh Ong",
     "section": "",
     "text": "Hello! I’m Thinh - feel free to pronounce it as “think”. I’m a medical doctor pursuing my DPhil degree in Mathematical Modelling at the University of Oxford.\nI’ve documented everything I’ve learned throughout my career on this website. Here you can find:\n\nPractical guides for leadership, management, R programming, and data science (on my blog)\nMy teaching materials on mathematical modelling methods for infectious diseases and R programming (on my teaching)\n\n\n(*) Special thanks to Đặng Nhật Vũ for the awesome profile photo!\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "slides/about/index.html#education",
-    "href": "slides/about/index.html#education",
-    "title": "Thinh Ong",
-    "section": "Education",
-    "text": "Education\n\n\n\n\n\n\n\n\n2022-2026\nDoctor of Philosophy in Clinical Medicine\nUniversity of Oxford, United Kingdom\n\n\n\n\n\n\n\n2012-2018\nDoctor of Medicine in Preventive Medicine\nUniversity of Medicine and Pharmacy at Ho Chi Minh City, Vietnam"
-  },
-  {
-    "objectID": "slides/about/index.html#awards-and-honours",
-    "href": "slides/about/index.html#awards-and-honours",
-    "title": "Thinh Ong",
-    "section": "Awards and honours",
-    "text": "Awards and honours\n\n\n\n\n\n\n\n\nFull DPhil studentship\n\n\n\n\n\n\n\nValedictorian, the only graduation with distinction grade in the fixed-curriculum system (prior to 2022)\nThe highest GPA in the history of the school\nThe highest score in dissertation"
-  },
-  {
-    "objectID": "slides/about/index.html#research",
-    "href": "slides/about/index.html#research",
-    "title": "Thinh Ong",
-    "section": "Research",
-    "text": "Research\n\n\n\n\n\n\n\nField\nExperience\n\n\n\n\nMathematical modelling\nDr. Marc Choisy  \n\n\nBioinformatics\nProf. Susan Clark, Dr. Phuc-Loi Luu \n\n\nBiostatistics\nClinical trials, public health institutions"
-  },
-  {
-    "objectID": "slides/about/index.html#achievements",
-    "href": "slides/about/index.html#achievements",
-    "title": "Thinh Ong",
-    "section": "Achievements",
-    "text": "Achievements\n\n14 research articles (international journals)\n4 international conferences\n4 software\n1 book chapter"
   },
   {
     "objectID": "slides/is-this-a-good-journal/index.html#bài-tập",
@@ -392,13 +434,6 @@
     "text": "Tóm tắt\n\nDanh mục ISI, Scopus\nImpact factor\nSCImago Journal Rank\nNhà xuất bản uy tín\nOpen access"
   },
   {
-    "objectID": "talks/is-this-a-good-journal/index.html",
-    "href": "talks/is-this-a-good-journal/index.html",
-    "title": "Is this a good journal?",
-    "section": "",
-    "text": "Slide\n\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\nPreview image by Freepik\n\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {Is This a Good Journal?},\n  date = {2023-09-25},\n  url = {https://thinhong.github.io/talks/is-this-a-good-journal},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “Is This a Good Journal?” September 25,\n2023. https://thinhong.github.io/talks/is-this-a-good-journal."
-  },
-  {
     "objectID": "talks.html",
     "href": "talks.html",
     "title": "Talks",
@@ -406,45 +441,10 @@
     "text": "Is this a good journal?\n\n\nLearn how to identify trustworthy scientific journals and avoid predatory ones\n\n\n\nThinh Ong\n\n\nSep 25, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
-    "objectID": "teaching/modelling/idm-intro/index.html",
-    "href": "teaching/modelling/idm-intro/index.html",
-    "title": "Introduction to infectious disease modelling",
-    "section": "",
-    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\nPreview image by svstudioart on Freepik\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "teaching/modelling/mathmodpedia/index.html",
-    "href": "teaching/modelling/mathmodpedia/index.html",
-    "title": "MathModpedia",
-    "section": "",
-    "text": "Book homepage\n\nPreview image by Freepik - Flaticon\n\n\n\n\n Back to top"
-  },
-  {
     "objectID": "teaching/r-programming/r-babies/index.html",
     "href": "teaching/r-programming/r-babies/index.html",
     "title": "R for babies",
     "section": "",
     "text": "This course has been taught for staff members of Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreview image by Freepik\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "teaching.html",
-    "href": "teaching.html",
-    "title": "Teaching",
-    "section": "",
-    "text": "A mathematical modelling encyclopedia made by Mathematical Modelling group, OUCRU Vietnam\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "teaching.html#modelling",
-    "href": "teaching.html#modelling",
-    "title": "Teaching",
-    "section": "",
-    "text": "A mathematical modelling encyclopedia made by Mathematical Modelling group, OUCRU Vietnam\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "teaching.html#r-programming",
-    "href": "teaching.html#r-programming",
-    "title": "Teaching",
-    "section": "R programming",
-    "text": "R programming\n\n\n\n\n\n\n\n\n\n\nR for babies\n\n\nBasic R programming for data science\n\n\n\n\n\n\n\nNo matching items"
   }
 ]

@@ -4,7 +4,7 @@ description: "A survival kit when you are thrust into the chairing role"
 date: 2023-08-26
 categories: [leadership]
 citation: 
-  url: https://thinhong.github.io/blog/2023-08-26-chair-a-meeting/
+  url: https://drthinhong.com/blog/2023-08-26-chair-a-meeting/
 draft: false
 image: preview.svg
 ---

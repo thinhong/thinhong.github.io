@@ -4,7 +4,7 @@ description: "A mathematical modelling encyclopedia made by Mathematical Modelli
 author:
   - name: Marc Choisy
   - name: Thinh Ong
-    url: https://thinhong.github.io
+    url: https://drthinhong.com
     orcid: 0000-0001-6772-9291
   - name: Tuyen Huynh
   - name: Nguyen Pham

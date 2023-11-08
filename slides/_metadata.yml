@@ -15,7 +15,7 @@ include-after-body:
         const link = document.createElement('a');
         // -----------------------------------------------------------
         // set the link for the logo here in `link.href` within quotes
-        link.href = 'https://thinhong.github.io';
+        link.href = 'https://drthinhong.com';
         // -----------------------------------------------------------
         link.target = '_blank';
         link.appendChild(logo_cloned);
