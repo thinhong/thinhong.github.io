@@ -39,13 +39,42 @@ execute:
 I'm a regular guy from a developing country. Going abroad used to be a dream. My research has given me the chance to visit different countries, connect with collaborators, attend international conferences and workshops. This map notes all my visits.
 
 ```{r}
+library(jsonlite)
+library(stringr)
+library(tidyr)
+library(dplyr)
 library(sf)
 library(geojsonsf)
 
-geom <- geojson_sf("world.geojson")
-travel <- read.csv("travel.csv", sep = ";")
-travel <- merge(geom, travel, by.x = "ISO3", by.y = "id", all.y = T)
+# Read json
+travel <- read_json("travel.json")
 
+# Transform json to dataframe
+year_country <- str_split_fixed(names(unlist(travel)), "\\.", 2)
+
+travel <- data.frame(country = year_country[,2], year = year_country[,1], visit = paste0(year_country[,1], ": ", unlist(travel)))
+
+travel <- travel %>% 
+  group_by(country) %>% 
+  arrange(desc(year)) %>% 
+  mutate(order = row_number())
+
+travel <- pivot_wider(travel, id_cols = country, names_from = order, values_from = visit, names_prefix = "visit")
+
+# Add Vietnam
+travel <- bind_rows(travel, data.frame(country = "VNM", visit1 = "My hometown"))
+
+# Replace NA with ""
+travel <- travel %>% 
+  mutate(across(starts_with("visit"), ~replace_na(.,"")))
+
+# Read map data
+geom <- geojson_sf("world.geojson")
+
+# Merge coordinates
+travel <- merge(geom, travel, by.x = "ISO3", by.y = "country", all.y = T)
+
+# Read data into ojs
 ojs_define(data = sf_geojson(geom))
 ojs_define(data2 = sf_geojson(travel))
 ```
@@ -61,7 +90,7 @@ bertin.draw({
     {
       type: "layer",
       geojson: visited,
-      tooltip: ["$NAMEen", "$visit1", "$visit2"],
+      tooltip: ["$NAMEen", "$visit1", "$visit2", "$visit3"],
       fill: {
         type: "typo",
         values: "visit1"
