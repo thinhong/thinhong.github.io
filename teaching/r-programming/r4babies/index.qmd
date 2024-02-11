@@ -13,6 +13,8 @@ filters:
 lightbox: auto
 ---
 
+[{{< fa link >}} Course homepage](https://drthinhong.com/r4babies/){.btn role="button"}
+
 This course has been taught for staff members of Ho Chi Minh city's Centre for Diseases Control.
 
 ::: {layout="[1, 1]"}

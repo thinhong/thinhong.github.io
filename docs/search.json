@@ -445,6 +445,48 @@
     "href": "teaching/r-programming/r-babies/index.html",
     "title": "R for babies",
     "section": "",
-    "text": "This course has been taught for staff members of Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreview image by Freepik\n\n\n\n\n Back to top"
+    "text": "Course homepage\nThis course has been taught for staff members of Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreview image by Freepik\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "slides/serosv/index.html",
+    "href": "slides/serosv/index.html",
+    "title": "Estimate epidemiological parameters and reconstruct transmission dynamics with serosv",
+    "section": "",
+    "text": "All methods are applied assume that we have a representative cross-sectional serosurvey"
+  },
+  {
+    "objectID": "slides/serosv/index.html#notes",
+    "href": "slides/serosv/index.html#notes",
+    "title": "Estimate epidemiological parameters and reconstruct transmission dynamics with serosv",
+    "section": "",
+    "text": "All methods are applied assume that we have a representative cross-sectional serosurvey"
+  },
+  {
+    "objectID": "slides/serosv/index.html#cumulative-incidence-attack-rate",
+    "href": "slides/serosv/index.html#cumulative-incidence-attack-rate",
+    "title": "Estimate epidemiological parameters and reconstruct transmission dynamics with serosv",
+    "section": "1. Cumulative incidence = attack rate",
+    "text": "1. Cumulative incidence = attack rate\n\\[\\text{Cumulative incidence} = \\frac{\\text{seropositive}}{\\text{sample size}}\\]\nAdjust for test performance (sensitivity, specificity):\n\nRogan-Gladen estimator (ROGAN and GLADEN 1978)\nBinomial model (Larremore et al. 2021)"
+  },
+  {
+    "objectID": "slides/serosv/index.html#ascertainment-rate",
+    "href": "slides/serosv/index.html#ascertainment-rate",
+    "title": "Estimate epidemiological parameters and reconstruct transmission dynamics with serosv",
+    "section": "2. Ascertainment rate",
+    "text": "2. Ascertainment rate\nThe proportion of infections which are captured within surveillance systems.\n\\[\\text{Ascertainment rate} = \\frac{\\text{cumulative incidence estimated from routine surveillance (syndromic cases)}}{\\text{cumulative incidence estimated from serological data}}\\]"
+  },
+  {
+    "objectID": "slides/serosv/index.html#infection-fatality-ratio-ifr",
+    "href": "slides/serosv/index.html#infection-fatality-ratio-ifr",
+    "title": "Estimate epidemiological parameters and reconstruct transmission dynamics with serosv",
+    "section": "3. Infection-fatality ratio (IFR)",
+    "text": "3. Infection-fatality ratio (IFR)\n\\[\\text{IFR} = \\frac{\\text{cumulative number of deaths}}{\\text{cumulative incidence estimated from serological data}}\\]\n\\[S(a) = e^{-\\lambda a}\\]\n\\[\\frac{dS}{da} = -\\lambda e^{-\\lambda a} = -\\lambda S(a)\\]\nProportion of seropositive \\(\\pi(a)\\):\n\\[\\pi(a) = 1 - S(a) = 1 - e^{-\\lambda a}\\]"
+  },
+  {
+    "objectID": "teaching/r-programming/r4babies/index.html",
+    "href": "teaching/r-programming/r4babies/index.html",
+    "title": "R for babies",
+    "section": "",
+    "text": "Course homepage\nThis course has been taught for staff members of Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreview image by Freepik\n\n\n\n\n Back to top"
   }
 ]
