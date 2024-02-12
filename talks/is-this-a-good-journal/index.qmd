@@ -11,7 +11,7 @@ execute:
 ---
 
 ::: {.center-text}
-[{{< fa file >}} Slide](/slides/is-this-a-good-journal){.btn role="button"}
+[{{< fa link >}} Presentation](/slides/is-this-a-good-journal){.btn .btn-outline-secondary role="button"}
 :::
 
 Venue: Ho Chi Minh city's Centre for Diseases Control.

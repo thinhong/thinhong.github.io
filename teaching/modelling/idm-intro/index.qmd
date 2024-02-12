@@ -13,7 +13,7 @@ execute:
   eval: false
 ---
 
-[{{< fa link >}} Course homepage](https://lampk.github.io/IDMIntro/){.btn role="button"}
+[{{< fa link >}} Course homepage](https://lampk.github.io/IDMIntro/){.btn .btn-outline-secondary role="button"}
 
 **Venue:** Ho Chi Minh city's Centre for Diseases Control.
 

@@ -7,7 +7,7 @@ execute:
 ---
 
 ::: {.center-text}
-[{{< fa file >}} Slide](/slides/about){.btn role="button"}
+[{{< fa link >}} Presentation](/slides/about){.btn .btn-outline-secondary role="button"}
 :::
 
 ## Education

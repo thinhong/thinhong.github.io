@@ -11,7 +11,8 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.450">
 
-  <title>Thinh Ong</title>
+  <meta name="author" content="Thinh Ong">
+  <title>Estimate epidemiological parameters and reconstruct transmission dynamics with serosv</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,7 +30,26 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-RVRBE7Y1R2"></script>
 
@@ -334,106 +354,61 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Thinh Ong</h1>
-  <p class="subtitle">About me</p>
+  <h1 class="title">Estimate epidemiological parameters and reconstruct transmission dynamics with serosv</h1>
 
 <div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+<a href="https://drthinhong.com">Thinh Ong</a> <a href="https://orcid.org/0000-0001-6772-9291" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+</div>
+</div>
 </div>
 
 </section>
-<section id="education" class="slide level2">
-<h2>Education</h2>
-<div class="columns">
-<div class="column" style="width:20%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/oxford.png"></p>
-</figure>
-</div>
-</div><div class="column" style="width:80%;">
-<p>2022-2026</p>
-<p>Doctor of Philosophy in Clinical Medicine</p>
-<p>University of Oxford, United Kingdom</p>
-</div><div class="column" style="width:20%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/ump.jpg"></p>
-</figure>
-</div>
-</div><div class="column" style="width:80%;">
-<p>2012-2018</p>
-<p>Doctor of Medicine in Preventive Medicine</p>
-<p>University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam</p>
-</div>
-</div>
+<section id="notes" class="slide level2">
+<h2>Notes</h2>
+<p>All methods are applied assume that we have a representative cross-sectional serosurvey</p>
 </section>
-<section id="awards-and-honours" class="slide level2">
-<h2>Awards and honours</h2>
-<div class="columns">
-<div class="column" style="width:20%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/oxford.png"></p>
-</figure>
-</div>
-</div><div class="column" style="width:80%;">
-<p>Full DPhil studentship</p>
-</div><div class="column" style="width:20%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/ump.jpg"></p>
-</figure>
-</div>
-</div><div class="column" style="width:80%;">
-<p>Valedictorian, the only graduation with distinction grade in the fixed-curriculum system (prior to 2022)</p>
-<p>The highest GPA in the history of the school</p>
-<p>The highest score in dissertation</p>
-</div>
-</div>
+<section>
+<section id="binary-serostatus-data" class="title-slide slide level1 center">
+<h1>Binary serostatus data</h1>
+
 </section>
-<section id="research" class="slide level2 smaller">
-<h2>Research</h2>
-<table>
-<colgroup>
-<col style="width: 25%">
-<col style="width: 75%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Experience</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Mathematical modelling</td>
-<td>Dr.&nbsp;Marc Choisy <br> <img data-src="img/oucru.jpg" height="90"></td>
-</tr>
-<tr class="even">
-<td>Bioinformatics</td>
-<td>Prof.&nbsp;Susan Clark, Dr.&nbsp;Phuc-Loi Luu <br><img data-src="img/garvan.png" height="90"></td>
-</tr>
-<tr class="odd">
-<td>Biostatistics</td>
-<td>Clinical trials, public health institutions <br> <img data-src="img/tudu.png" height="90"> <img data-src="img/huph.png" height="90"> <img data-src="img/bvdhyd.png" height="90"> <img data-src="img/nhitw.svg" height="90"></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="achievements" class="slide level2">
-<h2>Achievements</h2>
+<section id="cumulative-incidence-attack-rate" class="slide level2">
+<h2>1. Cumulative incidence = attack rate</h2>
+<p><span class="math display">\[\text{Cumulative incidence} = \frac{\text{seropositive}}{\text{sample size}}\]</span></p>
+<p>Adjust for test performance (sensitivity, specificity):</p>
 <ul>
-<li><p>14 research articles (international journals)</p></li>
-<li><p>4 international conferences</p></li>
-<li><p>4 software</p></li>
-<li><p>1 book chapter</p></li>
+<li>Rogan-Gladen estimator <span class="citation" data-cites="rogan1978">(<a href="#/infection-fatality-ratio-ifr" role="doc-biblioref" onclick="">ROGAN and GLADEN 1978</a>)</span></li>
+<li>Binomial model <span class="citation" data-cites="larremore2021">(<a href="#/infection-fatality-ratio-ifr" role="doc-biblioref" onclick="">Larremore et al. 2021</a>)</span></li>
 </ul>
+</section>
+<section id="ascertainment-rate" class="slide level2">
+<h2>2. Ascertainment rate</h2>
+<p>The proportion of infections which are captured within surveillance systems.</p>
+<p><span class="math display">\[\text{Ascertainment rate} = \frac{\text{cumulative incidence estimated from routine surveillance (syndromic cases)}}{\text{cumulative incidence estimated from serological data}}\]</span></p>
+</section>
+<section id="infection-fatality-ratio-ifr" class="slide level2 smaller scrollable">
+<h2>3. Infection-fatality ratio (IFR)</h2>
+<p><span class="math display">\[\text{IFR} = \frac{\text{cumulative number of deaths}}{\text{cumulative incidence estimated from serological data}}\]</span></p>
+<p><span class="math display">\[S(a) = e^{-\lambda a}\]</span></p>
+<p><span class="math display">\[\frac{dS}{da} = -\lambda e^{-\lambda a} = -\lambda S(a)\]</span></p>
+<p>Proportion of seropositive <span class="math inline">\(\pi(a)\)</span>:</p>
+<p><span class="math display">\[\pi(a) = 1 - S(a) = 1 - e^{-\lambda a}\]</span></p>
 
 
 <img src="../../logo.svg" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
-</section>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-larremore2021" class="csl-entry" role="listitem">
+Larremore, Daniel B, Bailey K Fosdick, Kate M Bubar, Sam Zhang, Stephen M Kissler, C Jessica E Metcalf, Caroline O Buckee, and Yonatan H Grad. 2021. <span>“Estimating SARS-CoV-2 Seroprevalence and Epidemiological Parameters with Uncertainty from Serological Surveys.”</span> Edited by Miles P Davenport, Isabel Rodriguez-Barraquer, Andrew Azman, and Sereina Herzog. <em>eLife</em> 10 (March): e64206. <a href="https://doi.org/10.7554/eLife.64206">https://doi.org/10.7554/eLife.64206</a>.
+</div>
+<div id="ref-rogan1978" class="csl-entry" role="listitem">
+ROGAN, WALTER J., and BETH GLADEN. 1978. <span>“ESTIMATING PREVALENCE FROM THE RESULTS OF a SCREENING TEST.”</span> <em>American Journal of Epidemiology</em> 107 (1): 71–76. <a href="https://doi.org/10.1093/oxfordjournals.aje.a112510">https://doi.org/10.1093/oxfordjournals.aje.a112510</a>.
+</div>
+</div>
+</section></section>
     </div>
   </div>
 

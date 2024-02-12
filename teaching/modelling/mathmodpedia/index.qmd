@@ -15,7 +15,7 @@ execute:
   eval: false
 ---
 
-[{{< fa link >}} Book homepage](https://oucru-modelling.github.io/mathmodpedia/){.btn role="button"}
+[{{< fa link >}} Book homepage](https://oucru-modelling.github.io/mathmodpedia/){.btn .btn-outline-secondary role="button"}
 
 :::{.credit}
 Preview image by [Freepik - Flaticon](https://www.flaticon.com/free-icon/mammoth_2206701?term=mammoth&page=1&position=9&origin=tag&related_id=2206701)
