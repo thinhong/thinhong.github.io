@@ -17,11 +17,11 @@ about:
 comments: false
 ---
 
-Hello! I'm **Thinh** - feel free to pronounce it as ***"think"***. I'm a medical doctor pursuing my DPhil degree in Mathematical Modelling at the University of Oxford.
+Hello! I'm **Thinh** - feel free to pronounce it as ***/think/***. I'm a medical doctor pursuing my DPhil degree in Mathematical Modelling at the University of Oxford.
 
-I've documented everything I've learned throughout my career on this website. Here you can find:
+*Docendo discimus*, the best way to learn is to teach. I've documented everything I've learned throughout my career on this website. Here you can find:
 
-* Practical guides for **leadership**, **management**, **R programming**, and **data science** (on my [**blog**](/blog.html))
+* Practical guides for **leadership**, **R programming**, and **data science** (on my [**blog**](/blog.html))
   
 * My teaching materials on **mathematical modelling** methods for **infectious diseases** and **R programming** (on my [**teaching**](/teaching.html))
 

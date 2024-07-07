@@ -1,0 +1,17 @@
+---
+title: "Infectious disease modelling for babies"
+description: "Learn the basics of infectious disease modeling through step-by-step lessons. Perfect for curious minds of all ages."
+date: 2024-05-02
+author:
+  - name: Thinh Ong
+    url: https://drthinhong.com
+    orcid: 0000-0001-6772-9291
+image: preview.png
+draft: false
+execute:
+  eval: false
+---
+
+[{{< fa link >}} Course homepage](https://drthinhong.com/idm4b/){.btn .btn-outline-secondary role="button"}
+
+**Venue:** Ho Chi Minh city's Centre for Diseases Control.
