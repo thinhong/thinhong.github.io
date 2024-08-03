@@ -1,0 +1,12 @@
+---
+title: "R package for babies"
+description: "A fun, beginner-friendly course covers every step, ensuring your package is CRAN-ready. Perfect for all ages."
+date: 2024-07-07
+author:
+  - name: Thinh Ong
+    url: https://drthinhong.com
+    orcid: 0000-0001-6772-9291
+image: preview.png
+draft: false
+lightbox: auto
+---

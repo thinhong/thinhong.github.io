@@ -1,6 +1,6 @@
 ---
 title: "Infectious disease modelling for babies"
-description: "Learn the basics of infectious disease modeling through step-by-step lessons. Perfect for curious minds of all ages."
+description: "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages."
 date: 2024-05-02
 author:
   - name: Thinh Ong
