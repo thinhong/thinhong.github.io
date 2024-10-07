@@ -8,8 +8,6 @@ author:
     orcid: 0000-0001-6772-9291
 image: preview.png
 draft: false
-filters:
-  - lightbox
 lightbox: auto
 ---
 
