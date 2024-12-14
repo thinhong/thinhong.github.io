@@ -15,7 +15,7 @@ gen_software_table <- function(cv_sheet) {
       out <- paste0(out, tmp$summary[i], "<br>")
       
       # Bold "Ong T" in authors
-      author_text <- gsub("Ong T", "<strong>Ong T</strong>", tmp$author[i], fixed = TRUE)
+      author_text <- gsub("T Ong", "<strong>T Ong</strong>", tmp$author[i], fixed = TRUE)
       out <- paste0(out, "<em>Authors: ", author_text, "</em><br>")
       
       # Language badges
@@ -28,28 +28,31 @@ gen_software_table <- function(cv_sheet) {
           ifelse(tmp$lang1[i] == "bash", "bg-info", "bg-secondary")
         )
       )
-      lang2_badge <- ifelse(
-        tmp$lang2[i] == "R",
-        "bg-primary",
-        ifelse(
-          tmp$lang2[i] == "C++",
-          "bg-warning",
-          ifelse(tmp$lang2[i] == "bash", "bg-info", "bg-secondary")
-        )
-      )
-      
       out <- paste0(out,
                     "<span class='badge ",
                     lang1_badge,
                     "'>",
                     tmp$lang1[i],
                     "</span> ")
-      out <- paste0(out,
-                    "<span class='badge ",
-                    lang2_badge,
-                    "'>",
-                    tmp$lang2[i],
-                    "</span>")
+      
+      if (!is.na(tmp$lang2[i])) {
+        lang2_badge <- ifelse(
+          tmp$lang2[i] == "R",
+          "bg-primary",
+          ifelse(
+            tmp$lang2[i] == "C++",
+            "bg-warning",
+            ifelse(tmp$lang2[i] == "bash", "bg-info", "bg-secondary")
+          )
+        )
+        out <- paste0(out,
+                      "<span class='badge ",
+                      lang2_badge,
+                      "'>",
+                      tmp$lang2[i],
+                      "</span> ")
+      }
+      
       out <- paste0(out, "</td>")
       
       # Logo column with hyperlink

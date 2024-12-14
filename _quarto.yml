@@ -14,13 +14,13 @@ website:
       - text: Research
         href: https://scholar.google.com/citations?user=PkfvVs0AAAAJ
       - text: Talks
-        href: talks.qmd
+        href: talks/index.qmd
       - text: Teaching
-        href: teaching.qmd
+        href: teaching/index.qmd
       - text: Software
         href: software/index.qmd
       - text: Blog
-        href: blog.qmd
+        href: blog/index.qmd
     right:
       - icon: twitter
         href: https://twitter.com/iamthinhong/
@@ -32,7 +32,6 @@ website:
 format:
   html:
     theme: [cosmo, theme.scss]
-    toc: true
 
 comments:
   giscus:

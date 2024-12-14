@@ -1,7 +1,0 @@
----
-title: "Talks"
-listing: 
-  contents: "talks/*/index.qmd"
-  type: grid
-  sort: "date desc"
----

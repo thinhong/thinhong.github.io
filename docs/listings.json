@@ -1,6 +1,6 @@
 [
   {
-    "listing": "/teaching.html",
+    "listing": "/teaching/index.html",
     "items": [
       "/teaching/modelling/idm4b/index.html",
       "/teaching/modelling/idm-intro/index.html",
@@ -9,15 +9,15 @@
     ]
   },
   {
-    "listing": "/blog.html",
+    "listing": "/talks/index.html",
     "items": [
-      "/blog/2023-08-26-chair-a-meeting/index.html"
+      "/talks/is-this-a-good-journal/index.html"
     ]
   },
   {
-    "listing": "/talks.html",
+    "listing": "/blog/index.html",
     "items": [
-      "/talks/is-this-a-good-journal/index.html"
+      "/blog/2023-08-26-chair-a-meeting/index.html"
     ]
   }
 ]

@@ -3,6 +3,10 @@ title: "10 simple tips to chair a meeting"
 description: "A survival kit when you are thrust into the chairing role"
 date: 2023-08-26
 categories: [leadership]
+author:
+  - name: Thinh Ong
+    url: https://thinhong.github.io
+    orcid: 0000-0001-6772-9291
 citation: 
   url: https://drthinhong.com/blog/2023-08-26-chair-a-meeting/
 draft: false

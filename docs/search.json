@@ -1,45 +1,45 @@
 [
   {
-    "objectID": "teaching.html",
-    "href": "teaching.html",
+    "objectID": "teaching/r-programming/rpkg4b/index.html",
+    "href": "teaching/r-programming/rpkg4b/index.html",
+    "title": "R package for babies",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "teaching/modelling/idm4b/index.html",
+    "href": "teaching/modelling/idm4b/index.html",
+    "title": "Infectious disease modelling for babies",
+    "section": "",
+    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "teaching/index.html",
+    "href": "teaching/index.html",
     "title": "Teaching",
     "section": "",
     "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "teaching.html#modelling",
-    "href": "teaching.html#modelling",
+    "objectID": "teaching/index.html#modelling",
+    "href": "teaching/index.html#modelling",
     "title": "Teaching",
     "section": "",
     "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "teaching.html#r-programming",
-    "href": "teaching.html#r-programming",
+    "objectID": "teaching/index.html#r-programming",
+    "href": "teaching/index.html#r-programming",
     "title": "Teaching",
     "section": "R programming",
     "text": "R programming\n\n\n\n\n\n\n\n\n\n\nR for babies\n\n\nBasic R programming for data science\n\n\n\n\n\n\n\n\n\n\n\n\n\nR package for babies\n\n\nA fun, beginner-friendly course covers every step, ensuring your package is CRAN-ready. Perfect for all ages.\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "teaching/r-programming/r4babies/index.html",
-    "href": "teaching/r-programming/r4babies/index.html",
-    "title": "R for babies",
+    "objectID": "talks/index.html",
+    "href": "talks/index.html",
+    "title": "Talks",
     "section": "",
-    "text": "Course homepage\nThis course has been taught for staff members of Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreview image by Freepik\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "teaching/modelling/idm-intro/index.html",
-    "href": "teaching/modelling/idm-intro/index.html",
-    "title": "Introduction to infectious disease modelling",
-    "section": "",
-    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\nPreview image by svstudioart on Freepik\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/index.html",
-    "href": "talks/is-this-a-good-journal/index.html",
-    "title": "Is this a good journal?",
-    "section": "",
-    "text": "Presentation\n\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\nPreview image by Freepik\n\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {Is This a Good Journal?},\n  date = {2023-09-25},\n  url = {https://drthinhong.com/talks/is-this-a-good-journal},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “Is This a Good Journal?” September 25,\n2023. https://drthinhong.com/talks/is-this-a-good-journal."
+    "text": "Is this a good journal?\n\n\nLearn how to identify trustworthy scientific journals and avoid predatory ones\n\n\n\nThinh Ong\n\n\nSep 25, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "slides/about/index.html#education",
@@ -70,8 +70,8 @@
     "text": "Achievements\n\n14 research articles (international journals)\n4 international conferences\n4 software\n1 book chapter"
   },
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
     "title": "Blog",
     "section": "",
     "text": "10 simple tips to chair a meeting\n\n\n\nleadership\n\n\n\nA survival kit when you are thrust into the chairing role\n\n\n\nThinh Ong\n\n\nAug 26, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
@@ -445,27 +445,27 @@
     "href": "software/index.html",
     "title": "Software",
     "section": "",
-    "text": "Infectious Disease Modelling\n\n\n\n\n\n\n\n\n\ndenim\nConstruct and simulate deterministic discrete-time compartmental models with customisable dwell time distributions\nAuthors: Ong T, Phan TQA, Ha ML, Choisy M\nR C++\n\n\n\nserosv\nAnalyse serological data and estimate infectious diseases parameters\nAuthors: Phan TQA, Pham NTN, Bui TL, Huynh NT, Choisy M, Ong T\nR NA\n\n\n\n\n\n\nBiostatistics\n\n\n\n\n\n\n\n\n\nhss\nEstimate sample size for health study designs\nAuthors: Khuong QL, Ong T, Hoang VM\nR NA\n\n\n\n\n\n\nBioinformatics\n\n\n\n\n\n\n\n\n\nLifted\nEnhance genome conversion robustness during reference assembly updates\nAuthors: Luu PL, Ong T, Dinh TP, Clark SJ\nR bash\n\n\n\nMethPanel\nAnalyse multiplex bisulphite PCR sequencing to assess DNA methylation biomarker panels for disease detection\nAuthors: Luu PL, Ong T, Loc TT, Lam D, Pidsley R, Stirzaker C, Clark SJ\nR bash\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "Infectious Disease Modelling\n\n\n\n\n\n\n\n\n\ndenim\nConstruct and simulate deterministic discrete-time compartmental models with customisable dwell time distributions\nAuthors: T Ong, TQA Phan, ML Ha, M Choisy\nR C++\n\n\n\nserosv\nAnalyse serological data and estimate infectious diseases parameters\nAuthors: TQA Phan, NTN Pham, TL Bui, NT Huynh, M Choisy, T Ong\nR\n\n\n\n\n\n\nBiostatistics\n\n\n\n\n\n\n\n\n\nhss\nEstimate sample size for health study designs\nAuthors: QL Khuong, T Ong, VM Hoang\nR\n\n\n\n\n\n\nBioinformatics\n\n\n\n\n\n\n\n\n\nLifted\nEnhance genome conversion robustness during reference assembly updates\nAuthors: PL Luu, T Ong, TP Dinh, SJ Clark\nR bash\n\n\n\nMethPanel\nAnalyse multiplex bisulphite PCR sequencing to assess DNA methylation biomarker panels for disease detection\nAuthors: PL Luu, T Ong, TT Loc, D Lam, R Pidsley, C Stirzaker, SJ Clark\nR bash\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "talks.html",
-    "href": "talks.html",
-    "title": "Talks",
+    "objectID": "talks/is-this-a-good-journal/index.html",
+    "href": "talks/is-this-a-good-journal/index.html",
+    "title": "Is this a good journal?",
     "section": "",
-    "text": "Is this a good journal?\n\n\nLearn how to identify trustworthy scientific journals and avoid predatory ones\n\n\n\nThinh Ong\n\n\nSep 25, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Presentation\n\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\nPreview image by Freepik\n\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {Is This a Good Journal?},\n  date = {2023-09-25},\n  url = {https://drthinhong.com/talks/is-this-a-good-journal},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “Is This a Good Journal?” September 25,\n2023. https://drthinhong.com/talks/is-this-a-good-journal."
   },
   {
-    "objectID": "teaching/modelling/idm4b/index.html",
-    "href": "teaching/modelling/idm4b/index.html",
-    "title": "Infectious disease modelling for babies",
+    "objectID": "teaching/modelling/idm-intro/index.html",
+    "href": "teaching/modelling/idm-intro/index.html",
+    "title": "Introduction to infectious disease modelling",
     "section": "",
-    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n Back to top"
+    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\nPreview image by svstudioart on Freepik\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "teaching/r-programming/rpkg4b/index.html",
-    "href": "teaching/r-programming/rpkg4b/index.html",
-    "title": "R package for babies",
+    "objectID": "teaching/r-programming/r4babies/index.html",
+    "href": "teaching/r-programming/r4babies/index.html",
+    "title": "R for babies",
     "section": "",
-    "text": "Back to top"
+    "text": "Course homepage\nThis course has been taught for staff members of Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreview image by Freepik\n\n\n\n\n Back to top"
   }
 ]

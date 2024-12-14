@@ -2,6 +2,10 @@
 title: "Is this a good journal?"
 description: "Learn how to identify trustworthy scientific journals and avoid predatory ones"
 date: 2023-09-25
+author:
+  - name: Thinh Ong
+    url: https://thinhong.github.io
+    orcid: 0000-0001-6772-9291
 citation:
   url: https://drthinhong.com/talks/is-this-a-good-journal
 image: preview.svg

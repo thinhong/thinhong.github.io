@@ -1,0 +1,6 @@
+---
+title: "Talks"
+listing:
+  type: grid
+  sort: "date desc"
+---

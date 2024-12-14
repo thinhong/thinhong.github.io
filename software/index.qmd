@@ -1,8 +1,5 @@
 ---
 title: "Software"
-format:
-  html:
-    toc: true
 execute:
   echo: false
   warning: false
