@@ -8,15 +8,21 @@ gen_software_table <- function(cv_sheet) {
     for (i in 1:nrow(tmp)) {
       out <- paste0(out, "\n  <tr>")
       # Name and Summary column
-      out <- paste0(out,
-                    "<td class='w-75'><strong>",
-                    tmp$name[i],
-                    "</strong><br>")
+      out <- paste0(
+        out,
+        "<td class='w-75'>",
+        "<a class='link-dark' href='",
+        tmp$url_github[i],
+        "' target='_blank'>",
+        "<strong>",
+        tmp$name[i],
+        "</strong></a><br>"
+      )
       out <- paste0(out, tmp$summary[i], "<br>")
       
       # Bold "T Ong" in authors
       author_text <- gsub("T Ong", "<strong>T Ong</strong>", tmp$author[i], fixed = TRUE)
-      out <- paste0(out, "<em>Authors: ", author_text, "</em><br>")
+      out <- paste0(out, "<small>Authors: ", author_text, "</small><br>")
       
       # Language badges
       lang1_badge <- ifelse(
@@ -63,7 +69,16 @@ gen_software_table <- function(cv_sheet) {
           out,
           "<a href='",
           tmp$url_paper[i],
-          "' target='_blank'><span class='badge rounded-pill bg-light border border-2 border-dark text-dark' style='float:right;'>Paper</span></a>"
+          "' target='_blank'><span class='badge rounded-pill bg-light border border-2 border-dark text-dark mx-1' style='float:right;'>Paper</span></a>"
+        )
+      }
+      # Add CRAN badge if url_cran exists
+      if (!is.na(tmp$url_cran[i])) {
+        out <- paste0(
+          out,
+          "<a href='",
+          tmp$url_cran[i],
+          "' target='_blank'><span class='badge rounded-pill bg-light border border-2 border-success text-success' style='float:right;'>CRAN</span></a>"
         )
       }
       

@@ -1,0 +1,43 @@
+---
+title: "Thinh Ong"
+format:
+  pdf:
+    papersize: a4
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+library(googlesheets4)
+library(dplyr)
+library(tidyr)
+
+source("../code/gen_html.R")
+
+gs4_auth("ongphucthinh@gmail.com")
+
+# cv_software <- read_sheet(ss = "https://docs.google.com/spreadsheets/d/1ecqMkclPn-lhzgGHw2UTueiKkjTxuoAvJjpFKs3Jtm4/edit?usp=sharing", sheet = "software")
+
+cv_grants <- read_sheet(ss = "https://docs.google.com/spreadsheets/d/1ecqMkclPn-lhzgGHw2UTueiKkjTxuoAvJjpFKs3Jtm4/edit?usp=sharing", sheet = "grants")
+
+# Process the data for better formatting
+cv_grants <- cv_grants |> 
+  mutate(
+    currency_symbol = case_when(
+      currency == "dollars" ~ "$",
+      currency == "pounds" ~ "\u00A3"
+    ),
+    budget_total_formatted = paste0(currency_symbol, " ", format(budget_total, big.mark = ",")),
+    budget_my_formatted = paste0(currency_symbol, " ", format(budget_my, big.mark = ","))
+  )
+
+total_grants <- sum(cv_grants$budget_total, na.rm = T)
+my_grants <- sum(cv_grants$budget_my, na.rm = T)
+```
+
+```{r}
+cv_grants
+```
+
