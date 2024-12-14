@@ -63,7 +63,7 @@ gen_software_table <- function(cv_sheet) {
           out,
           "<a href='",
           tmp$url_paper[i],
-          "' target='_blank'><span class='badge rounded-pill bg-secondary' style='float:right;'>Paper</span></a>"
+          "' target='_blank'><span class='badge rounded-pill bg-light border border-2 border-dark text-dark' style='float:right;'>Paper</span></a>"
         )
       }
       
