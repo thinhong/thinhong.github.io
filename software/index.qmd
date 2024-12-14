@@ -1,0 +1,27 @@
+---
+title: "Software"
+format:
+  html:
+    toc: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+library(googlesheets4)
+source("../code/gen_html.R")
+
+gs4_auth("ongphucthinh@gmail.com")
+cv_sheet <- read_sheet(ss = "https://docs.google.com/spreadsheets/d/1ecqMkclPn-lhzgGHw2UTueiKkjTxuoAvJjpFKs3Jtm4/edit?usp=sharing", sheet = "software")
+
+cv_sheet$logo <- paste0("../img/software/", cv_sheet$logo)
+```
+
+```{=html}
+```{r}
+#| output: asis
+gen_software_table(cv_sheet)
+```
+```

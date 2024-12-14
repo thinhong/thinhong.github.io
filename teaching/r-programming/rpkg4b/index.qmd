@@ -6,7 +6,7 @@ author:
   - name: Thinh Ong
     url: https://drthinhong.com
     orcid: 0000-0001-6772-9291
-image: preview.png
+image: preview.svg
 draft: false
 lightbox: auto
 ---

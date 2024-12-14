@@ -18,7 +18,7 @@ website:
       - text: Teaching
         href: teaching.qmd
       - text: Software
-        href: https://github.com/thinhong
+        href: software/index.qmd
       - text: Blog
         href: blog.qmd
     right:
