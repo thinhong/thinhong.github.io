@@ -1,5 +1,8 @@
 ---
 title: "Software"
+format:
+  html:
+    toc: true
 execute:
   echo: false
   warning: false
@@ -16,9 +19,8 @@ cv_sheet <- read_sheet(ss = "https://docs.google.com/spreadsheets/d/1ecqMkclPn-l
 cv_sheet$logo <- paste0("../img/software/", cv_sheet$logo)
 ```
 
-```{=html}
+
 ```{r}
 #| output: asis
 gen_software_table(cv_sheet)
-```
 ```

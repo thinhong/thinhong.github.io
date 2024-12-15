@@ -445,7 +445,7 @@
     "href": "software/index.html",
     "title": "Software",
     "section": "",
-    "text": "Infectious Disease Modelling\n\n\n\n\n\n\n\n\n\ndenim\nConstruct and simulate deterministic discrete-time compartmental models with customisable dwell time distributions\nAuthors: T Ong, TQA Phan, ML Ha, M Choisy\nR C++ CRAN\n\n\n\nserosv\nAnalyse serological data and estimate infectious diseases parameters\nAuthors: TQA Phan, NTN Pham, TL Bui, NT Huynh, M Choisy, T Ong\nR\n\n\n\n\n\n\nBiostatistics\n\n\n\n\n\n\n\n\n\nhss\nEstimate sample size for health study designs\nAuthors: QL Khuong, T Ong, VM Hoang\nR\n\n\n\n\n\n\nBioinformatics\n\n\n\n\n\n\n\n\n\nLifted\nEnhance genome conversion robustness during reference assembly updates\nAuthors: PL Luu, T Ong, TP Dinh, SJ Clark\nR bash Paper\n\n\n\nMethPanel\nAnalyse multiplex bisulphite PCR sequencing to assess DNA methylation biomarker panels for disease detection\nAuthors: PL Luu, T Ong, TTH Loc, D Lam, R Pidsley, C Stirzaker, SJ Clark\nR bash Paper\n\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "Infectious Disease Modelling\n\n\n\ndenimConstruct and simulate deterministic discrete-time compartmental models with customisable dwell time distributionsAuthors: T Ong, TQA Phan, ML Ha, M ChoisyR C++ CRAN\n\n\n\n\n\n\n\nserosvAnalyse serological data and estimate infectious diseases parametersAuthors: TQA Phan, NTN Pham, TL Bui, NT Huynh, M Choisy, T OngR\n\n\n\n\n\n\n\n\nBiostatistics\n\n\n\nhssEstimate sample size for health study designsAuthors: QL Khuong, T Ong, VM HoangR\n\n\n\n\n\n\n\n\nBioinformatics\n\n\n\nLiftedEnhance genome conversion robustness during reference assembly updatesAuthors: PL Luu, T Ong, TP Dinh, SJ ClarkR bash Paper\n\n\n\n\n\n\n\nMethPanelAnalyse multiplex bisulphite PCR sequencing to assess DNA methylation biomarker panels for disease detectionAuthors: PL Luu, T Ong, TTH Loc, D Lam, R Pidsley, C Stirzaker, SJ ClarkR bash Paper\n\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "talks/is-this-a-good-journal/index.html",
@@ -467,5 +467,26 @@
     "title": "R for babies",
     "section": "",
     "text": "Course homepage\nThis course has been taught for staff members of Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreview image by Freepik\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "software/index.html#infectious-disease-modelling",
+    "href": "software/index.html#infectious-disease-modelling",
+    "title": "Software",
+    "section": "",
+    "text": "denimConstruct and simulate deterministic discrete-time compartmental models with customisable dwell time distributionsAuthors: T Ong, TQA Phan, ML Ha, M ChoisyR C++ CRAN\n\n\n\n\n\n\n\nserosvAnalyse serological data and estimate infectious diseases parametersAuthors: TQA Phan, NTN Pham, TL Bui, NT Huynh, M Choisy, T OngR"
+  },
+  {
+    "objectID": "software/index.html#biostatistics",
+    "href": "software/index.html#biostatistics",
+    "title": "Software",
+    "section": "Biostatistics",
+    "text": "Biostatistics\n\n\n\nhssEstimate sample size for health study designsAuthors: QL Khuong, T Ong, VM HoangR"
+  },
+  {
+    "objectID": "software/index.html#bioinformatics",
+    "href": "software/index.html#bioinformatics",
+    "title": "Software",
+    "section": "Bioinformatics",
+    "text": "Bioinformatics\n\n\n\nLiftedEnhance genome conversion robustness during reference assembly updatesAuthors: PL Luu, T Ong, TP Dinh, SJ ClarkR bash Paper\n\n\n\n\n\n\n\nMethPanelAnalyse multiplex bisulphite PCR sequencing to assess DNA methylation biomarker panels for disease detectionAuthors: PL Luu, T Ong, TTH Loc, D Lam, R Pidsley, C Stirzaker, SJ ClarkR bash Paper"
   }
 ]

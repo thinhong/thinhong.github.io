@@ -2,7 +2,7 @@ gen_software_table <- function(cv_sheet) {
   z <- cv_sheet
   out <- ""
   for (category in unique(z$category)) {
-    out <- paste0(out, "<h3>", category, "</h3>\n\n")
+    out <- paste0(out, "### ", category, "\n\n")
     tmp <- z[z$category == category, ]
     out <- paste0(out, "<table class='table'>")
     for (i in 1:nrow(tmp)) {
@@ -16,9 +16,20 @@ gen_software_table <- function(cv_sheet) {
         "' target='_blank'>",
         "<strong>",
         tmp$name[i],
-        "</strong></a><br>"
+        "</strong></a>"
       )
-      out <- paste0(out, tmp$summary[i], "<br>")
+      # Codecov badge
+      if (!is.na(tmp$url_codecov[i])) {
+        out <- paste0(
+          out,
+          "<a style='float:right;' href='",
+          tmp$url_codecov[i],
+          "' target='_blank'><img src='",
+          tmp$token_codecov[i],
+          "'/></a>"
+        )
+      }
+      out <- paste0(out, "<br>", tmp$summary[i], "<br>")
       
       # Bold "T Ong" in authors
       author_text <- gsub("T Ong", "<strong>T Ong</strong>", tmp$author[i], fixed = TRUE)
