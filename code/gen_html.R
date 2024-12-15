@@ -103,7 +103,7 @@ gen_software_table <- function(cv_sheet) {
       out <- paste0(out,
                     "<img src='",
                     tmp$logo[i],
-                    "' alt='Logo' style='height:120px;'></a></td>")
+                    "' alt='Logo' style='max-width:120px; width:100%; height:auto;'></a></td>")
       
       out <- paste0(out, "</tr>")
     }
