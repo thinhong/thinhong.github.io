@@ -12,6 +12,7 @@ format:
       - right=15mm
       - bottom=20mm
       - heightrounded
+    linestretch: 0.95
     fontfamily: libertine
     fontsize: 12pt
     include-in-header: cv-header.tex
@@ -24,6 +25,8 @@ draft: true
 ---
 
 ```{r}
+# https://github.com/jhelvy/cv
+# https://github.com/acbass49/CV_Quarto/
 library(dplyr)
 library(tidyr)
 library(lubridate)
@@ -33,15 +36,23 @@ source("../code/cv.R")
 cv_url <- "https://docs.google.com/spreadsheets/d/1ecqMkclPn-lhzgGHw2UTueiKkjTxuoAvJjpFKs3Jtm4/edit?usp=sharing"
 ```
 
-## Education and qualifications
+
+\begin{large}{\bf Education}
+  \vspace{3pt}
+  \hrule
+\end{large}
 
 ```{r}
+#| data-quarto-disable-processing: true
 cv_edu_raw <- read_sheet(ss = cv_url, sheet = "edu")
 cv_edu_raw |>
   make_table(colwidths = c(12, 6, 82))
 ```
 
-## Employment history
+\begin{large}{\bf Employment history}
+  \vspace{1pt}
+  \hrule
+\end{large}
 
 ```{r}
 cv_employ_raw <- read_sheet(ss = cv_url, sheet = "employ")
@@ -51,7 +62,10 @@ cv_employ_raw |>
   make_table(colwidths = c(12, 88))
 ```
 
-## Awards
+\begin{large}{\bf Awards}
+  \vspace{3pt}
+  \hrule
+\end{large}
 
 ```{r}
 cv_awards_raw <- read_sheet(ss = cv_url, sheet = "awards")
@@ -61,7 +75,10 @@ cv_awards_raw |>
   make_table(colwidths = c(12, 88))
 ```
 
-## Grants
+\begin{large}{\bf Grants}
+  \vspace{3pt}
+  \hrule
+\end{large}
 
 ```{r}
 cv_grants_raw <- read_sheet(ss = cv_url, sheet = "grants")
@@ -77,7 +94,7 @@ cv_grants <- cv_grants_raw |>
     budget_my_formatted = paste0(currency_symbol, format(budget_my, big.mark = ",")),
     budget_total_usd_formatted = paste0("$", format(budget_total_usd, big.mark = ",", trim = T)),
     budget_my_usd_formatted = paste0("$", format(budget_my_usd, big.mark = ",", trim = T)),
-    title = paste0(title, ". Funding from ", sponsor, ".")
+    title = paste0(title, ". ", make_italic(paste0("Funding from ", sponsor)), ".")
   )
 
 # The earliest year I've ever received funding
@@ -96,10 +113,13 @@ I have successfully secured `r total_grants_text` in research grants since `r mi
 cv_grants |>
   arrange(my_role, desc(outcome)) |>
   select(period, my_role, title, budget_total_usd_formatted) |>
-  make_table(colwidths = c(12, 6, 70, 12))
+  make_table(colwidths = c(12, 6, 70, 12), italic = T)
 ```
 
-## Software
+\begin{large}{\bf Software}
+  \vspace{3pt}
+  \hrule
+\end{large}
 
 ```{r}
 cv_software_raw <- read_sheet(ss = cv_url, sheet = "software")
