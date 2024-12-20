@@ -3,14 +3,15 @@ title: "Teaching"
 listing: 
   - id: modelling
     contents: modelling
-    type: grid
     fields: [image, title, description]
     sort: "date desc"
   - id: r-programming
     contents: r-programming
-    type: grid
     fields: [image, title, description]
     sort: "date"
+format: 
+  html:
+    toc: true
 ---
 
 ## Modelling

@@ -225,6 +225,9 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 <div class="center-text">
 <p><a href="..\slides/about" class="btn btn-outline-secondary" role="button"><i class="fa-solid fa-link" aria-label="link"></i> Presentation</a></p>
 </div>
+<div class="center-text">
+<p><a href="cv.pdf" class="btn btn-outline-secondary" role="button"><i class="fa-solid fa-link" aria-label="link"></i> CV</a></p>
+</div>
 <section id="education" class="level2">
 <h2 class="anchored" data-anchor-id="education">Education</h2>
 <ul>
@@ -261,32 +264,32 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="adventures">Adventures</h2>
 <p>I’m a regular guy from a developing country. Going abroad used to be a dream. My research has given me the chance to visit different countries, connect with collaborators, attend international conferences and workshops. This map notes all my visits.</p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="83" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 82;"><span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(data)</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>visited <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(data2)</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>bertin <span class="op">=</span> <span class="pp">require</span>(<span class="st">"bertin@1.2.4"</span>)</span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>bertin<span class="op">.</span><span class="fu">draw</span>({</span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>  <span class="dt">params</span><span class="op">:</span> { <span class="dt">projection</span><span class="op">:</span> <span class="st">"Eckert3"</span> }<span class="op">,</span></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>  <span class="dt">layers</span><span class="op">:</span> [</span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>    {</span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>      <span class="dt">type</span><span class="op">:</span> <span class="st">"layer"</span><span class="op">,</span></span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>      <span class="dt">geojson</span><span class="op">:</span> visited<span class="op">,</span></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>      <span class="dt">tooltip</span><span class="op">:</span> [<span class="st">"$NAMEen"</span><span class="op">,</span> <span class="st">"$visit1"</span><span class="op">,</span> <span class="st">"$visit2"</span><span class="op">,</span> <span class="st">"$visit3"</span>]<span class="op">,</span></span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>      <span class="dt">fill</span><span class="op">:</span> {</span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>        <span class="dt">type</span><span class="op">:</span> <span class="st">"typo"</span><span class="op">,</span></span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>        <span class="dt">values</span><span class="op">:</span> <span class="st">"visit1"</span></span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>    {</span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>      <span class="dt">type</span><span class="op">:</span> <span class="st">"layer"</span><span class="op">,</span></span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>      <span class="dt">geojson</span><span class="op">:</span> countries<span class="op">,</span></span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>      <span class="dt">fill</span><span class="op">:</span> <span class="st">"white"</span><span class="op">,</span></span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>      <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.5</span></span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">type</span><span class="op">:</span> <span class="st">"graticule"</span> }<span class="op">,</span></span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">type</span><span class="op">:</span> <span class="st">"outline"</span> }</span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="87" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 86;"><span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(data)</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>visited <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(data2)</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>bertin <span class="op">=</span> <span class="pp">require</span>(<span class="st">"bertin@1.2.4"</span>)</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>bertin<span class="op">.</span><span class="fu">draw</span>({</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>  <span class="dt">params</span><span class="op">:</span> { <span class="dt">projection</span><span class="op">:</span> <span class="st">"Eckert3"</span> }<span class="op">,</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>  <span class="dt">layers</span><span class="op">:</span> [</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>      <span class="dt">type</span><span class="op">:</span> <span class="st">"layer"</span><span class="op">,</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>      <span class="dt">geojson</span><span class="op">:</span> visited<span class="op">,</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>      <span class="dt">tooltip</span><span class="op">:</span> [<span class="st">"$NAMEen"</span><span class="op">,</span> <span class="st">"$visit1"</span><span class="op">,</span> <span class="st">"$visit2"</span><span class="op">,</span> <span class="st">"$visit3"</span>]<span class="op">,</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>      <span class="dt">fill</span><span class="op">:</span> {</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>        <span class="dt">type</span><span class="op">:</span> <span class="st">"typo"</span><span class="op">,</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>        <span class="dt">values</span><span class="op">:</span> <span class="st">"visit1"</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>      <span class="dt">type</span><span class="op">:</span> <span class="st">"layer"</span><span class="op">,</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>      <span class="dt">geojson</span><span class="op">:</span> countries<span class="op">,</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>      <span class="dt">fill</span><span class="op">:</span> <span class="st">"white"</span><span class="op">,</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>      <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.5</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">type</span><span class="op">:</span> <span class="st">"graticule"</span> }<span class="op">,</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">type</span><span class="op">:</span> <span class="st">"outline"</span> }</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">

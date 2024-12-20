@@ -1,0 +1,158 @@
+---
+title: "Academic writing"
+format: html
+bibliography: references.bib
+draft: true
+---
+
+## Academic publication process
+
+![A typical publication process [@luo2021]](peer-review.svg)
+
+### Submission
+
+The manuscript is submitted by the corresponding author and typically includes:
+
+-   Manuscript (of course)
+-   Cover letter
+-   Seperate files for figures and/or tables
+-   Reporting checklist (STROBE, CONSORT, PRISMA...)
+
+### Preliminary editorial screening
+
+An editor reviews the title, abstract and cover letter to assess the paper. If the manuscript passes this stage, it proceeds to peer review.
+
+**What is the editor looking for?**
+
+-   Fit with the journal’s scope and standards.
+-   Potential impact, including likelihood of being cited.
+
+In marketing, there’s a "7-second rule" for making a first impression: consumers will decide whether they want to buy goods within 7 seconds [@zhuoma2020]. I would say the editors are often just as quick: they're busy and must make fast decisions. Your title, abstract, and cover letter should hook them immediately.
+
+### Peer review
+
+The editor will typically invite 3 reviewers. Reviewers evaluate your manuscript and submit reports back to the editor with recommendations:
+
+-   Acceptance without changes: rare
+-   Acceptance with revisions: minor or major
+-   Rejection
+
+**What are reviewers looking for?**
+
+-   Clarity: Is it well-structured and understandable?
+-   Originality: Is the research novel and valuable?
+-   Methodology: Are methods robust, reproducible, and clear?
+-   Validity: Do results support the conclusions?
+-   Impact: Does this work advance knowledge in the field?
+
+### Editorial decision
+
+The editor considers reviewers' reports and decides:
+
+-   Acceptance without changes: rare.
+-   Conditional acceptance with revisions:
+    -   Minor revisions: authors revise, editor verifies changes.
+    -   Major revisions: authors submit a revised manuscript and detailed responses to reviewers, another round of peer review is likely to occur.
+
+## What makes a manuscript?
+
+### Read and analyse a paper
+
+Paper: Long-term waning of vaccine-induced immunity to measles in England: a mathematical modelling study [@robert2024].
+
+Answer the questions:
+
+-   What are the authors trying to prove?
+-   What are the key outputs of the study?
+-   How did they conduct the study?
+-   Where did you find the information to answer the above questions?
+
+Reflect as a group on the following:
+
+-   Which section was most helpful in understanding the paper?
+-   Which section did you struggle with, and why?
+
+## Manuscript structure
+
+1.  Introduction: context, the gap in knowledge, and study objectives
+2.  Methods: how experiments were done
+3.  Results: key outputs in figures and tables
+4.  Discussion: interpretation of findings, limitations, and broader implications
+
+## Writing strategies
+
+### What sections should you write first?
+
+The order of writing is often different from the order of presentation in the manuscript. Following a logical workflow can streamline the process and improve the coherence of your manuscript.
+
+### My strategy
+
+1.  Study objectives:
+
+-   Start here to clarify the central goals of your research. This will guide the entire manuscript. Focus on clear, compelling wording that immediately make people understand what are you doing.
+
+2.  Figures and/or tables:
+
+-   The first thing you should do is **NOT WRITING**. First, create one to four publication-quality plots or tables and show them to someone you trust. Make sure they truly "get" your story before you move on [@leek2016].
+-   Write up a story around the plots in the simplest language you feel you can get away with.
+-   This is how you build up a **story**: think of them as a step-by-step narrative framework that guides readers through your study's logic:
+    -   Each figure or table should illustrate a key point
+    -   Write concise, informative captions that highlight their meaning
+
+3.  Results:
+
+-   Summarise the findings shown in your figures and tables in words, ensuring a consistent and logical progression from one key insight to the next.
+
+4.  Methods:
+
+-   Basically what have been done to produce results. By this stage, you know exactly what methods need to be highlighted to support your results.
+
+5.  Discussion:
+
+-   Interpret your findings in the context of existing research.
+-   Limitations and suggest implications or future directions.
+
+6.  Introduction:
+
+-   Set the context, highlight the research gap, and end with your objectives.
+
+7.  Abstract
+8.  Title
+
+## Drafting
+
+### A typical workflow
+
+-   Turn on "Do not disturb".
+-   Note down everything appears in your mind, not in complete sentences.
+-   Don't care about grammar, punctuation, references.
+
+After you have a mess of words, start sticking them together and trim off the sentence.
+
+### Verbosity
+
+Wordy: Integrating advanced digital health technologies into standard clinical practices offers significant opportunities to enhance patient outcomes, improve healthcare efficiency, and ensure the delivery of high-quality, timely medical care. (26 words)
+
+Revised: 14 words.
+
+Wordy: Ensuring that all children are appropriately vaccinated according to national immunization schedules is a critical public health strategy for preventing outbreaks of vaccine-preventable diseases and safeguarding community health.
+
+Revised: Monitoring the vaccination status of children ensures timely immunization vaccine-preventable diseases prevention.
+
+Wordy: The rapid and widespread dissemination of misinformation during public health emergencies, such as pandemics, poses a significant challenge to health authorities by undermining trust, increasing vaccine hesitancy, and complicating response efforts. (29 words)
+
+Wordy: Regularly conducting targeted training sessions for healthcare workers focused on the latest developments in infectious disease prevention and control enhances their ability to respond effectively to emerging health threats. (26 words)
+
+Wordy: Providing easily accessible and affordable mental health support for frontline healthcare workers is crucial to ensuring their psychological well-being, reducing burnout, and maintaining high levels of performance during crises. (28 words)
+
+Wordy: Engaging communities through participatory approaches fosters trust, strengthens partnerships, and improves the acceptability and effectiveness of public health interventions aimed at addressing local health challenges. (25 words)
+
+Original: Early detection of infectious diseases through robust surveillance systems is essential for implementing timely interventions and preventing widespread outbreaks that could strain healthcare systems. (25 words)
+
+**How to avoid being overly verbose**
+
+1.Delete words that mean little/nothing 2.Beware of repetition 3.Delete words implied by other words 4.Change negatives to affirmations 5.Delete useless adjectives and adverbs 6.Beware of “burying the verb” 7.Remember the power of the active voice
+
+## Let start writing!
+
+### Study objectives

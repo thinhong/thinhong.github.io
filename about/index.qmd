@@ -10,6 +10,10 @@ execute:
 [{{< fa link >}} Presentation](/slides/about){.btn .btn-outline-secondary role="button"}
 :::
 
+::: {.center-text}
+[{{< fa link >}} CV](cv.pdf){.btn .btn-outline-secondary role="button"}
+:::
+
 ## Education
 
 - Doctor of Philosophy in Clinical Medicine, University of Oxford, United Kingdom (Graduation expected 2026)

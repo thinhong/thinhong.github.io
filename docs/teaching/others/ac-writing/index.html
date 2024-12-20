@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Thinh Ong">
-<meta name="dcterms.date" content="2023-08-18">
-<meta name="description" content="Basic R programming for data science">
 
-<title>R for babies</title>
+<title>Academic writing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -43,11 +60,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
-<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -84,6 +96,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 </script>
+<meta name="quarto:status" content="draft">
 
 
 </head>
@@ -91,7 +104,7 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -163,31 +176,14 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">R for babies</h1>
+<h1 class="title">Academic writing</h1>
 </div>
 
-<div>
-  <div class="description">
-    Basic R programming for data science
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p><a href="https://drthinhong.com">Thinh Ong</a> <a href="https://orcid.org/0000-0001-6772-9291" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">August 18, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -197,28 +193,199 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 </header>
 
 
-<p><a href="https://drthinhong.com/r4babies/" class="btn btn-outline-secondary" role="button"><i class="fa-solid fa-link" aria-label="link"></i> Course homepage</a></p>
-<p>This course has been taught for staff members of Ho Chi Minh city’s Centre for Diseases Control.</p>
-<div>
+<section id="academic-publication-process" class="level2">
+<h2 class="anchored" data-anchor-id="academic-publication-process">Academic publication process</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="peer-review.svg" class="img-fluid figure-img"></p>
+<figcaption>A typical publication process <span class="citation" data-cites="luo2021">(<a href="#ref-luo2021" role="doc-biblioref">Luo and McGregor 2021</a>)</span></figcaption>
+</figure>
+</div>
+<section id="submission" class="level3">
+<h3 class="anchored" data-anchor-id="submission">Submission</h3>
+<p>The manuscript is submitted by the corresponding author and typically includes:</p>
+<ul>
+<li>Manuscript (of course)</li>
+<li>Cover letter</li>
+<li>Seperate files for figures and/or tables</li>
+<li>Reporting checklist (STROBE, CONSORT, PRISMA…)</li>
+</ul>
+</section>
+<section id="preliminary-editorial-screening" class="level3">
+<h3 class="anchored" data-anchor-id="preliminary-editorial-screening">Preliminary editorial screening</h3>
+<p>An editor reviews the title, abstract and cover letter to assess the paper. If the manuscript passes this stage, it proceeds to peer review.</p>
+<p><strong>What is the editor looking for?</strong></p>
+<ul>
+<li>Fit with the journal’s scope and standards.</li>
+<li>Potential impact, including likelihood of being cited.</li>
+</ul>
+<p>In marketing, there’s a “7-second rule” for making a first impression: consumers will decide whether they want to buy goods within 7 seconds <span class="citation" data-cites="zhuoma2020">(<a href="#ref-zhuoma2020" role="doc-biblioref">Zhuoma, Kasamatsu, and Ainoya 2020</a>)</span>. I would say the editors are often just as quick: they’re busy and must make fast decisions. Your title, abstract, and cover letter should hook them immediately.</p>
+</section>
+<section id="peer-review" class="level3">
+<h3 class="anchored" data-anchor-id="peer-review">Peer review</h3>
+<p>The editor will typically invite 3 reviewers. Reviewers evaluate your manuscript and submit reports back to the editor with recommendations:</p>
+<ul>
+<li>Acceptance without changes: rare</li>
+<li>Acceptance with revisions: minor or major</li>
+<li>Rejection</li>
+</ul>
+<p><strong>What are reviewers looking for?</strong></p>
+<ul>
+<li>Clarity: Is it well-structured and understandable?</li>
+<li>Originality: Is the research novel and valuable?</li>
+<li>Methodology: Are methods robust, reproducible, and clear?</li>
+<li>Validity: Do results support the conclusions?</li>
+<li>Impact: Does this work advance knowledge in the field?</li>
+</ul>
+</section>
+<section id="editorial-decision" class="level3">
+<h3 class="anchored" data-anchor-id="editorial-decision">Editorial decision</h3>
+<p>The editor considers reviewers’ reports and decides:</p>
+<ul>
+<li>Acceptance without changes: rare.</li>
+<li>Conditional acceptance with revisions:
+<ul>
+<li>Minor revisions: authors revise, editor verifies changes.</li>
+<li>Major revisions: authors submit a revised manuscript and detailed responses to reviewers, another round of peer review is likely to occur.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="what-makes-a-manuscript" class="level2">
+<h2 class="anchored" data-anchor-id="what-makes-a-manuscript">What makes a manuscript?</h2>
+<section id="read-and-analyse-a-paper" class="level3">
+<h3 class="anchored" data-anchor-id="read-and-analyse-a-paper">Read and analyse a paper</h3>
+<p>Paper: Long-term waning of vaccine-induced immunity to measles in England: a mathematical modelling study <span class="citation" data-cites="robert2024">(<a href="#ref-robert2024" role="doc-biblioref">Robert, Suffel, and Kucharski 2024</a>)</span>.</p>
+<p>Answer the questions:</p>
+<ul>
+<li>What are the authors trying to prove?</li>
+<li>What are the key outputs of the study?</li>
+<li>How did they conduct the study?</li>
+<li>Where did you find the information to answer the above questions?</li>
+</ul>
+<p>Reflect as a group on the following:</p>
+<ul>
+<li>Which section was most helpful in understanding the paper?</li>
+<li>Which section did you struggle with, and why?</li>
+</ul>
+</section>
+</section>
+<section id="manuscript-structure" class="level2">
+<h2 class="anchored" data-anchor-id="manuscript-structure">Manuscript structure</h2>
+<ol type="1">
+<li>Introduction: context, the gap in knowledge, and study objectives</li>
+<li>Methods: how experiments were done</li>
+<li>Results: key outputs in figures and tables</li>
+<li>Discussion: interpretation of findings, limitations, and broader implications</li>
+</ol>
+</section>
+<section id="writing-strategies" class="level2">
+<h2 class="anchored" data-anchor-id="writing-strategies">Writing strategies</h2>
+<section id="what-sections-should-you-write-first" class="level3">
+<h3 class="anchored" data-anchor-id="what-sections-should-you-write-first">What sections should you write first?</h3>
+<p>The order of writing is often different from the order of presentation in the manuscript. Following a logical workflow can streamline the process and improve the coherence of your manuscript.</p>
+</section>
+<section id="my-strategy" class="level3">
+<h3 class="anchored" data-anchor-id="my-strategy">My strategy</h3>
+<ol type="1">
+<li>Study objectives:</li>
+</ol>
+<ul>
+<li>Start here to clarify the central goals of your research. This will guide the entire manuscript. Focus on clear, compelling wording that immediately make people understand what are you doing.</li>
+</ul>
+<ol start="2" type="1">
+<li>Figures and/or tables:</li>
+</ol>
+<ul>
+<li>The first thing you should do is <strong>NOT WRITING</strong>. First, create one to four publication-quality plots or tables and show them to someone you trust. Make sure they truly “get” your story before you move on <span class="citation" data-cites="leek2016">(<a href="#ref-leek2016" role="doc-biblioref">Leek 2016</a>)</span>.</li>
+<li>Write up a story around the plots in the simplest language you feel you can get away with.</li>
+<li>This is how you build up a <strong>story</strong>: think of them as a step-by-step narrative framework that guides readers through your study’s logic:
+<ul>
+<li>Each figure or table should illustrate a key point</li>
+<li>Write concise, informative captions that highlight their meaning</li>
+</ul></li>
+</ul>
+<ol start="3" type="1">
+<li>Results:</li>
+</ol>
+<ul>
+<li>Summarise the findings shown in your figures and tables in words, ensuring a consistent and logical progression from one key insight to the next.</li>
+</ul>
+<ol start="4" type="1">
+<li>Methods:</li>
+</ol>
+<ul>
+<li>Basically what have been done to produce results. By this stage, you know exactly what methods need to be highlighted to support your results.</li>
+</ul>
+<ol start="5" type="1">
+<li>Discussion:</li>
+</ol>
+<ul>
+<li>Interpret your findings in the context of existing research.</li>
+<li>Limitations and suggest implications or future directions.</li>
+</ul>
+<ol start="6" type="1">
+<li>Introduction:</li>
+</ol>
+<ul>
+<li>Set the context, highlight the research gap, and end with your objectives.</li>
+</ul>
+<ol start="7" type="1">
+<li>Abstract</li>
+<li>Title</li>
+</ol>
+</section>
+</section>
+<section id="drafting" class="level2">
+<h2 class="anchored" data-anchor-id="drafting">Drafting</h2>
+<section id="a-typical-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="a-typical-workflow">A typical workflow</h3>
+<ul>
+<li>Turn on “Do not disturb”.</li>
+<li>Note down everything appears in your mind, not in complete sentences.</li>
+<li>Don’t care about grammar, punctuation, references.</li>
+</ul>
+<p>After you have a mess of words, start sticking them together and trim off the sentence.</p>
+</section>
+<section id="verbosity" class="level3">
+<h3 class="anchored" data-anchor-id="verbosity">Verbosity</h3>
+<p>Wordy: Integrating advanced digital health technologies into standard clinical practices offers significant opportunities to enhance patient outcomes, improve healthcare efficiency, and ensure the delivery of high-quality, timely medical care. (26 words)</p>
+<p>Revised: 14 words.</p>
+<p>Wordy: Ensuring that all children are appropriately vaccinated according to national immunization schedules is a critical public health strategy for preventing outbreaks of vaccine-preventable diseases and safeguarding community health.</p>
+<p>Revised: Monitoring the vaccination status of children ensures timely immunization vaccine-preventable diseases prevention.</p>
+<p>Wordy: The rapid and widespread dissemination of misinformation during public health emergencies, such as pandemics, poses a significant challenge to health authorities by undermining trust, increasing vaccine hesitancy, and complicating response efforts. (29 words)</p>
+<p>Wordy: Regularly conducting targeted training sessions for healthcare workers focused on the latest developments in infectious disease prevention and control enhances their ability to respond effectively to emerging health threats. (26 words)</p>
+<p>Wordy: Providing easily accessible and affordable mental health support for frontline healthcare workers is crucial to ensuring their psychological well-being, reducing burnout, and maintaining high levels of performance during crises. (28 words)</p>
+<p>Wordy: Engaging communities through participatory approaches fosters trust, strengthens partnerships, and improves the acceptability and effectiveness of public health interventions aimed at addressing local health challenges. (25 words)</p>
+<p>Original: Early detection of infectious diseases through robust surveillance systems is essential for implementing timely interventions and preventing widespread outbreaks that could strain healthcare systems. (25 words)</p>
+<p><strong>How to avoid being overly verbose</strong></p>
+<p>1.Delete words that mean little/nothing 2.Beware of repetition 3.Delete words implied by other words 4.Change negatives to affirmations 5.Delete useless adjectives and adverbs 6.Beware of “burying the verb” 7.Remember the power of the active voice</p>
+</section>
+</section>
+<section id="let-start-writing" class="level2">
+<h2 class="anchored" data-anchor-id="let-start-writing">Let start writing!</h2>
+<section id="study-objectives" class="level3">
 
-</div>
-<div class="quarto-layout-panel" data-layout="[1, 1]">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="img/hcdc1.jpg" class="lightbox" data-gallery="my-gallery"><img src="img/hcdc1.jpg" class="img-fluid"></a></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="img/hcdc2.jpg" class="lightbox" data-gallery="my-gallery"><img src="img/hcdc2.jpg" class="img-fluid"></a></p>
-</div>
-</div>
-</div>
-<div class="credit">
-<p>Preview image by <a href="https://www.freepik.com/free-vector/flat-design-stages-baby-boy_14410275.htm">Freepik</a></p>
-</div>
 
 
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Study objectives</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-leek2016" class="csl-entry" role="listitem">
+Leek, Jeffrey. 2016. <em>How to Be a Modern Scientist</em>. Leanpub.
+</div>
+<div id="ref-luo2021" class="csl-entry" role="listitem">
+Luo, Anin, and Shauni McGregor. 2021. <span>“Peer Review: The Nuts and Bolts.”</span> <a href="https://senseaboutscience.org/activities/peer-review-the-nuts-and-bolts-2/">https://senseaboutscience.org/activities/peer-review-the-nuts-and-bolts-2/</a>.
+</div>
+<div id="ref-robert2024" class="csl-entry" role="listitem">
+Robert, Alexis, Anne M Suffel, and Adam J Kucharski. 2024. <span>“Long-Term Waning of Vaccine-Induced Immunity to Measles in England: A Mathematical Modelling Study.”</span> <em>The Lancet Public Health</em> 9 (10): e766–75. <a href="https://doi.org/10.1016/S2468-2667(24)00181-6">https://doi.org/10.1016/S2468-2667(24)00181-6</a>.
+</div>
+<div id="ref-zhuoma2020" class="csl-entry" role="listitem">
+Zhuoma, Cairen, Keiko Kasamatsu, and Takeo Ainoya. 2020. <span>“User Experience Analysis for Visual Expression Aiming at Creating Experience Value According to Time Spans.”</span> In, edited by Constantine Stephanidis, Masaaki Kurosu, Helmut Degen, and Lauren Reinerman-Jones, 363–73. Cham: Springer International Publishing. <a href="https://doi.org/10.1007/978-3-030-60117-1_27">https://doi.org/10.1007/978-3-030-60117-1_27</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -644,38 +811,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-base-theme" value="light">
 <input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","loop":false});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

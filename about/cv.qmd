@@ -1,43 +1,119 @@
 ---
-title: "Thinh Ong"
 format:
   pdf:
+    documentclass: article
+    latex_engine: xelatex
+    toc: false
+    number-sections: false
     papersize: a4
+    geometry:
+      - top=14mm
+      - left=15mm
+      - right=15mm
+      - bottom=20mm
+      - heightrounded
+    fontfamily: libertine
+    fontsize: 12pt
+    include-in-header: cv-header.tex
+    include-before-body: cv-info.tex
 execute:
   echo: false
   warning: false
   message: false
+draft: true
 ---
 
 ```{r}
-library(googlesheets4)
 library(dplyr)
 library(tidyr)
+library(lubridate)
+library(pander)
+source("../code/cv.R")
 
-source("../code/gen_html.R")
+cv_url <- "https://docs.google.com/spreadsheets/d/1ecqMkclPn-lhzgGHw2UTueiKkjTxuoAvJjpFKs3Jtm4/edit?usp=sharing"
+```
 
-gs4_auth("ongphucthinh@gmail.com")
+## Education and qualifications
 
-# cv_software <- read_sheet(ss = "https://docs.google.com/spreadsheets/d/1ecqMkclPn-lhzgGHw2UTueiKkjTxuoAvJjpFKs3Jtm4/edit?usp=sharing", sheet = "software")
+```{r}
+cv_edu_raw <- read_sheet(ss = cv_url, sheet = "edu")
+cv_edu_raw |>
+  make_table(colwidths = c(12, 6, 82))
+```
 
-cv_grants <- read_sheet(ss = "https://docs.google.com/spreadsheets/d/1ecqMkclPn-lhzgGHw2UTueiKkjTxuoAvJjpFKs3Jtm4/edit?usp=sharing", sheet = "grants")
+## Employment history
 
-# Process the data for better formatting
-cv_grants <- cv_grants |> 
-  mutate(
-    currency_symbol = case_when(
-      currency == "dollars" ~ "$",
-      currency == "pounds" ~ "\u00A3"
-    ),
-    budget_total_formatted = paste0(currency_symbol, " ", format(budget_total, big.mark = ",")),
-    budget_my_formatted = paste0(currency_symbol, " ", format(budget_my, big.mark = ","))
-  )
+```{r}
+cv_employ_raw <- read_sheet(ss = cv_url, sheet = "employ")
+cv_employ_raw |>
+  mutate(job = paste0(job, ", ", aff)) |> 
+  select(date, job) |> 
+  make_table(colwidths = c(12, 88))
+```
 
-total_grants <- sum(cv_grants$budget_total, na.rm = T)
-my_grants <- sum(cv_grants$budget_my, na.rm = T)
+## Awards
+
+```{r}
+cv_awards_raw <- read_sheet(ss = cv_url, sheet = "awards")
+cv_awards_raw |>
+  arrange(desc(year)) |> 
+  select(date, description) |> 
+  make_table(colwidths = c(12, 88))
+```
+
+## Grants
+
+```{r}
+cv_grants_raw <- read_sheet(ss = cv_url, sheet = "grants")
 ```
 
 ```{r}
-cv_grants
+cv_grants <- cv_grants_raw |>
+  mutate(
+    outcome_year = year(outcome),
+    my_role = factor(my_role, levels = c("PI", "Co-PI", "Co-I")),
+    currency_symbol = case_when(currency == "dollars" ~ "$", currency == "pounds" ~ "\u00A3"),
+    budget_total_formatted = paste0(currency_symbol, format(budget_total, big.mark = ",")),
+    budget_my_formatted = paste0(currency_symbol, format(budget_my, big.mark = ",")),
+    budget_total_usd_formatted = paste0("$", format(budget_total_usd, big.mark = ",", trim = T)),
+    budget_my_usd_formatted = paste0("$", format(budget_my_usd, big.mark = ",", trim = T)),
+    title = paste0(title, ". Funding from ", sponsor, ".")
+  )
+
+# The earliest year I've ever received funding
+min_outcome_year <- min(cv_grants$outcome_year)
+
+# Compute total grants received
+total_grants <- sum(cv_grants$budget_total_usd)
+
+total_grants_text <- paste0("$", format(total_grants, big.mark = ","))
 ```
+
+I have successfully secured `r total_grants_text` in research grants since `r min_outcome_year`. Further details are provided below.
+
+```{r}
+#| data-quarto-disable-processing: true
+cv_grants |>
+  arrange(my_role, desc(outcome)) |>
+  select(period, my_role, title, budget_total_usd_formatted) |>
+  make_table(colwidths = c(12, 6, 70, 12))
+```
+
+## Software
+
+```{r}
+cv_software_raw <- read_sheet(ss = cv_url, sheet = "software")
+```
+
+```{r}
+#| results: asis
+cv_software <- cv_software_raw |> 
+  arrange(desc(year)) |> 
+  mutate(
+    software_text = paste0(author, " (", year, "). *", name, ": ", summary, "*. [", url_github, "](", url_github, ").")
+  )
+
+pandoc.list(cv_software$software_text, style = "ordered")
+```
+
 

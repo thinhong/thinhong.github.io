@@ -11,7 +11,7 @@ execute:
 
 ```{r}
 library(googlesheets4)
-source("../code/gen_html.R")
+source("../code/software.R")
 
 gs4_auth("ongphucthinh@gmail.com")
 cv_sheet <- read_sheet(ss = "https://docs.google.com/spreadsheets/d/1ecqMkclPn-lhzgGHw2UTueiKkjTxuoAvJjpFKs3Jtm4/edit?usp=sharing", sheet = "software")
