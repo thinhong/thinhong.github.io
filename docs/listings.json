@@ -1,11 +1,8 @@
 [
   {
-    "listing": "/teaching/index.html",
+    "listing": "/blog/index.html",
     "items": [
-      "/teaching/modelling/idm4b/index.html",
-      "/teaching/modelling/idm-intro/index.html",
-      "/teaching/r-programming/r4babies/index.html",
-      "/teaching/r-programming/rpkg4b/index.html"
+      "/blog/2023-08-26-chair-a-meeting/index.html"
     ]
   },
   {
@@ -15,9 +12,12 @@
     ]
   },
   {
-    "listing": "/blog/index.html",
+    "listing": "/teaching/index.html",
     "items": [
-      "/blog/2023-08-26-chair-a-meeting/index.html"
+      "/teaching/modelling/idm4b/index.html",
+      "/teaching/modelling/idm-intro/index.html",
+      "/teaching/r-programming/r4babies/index.html",
+      "/teaching/r-programming/rpkg4b/index.html"
     ]
   }
 ]

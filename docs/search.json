@@ -7,74 +7,249 @@
     "text": "Back to top"
   },
   {
-    "objectID": "teaching/modelling/idm4b/index.html",
-    "href": "teaching/modelling/idm4b/index.html",
-    "title": "Infectious disease modelling for babies",
+    "objectID": "teaching/modelling/idm-intro/index.html",
+    "href": "teaching/modelling/idm-intro/index.html",
+    "title": "Introduction to infectious disease modelling",
     "section": "",
-    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n Back to top"
+    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\nPreview image by svstudioart on Freepik\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "teaching/index.html",
-    "href": "teaching/index.html",
-    "title": "Teaching",
+    "objectID": "talks/is-this-a-good-journal/index.html",
+    "href": "talks/is-this-a-good-journal/index.html",
+    "title": "Is this a good journal?",
     "section": "",
-    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Presentation\n\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\nPreview image by Freepik\n\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {Is This a Good Journal?},\n  date = {2023-09-25},\n  url = {https://drthinhong.com/talks/is-this-a-good-journal},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “Is This a Good Journal?” September 25,\n2023. https://drthinhong.com/talks/is-this-a-good-journal."
   },
   {
-    "objectID": "teaching/index.html#modelling",
-    "href": "teaching/index.html#modelling",
-    "title": "Teaching",
+    "objectID": "software/index.html",
+    "href": "software/index.html",
+    "title": "Software",
     "section": "",
-    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Infectious Disease Modelling\n\n\n\ndenimConstruct and simulate deterministic discrete-time compartmental models with customisable dwell time distributionsAuthors: T Ong, TQA Phan, ML Ha, M ChoisyR C++ CRAN\n\n\n\n\n\n\n\nserosvAnalyse serological data and estimate infectious diseases parametersAuthors: TQA Phan, NTN Pham, TL Bui, NT Huynh, M Choisy, T OngR\n\n\n\n\n\n\n\n\nBiostatistics\n\n\n\nhssEstimate sample size for health study designsAuthors: QL Khuong, T Ong, VM HoangR\n\n\n\n\n\n\n\n\nBioinformatics\n\n\n\nLiftedEnhance genome conversion robustness during reference assembly updatesAuthors: PL Luu, T Ong, TP Dinh, SJ ClarkR bash Paper\n\n\n\n\n\n\n\nMethPanelAnalyse multiplex bisulphite PCR sequencing to assess DNA methylation biomarker panels for disease detectionAuthors: PL Luu, T Ong, TTH Loc, D Lam, R Pidsley, C Stirzaker, SJ ClarkR bash Paper\n\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "teaching/index.html#r-programming",
-    "href": "teaching/index.html#r-programming",
-    "title": "Teaching",
-    "section": "R programming",
-    "text": "R programming\n\n\n\n\n\n\n\n\n\n\nR for babies\n\n\n\n\n\nBasic R programming for data science\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR package for babies\n\n\n\n\n\nA fun, beginner-friendly course covers every step, ensuring your package is CRAN-ready. Perfect for all ages.\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "objectID": "slides/is-this-a-good-journal/index.html#bài-tập",
+    "href": "slides/is-this-a-good-journal/index.html#bài-tập",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Bài tập1",
+    "text": "Bài tập1\n\n“The International Journal of Public Healths Systems”\nThành lập cách đây 3 tháng, công bố impact factor = 1.5\nThời gian trung bình từ lúc nộp đến publish là 2 tuần\nSố báo mới nhất có 10 bài, tất cả tác giả đến từ Trung Quốc\nPhí nộp bài vào hệ thống (submission) là $150\nĐịa chỉ email của tổng biên tập: professorliu@gmail.com\nHỏi thêm 1 câu?\n\nScientific Writing Workshop. Dr. Leigh Jones, Regional Academic Training Leader for OUCRU and MORU"
   },
   {
-    "objectID": "talks/index.html",
-    "href": "talks/index.html",
-    "title": "Talks",
-    "section": "",
-    "text": "Is this a good journal?\n\n\nLearn how to identify trustworthy scientific journals and avoid predatory ones\n\n\n\nThinh Ong\n\n\nSep 25, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "objectID": "slides/is-this-a-good-journal/index.html#bài-tập-1",
+    "href": "slides/is-this-a-good-journal/index.html#bài-tập-1",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Bài tập1",
+    "text": "Bài tập1\n\n“The International Journal of Public Healths Systems”\nThành lập cách đây 3 tháng, công bố impact factor = 1.5\nThời gian trung bình từ lúc nộp đến publish là 2 tuần\nSố báo mới nhất có 10 bài, tất cả tác giả đến từ Trung Quốc\nPhí nộp bài vào hệ thống (submission) là $150\nĐịa chỉ email của tổng biên tập: professorliu@gmail.com\nTạp chí này có nằm trong danh mục nào không?\n\nScientific Writing Workshop. Dr. Leigh Jones, Regional Academic Training Leader for OUCRU and MORU"
   },
   {
-    "objectID": "slides/about/index.html",
-    "href": "slides/about/index.html",
+    "objectID": "slides/is-this-a-good-journal/index.html#mục-tiêu",
+    "href": "slides/is-this-a-good-journal/index.html#mục-tiêu",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Mục tiêu",
+    "text": "Mục tiêu\n\nDanh mục ISI, Scopus\nImpact factor\nSCImago Journal Rank\nNhà xuất bản uy tín\nOpen access"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#indexing",
+    "href": "slides/is-this-a-good-journal/index.html#indexing",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Indexing",
+    "text": "Indexing\n\nHội đồng Giáo sư Nhà nước. Danh mục tạp chí khoa học được tính điểm năm 2023."
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#isi",
+    "href": "slides/is-this-a-good-journal/index.html#isi",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "ISI",
+    "text": "ISI\n\n\n\n\n\n\n\nInstitute for Scientific Information\nCơ sở dữ liệu tạp chí và chỉ số trích dẫn (impact factor)\nGồm 3 phân mục:\n\nScience Citation Index (SCI)\nSocial Sciences Citation Index (SSCI)\nArts and Humanities Citation Index (AHCI)\n\n\n\n\n\nDr. Eugene Garfield (1925 - 2017)"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#isi-1",
+    "href": "slides/is-this-a-good-journal/index.html#isi-1",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "ISI",
+    "text": "ISI"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#web-of-science",
+    "href": "slides/is-this-a-good-journal/index.html#web-of-science",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Web of Science",
+    "text": "Web of Science"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#web-of-science-1",
+    "href": "slides/is-this-a-good-journal/index.html#web-of-science-1",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Web of Science",
+    "text": "Web of Science\n\nGồm 4 phân mục:\n\nScience Citation Index Expanded (SCIE)\nSocial Sciences Citation Index (SSCI)\nArts & Humanities Citation Index (AHCI)\nEmerging Sources Citation Index (ESCI)"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#impact-factor",
+    "href": "slides/is-this-a-good-journal/index.html#impact-factor",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Impact Factor",
+    "text": "Impact Factor\n\\[IF = \\frac{\\text{Tổng số trích dẫn}}{\\text{Tổng số bài báo}}\\]\n\nTính trong 2 năm liên tiếp gần nhất (2-year Impact Factor) hoặc 5 năm liên tiếp gần nhất (5-year Impact Factor)\nDo ISI (hiện tại là Web of Science) thống kê và công bố\nTạp chí thuộc danh mục của Web of Science mới có IF"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#impact-factor-1",
+    "href": "slides/is-this-a-good-journal/index.html#impact-factor-1",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Impact Factor",
+    "text": "Impact Factor\n\nHội đồng Giáo sư Nhà nước. Danh mục tạp chí khoa học được tính điểm năm 2023."
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#scopus",
+    "href": "slides/is-this-a-good-journal/index.html#scopus",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Scopus",
+    "text": "Scopus\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCơ sở dữ liệu giống như ISI\nThuộc sở hữu của nhà xuất bản Elsevier"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#scopus-1",
+    "href": "slides/is-this-a-good-journal/index.html#scopus-1",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Scopus",
+    "text": "Scopus\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTiêu chuẩn vào Scopus dễ hơn ISI, nên thông thường các tạp chí phấn đấu vào Scopus trước, sau đó vào ISI"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#scopus-metrics",
+    "href": "slides/is-this-a-good-journal/index.html#scopus-metrics",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Scopus metrics",
+    "text": "Scopus metrics"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#scimago-journal-rank-sjr-1",
+    "href": "slides/is-this-a-good-journal/index.html#scimago-journal-rank-sjr-1",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "SCImago Journal Rank (SJR) (1)",
+    "text": "SCImago Journal Rank (SJR) (1)\n\nIF khác nhau giữa các chuyên ngành: tạp chí khoa học cơ bản thường IF rất cao (trung bình &gt;4-5), tạp chí lâm sàng, y tế công cộng thấp hơn (trung bình 2-3)\nXếp hạng IF trong cùng 1 chuyên ngành\nQ1, Q2 được xem là uy tín"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#scimago-journal-rank-sjr-2",
+    "href": "slides/is-this-a-good-journal/index.html#scimago-journal-rank-sjr-2",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "SCImago Journal Rank (SJR) (2)",
+    "text": "SCImago Journal Rank (SJR) (2)"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#scimago-journal-rank-sjr-3",
+    "href": "slides/is-this-a-good-journal/index.html#scimago-journal-rank-sjr-3",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "SCImago Journal Rank (SJR) (3)",
+    "text": "SCImago Journal Rank (SJR) (3)"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#scimago-journal-rank-sjr-4",
+    "href": "slides/is-this-a-good-journal/index.html#scimago-journal-rank-sjr-4",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "SCImago Journal Rank (SJR) (4)",
+    "text": "SCImago Journal Rank (SJR) (4)\n\nhttps://www.scimagojr.com/"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#bài-tập-2",
+    "href": "slides/is-this-a-good-journal/index.html#bài-tập-2",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Bài tập",
+    "text": "Bài tập\nTìm impact factor và journal rank của các tạp chí sau:\n\nThe Lancet Infectious Diseases\nPLoS Neglected Tropical Diseases\nBMC Infectious Diseases"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#nhà-xuất-bản-uy-tín",
+    "href": "slides/is-this-a-good-journal/index.html#nhà-xuất-bản-uy-tín",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Nhà xuất bản uy tín",
+    "text": "Nhà xuất bản uy tín"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#nhà-xuất-bản-uy-tín-1",
+    "href": "slides/is-this-a-good-journal/index.html#nhà-xuất-bản-uy-tín-1",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Nhà xuất bản uy tín",
+    "text": "Nhà xuất bản uy tín"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#nhà-xuất-bản-uy-tín-2",
+    "href": "slides/is-this-a-good-journal/index.html#nhà-xuất-bản-uy-tín-2",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Nhà xuất bản uy tín",
+    "text": "Nhà xuất bản uy tín"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#nhà-xuất-bản-uy-tín-3",
+    "href": "slides/is-this-a-good-journal/index.html#nhà-xuất-bản-uy-tín-3",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Nhà xuất bản uy tín",
+    "text": "Nhà xuất bản uy tín"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#mdpi",
+    "href": "slides/is-this-a-good-journal/index.html#mdpi",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "mdpi1",
+    "text": "mdpi1\n\nBrainard J. Fast-growing open-access journals lose impact factors. Science. 2023 Mar;379(6639):1283-4."
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#mdpi-1",
+    "href": "slides/is-this-a-good-journal/index.html#mdpi-1",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "mdpi1",
+    "text": "mdpi1\n\nBrainard J. Fast-growing open-access journals lose impact factors. Science. 2023 Mar;379(6639):1283-4."
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#bài-tập-3",
+    "href": "slides/is-this-a-good-journal/index.html#bài-tập-3",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Bài tập",
+    "text": "Bài tập\nTìm nhà xuất bản của các tạp chí sau\n\nPLoS Neglected Tropical Diseases\nBMC Infectious Diseases"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#open-access",
+    "href": "slides/is-this-a-good-journal/index.html#open-access",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Open access",
+    "text": "Open access"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#open-access-1",
+    "href": "slides/is-this-a-good-journal/index.html#open-access-1",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Open access",
+    "text": "Open access"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#open-access-2",
+    "href": "slides/is-this-a-good-journal/index.html#open-access-2",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Open access",
+    "text": "Open access\n\nCác nhà tài trợ khuyến khích công bố ở tạp chí open access\nPhí Article Processing Charge (APC) chỉ được thanh toán khi bài báo đã được chấp nhận đăng, không phải ở giai đoạn nộp bài (submission)"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#bài-tập-4",
+    "href": "slides/is-this-a-good-journal/index.html#bài-tập-4",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Bài tập",
+    "text": "Bài tập\n\n“NAR Genomics & Bioinformatics”\nThành lập cách đây 3 tháng, chưa có impact factor\nThời gian trung bình từ lúc nộp đến publish là 8 tuần\nSố báo mới nhất có 10 bài, tác giả đến từ nhiều quốc gia khác nhau\nKhông có phí nộp bài, phí open access là $2,634\nĐịa chỉ email của tổng biên tập: editor@crg.eu"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#bài-tập-5",
+    "href": "slides/is-this-a-good-journal/index.html#bài-tập-5",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Bài tập",
+    "text": "Bài tập\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTạp chí con của NAR (Nucleic Acids Research, IF = 14.9)\nThời điểm đó chưa có IF nhưng hiện tại IF = 4.6"
+  },
+  {
+    "objectID": "slides/is-this-a-good-journal/index.html#tóm-tắt",
+    "href": "slides/is-this-a-good-journal/index.html#tóm-tắt",
+    "title": "Nhận biết tạp chí khoa học uy tín",
+    "section": "Tóm tắt",
+    "text": "Tóm tắt\n\nDanh mục ISI, Scopus\nImpact factor\nSCImago Journal Rank\nNhà xuất bản uy tín\nOpen access"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
     "title": "Thinh Ong",
     "section": "",
-    "text": "2022-2026\nDoctor of Philosophy in Clinical Medicine\nUniversity of Oxford, United Kingdom\n\n\n\n\n\n\n\n2012-2018\nDoctor of Medicine in Preventive Medicine\nUniversity of Medicine and Pharmacy at Ho Chi Minh City, Vietnam"
-  },
-  {
-    "objectID": "slides/about/index.html#education",
-    "href": "slides/about/index.html#education",
-    "title": "Thinh Ong",
-    "section": "",
-    "text": "2022-2026\nDoctor of Philosophy in Clinical Medicine\nUniversity of Oxford, United Kingdom\n\n\n\n\n\n\n\n2012-2018\nDoctor of Medicine in Preventive Medicine\nUniversity of Medicine and Pharmacy at Ho Chi Minh City, Vietnam"
-  },
-  {
-    "objectID": "slides/about/index.html#awards-and-honours",
-    "href": "slides/about/index.html#awards-and-honours",
-    "title": "Thinh Ong",
-    "section": "Awards and honours",
-    "text": "Awards and honours\n\n\n\n\n\n\n\n\nFull DPhil studentship\n\n\n\n\n\n\n\nValedictorian, the only graduation with distinction grade in the fixed-curriculum system (prior to 2022)\nThe highest GPA in the history of the school\nThe highest score in dissertation"
-  },
-  {
-    "objectID": "slides/about/index.html#research",
-    "href": "slides/about/index.html#research",
-    "title": "Thinh Ong",
-    "section": "Research",
-    "text": "Research\n\n\n\n\n\n\n\nField\nExperience\n\n\n\n\nMathematical modelling\nDr. Marc Choisy  \n\n\nBioinformatics\nProf. Susan Clark, Dr. Phuc-Loi Luu \n\n\nBiostatistics\nClinical trials, public health institutions"
-  },
-  {
-    "objectID": "slides/about/index.html#achievements",
-    "href": "slides/about/index.html#achievements",
-    "title": "Thinh Ong",
-    "section": "Achievements",
-    "text": "Achievements\n\n14 research articles (international journals)\n4 international conferences\n4 software\n1 book chapter"
+    "text": "Hello! I’m Thinh - feel free to pronounce it as /think/. I’m a medical doctor pursuing my DPhil degree in Mathematical Modelling at the University of Oxford.\nDocendo discimus, the best way to learn is to teach. I’ve documented everything I’ve learned throughout my career on this website. Here you can find:\n\nPractical guides for leadership, R programming, and data science (on my blog)\nMy teaching materials on mathematical modelling methods for infectious diseases and R programming (on my teaching)\n\n\n(*) Special thanks to Đặng Nhật Vũ for the awesome profile photo!\n\n\n\n Back to top"
   },
   {
     "objectID": "about/index.html",
@@ -224,256 +399,67 @@
     "text": "10 simple tips to chair a meeting\n\n\n\nleadership\n\n\n\nA survival kit when you are thrust into the chairing role\n\n\n\nThinh Ong\n\n\nAug 26, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
-    "objectID": "slides/is-this-a-good-journal/index.html",
-    "href": "slides/is-this-a-good-journal/index.html",
-    "title": "Nhận biết tạp chí khoa học uy tín",
+    "objectID": "slides/about/index.html#education",
+    "href": "slides/about/index.html#education",
+    "title": "Thinh Ong",
+    "section": "Education",
+    "text": "Education\n\n\n\n\n\n\n\n\n2022-2026\nDoctor of Philosophy in Clinical Medicine\nUniversity of Oxford, United Kingdom\n\n\n\n\n\n\n\n2012-2018\nDoctor of Medicine in Preventive Medicine\nUniversity of Medicine and Pharmacy at Ho Chi Minh City, Vietnam"
+  },
+  {
+    "objectID": "slides/about/index.html#awards-and-honours",
+    "href": "slides/about/index.html#awards-and-honours",
+    "title": "Thinh Ong",
+    "section": "Awards and honours",
+    "text": "Awards and honours\n\n\n\n\n\n\n\n\nFull DPhil studentship\n\n\n\n\n\n\n\nValedictorian, the only graduation with distinction grade in the fixed-curriculum system (prior to 2022)\nThe highest GPA in the history of the school\nThe highest score in dissertation"
+  },
+  {
+    "objectID": "slides/about/index.html#research",
+    "href": "slides/about/index.html#research",
+    "title": "Thinh Ong",
+    "section": "Research",
+    "text": "Research\n\n\n\n\n\n\n\nField\nExperience\n\n\n\n\nMathematical modelling\nDr. Marc Choisy  \n\n\nBioinformatics\nProf. Susan Clark, Dr. Phuc-Loi Luu \n\n\nBiostatistics\nClinical trials, public health institutions"
+  },
+  {
+    "objectID": "slides/about/index.html#achievements",
+    "href": "slides/about/index.html#achievements",
+    "title": "Thinh Ong",
+    "section": "Achievements",
+    "text": "Achievements\n\n14 research articles (international journals)\n4 international conferences\n4 software\n1 book chapter"
+  },
+  {
+    "objectID": "talks/index.html",
+    "href": "talks/index.html",
+    "title": "Talks",
     "section": "",
-    "text": "“The International Journal of Public Healths Systems”\nThành lập cách đây 3 tháng, công bố impact factor = 1.5\nThời gian trung bình từ lúc nộp đến publish là 2 tuần\nSố báo mới nhất có 10 bài, tất cả tác giả đến từ Trung Quốc\nPhí nộp bài vào hệ thống (submission) là $150\nĐịa chỉ email của tổng biên tập: professorliu@gmail.com\nHỏi thêm 1 câu?"
+    "text": "Is this a good journal?\n\n\nLearn how to identify trustworthy scientific journals and avoid predatory ones\n\n\n\nThinh Ong\n\n\nSep 25, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
-    "objectID": "slides/is-this-a-good-journal/index.html#bài-tập",
-    "href": "slides/is-this-a-good-journal/index.html#bài-tập",
-    "title": "Nhận biết tạp chí khoa học uy tín",
+    "objectID": "teaching/index.html",
+    "href": "teaching/index.html",
+    "title": "Teaching",
     "section": "",
-    "text": "“The International Journal of Public Healths Systems”\nThành lập cách đây 3 tháng, công bố impact factor = 1.5\nThời gian trung bình từ lúc nộp đến publish là 2 tuần\nSố báo mới nhất có 10 bài, tất cả tác giả đến từ Trung Quốc\nPhí nộp bài vào hệ thống (submission) là $150\nĐịa chỉ email của tổng biên tập: professorliu@gmail.com\nHỏi thêm 1 câu?"
+    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "slides/is-this-a-good-journal/index.html#bài-tập-1",
-    "href": "slides/is-this-a-good-journal/index.html#bài-tập-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Bài tập2",
-    "text": "Bài tập2\n\n“The International Journal of Public Healths Systems”\nThành lập cách đây 3 tháng, công bố impact factor = 1.5\nThời gian trung bình từ lúc nộp đến publish là 2 tuần\nSố báo mới nhất có 10 bài, tất cả tác giả đến từ Trung Quốc\nPhí nộp bài vào hệ thống (submission) là $150\nĐịa chỉ email của tổng biên tập: professorliu@gmail.com\nTạp chí này có nằm trong danh mục nào không?"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#mục-tiêu",
-    "href": "slides/is-this-a-good-journal/index.html#mục-tiêu",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Mục tiêu",
-    "text": "Mục tiêu\n\nDanh mục ISI, Scopus\nImpact factor\nSCImago Journal Rank\nNhà xuất bản uy tín\nOpen access"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#indexing",
-    "href": "slides/is-this-a-good-journal/index.html#indexing",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Indexing",
-    "text": "Indexing\n\nHội đồng Giáo sư Nhà nước. Danh mục tạp chí khoa học được tính điểm năm 2023."
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#isi",
-    "href": "slides/is-this-a-good-journal/index.html#isi",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "ISI",
-    "text": "ISI\n\n\n\n\n\n\n\nInstitute for Scientific Information\nCơ sở dữ liệu tạp chí và chỉ số trích dẫn (impact factor)\nGồm 3 phân mục:\n\nScience Citation Index (SCI)\nSocial Sciences Citation Index (SSCI)\nArts and Humanities Citation Index (AHCI)\n\n\n\n\n\nDr. Eugene Garfield (1925 - 2017)"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#isi-1",
-    "href": "slides/is-this-a-good-journal/index.html#isi-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "ISI",
-    "text": "ISI"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#web-of-science",
-    "href": "slides/is-this-a-good-journal/index.html#web-of-science",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Web of Science",
-    "text": "Web of Science"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#web-of-science-1",
-    "href": "slides/is-this-a-good-journal/index.html#web-of-science-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Web of Science",
-    "text": "Web of Science\n\nGồm 4 phân mục:\n\nScience Citation Index Expanded (SCIE)\nSocial Sciences Citation Index (SSCI)\nArts & Humanities Citation Index (AHCI)\nEmerging Sources Citation Index (ESCI)"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#impact-factor",
-    "href": "slides/is-this-a-good-journal/index.html#impact-factor",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Impact Factor",
-    "text": "Impact Factor\n\\[IF = \\frac{\\text{Tổng số trích dẫn}}{\\text{Tổng số bài báo}}\\]\n\nTính trong 2 năm liên tiếp gần nhất (2-year Impact Factor) hoặc 5 năm liên tiếp gần nhất (5-year Impact Factor)\nDo ISI (hiện tại là Web of Science) thống kê và công bố\nTạp chí thuộc danh mục của Web of Science mới có IF"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#impact-factor-1",
-    "href": "slides/is-this-a-good-journal/index.html#impact-factor-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Impact Factor",
-    "text": "Impact Factor\n\nHội đồng Giáo sư Nhà nước. Danh mục tạp chí khoa học được tính điểm năm 2023."
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#scopus",
-    "href": "slides/is-this-a-good-journal/index.html#scopus",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Scopus",
-    "text": "Scopus\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCơ sở dữ liệu giống như ISI\nThuộc sở hữu của nhà xuất bản Elsevier"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#scopus-1",
-    "href": "slides/is-this-a-good-journal/index.html#scopus-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Scopus",
-    "text": "Scopus\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTiêu chuẩn vào Scopus dễ hơn ISI, nên thông thường các tạp chí phấn đấu vào Scopus trước, sau đó vào ISI"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#scopus-metrics",
-    "href": "slides/is-this-a-good-journal/index.html#scopus-metrics",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Scopus metrics",
-    "text": "Scopus metrics"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#scimago-journal-rank-sjr-1",
-    "href": "slides/is-this-a-good-journal/index.html#scimago-journal-rank-sjr-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "SCImago Journal Rank (SJR) (1)",
-    "text": "SCImago Journal Rank (SJR) (1)\n\nIF khác nhau giữa các chuyên ngành: tạp chí khoa học cơ bản thường IF rất cao (trung bình &gt;4-5), tạp chí lâm sàng, y tế công cộng thấp hơn (trung bình 2-3)\nXếp hạng IF trong cùng 1 chuyên ngành\nQ1, Q2 được xem là uy tín"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#scimago-journal-rank-sjr-2",
-    "href": "slides/is-this-a-good-journal/index.html#scimago-journal-rank-sjr-2",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "SCImago Journal Rank (SJR) (2)",
-    "text": "SCImago Journal Rank (SJR) (2)"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#scimago-journal-rank-sjr-3",
-    "href": "slides/is-this-a-good-journal/index.html#scimago-journal-rank-sjr-3",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "SCImago Journal Rank (SJR) (3)",
-    "text": "SCImago Journal Rank (SJR) (3)"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#scimago-journal-rank-sjr-4",
-    "href": "slides/is-this-a-good-journal/index.html#scimago-journal-rank-sjr-4",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "SCImago Journal Rank (SJR) (4)",
-    "text": "SCImago Journal Rank (SJR) (4)\n\nhttps://www.scimagojr.com/"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#bài-tập-2",
-    "href": "slides/is-this-a-good-journal/index.html#bài-tập-2",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Bài tập",
-    "text": "Bài tập\nTìm impact factor và journal rank của các tạp chí sau:\n\nThe Lancet Infectious Diseases\nPLoS Neglected Tropical Diseases\nBMC Infectious Diseases"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#nhà-xuất-bản-uy-tín",
-    "href": "slides/is-this-a-good-journal/index.html#nhà-xuất-bản-uy-tín",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Nhà xuất bản uy tín",
-    "text": "Nhà xuất bản uy tín"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#nhà-xuất-bản-uy-tín-1",
-    "href": "slides/is-this-a-good-journal/index.html#nhà-xuất-bản-uy-tín-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Nhà xuất bản uy tín",
-    "text": "Nhà xuất bản uy tín"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#nhà-xuất-bản-uy-tín-2",
-    "href": "slides/is-this-a-good-journal/index.html#nhà-xuất-bản-uy-tín-2",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Nhà xuất bản uy tín",
-    "text": "Nhà xuất bản uy tín"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#nhà-xuất-bản-uy-tín-3",
-    "href": "slides/is-this-a-good-journal/index.html#nhà-xuất-bản-uy-tín-3",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Nhà xuất bản uy tín",
-    "text": "Nhà xuất bản uy tín"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#mdpi",
-    "href": "slides/is-this-a-good-journal/index.html#mdpi",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "mdpi3",
-    "text": "mdpi3"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#mdpi-1",
-    "href": "slides/is-this-a-good-journal/index.html#mdpi-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "mdpi4",
-    "text": "mdpi4"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#bài-tập-3",
-    "href": "slides/is-this-a-good-journal/index.html#bài-tập-3",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Bài tập",
-    "text": "Bài tập\nTìm nhà xuất bản của các tạp chí sau\n\nPLoS Neglected Tropical Diseases\nBMC Infectious Diseases"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#open-access",
-    "href": "slides/is-this-a-good-journal/index.html#open-access",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Open access",
-    "text": "Open access"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#open-access-1",
-    "href": "slides/is-this-a-good-journal/index.html#open-access-1",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Open access",
-    "text": "Open access"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#open-access-2",
-    "href": "slides/is-this-a-good-journal/index.html#open-access-2",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Open access",
-    "text": "Open access\n\nCác nhà tài trợ khuyến khích công bố ở tạp chí open access\nPhí Article Processing Charge (APC) chỉ được thanh toán khi bài báo đã được chấp nhận đăng, không phải ở giai đoạn nộp bài (submission)"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#bài-tập-4",
-    "href": "slides/is-this-a-good-journal/index.html#bài-tập-4",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Bài tập",
-    "text": "Bài tập\n\n“NAR Genomics & Bioinformatics”\nThành lập cách đây 3 tháng, chưa có impact factor\nThời gian trung bình từ lúc nộp đến publish là 8 tuần\nSố báo mới nhất có 10 bài, tác giả đến từ nhiều quốc gia khác nhau\nKhông có phí nộp bài, phí open access là $2,634\nĐịa chỉ email của tổng biên tập: editor@crg.eu"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#bài-tập-5",
-    "href": "slides/is-this-a-good-journal/index.html#bài-tập-5",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Bài tập",
-    "text": "Bài tập\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTạp chí con của NAR (Nucleic Acids Research, IF = 14.9)\nThời điểm đó chưa có IF nhưng hiện tại IF = 4.6"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#tóm-tắt",
-    "href": "slides/is-this-a-good-journal/index.html#tóm-tắt",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Tóm tắt",
-    "text": "Tóm tắt\n\nDanh mục ISI, Scopus\nImpact factor\nSCImago Journal Rank\nNhà xuất bản uy tín\nOpen access"
-  },
-  {
-    "objectID": "slides/is-this-a-good-journal/index.html#footnotes",
-    "href": "slides/is-this-a-good-journal/index.html#footnotes",
-    "title": "Nhận biết tạp chí khoa học uy tín",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nScientific Writing Workshop. Dr. Leigh Jones, Regional Academic Training Leader for OUCRU and MORU↩︎\nScientific Writing Workshop. Dr. Leigh Jones, Regional Academic Training Leader for OUCRU and MORU↩︎\nBrainard J. Fast-growing open-access journals lose impact factors. Science. 2023 Mar;379(6639):1283-4.↩︎\nBrainard J. Fast-growing open-access journals lose impact factors. Science. 2023 Mar;379(6639):1283-4.↩︎"
-  },
-  {
-    "objectID": "software/index.html",
-    "href": "software/index.html",
-    "title": "Software",
+    "objectID": "teaching/index.html#modelling",
+    "href": "teaching/index.html#modelling",
+    "title": "Teaching",
     "section": "",
-    "text": "Infectious Disease Modelling\n\n\n\ndenimConstruct and simulate deterministic discrete-time compartmental models with customisable dwell time distributionsAuthors: T Ong, TQA Phan, ML Ha, M ChoisyR C++ CRAN\n\n\n\n\n\n\n\nserosvAnalyse serological data and estimate infectious diseases parametersAuthors: TQA Phan, NTN Pham, TL Bui, NT Huynh, M Choisy, T OngR\n\n\n\n\n\n\n\n\nBiostatistics\n\n\n\nhssEstimate sample size for health study designsAuthors: QL Khuong, T Ong, VM HoangR\n\n\n\n\n\n\n\n\nBioinformatics\n\n\n\nLiftedEnhance genome conversion robustness during reference assembly updatesAuthors: PL Luu, T Ong, TP Dinh, SJ ClarkR bash Paper\n\n\n\n\n\n\n\nMethPanelAnalyse multiplex bisulphite PCR sequencing to assess DNA methylation biomarker panels for disease detectionAuthors: PL Luu, T Ong, TTH Loc, D Lam, R Pidsley, C Stirzaker, SJ ClarkR bash Paper\n\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "talks/is-this-a-good-journal/index.html",
-    "href": "talks/is-this-a-good-journal/index.html",
-    "title": "Is this a good journal?",
-    "section": "",
-    "text": "Presentation\n\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\nPreview image by Freepik\n\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {Is This a Good Journal?},\n  date = {2023-09-25},\n  url = {https://drthinhong.com/talks/is-this-a-good-journal},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “Is This a Good Journal?” September 25,\n2023. https://drthinhong.com/talks/is-this-a-good-journal."
+    "objectID": "teaching/index.html#r-programming",
+    "href": "teaching/index.html#r-programming",
+    "title": "Teaching",
+    "section": "R programming",
+    "text": "R programming\n\n\n\n\n\n\n\n\n\n\nR for babies\n\n\n\n\n\nBasic R programming for data science\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR package for babies\n\n\n\n\n\nA fun, beginner-friendly course covers every step, ensuring your package is CRAN-ready. Perfect for all ages.\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "teaching/modelling/idm-intro/index.html",
-    "href": "teaching/modelling/idm-intro/index.html",
-    "title": "Introduction to infectious disease modelling",
+    "objectID": "teaching/modelling/idm4b/index.html",
+    "href": "teaching/modelling/idm4b/index.html",
+    "title": "Infectious disease modelling for babies",
     "section": "",
-    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\nPreview image by svstudioart on Freepik\n\n\n\n\n Back to top"
+    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n Back to top"
   },
   {
     "objectID": "teaching/r-programming/r4babies/index.html",
@@ -481,54 +467,5 @@
     "title": "R for babies",
     "section": "",
     "text": "Course homepage\nThis course has been taught for staff members of Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreview image by Freepik\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "teaching/others/ac-writing/index.html",
-    "href": "teaching/others/ac-writing/index.html",
-    "title": "Academic writing",
-    "section": "",
-    "text": "A typical publication process (Luo and McGregor 2021)\n\n\n\n\nThe manuscript is submitted by the corresponding author and typically includes:\n\nManuscript (of course)\nCover letter\nSeperate files for figures and/or tables\nReporting checklist (STROBE, CONSORT, PRISMA…)\n\n\n\n\nAn editor reviews the title, abstract and cover letter to assess the paper. If the manuscript passes this stage, it proceeds to peer review.\nWhat is the editor looking for?\n\nFit with the journal’s scope and standards.\nPotential impact, including likelihood of being cited.\n\nIn marketing, there’s a “7-second rule” for making a first impression: consumers will decide whether they want to buy goods within 7 seconds (Zhuoma, Kasamatsu, and Ainoya 2020). I would say the editors are often just as quick: they’re busy and must make fast decisions. Your title, abstract, and cover letter should hook them immediately.\n\n\n\nThe editor will typically invite 3 reviewers. Reviewers evaluate your manuscript and submit reports back to the editor with recommendations:\n\nAcceptance without changes: rare\nAcceptance with revisions: minor or major\nRejection\n\nWhat are reviewers looking for?\n\nClarity: Is it well-structured and understandable?\nOriginality: Is the research novel and valuable?\nMethodology: Are methods robust, reproducible, and clear?\nValidity: Do results support the conclusions?\nImpact: Does this work advance knowledge in the field?\n\n\n\n\nThe editor considers reviewers’ reports and decides:\n\nAcceptance without changes: rare.\nConditional acceptance with revisions:\n\nMinor revisions: authors revise, editor verifies changes.\nMajor revisions: authors submit a revised manuscript and detailed responses to reviewers, another round of peer review is likely to occur."
-  },
-  {
-    "objectID": "teaching/others/ac-writing/index.html#academic-publication-process",
-    "href": "teaching/others/ac-writing/index.html#academic-publication-process",
-    "title": "Academic writing",
-    "section": "",
-    "text": "A typical publication process (Luo and McGregor 2021)\n\n\n\n\nThe manuscript is submitted by the corresponding author and typically includes:\n\nManuscript (of course)\nCover letter\nSeperate files for figures and/or tables\nReporting checklist (STROBE, CONSORT, PRISMA…)\n\n\n\n\nAn editor reviews the title, abstract and cover letter to assess the paper. If the manuscript passes this stage, it proceeds to peer review.\nWhat is the editor looking for?\n\nFit with the journal’s scope and standards.\nPotential impact, including likelihood of being cited.\n\nIn marketing, there’s a “7-second rule” for making a first impression: consumers will decide whether they want to buy goods within 7 seconds (Zhuoma, Kasamatsu, and Ainoya 2020). I would say the editors are often just as quick: they’re busy and must make fast decisions. Your title, abstract, and cover letter should hook them immediately.\n\n\n\nThe editor will typically invite 3 reviewers. Reviewers evaluate your manuscript and submit reports back to the editor with recommendations:\n\nAcceptance without changes: rare\nAcceptance with revisions: minor or major\nRejection\n\nWhat are reviewers looking for?\n\nClarity: Is it well-structured and understandable?\nOriginality: Is the research novel and valuable?\nMethodology: Are methods robust, reproducible, and clear?\nValidity: Do results support the conclusions?\nImpact: Does this work advance knowledge in the field?\n\n\n\n\nThe editor considers reviewers’ reports and decides:\n\nAcceptance without changes: rare.\nConditional acceptance with revisions:\n\nMinor revisions: authors revise, editor verifies changes.\nMajor revisions: authors submit a revised manuscript and detailed responses to reviewers, another round of peer review is likely to occur."
-  },
-  {
-    "objectID": "teaching/others/ac-writing/index.html#what-makes-a-manuscript",
-    "href": "teaching/others/ac-writing/index.html#what-makes-a-manuscript",
-    "title": "Academic writing",
-    "section": "What makes a manuscript?",
-    "text": "What makes a manuscript?\n\nRead and analyse a paper\nPaper: Long-term waning of vaccine-induced immunity to measles in England: a mathematical modelling study (Robert, Suffel, and Kucharski 2024).\nAnswer the questions:\n\nWhat are the authors trying to prove?\nWhat are the key outputs of the study?\nHow did they conduct the study?\nWhere did you find the information to answer the above questions?\n\nReflect as a group on the following:\n\nWhich section was most helpful in understanding the paper?\nWhich section did you struggle with, and why?"
-  },
-  {
-    "objectID": "teaching/others/ac-writing/index.html#manuscript-structure",
-    "href": "teaching/others/ac-writing/index.html#manuscript-structure",
-    "title": "Academic writing",
-    "section": "Manuscript structure",
-    "text": "Manuscript structure\n\nIntroduction: context, the gap in knowledge, and study objectives\nMethods: how experiments were done\nResults: key outputs in figures and tables\nDiscussion: interpretation of findings, limitations, and broader implications"
-  },
-  {
-    "objectID": "teaching/others/ac-writing/index.html#writing-strategies",
-    "href": "teaching/others/ac-writing/index.html#writing-strategies",
-    "title": "Academic writing",
-    "section": "Writing strategies",
-    "text": "Writing strategies\n\nWhat sections should you write first?\nThe order of writing is often different from the order of presentation in the manuscript. Following a logical workflow can streamline the process and improve the coherence of your manuscript.\n\n\nMy strategy\n\nStudy objectives:\n\n\nStart here to clarify the central goals of your research. This will guide the entire manuscript. Focus on clear, compelling wording that immediately make people understand what are you doing.\n\n\nFigures and/or tables:\n\n\nThe first thing you should do is NOT WRITING. First, create one to four publication-quality plots or tables and show them to someone you trust. Make sure they truly “get” your story before you move on (Leek 2016).\nWrite up a story around the plots in the simplest language you feel you can get away with.\nThis is how you build up a story: think of them as a step-by-step narrative framework that guides readers through your study’s logic:\n\nEach figure or table should illustrate a key point\nWrite concise, informative captions that highlight their meaning\n\n\n\nResults:\n\n\nSummarise the findings shown in your figures and tables in words, ensuring a consistent and logical progression from one key insight to the next.\n\n\nMethods:\n\n\nBasically what have been done to produce results. By this stage, you know exactly what methods need to be highlighted to support your results.\n\n\nDiscussion:\n\n\nInterpret your findings in the context of existing research.\nLimitations and suggest implications or future directions.\n\n\nIntroduction:\n\n\nSet the context, highlight the research gap, and end with your objectives.\n\n\nAbstract\nTitle"
-  },
-  {
-    "objectID": "teaching/others/ac-writing/index.html#drafting",
-    "href": "teaching/others/ac-writing/index.html#drafting",
-    "title": "Academic writing",
-    "section": "Drafting",
-    "text": "Drafting\n\nA typical workflow\n\nTurn on “Do not disturb”.\nNote down everything appears in your mind, not in complete sentences.\nDon’t care about grammar, punctuation, references.\n\nAfter you have a mess of words, start sticking them together and trim off the sentence.\n\n\nVerbosity\nWordy: Integrating advanced digital health technologies into standard clinical practices offers significant opportunities to enhance patient outcomes, improve healthcare efficiency, and ensure the delivery of high-quality, timely medical care. (26 words)\nRevised: 14 words.\nWordy: Ensuring that all children are appropriately vaccinated according to national immunization schedules is a critical public health strategy for preventing outbreaks of vaccine-preventable diseases and safeguarding community health.\nRevised: Monitoring the vaccination status of children ensures timely immunization vaccine-preventable diseases prevention.\nWordy: The rapid and widespread dissemination of misinformation during public health emergencies, such as pandemics, poses a significant challenge to health authorities by undermining trust, increasing vaccine hesitancy, and complicating response efforts. (29 words)\nWordy: Regularly conducting targeted training sessions for healthcare workers focused on the latest developments in infectious disease prevention and control enhances their ability to respond effectively to emerging health threats. (26 words)\nWordy: Providing easily accessible and affordable mental health support for frontline healthcare workers is crucial to ensuring their psychological well-being, reducing burnout, and maintaining high levels of performance during crises. (28 words)\nWordy: Engaging communities through participatory approaches fosters trust, strengthens partnerships, and improves the acceptability and effectiveness of public health interventions aimed at addressing local health challenges. (25 words)\nOriginal: Early detection of infectious diseases through robust surveillance systems is essential for implementing timely interventions and preventing widespread outbreaks that could strain healthcare systems. (25 words)\nHow to avoid being overly verbose\n1.Delete words that mean little/nothing 2.Beware of repetition 3.Delete words implied by other words 4.Change negatives to affirmations 5.Delete useless adjectives and adverbs 6.Beware of “burying the verb” 7.Remember the power of the active voice"
-  },
-  {
-    "objectID": "teaching/others/ac-writing/index.html#let-start-writing",
-    "href": "teaching/others/ac-writing/index.html#let-start-writing",
-    "title": "Academic writing",
-    "section": "Let start writing!",
-    "text": "Let start writing!"
   }
 ]
