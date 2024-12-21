@@ -2,6 +2,7 @@
 format:
   pdf:
     documentclass: article
+    keep-tex: true
     latex_engine: xelatex
     toc: false
     number-sections: false
@@ -29,6 +30,7 @@ draft: true
 # https://github.com/acbass49/CV_Quarto/
 library(dplyr)
 library(tidyr)
+library(stringr)
 library(lubridate)
 library(pander)
 source("../code/cv.R")
@@ -37,20 +39,19 @@ cv_url <- "https://docs.google.com/spreadsheets/d/1ecqMkclPn-lhzgGHw2UTueiKkjTxu
 ```
 
 
-\begin{large}{\bf Education}
+\begin{large}{\bf EDUCATION}
   \vspace{3pt}
   \hrule
 \end{large}
 
 ```{r}
-#| data-quarto-disable-processing: true
 cv_edu_raw <- read_sheet(ss = cv_url, sheet = "edu")
 cv_edu_raw |>
   make_table(colwidths = c(12, 6, 82))
 ```
 
-\begin{large}{\bf Employment history}
-  \vspace{1pt}
+\begin{large}{\bf EMPLOYMENT HISTORY}
+  \vspace{3pt}
   \hrule
 \end{large}
 
@@ -62,29 +63,14 @@ cv_employ_raw |>
   make_table(colwidths = c(12, 88))
 ```
 
-\begin{large}{\bf Awards}
-  \vspace{3pt}
-  \hrule
-\end{large}
-
-```{r}
-cv_awards_raw <- read_sheet(ss = cv_url, sheet = "awards")
-cv_awards_raw |>
-  arrange(desc(year)) |> 
-  select(date, description) |> 
-  make_table(colwidths = c(12, 88))
-```
-
-\begin{large}{\bf Grants}
+\begin{large}{\bf GRANTS}
   \vspace{3pt}
   \hrule
 \end{large}
 
 ```{r}
 cv_grants_raw <- read_sheet(ss = cv_url, sheet = "grants")
-```
 
-```{r}
 cv_grants <- cv_grants_raw |>
   mutate(
     outcome_year = year(outcome),
@@ -109,27 +95,106 @@ total_grants_text <- paste0("$", format(total_grants, big.mark = ","))
 I have successfully secured `r total_grants_text` in research grants since `r min_outcome_year`. Further details are provided below.
 
 ```{r}
-#| data-quarto-disable-processing: true
 cv_grants |>
   arrange(my_role, desc(outcome)) |>
-  select(period, my_role, title, budget_total_usd_formatted) |>
-  make_table(colwidths = c(12, 6, 70, 12), italic = T)
+  select(period, budget_total_usd_formatted, my_role, title) |>
+  make_table(colwidths = c(12, 12, 7, 69), italic = T)
 ```
 
-\begin{large}{\bf Software}
+\begin{large}{\bf AWARDS}
   \vspace{3pt}
   \hrule
 \end{large}
 
 ```{r}
-cv_software_raw <- read_sheet(ss = cv_url, sheet = "software")
+cv_awards_raw <- read_sheet(ss = cv_url, sheet = "awards")
+cv_awards_raw |>
+  arrange(desc(year)) |> 
+  select(date, description) |> 
+  make_table(colwidths = c(12, 88))
 ```
+
+\begin{large}{\bf RESEARCH TEAM}
+  \vspace{3pt}
+  \hrule
+\end{large}
+
+```{r}
+cv_team_raw <- read_sheet(ss = cv_url, sheet = "team")
+
+cv_team_raw |> 
+  mutate(
+    year = as.numeric(year),
+    role = factor(role, levels = c("RA", "Intern")),
+    next_dest = if_else(is.na(next_dest), "", next_dest)
+  ) |> 
+  arrange(role, next_dest != "", desc(year)) |> 
+  select(period, role, name, next_dest) |> 
+  make_table(colwidths = c(12, 10, 30, 46), longtable = T, header = make_italic(c("Tenure", "Role", "Name", "Next destination")), italic = T)
+```
+\begin{large}{\bf POLICY ENGAGEMENT}
+  \vspace{3pt}
+  \hrule
+\end{large}
+
+```{r}
+cv_policy_raw <- read_sheet(ss = cv_url, sheet = "policy")
+
+cv_policy_raw |> 
+  arrange(desc(date)) |> 
+  make_table(colwidths = c(12, 88))
+```
+
+\begin{large}{\bf TEACHING}
+  \vspace{3pt}
+  \hrule
+\end{large}
+
+```{r}
+cv_teaching_raw <- read_sheet(ss = cv_url, sheet = "teaching")
+
+cv_teaching <- cv_teaching_raw |> 
+  mutate(
+    name = paste0(make_italic(name), "\\newline ", note, ". ", make_url(website)),
+    attd = as.character(attd)
+  )
+```
+
+\textbf{Workshops}
+
+```{r}
+cv_teaching |> 
+  filter(type == "workshop") |> 
+  arrange(desc(year)) |> 
+  select(date, attd, name) |> 
+  make_table(colwidths = c(12, 10, 78), header = make_italic(c("Date", "Attendees", "Name")), italic = T, newline = T, url = T)
+```
+
+\textbf{Courses}
+
+```{r}
+cv_teaching |> 
+  filter(type == "course") |> 
+  arrange(desc(year)) |> 
+  select(date, attd, name) |> 
+  make_table(colwidths = c(12, 10, 78), header = make_italic(c("Date", "Attendees", "Name")), italic = T, newline = T, url = T)
+```
+
+\begin{large}{\bf SOFTWARE}
+  \vspace{3pt}
+  \hrule
+\end{large}
 
 ```{r}
 #| results: asis
+
+cv_software_raw <- read_sheet(ss = cv_url, sheet = "software")
+
 cv_software <- cv_software_raw |> 
   arrange(desc(year)) |> 
   mutate(
+    # Bold my name
+    author = str_replace_all(author, "T Ong", "**T Ong**"),
     software_text = paste0(author, " (", year, "). *", name, ": ", summary, "*. [", url_github, "](", url_github, ").")
   )
 
