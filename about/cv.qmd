@@ -155,29 +155,40 @@ cv_teaching_raw <- read_sheet(ss = cv_url, sheet = "teaching")
 
 cv_teaching <- cv_teaching_raw |> 
   mutate(
-    name = paste0(make_italic(name), "\\newline ", note, ". ", make_url(website)),
+    website = if_else(is.na(website), "", website),
+    details = paste0(make_italic(name), "\\newline ", note, ". Venue: ", venue, ". ", make_url(website)),
     attd = as.character(attd)
   )
 ```
 
-\textbf{Workshops}
+\textbf{Modelling}
 
 ```{r}
 cv_teaching |> 
-  filter(type == "workshop") |> 
+  filter(type == "modelling") |> 
   arrange(desc(year)) |> 
-  select(date, attd, name) |> 
-  make_table(colwidths = c(12, 10, 78), header = make_italic(c("Date", "Attendees", "Name")), italic = T, newline = T, url = T)
+  select(date, attd, details) |> 
+  make_table(colwidths = c(12, 10, 78), header = make_italic(c("Date", "Attendees", "Details")), italic = T, newline = T, url = T)
 ```
 
-\textbf{Courses}
+\textbf{Others}
 
 ```{r}
 cv_teaching |> 
-  filter(type == "course") |> 
+  filter(type == "other") |> 
   arrange(desc(year)) |> 
-  select(date, attd, name) |> 
-  make_table(colwidths = c(12, 10, 78), header = make_italic(c("Date", "Attendees", "Name")), italic = T, newline = T, url = T)
+  select(date, attd, details) |> 
+  make_table(colwidths = c(12, 10, 78), header = make_italic(c("Date", "Attendees", "Details")), italic = T, newline = T, url = T)
+```
+
+\textbf{Seminars}
+
+```{r}
+cv_teaching |> 
+  filter(type == "seminar") |> 
+  arrange(desc(year)) |> 
+  select(date, attd, details) |> 
+  make_table(colwidths = c(12, 10, 78), header = make_italic(c("Date", "Attendees", "Details")), italic = T, newline = T, url = T)
 ```
 
 \begin{large}{\bf SOFTWARE}
@@ -201,4 +212,7 @@ cv_software <- cv_software_raw |>
 pandoc.list(cv_software$software_text, style = "ordered")
 ```
 
-
+\begin{large}{\bf PUBLICATIONS}
+  \vspace{3pt}
+  \hrule
+\end{large}
