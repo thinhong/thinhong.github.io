@@ -168,7 +168,7 @@ cv_teaching |>
   filter(type == "modelling") |> 
   arrange(desc(year)) |> 
   select(date, attd, details) |> 
-  make_table(colwidths = c(12, 10, 78), header = make_italic(c("Date", "Attendees", "Details")), italic = T, newline = T, url = T)
+  make_table(colwidths = c(12, 10, 78), header = make_italic(c("Date", "Attendees", "")), italic = T, newline = T, url = T)
 ```
 
 \textbf{Others}
@@ -178,7 +178,7 @@ cv_teaching |>
   filter(type == "other") |> 
   arrange(desc(year)) |> 
   select(date, attd, details) |> 
-  make_table(colwidths = c(12, 10, 78), header = make_italic(c("Date", "Attendees", "Details")), italic = T, newline = T, url = T)
+  make_table(colwidths = c(12, 10, 78), header = make_italic(c("Date", "Attendees", "")), italic = T, newline = T, url = T)
 ```
 
 \textbf{Seminars}
@@ -188,7 +188,7 @@ cv_teaching |>
   filter(type == "seminar") |> 
   arrange(desc(year)) |> 
   select(date, attd, details) |> 
-  make_table(colwidths = c(12, 10, 78), header = make_italic(c("Date", "Attendees", "Details")), italic = T, newline = T, url = T)
+  make_table(colwidths = c(12, 10, 78), header = make_italic(c("Date", "Attendees", "")), italic = T, newline = T, url = T)
 ```
 
 \begin{large}{\bf SOFTWARE}
@@ -204,9 +204,10 @@ cv_software_raw <- read_sheet(ss = cv_url, sheet = "software")
 cv_software <- cv_software_raw |> 
   arrange(desc(year)) |> 
   mutate(
+    authors = str_trim(authors),
     # Bold my name
-    author = str_replace_all(author, "T Ong", "**T Ong**"),
-    software_text = paste0(author, " (", year, "). *", name, ": ", summary, "*. [", url_github, "](", url_github, ").")
+    authors = str_replace_all(authors, "Ong T", "**Ong T**"),
+    software_text = paste0(authors, " (", year, "). *", name, ": ", summary, "*. [", url_github, "](", url_github, ").")
   )
 
 pandoc.list(cv_software$software_text, style = "ordered")
@@ -216,3 +217,46 @@ pandoc.list(cv_software$software_text, style = "ordered")
   \vspace{3pt}
   \hrule
 \end{large}
+
+```{r}
+#| results: asis
+
+cv_publications <- fetch_zotero_items(api_key, base_url)
+
+cv_publications <- cv_publications |> 
+  filter(itemType == "journalArticle")
+
+# Add the "author" column
+cv_publications$authors <- sapply(cv_publications$creators, function(creators) {
+  if (is.data.frame(creators)) {
+    process_authors(creators)
+  } else {
+    NA
+  }
+})
+
+cv_publications <- cv_publications |>
+  arrange(desc(date)) |>
+  mutate(
+    date = ymd(date),
+    authors = str_trim(authors),
+    authors = str_replace_all(authors, "Ong T", "**Ong T**"),
+    journalAbbreviation = if_else(
+      journalAbbreviation == "",
+      publicationTitle,
+      journalAbbreviation
+    ),
+    volume_part = if_else(issue == "" | issue == "null", paste0(volume, ": ", pages), paste0(volume, "(", issue, "):", pages)),
+    ref_text = paste(
+      authors,
+      title,
+      journalAbbreviation,
+      paste0(format(date, "%Y"), ";", volume_part),
+      paste0("doi:[", DOI, "](https://doi.org/", DOI, ")"),
+      sep = ". "
+    )
+  )
+
+pandoc.list(cv_publications$ref_text, style = "ordered")
+```
+

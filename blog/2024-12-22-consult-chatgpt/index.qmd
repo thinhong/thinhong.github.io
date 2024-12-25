@@ -1,0 +1,22 @@
+---
+title: "How to do better job with ChatGPT"
+format: html
+draft: true
+---
+
+Okay prompt
+
+> 
+
+Good prompt
+
+> I'm organizing an academic writing workshop for the staff at the Centers for Disease Control. The goal is to help everyone feel ready to write their own manuscripts right after the workshop. We'll start with the basics because most of them are new to this. There are 12 people in the 2-hour session, and we can plan follow-up classes every week after that. Give me an agenda for this workshop.
+
+What: an academic writing workshop
+Who: 12 staff at the Centers for Disease Control, most of them are new to this
+
+How to make better prompt:
+
+> Feel free to ask me any clarifying question first
+
+> 

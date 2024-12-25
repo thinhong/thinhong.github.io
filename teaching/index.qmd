@@ -5,10 +5,17 @@ listing:
     contents: modelling
     fields: [image, title, description]
     sort: "date desc"
-  - id: r-programming
-    contents: r-programming
+    type: grid
+  - id: others
+    contents: others
     fields: [image, title, description]
     sort: "date"
+    type: grid
+  - id: seminars
+    contents: seminars
+    fields: [image, title, description]
+    sort: "date"
+    type: grid
 format: 
   html:
     toc: true
@@ -19,7 +26,12 @@ format:
 :::{#modelling}
 :::
 
-## R programming
+## Others
 
-:::{#r-programming}
+:::{#others}
+:::
+
+## Seminars
+
+:::{#seminars}
 :::

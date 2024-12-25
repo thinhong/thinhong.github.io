@@ -5,6 +5,9 @@ about:
   template: trestles
   image-shape: round
   links:
+    - icon: file-person-fill
+      text: My CV
+      href: about/cv.pdf
     - icon: twitter
       text: Twitter
       href: https://twitter.com/iamthinhong/
@@ -21,9 +24,9 @@ Hello! I'm **Thinh** - feel free to pronounce it as ***/think/***. I'm a medical
 
 *Docendo discimus*, the best way to learn is to teach. I've documented everything I've learned throughout my career on this website. Here you can find:
 
-* Practical guides for **leadership**, **R programming**, and **data science** (on my [**blog**](/blog.html))
+* Practical guides for **leadership**, **R programming**, and **data science** (on my [**blog**](blog))
   
-* My teaching materials on **mathematical modelling** methods for **infectious diseases** and **R programming** (on my [**teaching**](/teaching.html))
+* My teaching materials on **mathematical modelling** methods for **infectious diseases**, **R programming** and **others** (on my [**teaching**](teaching))
 
 :::{.credit}
 (*) Special thanks to Đặng Nhật Vũ for the awesome profile photo!

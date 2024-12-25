@@ -1,23 +1,19 @@
 [
   {
-    "listing": "/blog/index.html",
-    "items": [
-      "/blog/2023-08-26-chair-a-meeting/index.html"
-    ]
-  },
-  {
-    "listing": "/talks/index.html",
-    "items": [
-      "/talks/is-this-a-good-journal/index.html"
-    ]
-  },
-  {
     "listing": "/teaching/index.html",
     "items": [
       "/teaching/modelling/idm4b/index.html",
       "/teaching/modelling/idm-intro/index.html",
-      "/teaching/r-programming/r4babies/index.html",
-      "/teaching/r-programming/rpkg4b/index.html"
+      "/teaching/others/r4babies/index.html",
+      "/teaching/others/rpkg4b/index.html",
+      "/teaching/others/aw4b/index.html",
+      "/teaching/seminars/is-this-a-good-journal/index.html"
+    ]
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/2023-08-26-chair-a-meeting/index.html"
     ]
   }
 ]

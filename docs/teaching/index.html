@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-image','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -100,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-r-programming .list');
+    const listingTargetEl = window.document.querySelector('#listing-others .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -109,11 +109,39 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-image','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-r-programming'] = new List('listing-r-programming', options);
+    window['quarto-listings']['listing-others'] = new List('listing-others', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-seminars .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-seminars'] = new List('listing-seminars', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -194,10 +222,6 @@ window.Quarto = {
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../talks/index.html"> 
-<span class="menu-text">Talks</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link active" href="../teaching/index.html" aria-current="page"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
@@ -243,7 +267,8 @@ window.Quarto = {
    
   <ul>
   <li><a href="#modelling" id="toc-modelling" class="nav-link active" data-scroll-target="#modelling">Modelling</a></li>
-  <li><a href="#r-programming" id="toc-r-programming" class="nav-link" data-scroll-target="#r-programming">R programming</a></li>
+  <li><a href="#others" id="toc-others" class="nav-link" data-scroll-target="#others">Others</a></li>
+  <li><a href="#seminars" id="toc-seminars" class="nav-link" data-scroll-target="#seminars">Seminars</a></li>
   </ul>
 </nav>
     </div>
@@ -271,51 +296,41 @@ window.Quarto = {
 
 <section id="modelling" class="level2">
 <h2 class="anchored" data-anchor-id="modelling">Modelling</h2>
-<div id="listing-modelling" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1714582800000" data-listing-file-modified-sort="1722696598114" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="16">
-<div class="thumbnail">
-<p><a href="../teaching/modelling/idm4b/index.html" class="no-external"></a></p><a href="../teaching/modelling/idm4b/index.html" class="no-external">
-<p><img loading="lazy" src="../teaching/modelling/idm4b/preview.png" class="thumbnail-image"></p>
-</a><p><a href="../teaching/modelling/idm4b/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../teaching/modelling/idm4b/index.html" class="no-external">Infectious disease modelling for babies</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../teaching/modelling/idm4b/index.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../teaching/modelling/idm4b/index.html" class="no-external">Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.</a>
+<div id="listing-modelling" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1714582800000" data-listing-file-modified-sort="1722696598114" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="16">
+<a href="../teaching/modelling/idm4b/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../teaching/modelling/idm4b/preview.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Infectious disease modelling for babies
+</h5>
+<div class="card-text listing-description">
+Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.
 </div>
 </div>
-<div class="metadata">
-<p><a href="../teaching/modelling/idm4b/index.html" class="no-external"></a></p><a href="../teaching/modelling/idm4b/index.html" class="no-external">
+</div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1677690000000" data-listing-file-modified-sort="1707749899686" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="21">
-<div class="thumbnail">
-<p><a href="../teaching/modelling/idm-intro/index.html" class="no-external"></a></p><a href="../teaching/modelling/idm-intro/index.html" class="no-external">
-<p><img loading="lazy" src="../teaching/modelling/idm-intro/preview.svg" class="thumbnail-image"></p>
-</a><p><a href="../teaching/modelling/idm-intro/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../teaching/modelling/idm-intro/index.html" class="no-external">Introduction to infectious disease modelling</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../teaching/modelling/idm-intro/index.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../teaching/modelling/idm-intro/index.html" class="no-external">A short course on compartmental models</a>
+<div class="g-col-1" data-index="1" data-listing-date-sort="1677690000000" data-listing-file-modified-sort="1707749899686" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="21">
+<a href="../teaching/modelling/idm-intro/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../teaching/modelling/idm-intro/preview.svg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Introduction to infectious disease modelling
+</h5>
+<div class="card-text listing-description">
+A short course on compartmental models
 </div>
 </div>
-<div class="metadata">
-<p><a href="../teaching/modelling/idm-intro/index.html" class="no-external"></a></p><a href="../teaching/modelling/idm-intro/index.html" class="no-external">
+</div>
 </a>
-</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
@@ -323,53 +338,85 @@ No matching items
 </div>
 </div>
 </section>
-<section id="r-programming" class="level2">
-<h2 class="anchored" data-anchor-id="r-programming">R programming</h2>
-<div id="listing-r-programming" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1692291600000" data-listing-file-modified-sort="1728320999446" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="29">
-<div class="thumbnail">
-<p><a href="../teaching/r-programming/r4babies/index.html" class="no-external"></a></p><a href="../teaching/r-programming/r4babies/index.html" class="no-external">
-<p><img loading="lazy" src="../teaching/r-programming/r4babies/preview.png" class="thumbnail-image"></p>
-</a><p><a href="../teaching/r-programming/r4babies/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../teaching/r-programming/r4babies/index.html" class="no-external">R for babies</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../teaching/r-programming/r4babies/index.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../teaching/r-programming/r4babies/index.html" class="no-external">Basic R programming for data science</a>
+<section id="others" class="level2">
+<h2 class="anchored" data-anchor-id="others">Others</h2>
+<div id="listing-others" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1692291600000" data-listing-file-modified-sort="1728320999446" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="29">
+<a href="../teaching/others/r4babies/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../teaching/others/r4babies/preview.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+R for babies
+</h5>
+<div class="card-text listing-description">
+Basic R programming for data science
 </div>
 </div>
-<div class="metadata">
-<p><a href="../teaching/r-programming/r4babies/index.html" class="no-external"></a></p><a href="../teaching/r-programming/r4babies/index.html" class="no-external">
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-date-sort="1720285200000" data-listing-file-modified-sort="1733665936507" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="../teaching/others/rpkg4b/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../teaching/others/rpkg4b/preview.svg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+R package for babies
+</h5>
+<div class="card-text listing-description">
+A fun, beginner-friendly course covers every step, ensuring your package is CRAN-ready. Perfect for all ages.
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1734979685035" data-listing-reading-time-sort="6" data-listing-word-count-sort="1020">
+<a href="../teaching/others/aw4b/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Academic writing
+</h5>
+<div class="card-text listing-description">
+
+</div>
+</div>
+</div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1720285200000" data-listing-file-modified-sort="1733665936507" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="../teaching/r-programming/rpkg4b/index.html" class="no-external"></a></p><a href="../teaching/r-programming/rpkg4b/index.html" class="no-external">
-<p><img loading="lazy" src="../teaching/r-programming/rpkg4b/preview.svg" class="thumbnail-image"></p>
-</a><p><a href="../teaching/r-programming/rpkg4b/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../teaching/r-programming/rpkg4b/index.html" class="no-external">R package for babies</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../teaching/r-programming/rpkg4b/index.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="../teaching/r-programming/rpkg4b/index.html" class="no-external">A fun, beginner-friendly course covers every step, ensuring your package is CRAN-ready. Perfect for all ages.</a>
+<div class="listing-no-matching d-none">
+No matching items
 </div>
 </div>
-<div class="metadata">
-<p><a href="../teaching/r-programming/rpkg4b/index.html" class="no-external"></a></p><a href="../teaching/r-programming/rpkg4b/index.html" class="no-external">
+</section>
+<section id="seminars" class="level2">
+<h2 class="anchored" data-anchor-id="seminars">Seminars</h2>
+<div id="listing-seminars" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1695574800000" data-listing-file-modified-sort="1734189017615" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="19">
+<a href="../teaching/seminars/is-this-a-good-journal/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../teaching/seminars/is-this-a-good-journal/preview.svg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Is this a good journal?
+</h5>
+<div class="card-text listing-description">
+Learn how to identify trustworthy scientific journals and avoid predatory ones
+</div>
+</div>
+</div>
 </a>
-</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">

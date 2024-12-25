@@ -1,31 +1,234 @@
 [
   {
-    "objectID": "teaching/r-programming/rpkg4b/index.html",
-    "href": "teaching/r-programming/rpkg4b/index.html",
-    "title": "R package for babies",
-    "section": "",
-    "text": "Back to top"
-  },
-  {
-    "objectID": "teaching/modelling/idm-intro/index.html",
-    "href": "teaching/modelling/idm-intro/index.html",
-    "title": "Introduction to infectious disease modelling",
-    "section": "",
-    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\nPreview image by svstudioart on Freepik\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "talks/is-this-a-good-journal/index.html",
-    "href": "talks/is-this-a-good-journal/index.html",
+    "objectID": "teaching/seminars/is-this-a-good-journal/index.html",
+    "href": "teaching/seminars/is-this-a-good-journal/index.html",
     "title": "Is this a good journal?",
     "section": "",
     "text": "Presentation\n\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\nPreview image by Freepik\n\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {Is This a Good Journal?},\n  date = {2023-09-25},\n  url = {https://drthinhong.com/talks/is-this-a-good-journal},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “Is This a Good Journal?” September 25,\n2023. https://drthinhong.com/talks/is-this-a-good-journal."
   },
   {
-    "objectID": "software/index.html",
-    "href": "software/index.html",
-    "title": "Software",
+    "objectID": "teaching/others/r4babies/index.html",
+    "href": "teaching/others/r4babies/index.html",
+    "title": "R for babies",
     "section": "",
-    "text": "Infectious Disease Modelling\n\n\n\ndenimConstruct and simulate deterministic discrete-time compartmental models with customisable dwell time distributionsAuthors: T Ong, TQA Phan, ML Ha, M ChoisyR C++ CRAN\n\n\n\n\n\n\n\nserosvAnalyse serological data and estimate infectious diseases parametersAuthors: TQA Phan, NTN Pham, TL Bui, NT Huynh, M Choisy, T OngR\n\n\n\n\n\n\n\n\nBiostatistics\n\n\n\nhssEstimate sample size for health study designsAuthors: QL Khuong, T Ong, VM HoangR\n\n\n\n\n\n\n\n\nBioinformatics\n\n\n\nLiftedEnhance genome conversion robustness during reference assembly updatesAuthors: PL Luu, T Ong, TP Dinh, SJ ClarkR bash Paper\n\n\n\n\n\n\n\nMethPanelAnalyse multiplex bisulphite PCR sequencing to assess DNA methylation biomarker panels for disease detectionAuthors: PL Luu, T Ong, TTH Loc, D Lam, R Pidsley, C Stirzaker, SJ ClarkR bash Paper\n\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "Course homepage\nThis course has been taught for staff members of Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreview image by Freepik\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "teaching/modelling/idm4b/index.html",
+    "href": "teaching/modelling/idm4b/index.html",
+    "title": "Infectious disease modelling for babies",
+    "section": "",
+    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "teaching/index.html",
+    "href": "teaching/index.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "teaching/index.html#modelling",
+    "href": "teaching/index.html#modelling",
+    "title": "Teaching",
+    "section": "",
+    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "teaching/index.html#others",
+    "href": "teaching/index.html#others",
+    "title": "Teaching",
+    "section": "Others",
+    "text": "Others\n\n\n\n\n\n\n\n\n\n\nR for babies\n\n\nBasic R programming for data science\n\n\n\n\n\n\n\n\n\n\n\n\n\nR package for babies\n\n\nA fun, beginner-friendly course covers every step, ensuring your package is CRAN-ready. Perfect for all ages.\n\n\n\n\n\n\n\n\n\n\n\nAcademic writing\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "teaching/index.html#seminars",
+    "href": "teaching/index.html#seminars",
+    "title": "Teaching",
+    "section": "Seminars",
+    "text": "Seminars\n\n\n\n\n\n\n\n\n\n\nIs this a good journal?\n\n\nLearn how to identify trustworthy scientific journals and avoid predatory ones\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "slides/about/index.html#education",
+    "href": "slides/about/index.html#education",
+    "title": "Thinh Ong",
+    "section": "Education",
+    "text": "Education\n\n\n\n\n\n\n\n\n2022-2026\nDoctor of Philosophy in Clinical Medicine\nUniversity of Oxford, United Kingdom\n\n\n\n\n\n\n\n2012-2018\nDoctor of Medicine in Preventive Medicine\nUniversity of Medicine and Pharmacy at Ho Chi Minh City, Vietnam"
+  },
+  {
+    "objectID": "slides/about/index.html#awards-and-honours",
+    "href": "slides/about/index.html#awards-and-honours",
+    "title": "Thinh Ong",
+    "section": "Awards and honours",
+    "text": "Awards and honours\n\n\n\n\n\n\n\n\nFull DPhil studentship\n\n\n\n\n\n\n\nValedictorian, the only graduation with distinction grade in the fixed-curriculum system (prior to 2022)\nThe highest GPA in the history of the school\nThe highest score in dissertation"
+  },
+  {
+    "objectID": "slides/about/index.html#research",
+    "href": "slides/about/index.html#research",
+    "title": "Thinh Ong",
+    "section": "Research",
+    "text": "Research\n\n\n\n\n\n\n\nField\nExperience\n\n\n\n\nMathematical modelling\nDr. Marc Choisy  \n\n\nBioinformatics\nProf. Susan Clark, Dr. Phuc-Loi Luu \n\n\nBiostatistics\nClinical trials, public health institutions"
+  },
+  {
+    "objectID": "slides/about/index.html#achievements",
+    "href": "slides/about/index.html#achievements",
+    "title": "Thinh Ong",
+    "section": "Achievements",
+    "text": "Achievements\n\n14 research articles (international journals)\n4 international conferences\n4 software\n1 book chapter"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "10 simple tips to chair a meeting\n\n\n\nleadership\n\n\n\nA survival kit when you are thrust into the chairing role\n\n\n\nThinh Ong\n\n\nAug 26, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "About me",
+    "section": "",
+    "text": "Presentation"
+  },
+  {
+    "objectID": "about/index.html#education",
+    "href": "about/index.html#education",
+    "title": "About me",
+    "section": "Education",
+    "text": "Education\n\nDoctor of Philosophy in Clinical Medicine, University of Oxford, United Kingdom (Graduation expected 2026)\nDoctor of Medicine in Preventive Medicine, University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam (2012-2018)"
+  },
+  {
+    "objectID": "about/index.html#awards-and-honours",
+    "href": "about/index.html#awards-and-honours",
+    "title": "About me",
+    "section": "Awards and honours",
+    "text": "Awards and honours\n\nFull DPhil studentship, issued by Oxford University Clinical Research Unit and University of Oxford (2022)\nAcademic Distinction Award (Valedictorian), issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nDissertation Distinction Award, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nStudent with the highest GPA, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2014, 2016, 2017)"
+  },
+  {
+    "objectID": "about/index.html#employment-history",
+    "href": "about/index.html#employment-history",
+    "title": "About me",
+    "section": "Employment history",
+    "text": "Employment history\n\nResearch Assistant, Oxford University Clinical Research Unit, Vietnam (2021-2022)\nResearch Assistant, Hanoi University of Public Health, Vietnam (2020)\nResearch Intern, Garvan Institute of Medical Research, Australia (remote, 2019-2020)\nStatistical consultant, Tu Du hospital, Vietnam (freelance, 2018-2023)"
+  },
+  {
+    "objectID": "about/index.html#society-memberships",
+    "href": "about/index.html#society-memberships",
+    "title": "About me",
+    "section": "Society memberships",
+    "text": "Society memberships\n\nMember, Modelling Infectious Diseases in South East Asia\nAffiliate, Vaccine Impact Modelling Consortium"
+  },
+  {
+    "objectID": "about/index.html#adventures",
+    "href": "about/index.html#adventures",
+    "title": "About me",
+    "section": "Adventures",
+    "text": "Adventures\nI’m a regular guy from a developing country. Going abroad used to be a dream. My research has given me the chance to visit different countries, connect with collaborators, attend international conferences and workshops. This map notes all my visits.\n\ncountries = JSON.parse(data)\nvisited = JSON.parse(data2)\nbertin = require(\"bertin@1.2.4\")\n\nbertin.draw({\n  params: { projection: \"Eckert3\" },\n  layers: [\n    {\n      type: \"layer\",\n      geojson: visited,\n      tooltip: [\"$NAMEen\", \"$visit1\", \"$visit2\", \"$visit3\"],\n      fill: {\n        type: \"typo\",\n        values: \"visit1\"\n      }\n    },\n    {\n      type: \"layer\",\n      geojson: countries,\n      fill: \"white\",\n      fillOpacity: 0.5\n    },\n    { type: \"graticule\" },\n    { type: \"outline\" }\n  ]\n})"
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html",
+    "title": "10 simple tips to chair a meeting",
+    "section": "",
+    "text": "Before the meeting:\n\nAlways aim for a structured meeting\nRemind what you expect attendees to do one day before the meeting\n\nDuring the meeting:\n\nMind where you sit\nStart with ice-breakers and introductions for new faces\nStick to the agenda, make sure to achieve meeting objectives\nSpeak up if it’s quiet, listen when others talk\nStop overexcited people, encourage the quieters\nGather opinions: volunteers first, introverts next\nAt the end, discuss agenda and assign tasks for next meeting\nRelax and remember that you don’t need to be perfect"
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#take-home-messages",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#take-home-messages",
+    "title": "10 simple tips to chair a meeting",
+    "section": "",
+    "text": "Before the meeting:\n\nAlways aim for a structured meeting\nRemind what you expect attendees to do one day before the meeting\n\nDuring the meeting:\n\nMind where you sit\nStart with ice-breakers and introductions for new faces\nStick to the agenda, make sure to achieve meeting objectives\nSpeak up if it’s quiet, listen when others talk\nStop overexcited people, encourage the quieters\nGather opinions: volunteers first, introverts next\nAt the end, discuss agenda and assign tasks for next meeting\nRelax and remember that you don’t need to be perfect"
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#always-aim-for-a-structured-meeting",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#always-aim-for-a-structured-meeting",
+    "title": "10 simple tips to chair a meeting",
+    "section": "1. Always aim for a structured meeting",
+    "text": "1. Always aim for a structured meeting\nIf you’re like me, standing in front of a group can turn your brain into a blank slate. Without agenda, a meeting becomes a symphony of confusion. Who talks when? What’s the point of all this? No plan, total chaos.\nSo, what’s the secret recipe for a structured meeting, you ask?\n\nObjectives: What we want to gain.\nAgenda: A detailed list of all topics and activities with timing.\nResponsibilities: Be very specific, who must do what. No guessing games here. Be super clear and make sure attendees fully understand their tasks."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#remind-what-you-expect-attendees-to-do-one-day-before-the-meeting",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#remind-what-you-expect-attendees-to-do-one-day-before-the-meeting",
+    "title": "10 simple tips to chair a meeting",
+    "section": "2. Remind what you expect attendees to do one day before the meeting",
+    "text": "2. Remind what you expect attendees to do one day before the meeting\nI’ve got a memory like a leaky bucket. But I know I’m not alone. Kindly remind attendees of their responsibilities one day ahead. Any attendee will fall into one of these two typical types: (1) those who get things ready right after your nudge, or (2) those who do so about an hour before the meeting kicks off. A single day prior to the meeting is somewhat ideal to recall what they must bring."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#mind-where-you-sit",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#mind-where-you-sit",
+    "title": "10 simple tips to chair a meeting",
+    "section": "3. Mind where you sit",
+    "text": "3. Mind where you sit\nNow, the meeting begins as you step into the room. You can find many online guides on where to sit, depending on the meeting’s purpose. I follow one rule: I sit where I can see everyone’s faces, and they can see mine.\nI made a mistake once by sitting in the same row as my team. When I talked to someone on my left, I turned my back to those on my right. There was no way to keep track of everybody as I always ended up missing half of the room."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#start-with-ice-breakers-and-introductions-for-new-faces",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#start-with-ice-breakers-and-introductions-for-new-faces",
+    "title": "10 simple tips to chair a meeting",
+    "section": "4. Start with ice-breakers and introductions for new faces",
+    "text": "4. Start with ice-breakers and introductions for new faces\nYou’ve got a great seat. However, it’s common that not everyone arrives on time. Someone will always be late, and you’ve decided to wait a few minutes for them. Even if no one is late, it’s better to ease everyone a bit before moving on to the main session. All eyes are on you now, and it’s time to begin.\n\nIf everyone is new, start by introducing yourself and then let each person take a turn to introduce themselves. To break the ice, choose someone at random and ask a question; they’ll surely appreciate it.\nIf there are only some new faces, let them introduce and pose 1-2 questions to them.\nIf you’re already familiar with the group, kick off by randomly selecting someone and ask how it’s going last week. Add a joke or two if you’re in the mood."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#stick-to-the-agenda-make-sure-to-achieve-meeting-objectives",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#stick-to-the-agenda-make-sure-to-achieve-meeting-objectives",
+    "title": "10 simple tips to chair a meeting",
+    "section": "5. Stick to the agenda, make sure to achieve meeting objectives",
+    "text": "5. Stick to the agenda, make sure to achieve meeting objectives\nHere is why structured meetings matter. The agenda has it all, and you simply follow it step by step, sticking to the plan. Even if the projector stages a rebellion and only display cat videos, you have the agenda, so you will be fine. But make sure that you achieve each objective before moving on to the next topic. If you only focus on timing and changing topics, people should bring in a robot to chair the meeting instead of you."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#speak-up-if-its-quiet-listen-when-others-talk",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#speak-up-if-its-quiet-listen-when-others-talk",
+    "title": "10 simple tips to chair a meeting",
+    "section": "6. Speak up if it’s quiet, listen when others talk",
+    "text": "6. Speak up if it’s quiet, listen when others talk\nBe ready, because everyone might expect the chairperson talks the most in the meeting. If it becomes quiet (unintentionally), you have to start talking. If you’re not sure what to say, ask the most outgoing person in the group.\nBut, when everyone is happily talking, you better off shutting your mouth. Act as a keen listener and resist the urge to interrupt. You only step in when matters violate Tip 7."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#stop-overexcited-people-encourage-the-quieters",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#stop-overexcited-people-encourage-the-quieters",
+    "title": "10 simple tips to chair a meeting",
+    "section": "7. Stop overexcited people, encourage the quieters",
+    "text": "7. Stop overexcited people, encourage the quieters\nHave you come across a single person dominating the entire group in a discussion (the Monopolizer)? How about a funny person who takes it a bit too far and starts to irritate others (the Clown)? Or maybe someone who consistently goes off-topic, putting meeting objectives at risk (the Diverter)? It is your responsibility to bring them back on track. Who else holds more authority than you in this meeting?\nThere are many ways to handle this, but from my view, two steps work: (1) recognize their points, (2) asking someone else to share their thoughts. This is a chance to encourage quieter individuals to speak up. Pay attention to them because otherwise they will always keep silent. Also, this approach sends a signal to those who talk a lot, reminding them to give others a chance."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#gather-opinions-volunteers-first-introverts-next",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#gather-opinions-volunteers-first-introverts-next",
+    "title": "10 simple tips to chair a meeting",
+    "section": "8. Gather opinions: volunteers first, introverts next",
+    "text": "8. Gather opinions: volunteers first, introverts next\nWhen seeking input, start with volunteers. If it’s quiet, turn to an introvert. If you ask an extrovert first, it’s very likely that the introverts will only say “I agree”, end of story. And you know what? The volunteers are very likely to be extroverts anyway."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#at-the-end-discuss-agenda-and-assign-tasks-for-next-meeting",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#at-the-end-discuss-agenda-and-assign-tasks-for-next-meeting",
+    "title": "10 simple tips to chair a meeting",
+    "section": "9. At the end, discuss agenda and assign tasks for next meeting",
+    "text": "9. At the end, discuss agenda and assign tasks for next meeting\nYou’ve met all the meeting goals, so it’s time to conclude. Decide if another meeting is needed. If yes, use this chance while everyone’s here to discuss the plan, assign tasks, and get agreement. Now, you’re good to say goodbye."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#relax-and-remember-that-you-dont-need-to-be-perfect",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#relax-and-remember-that-you-dont-need-to-be-perfect",
+    "title": "10 simple tips to chair a meeting",
+    "section": "10. Relax and remember that you don’t need to be perfect",
+    "text": "10. Relax and remember that you don’t need to be perfect\nPerfect is the enemy of very good. Most of your life, being good is enough. If you make a mistake, people will likely forget it 5 minutes later. So, just say what you want without worrying too much. Mistakes are okay – they help you learn and get better."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#extra-tip",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#extra-tip",
+    "title": "10 simple tips to chair a meeting",
+    "section": "Extra tip",
+    "text": "Extra tip\nI picked up a valuable tip from my supervisor at an Academic Meeting, where speakers present their research followed by a Q&A session. Before the meeting, he always asks in advance what they would like him to cover in his introduction, how they are connected to him and to the audience. He would come 15 minutes early, make sure everything works and note down a list of tasks he might forget."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#acknowledgments",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#acknowledgments",
+    "title": "10 simple tips to chair a meeting",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nSpecial thanks to Dr. Leigh Jones, my mentor, for her valuable insights that helped shape these tips and Dr. Marc Choisy, my cool PhD supervisor, for the extra tip. A big thank you to Ms. Gaye Proctor for the classification of participant behaviors in her Train the Trainer workshop, a valuable resource for my Tip 7.\n\nPreview image by storyset on Freepik"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Thinh Ong",
+    "section": "",
+    "text": "Hello! I’m Thinh - feel free to pronounce it as /think/. I’m a medical doctor pursuing my DPhil degree in Mathematical Modelling at the University of Oxford.\nDocendo discimus, the best way to learn is to teach. I’ve documented everything I’ve learned throughout my career on this website. Here you can find:\n\nPractical guides for leadership, R programming, and data science (on my blog)\nMy teaching materials on mathematical modelling methods for infectious diseases, R programming and others (on my teaching)\n\n\n(*) Special thanks to Đặng Nhật Vũ for the awesome profile photo!\n\n\n\n Back to top"
   },
   {
     "objectID": "slides/is-this-a-good-journal/index.html#bài-tập",
@@ -245,227 +448,24 @@
     "text": "Tóm tắt\n\nDanh mục ISI, Scopus\nImpact factor\nSCImago Journal Rank\nNhà xuất bản uy tín\nOpen access"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Thinh Ong",
+    "objectID": "software/index.html",
+    "href": "software/index.html",
+    "title": "Software",
     "section": "",
-    "text": "Hello! I’m Thinh - feel free to pronounce it as /think/. I’m a medical doctor pursuing my DPhil degree in Mathematical Modelling at the University of Oxford.\nDocendo discimus, the best way to learn is to teach. I’ve documented everything I’ve learned throughout my career on this website. Here you can find:\n\nPractical guides for leadership, R programming, and data science (on my blog)\nMy teaching materials on mathematical modelling methods for infectious diseases and R programming (on my teaching)\n\n\n(*) Special thanks to Đặng Nhật Vũ for the awesome profile photo!\n\n\n\n Back to top"
+    "text": "Infectious Disease Modelling\n\n\n\ndenimConstruct and simulate deterministic discrete-time compartmental models with customisable dwell time distributionsAuthors: R C++ CRAN\n\n\n\n\n\n\n\nserosvAnalyse serological data and estimate infectious diseases parametersAuthors: R\n\n\n\n\n\n\n\n\nBiostatistics\n\n\n\nhssEstimate sample size for health study designsAuthors: R\n\n\n\n\n\n\n\n\nBioinformatics\n\n\n\nLiftedEnhance genome conversion robustness during reference assembly updatesAuthors: R bash Paper\n\n\n\n\n\n\n\nMethPanelAnalyse multiplex bisulphite PCR sequencing to assess DNA methylation biomarker panels for disease detectionAuthors: R bash Paper\n\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "about/index.html",
-    "href": "about/index.html",
-    "title": "About me",
+    "objectID": "teaching/modelling/idm-intro/index.html",
+    "href": "teaching/modelling/idm-intro/index.html",
+    "title": "Introduction to infectious disease modelling",
     "section": "",
-    "text": "Presentation"
+    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\nPreview image by svstudioart on Freepik\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "about/index.html#education",
-    "href": "about/index.html#education",
-    "title": "About me",
-    "section": "Education",
-    "text": "Education\n\nDoctor of Philosophy in Clinical Medicine, University of Oxford, United Kingdom (Graduation expected 2026)\nDoctor of Medicine in Preventive Medicine, University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam (2012-2018)"
-  },
-  {
-    "objectID": "about/index.html#awards-and-honours",
-    "href": "about/index.html#awards-and-honours",
-    "title": "About me",
-    "section": "Awards and honours",
-    "text": "Awards and honours\n\nFull DPhil studentship, issued by Oxford University Clinical Research Unit and University of Oxford (2022)\nAcademic Distinction Award (Valedictorian), issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nDissertation Distinction Award, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nStudent with the highest GPA, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2014, 2016, 2017)"
-  },
-  {
-    "objectID": "about/index.html#employment-history",
-    "href": "about/index.html#employment-history",
-    "title": "About me",
-    "section": "Employment history",
-    "text": "Employment history\n\nResearch Assistant, Oxford University Clinical Research Unit, Vietnam (2021-2022)\nResearch Assistant, Hanoi University of Public Health, Vietnam (2020)\nResearch Intern, Garvan Institute of Medical Research, Australia (remote, 2019-2020)\nStatistical consultant, Tu Du hospital, Vietnam (freelance, 2018-2023)"
-  },
-  {
-    "objectID": "about/index.html#society-memberships",
-    "href": "about/index.html#society-memberships",
-    "title": "About me",
-    "section": "Society memberships",
-    "text": "Society memberships\n\nMember, Modelling Infectious Diseases in South East Asia\nAffiliate, Vaccine Impact Modelling Consortium"
-  },
-  {
-    "objectID": "about/index.html#adventures",
-    "href": "about/index.html#adventures",
-    "title": "About me",
-    "section": "Adventures",
-    "text": "Adventures\nI’m a regular guy from a developing country. Going abroad used to be a dream. My research has given me the chance to visit different countries, connect with collaborators, attend international conferences and workshops. This map notes all my visits.\n\ncountries = JSON.parse(data)\nvisited = JSON.parse(data2)\nbertin = require(\"bertin@1.2.4\")\n\nbertin.draw({\n  params: { projection: \"Eckert3\" },\n  layers: [\n    {\n      type: \"layer\",\n      geojson: visited,\n      tooltip: [\"$NAMEen\", \"$visit1\", \"$visit2\", \"$visit3\"],\n      fill: {\n        type: \"typo\",\n        values: \"visit1\"\n      }\n    },\n    {\n      type: \"layer\",\n      geojson: countries,\n      fill: \"white\",\n      fillOpacity: 0.5\n    },\n    { type: \"graticule\" },\n    { type: \"outline\" }\n  ]\n})"
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html",
-    "title": "10 simple tips to chair a meeting",
+    "objectID": "teaching/others/rpkg4b/index.html",
+    "href": "teaching/others/rpkg4b/index.html",
+    "title": "R package for babies",
     "section": "",
-    "text": "Before the meeting:\n\nAlways aim for a structured meeting\nRemind what you expect attendees to do one day before the meeting\n\nDuring the meeting:\n\nMind where you sit\nStart with ice-breakers and introductions for new faces\nStick to the agenda, make sure to achieve meeting objectives\nSpeak up if it’s quiet, listen when others talk\nStop overexcited people, encourage the quieters\nGather opinions: volunteers first, introverts next\nAt the end, discuss agenda and assign tasks for next meeting\nRelax and remember that you don’t need to be perfect"
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#take-home-messages",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#take-home-messages",
-    "title": "10 simple tips to chair a meeting",
-    "section": "",
-    "text": "Before the meeting:\n\nAlways aim for a structured meeting\nRemind what you expect attendees to do one day before the meeting\n\nDuring the meeting:\n\nMind where you sit\nStart with ice-breakers and introductions for new faces\nStick to the agenda, make sure to achieve meeting objectives\nSpeak up if it’s quiet, listen when others talk\nStop overexcited people, encourage the quieters\nGather opinions: volunteers first, introverts next\nAt the end, discuss agenda and assign tasks for next meeting\nRelax and remember that you don’t need to be perfect"
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#always-aim-for-a-structured-meeting",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#always-aim-for-a-structured-meeting",
-    "title": "10 simple tips to chair a meeting",
-    "section": "1. Always aim for a structured meeting",
-    "text": "1. Always aim for a structured meeting\nIf you’re like me, standing in front of a group can turn your brain into a blank slate. Without agenda, a meeting becomes a symphony of confusion. Who talks when? What’s the point of all this? No plan, total chaos.\nSo, what’s the secret recipe for a structured meeting, you ask?\n\nObjectives: What we want to gain.\nAgenda: A detailed list of all topics and activities with timing.\nResponsibilities: Be very specific, who must do what. No guessing games here. Be super clear and make sure attendees fully understand their tasks."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#remind-what-you-expect-attendees-to-do-one-day-before-the-meeting",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#remind-what-you-expect-attendees-to-do-one-day-before-the-meeting",
-    "title": "10 simple tips to chair a meeting",
-    "section": "2. Remind what you expect attendees to do one day before the meeting",
-    "text": "2. Remind what you expect attendees to do one day before the meeting\nI’ve got a memory like a leaky bucket. But I know I’m not alone. Kindly remind attendees of their responsibilities one day ahead. Any attendee will fall into one of these two typical types: (1) those who get things ready right after your nudge, or (2) those who do so about an hour before the meeting kicks off. A single day prior to the meeting is somewhat ideal to recall what they must bring."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#mind-where-you-sit",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#mind-where-you-sit",
-    "title": "10 simple tips to chair a meeting",
-    "section": "3. Mind where you sit",
-    "text": "3. Mind where you sit\nNow, the meeting begins as you step into the room. You can find many online guides on where to sit, depending on the meeting’s purpose. I follow one rule: I sit where I can see everyone’s faces, and they can see mine.\nI made a mistake once by sitting in the same row as my team. When I talked to someone on my left, I turned my back to those on my right. There was no way to keep track of everybody as I always ended up missing half of the room."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#start-with-ice-breakers-and-introductions-for-new-faces",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#start-with-ice-breakers-and-introductions-for-new-faces",
-    "title": "10 simple tips to chair a meeting",
-    "section": "4. Start with ice-breakers and introductions for new faces",
-    "text": "4. Start with ice-breakers and introductions for new faces\nYou’ve got a great seat. However, it’s common that not everyone arrives on time. Someone will always be late, and you’ve decided to wait a few minutes for them. Even if no one is late, it’s better to ease everyone a bit before moving on to the main session. All eyes are on you now, and it’s time to begin.\n\nIf everyone is new, start by introducing yourself and then let each person take a turn to introduce themselves. To break the ice, choose someone at random and ask a question; they’ll surely appreciate it.\nIf there are only some new faces, let them introduce and pose 1-2 questions to them.\nIf you’re already familiar with the group, kick off by randomly selecting someone and ask how it’s going last week. Add a joke or two if you’re in the mood."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#stick-to-the-agenda-make-sure-to-achieve-meeting-objectives",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#stick-to-the-agenda-make-sure-to-achieve-meeting-objectives",
-    "title": "10 simple tips to chair a meeting",
-    "section": "5. Stick to the agenda, make sure to achieve meeting objectives",
-    "text": "5. Stick to the agenda, make sure to achieve meeting objectives\nHere is why structured meetings matter. The agenda has it all, and you simply follow it step by step, sticking to the plan. Even if the projector stages a rebellion and only display cat videos, you have the agenda, so you will be fine. But make sure that you achieve each objective before moving on to the next topic. If you only focus on timing and changing topics, people should bring in a robot to chair the meeting instead of you."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#speak-up-if-its-quiet-listen-when-others-talk",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#speak-up-if-its-quiet-listen-when-others-talk",
-    "title": "10 simple tips to chair a meeting",
-    "section": "6. Speak up if it’s quiet, listen when others talk",
-    "text": "6. Speak up if it’s quiet, listen when others talk\nBe ready, because everyone might expect the chairperson talks the most in the meeting. If it becomes quiet (unintentionally), you have to start talking. If you’re not sure what to say, ask the most outgoing person in the group.\nBut, when everyone is happily talking, you better off shutting your mouth. Act as a keen listener and resist the urge to interrupt. You only step in when matters violate Tip 7."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#stop-overexcited-people-encourage-the-quieters",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#stop-overexcited-people-encourage-the-quieters",
-    "title": "10 simple tips to chair a meeting",
-    "section": "7. Stop overexcited people, encourage the quieters",
-    "text": "7. Stop overexcited people, encourage the quieters\nHave you come across a single person dominating the entire group in a discussion (the Monopolizer)? How about a funny person who takes it a bit too far and starts to irritate others (the Clown)? Or maybe someone who consistently goes off-topic, putting meeting objectives at risk (the Diverter)? It is your responsibility to bring them back on track. Who else holds more authority than you in this meeting?\nThere are many ways to handle this, but from my view, two steps work: (1) recognize their points, (2) asking someone else to share their thoughts. This is a chance to encourage quieter individuals to speak up. Pay attention to them because otherwise they will always keep silent. Also, this approach sends a signal to those who talk a lot, reminding them to give others a chance."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#gather-opinions-volunteers-first-introverts-next",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#gather-opinions-volunteers-first-introverts-next",
-    "title": "10 simple tips to chair a meeting",
-    "section": "8. Gather opinions: volunteers first, introverts next",
-    "text": "8. Gather opinions: volunteers first, introverts next\nWhen seeking input, start with volunteers. If it’s quiet, turn to an introvert. If you ask an extrovert first, it’s very likely that the introverts will only say “I agree”, end of story. And you know what? The volunteers are very likely to be extroverts anyway."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#at-the-end-discuss-agenda-and-assign-tasks-for-next-meeting",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#at-the-end-discuss-agenda-and-assign-tasks-for-next-meeting",
-    "title": "10 simple tips to chair a meeting",
-    "section": "9. At the end, discuss agenda and assign tasks for next meeting",
-    "text": "9. At the end, discuss agenda and assign tasks for next meeting\nYou’ve met all the meeting goals, so it’s time to conclude. Decide if another meeting is needed. If yes, use this chance while everyone’s here to discuss the plan, assign tasks, and get agreement. Now, you’re good to say goodbye."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#relax-and-remember-that-you-dont-need-to-be-perfect",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#relax-and-remember-that-you-dont-need-to-be-perfect",
-    "title": "10 simple tips to chair a meeting",
-    "section": "10. Relax and remember that you don’t need to be perfect",
-    "text": "10. Relax and remember that you don’t need to be perfect\nPerfect is the enemy of very good. Most of your life, being good is enough. If you make a mistake, people will likely forget it 5 minutes later. So, just say what you want without worrying too much. Mistakes are okay – they help you learn and get better."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#extra-tip",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#extra-tip",
-    "title": "10 simple tips to chair a meeting",
-    "section": "Extra tip",
-    "text": "Extra tip\nI picked up a valuable tip from my supervisor at an Academic Meeting, where speakers present their research followed by a Q&A session. Before the meeting, he always asks in advance what they would like him to cover in his introduction, how they are connected to him and to the audience. He would come 15 minutes early, make sure everything works and note down a list of tasks he might forget."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#acknowledgments",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#acknowledgments",
-    "title": "10 simple tips to chair a meeting",
-    "section": "Acknowledgments",
-    "text": "Acknowledgments\nSpecial thanks to Dr. Leigh Jones, my mentor, for her valuable insights that helped shape these tips and Dr. Marc Choisy, my cool PhD supervisor, for the extra tip. A big thank you to Ms. Gaye Proctor for the classification of participant behaviors in her Train the Trainer workshop, a valuable resource for my Tip 7.\n\nPreview image by storyset on Freepik"
-  },
-  {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Blog",
-    "section": "",
-    "text": "10 simple tips to chair a meeting\n\n\n\nleadership\n\n\n\nA survival kit when you are thrust into the chairing role\n\n\n\nThinh Ong\n\n\nAug 26, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
-  },
-  {
-    "objectID": "slides/about/index.html#education",
-    "href": "slides/about/index.html#education",
-    "title": "Thinh Ong",
-    "section": "Education",
-    "text": "Education\n\n\n\n\n\n\n\n\n2022-2026\nDoctor of Philosophy in Clinical Medicine\nUniversity of Oxford, United Kingdom\n\n\n\n\n\n\n\n2012-2018\nDoctor of Medicine in Preventive Medicine\nUniversity of Medicine and Pharmacy at Ho Chi Minh City, Vietnam"
-  },
-  {
-    "objectID": "slides/about/index.html#awards-and-honours",
-    "href": "slides/about/index.html#awards-and-honours",
-    "title": "Thinh Ong",
-    "section": "Awards and honours",
-    "text": "Awards and honours\n\n\n\n\n\n\n\n\nFull DPhil studentship\n\n\n\n\n\n\n\nValedictorian, the only graduation with distinction grade in the fixed-curriculum system (prior to 2022)\nThe highest GPA in the history of the school\nThe highest score in dissertation"
-  },
-  {
-    "objectID": "slides/about/index.html#research",
-    "href": "slides/about/index.html#research",
-    "title": "Thinh Ong",
-    "section": "Research",
-    "text": "Research\n\n\n\n\n\n\n\nField\nExperience\n\n\n\n\nMathematical modelling\nDr. Marc Choisy  \n\n\nBioinformatics\nProf. Susan Clark, Dr. Phuc-Loi Luu \n\n\nBiostatistics\nClinical trials, public health institutions"
-  },
-  {
-    "objectID": "slides/about/index.html#achievements",
-    "href": "slides/about/index.html#achievements",
-    "title": "Thinh Ong",
-    "section": "Achievements",
-    "text": "Achievements\n\n14 research articles (international journals)\n4 international conferences\n4 software\n1 book chapter"
-  },
-  {
-    "objectID": "talks/index.html",
-    "href": "talks/index.html",
-    "title": "Talks",
-    "section": "",
-    "text": "Is this a good journal?\n\n\nLearn how to identify trustworthy scientific journals and avoid predatory ones\n\n\n\nThinh Ong\n\n\nSep 25, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
-  },
-  {
-    "objectID": "teaching/index.html",
-    "href": "teaching/index.html",
-    "title": "Teaching",
-    "section": "",
-    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "teaching/index.html#modelling",
-    "href": "teaching/index.html#modelling",
-    "title": "Teaching",
-    "section": "",
-    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "teaching/index.html#r-programming",
-    "href": "teaching/index.html#r-programming",
-    "title": "Teaching",
-    "section": "R programming",
-    "text": "R programming\n\n\n\n\n\n\n\n\n\n\nR for babies\n\n\n\n\n\nBasic R programming for data science\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR package for babies\n\n\n\n\n\nA fun, beginner-friendly course covers every step, ensuring your package is CRAN-ready. Perfect for all ages.\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "teaching/modelling/idm4b/index.html",
-    "href": "teaching/modelling/idm4b/index.html",
-    "title": "Infectious disease modelling for babies",
-    "section": "",
-    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "teaching/r-programming/r4babies/index.html",
-    "href": "teaching/r-programming/r4babies/index.html",
-    "title": "R for babies",
-    "section": "",
-    "text": "Course homepage\nThis course has been taught for staff members of Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreview image by Freepik\n\n\n\n\n Back to top"
+    "text": "Back to top"
   }
 ]

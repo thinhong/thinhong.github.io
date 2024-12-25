@@ -7,6 +7,10 @@ draft: true
 
 ## Academic publication process
 
+### Why start with the publication process?
+
+
+
 ![A typical publication process [@luo2021]](peer-review.svg)
 
 ### Submission

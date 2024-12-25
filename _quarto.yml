@@ -15,8 +15,6 @@ website:
         href: about/index.qmd
       - text: Research
         href: https://scholar.google.com/citations?user=PkfvVs0AAAAJ
-      - text: Talks
-        href: talks/index.qmd
       - text: Teaching
         href: teaching/index.qmd
       - text: Software
@@ -30,6 +28,7 @@ website:
         href: https://github.com/thinhong
       - icon: linkedin
         href: https://www.linkedin.com/in/thinh-ong
+    draft-mode: unlinked
         
 format:
   html:
