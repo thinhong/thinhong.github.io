@@ -32,7 +32,7 @@ gen_software_table <- function(cv_sheet) {
       out <- paste0(out, "<br>", tmp$summary[i], "<br>")
       
       # Bold "T Ong" in authors
-      author_text <- gsub("T Ong", "<strong>T Ong</strong>", tmp$author[i], fixed = TRUE)
+      author_text <- gsub("T Ong", "<strong>T Ong</strong>", tmp$authors[i], fixed = TRUE)
       out <- paste0(out, "<small>Authors: ", author_text, "</small><br>")
       
       # Language badges
