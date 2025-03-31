@@ -34,8 +34,4 @@ format:
   html:
     theme: [cosmo, theme.scss]
 
-comments:
-  giscus:
-    repo: thinhong/thinhong.github.io
-
 
