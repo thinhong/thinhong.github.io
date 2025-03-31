@@ -29,11 +29,13 @@ website:
       - icon: linkedin
         href: https://www.linkedin.com/in/thinh-ong
     draft-mode: unlinked
+  comments:
+    giscus:
+      repo: thinhong/thinhong.github.io
+      repo-id: R_kgDOKL9B-g
         
 format:
   html:
     theme: [cosmo, theme.scss]
 
-comments:
-  giscus:
-    repo: thinhong/thinhong.github.io
+
