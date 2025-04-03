@@ -80,7 +80,7 @@ cv_grants <- cv_grants_raw |>
     budget_my_formatted = paste0(currency_symbol, format(budget_my, big.mark = ",")),
     budget_total_usd_formatted = paste0("$", format(budget_total_usd, big.mark = ",", trim = T)),
     budget_my_usd_formatted = paste0("$", format(budget_my_usd, big.mark = ",", trim = T)),
-    title = paste0(title, ". ", make_italic(paste0("Funding from ", sponsor)), ".")
+    title = paste0(make_italic(title), ". ", paste0("Funding from ", sponsor), ".")
   )
 
 # The earliest year I've ever received funding
