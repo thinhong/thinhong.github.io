@@ -1,0 +1,134 @@
+<script>
+(function () {
+  // Tunables
+  const DEFAULT_CPS   = 500;   // chars per second (global default)
+  const LINE_GAP_MS   = 0;  // pause between items in a GPT block
+  const MIN_FAKE_MS   = 0;  // minimum delay for non-typeable blocks (tables, code, etc.)
+  const MS_PER_CHAR   = 0;   // extra ms per visible char to estimate reveal time
+
+  function isTypeable(el) {
+    if (!el) return false;
+    const tag = el.tagName ? el.tagName.toLowerCase() : "";
+    // type paragraphs, list items, and blockquotes; skip if inside pre/code
+    if (el.closest("pre, code")) return false;
+    return tag === "p" || tag === "li" || tag === "blockquote";
+  }
+
+  function estimateTime(el) {
+    // used for non-typeable blocks (e.g., tables) so they "wait" before reveal
+    const text = (el.innerText || "").trim();
+    const n = Math.max(text.length, 10);
+    return Math.max(MIN_FAKE_MS, n * MS_PER_CHAR);
+  }
+
+  function typeLine(node, speed, done) {
+    const text = node.textContent;
+    node.dataset._orig = text;
+    node.textContent = "";
+    node.classList.remove("typing-hidden");
+    node.classList.add("typing-caret");
+
+    let i = 0, cancelled = false;
+    const step = () => {
+      if (cancelled) return;
+      i++;
+      node.textContent = text.slice(0, i);
+      if (i < text.length) {
+        setTimeout(step, 1000 / speed);
+      } else {
+        node.classList.remove("typing-caret");
+        done && done();
+      }
+    };
+    node._finishTyping = function () {
+      cancelled = true;
+      node.textContent = text;
+      node.classList.remove("typing-caret");
+      done && done();
+    };
+    step();
+  }
+
+  function revealBlock(el, done) {
+    // for non-typeable (tables, code blocks, figures, headers, etc.)
+    el.classList.add("typing-fade-in");
+    // force a reflow so the transition applies
+    // eslint-disable-next-line no-unused-expressions
+    el.offsetHeight;
+    el.classList.add("typing-show");
+    setTimeout(() => {
+      el.classList.remove("typing-fade-in"); // keep DOM tidy
+      el.classList.remove("typing-hidden");
+      done && done();
+    }, 220);
+  }
+
+  function typeBlock(gptEl) {
+    if (gptEl.dataset._typed === "1") return;
+    gptEl.dataset._typed = "1";
+
+    const speed = Number(gptEl.dataset.speed || DEFAULT_CPS);
+
+    // Collect targets in DOM order.
+    // We include tables/figures/headers/etc. so they participate in the sequence.
+    let targets = gptEl.querySelectorAll(
+      "p, li, blockquote, table, pre, figure, img, ul, ol, h1, h2, h3, h4, h5, h6"
+    );
+    targets = targets.length ? Array.from(targets) : [gptEl];
+
+    // Hide everything upfront so nothing flashes before typing starts.
+    targets.forEach(el => el.classList.add("typing-hidden"));
+
+    let idx = 0;
+
+    function next() {
+      if (idx >= targets.length) return;
+      const el = targets[idx++];
+
+      // Skip elements explicitly marked no-type (show immediately, then continue)
+      if (el.classList && el.classList.contains("no-type")) {
+        el.classList.remove("typing-hidden");
+        setTimeout(next, LINE_GAP_MS);
+        return;
+      }
+
+      if (isTypeable(el)) {
+        typeLine(el, speed, () => setTimeout(next, LINE_GAP_MS));
+      } else {
+        // Non-typeable: wait a realistic time (based on content), then fade in
+        const wait = estimateTime(el);
+        setTimeout(() => revealBlock(el, () => setTimeout(next, LINE_GAP_MS)), wait);
+      }
+    }
+
+    next();
+
+    // Click the block to finish all instantly
+    gptEl.addEventListener("click", () => {
+      targets.forEach(n => {
+        if (n._finishTyping) n._finishTyping();
+        n.classList.remove("typing-hidden");
+        n.classList.add("typing-show");
+      });
+    }, { once: true });
+  }
+
+  function startTypingInSlide(slide) {
+    slide.querySelectorAll(".chat-gpt.typing").forEach(typeBlock);
+  }
+
+  // Trigger typing when fragments appear
+  Reveal.on('fragmentshown', evt => {
+    const el = evt.fragment;
+    if (el.classList && el.classList.contains("chat-gpt") && el.classList.contains("typing")) {
+      typeBlock(el);
+    } else {
+      el.querySelectorAll && el.querySelectorAll(".chat-gpt.typing").forEach(typeBlock);
+    }
+  });
+
+  // For non-fragment GPT blocks
+  Reveal.on('slidechanged', e => startTypingInSlide(e.currentSlide));
+  Reveal.on('ready', e => startTypingInSlide(e.currentSlide));
+})();
+</script>

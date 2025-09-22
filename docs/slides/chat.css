@@ -1,0 +1,84 @@
+/* Container for a whole conversation on a slide */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  /* keeps it readable on big screens but not cramped on small ones */
+  max-width: min(900px, 92vw);
+  margin: 0 auto; /* center block on the slide */
+}
+
+/* Plain user line, left-aligned */
+.chat-user {
+  align-self: flex-start;
+  max-width: 78ch;   /* readable measure */
+  color: var(--r-main-color, #222);
+}
+
+/* Assistant bubble, right-aligned */
+.chat-gpt {
+  align-self: flex-end;
+  max-width: 78ch;
+  padding: 0.85rem 1rem;
+  border-radius: 1rem;
+  border-top-right-radius: 0.35rem;
+  background: var(--chatgpt-bubble-bg, #f2f3f5);
+  color: var(--chatgpt-bubble-fg, #111);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* Optional subtle “role” labels (hide if you dislike) */
+.chat-user::before,
+.chat-gpt::before {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-bottom: 0.25rem;
+  line-height: 1;
+}
+.chat-user::before { content: "You"; }
+.chat-gpt::before  { content: "Assistant"; }
+
+/* Nice formatting inside bubbles (lists, code, etc.) */
+.chat-gpt p { margin: 0.25rem 0; }
+.chat-gpt ul, .chat-gpt ol { margin: 0.4rem 0 0.4rem 1.2rem; }
+.chat-gpt code:not(pre code) {
+  background: rgba(0,0,0,0.05);
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.4rem;
+}
+.chat-gpt pre code {
+  display: block;
+  padding: 0.75rem;
+  background: rgba(0,0,0,0.06);
+  border-radius: 0.6rem;
+  overflow-x: auto;
+}
+
+/* Optional avatars (drop an <img> inside the div) */
+.chat-avatar {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  vertical-align: -0.2rem;
+  margin-right: 0.35rem;
+}
+
+/* Dark mode support (Reveal.js themes often define --r-background-color) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --chatgpt-bubble-bg: rgba(255,255,255,0.08);
+    --chatgpt-bubble-fg: #f2f2f2;
+  }
+  .chat-user { color: #e8e8e8; }
+  .chat-gpt code:not(pre code),
+  .chat-gpt pre code { background: rgba(255,255,255,0.1); }
+}
+
+/* Small screens: let bubbles use more width */
+@media (max-width: 640px) {
+  .chat-container { max-width: 96vw; }
+  .chat-user, .chat-gpt { max-width: 100%; }
+}

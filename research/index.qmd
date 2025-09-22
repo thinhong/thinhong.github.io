@@ -1,0 +1,22 @@
+---
+title: "Research"
+format: html
+---
+
+## Epidemiology
+
+Epidemiology of infectious and non communicable diseases, mathematical models for infectious diseases
+
+## Quantitative survey
+
+Develop, cross-cultural adaptation, methods to investigate reliability and validity of surveys. 
+
+## Clinical studies
+
+Including randomized control trials, biomarker discovery.
+
+## Basic science
+
+Methodologies for animal model studies, genome and epigenome sequencing, biomarker development tool
+
+

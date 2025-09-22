@@ -7,7 +7,7 @@ author:
     url: https://thinhong.github.io
     orcid: 0000-0001-6772-9291
 citation:
-  url: https://drthinhong.com/talks/is-this-a-good-journal
+  url: https://drthinhong.com/seminars/is-this-a-good-journal
 image: preview.svg
 draft: false
 execute:

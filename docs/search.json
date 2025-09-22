@@ -4,7 +4,7 @@
     "href": "teaching/seminars/is-this-a-good-journal/index.html",
     "title": "Is this a good journal?",
     "section": "",
-    "text": "Presentation\n\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\nPreview image by Freepik\n\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {Is This a Good Journal?},\n  date = {2023-09-25},\n  url = {https://drthinhong.com/talks/is-this-a-good-journal},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “Is This a Good Journal?” September 25,\n2023. https://drthinhong.com/talks/is-this-a-good-journal."
+    "text": "Presentation\n\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\nPreview image by Freepik\n\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {Is This a Good Journal?},\n  date = {2023-09-25},\n  url = {https://drthinhong.com/seminars/is-this-a-good-journal},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “Is This a Good Journal?” September 25,\n2023. https://drthinhong.com/seminars/is-this-a-good-journal."
   },
   {
     "objectID": "teaching/others/r4babies/index.html",
@@ -25,28 +25,28 @@
     "href": "teaching/index.html",
     "title": "Teaching",
     "section": "",
-    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "teaching/index.html#modelling",
     "href": "teaching/index.html#modelling",
     "title": "Teaching",
     "section": "",
-    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "teaching/index.html#others",
     "href": "teaching/index.html#others",
     "title": "Teaching",
     "section": "Others",
-    "text": "Others\n\n\n\n\n\n\n\n\n\n\nR for babies\n\n\nBasic R programming for data science\n\n\n\n\n\n\n\n\n\n\n\n\n\nR package for babies\n\n\nA fun, beginner-friendly course covers every step, ensuring your package is CRAN-ready. Perfect for all ages.\n\n\n\n\n\n\n\n\n\n\n\nAcademic writing\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Others\n\n\n\n\n\n\n\n\n\n\nR for babies\n\n\nBasic R programming for data science\n\n\n\n\n\n\n\n\n\n\n\n\nR package for babies\n\n\nA fun, beginner-friendly course covers every step, ensuring your package is CRAN-ready. Perfect for all ages.\n\n\n\n\n\n\n\n\n\n\nAcademic writing\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "teaching/index.html#seminars",
     "href": "teaching/index.html#seminars",
     "title": "Teaching",
     "section": "Seminars",
-    "text": "Seminars\n\n\n\n\n\n\n\n\n\n\nIs this a good journal?\n\n\nLearn how to identify trustworthy scientific journals and avoid predatory ones\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Seminars\n\n\n\n\n\n\n\n\n\n\nAI as a life tool\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIs this a good journal?\n\n\nLearn how to identify trustworthy scientific journals and avoid predatory ones\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "slides/about/index.html#education",
@@ -516,5 +516,257 @@
     "title": "R package for babies",
     "section": "",
     "text": "Back to top"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html",
+    "href": "slides/ai-as-a-life-tool/index.html",
+    "title": "AI as a life tool",
+    "section": "",
+    "text": "If output is bad: know why, and how to fix (instead of getting angry)\n\n\nreply"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#disclaimer",
+    "href": "slides/ai-as-a-life-tool/index.html#disclaimer",
+    "title": "AI as a life tool",
+    "section": "Disclaimer",
+    "text": "Disclaimer\n\nThis is NOT the best way to use AI\nI’m sharing how I use it\nPlease question me, challenge me, disagree with me (but don’t hit me)"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#step-1.-learn",
+    "href": "slides/ai-as-a-life-tool/index.html#step-1.-learn",
+    "title": "AI as a life tool",
+    "section": "Step 1. Learn",
+    "text": "Step 1. Learn\n\nKnow how AI works (thanks Tuyen!)\nAsk better questions: provide sufficient information\nIf you don’t like the output: try to fix it (instead of getting angry)"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#step-2.-mindset",
+    "href": "slides/ai-as-a-life-tool/index.html#step-2.-mindset",
+    "title": "AI as a life tool",
+    "section": "Step 2. Mindset",
+    "text": "Step 2. Mindset\n\nAI = super enthusiastic intern\nYou = the supervisor\nDon’t hand over your work: stay in control\nTreat it like mentoring a junior: it learns from you\nYou remain the expert, AI just assists"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#step-3.-action",
+    "href": "slides/ai-as-a-life-tool/index.html#step-3.-action",
+    "title": "AI as a life tool",
+    "section": "Step 3. Action",
+    "text": "Step 3. Action\n\nTalk to AI → discover strengths & limits\n\nCompare: where AI beats you, where you stay valuable\n\nBuild confidence using it daily"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#writing",
+    "href": "slides/ai-as-a-life-tool/index.html#writing",
+    "title": "AI as a life tool",
+    "section": "Writing",
+    "text": "Writing"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#email",
+    "href": "slides/ai-as-a-life-tool/index.html#email",
+    "title": "AI as a life tool",
+    "section": "Email",
+    "text": "Email\nGive it 3 emails that I’m proud of and let it discover the style that I like:\n\nTone and voice\n\nProfessional but friendly: respectful, warm, and human.\nNever too formal or stiff; slightly casual is okay if context allows.\nSincere and humble: expressions of gratitude or apology are genuine, not exaggerated.\n\nStructure\n\nStart with a clear greeting and a short contextual sentence.\nBody should get straight to the point: one paragraph per key idea.\nEnd with a short, polite sign-off that doesn’t repeat too much.\n\nLanguage\n\nUse natural, spoken English: contractions like “I’m” or “we’re” are fine.\nAvoid flowery or overly elaborate words (e.g., “It would be an immense honour…” feels too much).\nPrefer plain and honest phrases (e.g., “Just want to check if…” / “I’m sorry I forgot”)."
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#stress-relief",
+    "href": "slides/ai-as-a-life-tool/index.html#stress-relief",
+    "title": "AI as a life tool",
+    "section": "Stress relief",
+    "text": "Stress relief"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#brainstorm-life-goals",
+    "href": "slides/ai-as-a-life-tool/index.html#brainstorm-life-goals",
+    "title": "AI as a life tool",
+    "section": "Brainstorm life goals",
+    "text": "Brainstorm life goals"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#my-favourite-prompts",
+    "href": "slides/ai-as-a-life-tool/index.html#my-favourite-prompts",
+    "title": "AI as a life tool",
+    "section": "My favourite prompts",
+    "text": "My favourite prompts\n\nWhat options do I have?\nI’m debating between X and Y: what are the pros and cons of each?\nWhat’s the strongest argument against my current view?\nGive me 3 alternative framings of this problem, each from a different perspective\nIf I was completely wrong, what would the world look like?\n\n(Keep being challenged and avoid bias)"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#takeaway",
+    "href": "slides/ai-as-a-life-tool/index.html#takeaway",
+    "title": "AI as a life tool",
+    "section": "Takeaway",
+    "text": "Takeaway\n\nLearn &gt; Mindset &gt; Action\nAI is a super enthusiastic intern, supervise it carefully\nLet it free up your time for what really matters"
+  },
+  {
+    "objectID": "teaching/seminars/ai-as-a-life-tool/index.html",
+    "href": "teaching/seminars/ai-as-a-life-tool/index.html",
+    "title": "AI as a life tool",
+    "section": "",
+    "text": "Presentation\n\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {AI as a Life Tool},\n  date = {2023-09-25},\n  url = {https://drthinhong.com/seminars/ai-as-a-life-tool},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “AI as a Life Tool.” September 25, 2023.\nhttps://drthinhong.com/seminars/ai-as-a-life-tool."
+  },
+  {
+    "objectID": "research/index.html",
+    "href": "research/index.html",
+    "title": "Research",
+    "section": "",
+    "text": "Epidemiology of infectious and non communicable diseases, mathematical models for infectious diseases"
+  },
+  {
+    "objectID": "research/index.html#epidemiology",
+    "href": "research/index.html#epidemiology",
+    "title": "Research",
+    "section": "",
+    "text": "Epidemiology of infectious and non communicable diseases, mathematical models for infectious diseases"
+  },
+  {
+    "objectID": "research/index.html#quantitative-survey",
+    "href": "research/index.html#quantitative-survey",
+    "title": "Research",
+    "section": "Quantitative survey",
+    "text": "Quantitative survey\nDevelop, cross-cultural adaptation, methods to investigate reliability and validity of surveys."
+  },
+  {
+    "objectID": "research/index.html#clinical-studies",
+    "href": "research/index.html#clinical-studies",
+    "title": "Research",
+    "section": "Clinical studies",
+    "text": "Clinical studies\nIncluding randomized control trials, biomarker discovery."
+  },
+  {
+    "objectID": "research/index.html#basic-science",
+    "href": "research/index.html#basic-science",
+    "title": "Research",
+    "section": "Basic science",
+    "text": "Basic science\nMethodologies for animal model studies, genome and epigenome sequencing, biomarker development tool"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#my-3-steps-for-everything",
+    "href": "slides/ai-as-a-life-tool/index.html#my-3-steps-for-everything",
+    "title": "AI as a life tool",
+    "section": "My 3 steps for everything",
+    "text": "My 3 steps for everything\n\nLearn\nMindset\nAction"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#learn-new-knowledge",
+    "href": "slides/ai-as-a-life-tool/index.html#learn-new-knowledge",
+    "title": "AI as a life tool",
+    "section": "Learn new knowledge",
+    "text": "Learn new knowledge"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#test",
+    "href": "slides/ai-as-a-life-tool/index.html#test",
+    "title": "AI as a life tool",
+    "section": "Test",
+    "text": "Test\n\nHello, this is from A\n\n\nHi, this is from B"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#chat-example",
+    "href": "slides/ai-as-a-life-tool/index.html#chat-example",
+    "title": "AI as a life tool",
+    "section": "Chat example",
+    "text": "Chat example\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#learn",
+    "href": "slides/ai-as-a-life-tool/index.html#learn",
+    "title": "AI as a life tool",
+    "section": "Learn",
+    "text": "Learn"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#discuss-book",
+    "href": "slides/ai-as-a-life-tool/index.html#discuss-book",
+    "title": "AI as a life tool",
+    "section": "Discuss book",
+    "text": "Discuss book\n\n\nI’m reading a book called “Four Thousand Weeks: Time Management for Mortals” and fascinated by viewing time in weeks. A week feels short enough to manage yet long enough to see progress, ending with a reset on the weekend. What am I missing in this perspective?\n\n\nThat’s a sharp observation. Seeing life in weeks is powerful because it gives you a rhythm that’s neither too microscopic (hours, which can feel frantic) nor too abstract (years, which can feel distant). But there are a few blind spots you might be missing:\n1. Weeks are artificial\nA week isn’t a natural unit of time like a day (sunrise–sunset) or a year (Earth’s orbit). It’s a social construct. This means while it feels like a natural reset, your body or goals might not always sync neatly with that 7-day rhythm. For example, recovery, creativity, or learning curves often don’t obey a weekly cycle.\n2. Risk of over-resetting\nIf every week feels like a fresh start, you may unintentionally devalue the continuity of long-term work. Some projects need momentum across many weeks, and focusing too much on weekly “resets” might make you restart energy or habits instead of compounding them."
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#discuss-book-1",
+    "href": "slides/ai-as-a-life-tool/index.html#discuss-book-1",
+    "title": "AI as a life tool",
+    "section": "Discuss book",
+    "text": "Discuss book\n\n\nHelp me find an ios app that can track goals over weeks. It shows both how many weeks have passed since I set a goal and how many weeks remain until the event. I want to see a graph (not just a number counter) and it must have a home screen widget\n\n\nCool idea — this is a good checklist of what to look for. I poked around; there are apps that hit many of your criteria, though maybe none perfect. Here are some that get close + suggestions + what to check so you can pick the best.\n\n\n\n\n\n\n\n\nApp\nWhat it does well\nWhat’s missing\n\n\n\n\nPretty Progress\nVery strong candidate. You can set a start & end date. Widgets show count up & count down. It supports displaying % completion, time passed vs time remaining.\nMight need PRO for some dashboard / widget styles. Check whether the widget graphically shows weeks passed vs weeks remaining (not just days %) — since you care about weeks, see if you can set the unit to weeks.\n\n\nLeft — Widgets for Time Left\nElegant countdown & time-left widgets: birthdays, milestones; can show weeks, months etc. Widgets are core to the app.\nNot clear if it shows graph (trend/history or weeks passed vs remaining) rather than just countdown. Might be more “static” or visual widget than full tracked graph."
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#discuss-a-book",
+    "href": "slides/ai-as-a-life-tool/index.html#discuss-a-book",
+    "title": "AI as a life tool",
+    "section": "Discuss a book",
+    "text": "Discuss a book\n\n\nI’m reading a book called “Four Thousand Weeks: Time Management for Mortals”. I’m fascinated by viewing time in weeks. A week is short enough to take control, and long enough to see progress. It ends with a deep break on the weekend. What am I missing in this perspective?\n\n\nThat’s a sharp observation. Seeing life in weeks is powerful because it gives you a rhythm that’s neither too microscopic (hours, which can feel frantic) nor too abstract (years, which can feel distant). But there are a few blind spots you might be missing:\n\nWeeks are artificial: A week isn’t a natural unit of time like a day (sunrise–sunset) or a year (Earth’s orbit). It’s a social construct. This means while it feels like a natural reset, your body or goals might not always sync neatly with that 7-day rhythm. For example, recovery, creativity, or learning curves often don’t obey a weekly cycle.\nRisk of over-resetting: If every week feels like a fresh start, you may unintentionally devalue the continuity of long-term work. Some projects need momentum across many weeks, and focusing too much on weekly “resets” might make you restart energy or habits instead of compounding them."
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#discuss-a-book-1",
+    "href": "slides/ai-as-a-life-tool/index.html#discuss-a-book-1",
+    "title": "AI as a life tool",
+    "section": "Discuss a book",
+    "text": "Discuss a book\n\n\nFind an iOS app to countdown to an event. It should show how many weeks have passed since I set a goal, and how many weeks are left until the event. I want a graph, not just a number counter, and it must have a home screen widget\n\n\nCool idea — this is a good checklist of what to look for. I poked around; there are apps that hit many of your criteria, though maybe none perfect. Here are some that get close + suggestions + what to check so you can pick the best.\n\n\n\n\n\n\n\n\nApp\nWhat it does well\nWhat’s missing\n\n\n\n\nPretty Progress\nVery strong candidate. You can set a start & end date. Widgets show count up & count down. It supports displaying % completion, time passed vs time remaining.\nMight need PRO for some dashboard / widget styles. Check whether the widget graphically shows weeks passed vs weeks remaining (not just days %) — since you care about weeks, see if you can set the unit to weeks."
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#discuss-a-book-2",
+    "href": "slides/ai-as-a-life-tool/index.html#discuss-a-book-2",
+    "title": "AI as a life tool",
+    "section": "Discuss a book",
+    "text": "Discuss a book"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#learn-new-skills",
+    "href": "slides/ai-as-a-life-tool/index.html#learn-new-skills",
+    "title": "AI as a life tool",
+    "section": "Learn new skills",
+    "text": "Learn new skills\n\n\nI was told that seeing reality clearly is really helpful for stress control. When thoughts come up, it is important to notice if they are real things or just in my head. I will use this chat for doing reality checks. Could you suggest me a very short but efficient way how are we going to work on this?\n\n\nWe can use just two steps for every thought you bring here:\nStep 1. Ask: 👉 “Is this happening right now in reality, or only in my head?”\nStep 2. Label:\nReality → something you can see, hear, touch, or prove.\nThought → story, fear, memory, or prediction.\nThat’s it. I’ll help you do the labelling when you write your thoughts here. Over time, you’ll start doing it automatically.\nDo you want me to keep the answers very short (just “Reality” or “Thought”), or would you prefer a tiny bit of explanation each time?"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#email-1",
+    "href": "slides/ai-as-a-life-tool/index.html#email-1",
+    "title": "AI as a life tool",
+    "section": "Email",
+    "text": "Email\n\n\nDear Julie,\nI made the line plot showing case count in R but there is actually a discrepancy between the data I’m using vs you’re using lol. The number just doesn’t match. Let solve this during our discussion in the next hour.\nBest, Thinh.\n\n\nHere’s a revised version that keeps your tone natural and friendly, but polishes the clarity and flow:\nSubject: Quick note before our meeting\nDear Julie,\nI’ve plotted the case counts in R, but it looks like there’s a discrepancy between the dataset I’m using and yours — the numbers don’t match up. Let’s go through it together during our discussion in the next hour.\nBest, Thinh\nLet me know if you’d like a more formal or more casual version."
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#email-2",
+    "href": "slides/ai-as-a-life-tool/index.html#email-2",
+    "title": "AI as a life tool",
+    "section": "Email",
+    "text": "Email\n\n\nDear Julie,\nI made the line plot showing case count in R but there is actually a discrepancy between the data I’m using vs you’re using lol. The number just doesn’t match. Let solve this during our discussion in the next hour.\nBest, Thinh.\n\n\nHere’s a revised version that keeps your tone natural and friendly, but polishes the clarity and flow:\nSubject: Quick note before our meeting\nDear Julie,\nI’ve plotted the case counts in R, but it looks like there’s a discrepancy between the dataset I’m using and yours — the numbers don’t match up. Let’s go through it together during our discussion in the next hour.\nBest, Thinh\nLet me know if you’d like a more formal or more casual version."
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#prompting-101",
+    "href": "slides/ai-as-a-life-tool/index.html#prompting-101",
+    "title": "AI as a life tool",
+    "section": "Prompting 101",
+    "text": "Prompting 101\n\n\nI want to study finance basics, but I don’t know how to ask you. Please ask me what you need and then generate a good prompt once you have enough information\n\n\nGot it 👍 To create the right prompt for you, I need to understand a few things about your goals and preferences. Let me ask you step by step:\n\nPurpose: Why do you want to learn finance basics? (e.g., personal money management, investing, understanding economics, career development, etc.)\nLevel: Do you want a very simple, beginner-friendly explanation (like everyday examples), or a bit more structured (with some technical terms, formulas, etc.)?\nFormat: How do you prefer to learn? (e.g., short lessons, Q&A style, exercises, summaries, real-life applications)\nFocus areas: Finance is broad. Which areas interest you most? Personal finance (budgeting, saving, debt, retirement planning), Investing (stocks, bonds, funds, property), Business finance (cash flow, profit/loss, company value), Economics & money systems (banks, inflation, central banks)\nTime: How much time do you want to spend learning (daily/weekly)? Do you prefer a quick crash course or a slower step-by-step path?\n\n👉 Once you answer these, I’ll put everything together into a clear, ready-to-use prompt that you can copy/paste to guide our finance learning journey."
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#prompting-101-1",
+    "href": "slides/ai-as-a-life-tool/index.html#prompting-101-1",
+    "title": "AI as a life tool",
+    "section": "Prompting 101",
+    "text": "Prompting 101\n\n\n\nPersonal money management; 2. Very simple, beginner-friendly; 3. Short lessons; 4. Personal finance; 5. 30 minutes daily, I prefer a quick crash course\n\n\n\nPerfect — thanks for the clear answers. Based on what you told me, here’s a ready-to-use prompt you can copy and use with me anytime:\nPrompt: “I want to learn personal finance basics for personal money management. Please teach me in very simple, beginner-friendly language through short lessons, like a 30-day crash course I can study for about 30 minutes each day. Focus only on personal finance (budgeting, saving, debt, retirement planning, etc.), not business or advanced investing. Make each lesson practical, easy to understand, and with small exercises or examples I can apply right away.”\nDo you want me to actually design this 30-day crash course outline for you now, so you can see the roadmap before starting?"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#prompting-101-2",
+    "href": "slides/ai-as-a-life-tool/index.html#prompting-101-2",
+    "title": "AI as a life tool",
+    "section": "Prompting 101",
+    "text": "Prompting 101\n\nProvide enough information and context\nTell it how to show the results, share examples if you have them\n\n“Give me a bulleted list”\n“Show me an R code using tidyverse style”\n\nFor complex tasks, ask step by step\nGood prompts = good communication"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#refine-email",
+    "href": "slides/ai-as-a-life-tool/index.html#refine-email",
+    "title": "AI as a life tool",
+    "section": "Refine email",
+    "text": "Refine email\nGive it 3 emails I’m proud of and let it discover the style I like:\n\nTone and voice\n\nProfessional but friendly: respectful, warm, and human.\nNever too formal or stiff; slightly casual is okay if context allows.\nSincere and humble: expressions of gratitude or apology are genuine, not exaggerated.\n\nStructure\n\nStart with a clear greeting and a short contextual sentence.\nBody should get straight to the point: one paragraph per key idea.\nEnd with a short, polite sign-off that doesn’t repeat too much.\n\nLanguage\n\nUse natural, spoken English: contractions like “I’m” or “we’re” are fine.\nAvoid flowery or overly elaborate words (e.g., “It would be an immense honour…” feels too much).\nPrefer plain and honest phrases (e.g., “Just want to check if…” / “I’m sorry I forgot”)."
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#refine-email-1",
+    "href": "slides/ai-as-a-life-tool/index.html#refine-email-1",
+    "title": "AI as a life tool",
+    "section": "Refine email",
+    "text": "Refine email\n\n\nDear Julie,\nI made the line plot showing case count in R but there is actually a discrepancy between the data I’m using vs you’re using lol. The number just doesn’t match. Let solve this during our discussion in the next hour.\nBest, Thinh.\n\n\nHere’s a revised version that keeps your tone natural and friendly, but polishes the clarity and flow:\nSubject: Quick note before our meeting\nDear Julie,\nI’ve plotted the case counts in R, but it looks like there’s a discrepancy between the dataset I’m using and yours — the numbers don’t match up. Let’s go through it together during our discussion in the next hour.\nBest, Thinh\nLet me know if you’d like a more formal or more casual version."
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#personal-coach",
+    "href": "slides/ai-as-a-life-tool/index.html#personal-coach",
+    "title": "AI as a life tool",
+    "section": "Personal coach",
+    "text": "Personal coach\n\n\nAct as an interviewer for a data analyst position at WHO. Ask me one question at a time, give feedback on my answers, and suggest how I can improve\n\n\nAlright, let’s get into interview mode!\nHere’s your first question:\nQ1: At the World Health Organization, we often work with large, messy datasets from different countries. Can you walk me through how you would approach cleaning and preparing such a dataset for analysis?\nTake your time answering, and then I’ll give you feedback and tips."
   }
 ]

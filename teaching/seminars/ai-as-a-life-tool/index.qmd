@@ -1,0 +1,18 @@
+---
+title: "AI as a life tool"
+date: 2023-09-25
+author:
+  - name: Thinh Ong
+    url: https://thinhong.github.io
+    orcid: 0000-0001-6772-9291
+citation:
+  url: https://drthinhong.com/seminars/ai-as-a-life-tool
+image: preview.svg
+draft: false
+execute:
+  eval: false
+---
+
+::: {.center-text}
+[{{< fa link >}} Presentation](/slides/ai-as-a-life-tool){.btn .btn-outline-secondary role="button"}
+:::
