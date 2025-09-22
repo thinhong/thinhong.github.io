@@ -529,7 +529,7 @@
     "href": "slides/ai-as-a-life-tool/index.html#disclaimer",
     "title": "AI as a life tool",
     "section": "Disclaimer",
-    "text": "Disclaimer\n\nThis is NOT the best way to use AI\nI’m sharing how I use it\nPlease question me, challenge me, disagree with me (but don’t hit me)"
+    "text": "Disclaimer\n\nScan this for the slide \n\n    \nThis is NOT the best way to use AI\nI’m sharing how I use it\nPlease question me, challenge me, disagree with me (but don’t hit me)"
   },
   {
     "objectID": "slides/ai-as-a-life-tool/index.html#step-1.-learn",
@@ -768,5 +768,12 @@
     "title": "AI as a life tool",
     "section": "Personal coach",
     "text": "Personal coach\n\n\nAct as an interviewer for a data analyst position at WHO. Ask me one question at a time, give feedback on my answers, and suggest how I can improve\n\n\nAlright, let’s get into interview mode!\nHere’s your first question:\nQ1: At the World Health Organization, we often work with large, messy datasets from different countries. Can you walk me through how you would approach cleaning and preparing such a dataset for analysis?\nTake your time answering, and then I’ll give you feedback and tips."
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#scan-this",
+    "href": "slides/ai-as-a-life-tool/index.html#scan-this",
+    "title": "AI as a life tool",
+    "section": "Scan this",
+    "text": "Scan this"
   }
 ]

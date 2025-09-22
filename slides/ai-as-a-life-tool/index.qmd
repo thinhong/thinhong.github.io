@@ -14,9 +14,12 @@ filters:
 
 ## Disclaimer
 
+-   Scan this for the slide
+{{< qrcode https://drthinhong.com/slides/ai-as-a-life-tool >}}
 -   This is **NOT** the best way to use AI
 -   I'm sharing how I use it
 -   Please question me, challenge me, disagree with me (but don't hit me)
+
 
 ## Prompting 101
 
