@@ -14,12 +14,21 @@ filters:
 
 ## Disclaimer
 
+:::: columns
+
+::: {.column width="75%"}
 -   Scan this for the slide
 {{< qrcode https://drthinhong.com/slides/ai-as-a-life-tool >}}
 -   This is **NOT** the best way to use AI
 -   I'm sharing how I use it
 -   Please question me, challenge me, disagree with me (but don't hit me)
+:::
 
+::: {.column width="25%"}
+{{< video img/life-tool.mp4 >}}
+:::
+
+::::
 
 ## Prompting 101
 
