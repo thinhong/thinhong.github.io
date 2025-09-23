@@ -156,7 +156,32 @@ Cool idea — this is a good checklist of what to look for. I poked around; ther
 :::
 ::::
 
-## Refine email
+## Refine writing
+
+::: user
+Make sure the grammar is correct and give me 5 versions for this: "The majority of ECR and senior faculty members (>50%) were satisfied with the level of mentorship they were received. Mid-career researchers (lecturer - 62% and assistant professors - 56%) reported neutral or disagree with this statement."
+:::
+
+::: {.gpt .typing}
+Here are five grammatically correct and stylistically varied versions of your sentence:
+
+Version 1 (clear and formal):
+The majority of early-career researchers and senior faculty members (>50%) were satisfied with the mentorship they received. In contrast, most mid-career researchers—62% of lecturers and 56% of assistant professors—responded neutrally or disagreed.
+
+Version 2 (concise):
+More than half of early-career researchers and senior faculty reported satisfaction with mentorship, while 62% of lecturers and 56% of assistant professors gave neutral or negative responses.
+
+Version 3 (contrast emphasis):
+While most early-career researchers and senior faculty (>50%) expressed satisfaction with mentorship, mid-career researchers were less positive: 62% of lecturers and 56% of assistant professors were neutral or disagreed.
+
+Version 4 (data-led):
+Over half of early-career researchers and senior faculty reported being satisfied with their mentorship. By contrast, 62% of lecturers and 56% of assistant professors indicated neutral or negative views.
+
+Version 5 (smooth narrative):
+Satisfaction with mentorship was reported by the majority of early-career researchers and senior faculty (>50%). However, among mid-career researchers, 62% of lecturers and 56% of assistant professors gave neutral or disagreeing responses.
+:::
+
+## Refine emails
 
 Give it 3 emails I'm proud of and let it discover the style I like:
 
@@ -182,7 +207,7 @@ Language
 
 :::
 
-## Refine email
+## Refine emails
 
 ::: user
 Dear Julie,

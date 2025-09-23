@@ -775,5 +775,26 @@
     "title": "AI as a life tool",
     "section": "Scan this",
     "text": "Scan this"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#refine-writing",
+    "href": "slides/ai-as-a-life-tool/index.html#refine-writing",
+    "title": "AI as a life tool",
+    "section": "Refine writing",
+    "text": "Refine writing\n\n\nMake sure the grammar is correct and give me 5 versions for this: “The majority of ECR and senior faculty members (&gt;50%) were satisfied with the level of mentorship they were received. Mid-career researchers (lecturer - 62% and assistant professors - 56%) reported neutral or disagree with this statement.”\n\n\nHere are five grammatically correct and stylistically varied versions of your sentence:\nVersion 1 (clear and formal): The majority of early-career researchers and senior faculty members (&gt;50%) were satisfied with the mentorship they received. In contrast, most mid-career researchers—62% of lecturers and 56% of assistant professors—responded neutrally or disagreed.\nVersion 2 (concise): More than half of early-career researchers and senior faculty reported satisfaction with mentorship, while 62% of lecturers and 56% of assistant professors gave neutral or negative responses.\nVersion 3 (contrast emphasis): While most early-career researchers and senior faculty (&gt;50%) expressed satisfaction with mentorship, mid-career researchers were less positive: 62% of lecturers and 56% of assistant professors were neutral or disagreed.\nVersion 4 (data-led): Over half of early-career researchers and senior faculty reported being satisfied with their mentorship. By contrast, 62% of lecturers and 56% of assistant professors indicated neutral or negative views.\nVersion 5 (smooth narrative): Satisfaction with mentorship was reported by the majority of early-career researchers and senior faculty (&gt;50%). However, among mid-career researchers, 62% of lecturers and 56% of assistant professors gave neutral or disagreeing responses."
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#refine-emails",
+    "href": "slides/ai-as-a-life-tool/index.html#refine-emails",
+    "title": "AI as a life tool",
+    "section": "Refine emails",
+    "text": "Refine emails\nGive it 3 emails I’m proud of and let it discover the style I like:\n\nTone and voice\n\nProfessional but friendly: respectful, warm, and human.\nNever too formal or stiff; slightly casual is okay if context allows.\nSincere and humble: expressions of gratitude or apology are genuine, not exaggerated.\n\nStructure\n\nStart with a clear greeting and a short contextual sentence.\nBody should get straight to the point: one paragraph per key idea.\nEnd with a short, polite sign-off that doesn’t repeat too much.\n\nLanguage\n\nUse natural, spoken English: contractions like “I’m” or “we’re” are fine.\nAvoid flowery or overly elaborate words (e.g., “It would be an immense honour…” feels too much).\nPrefer plain and honest phrases (e.g., “Just want to check if…” / “I’m sorry I forgot”)."
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#refine-emails-1",
+    "href": "slides/ai-as-a-life-tool/index.html#refine-emails-1",
+    "title": "AI as a life tool",
+    "section": "Refine emails",
+    "text": "Refine emails\n\n\nDear Julie,\nI made the line plot showing case count in R but there is actually a discrepancy between the data I’m using vs you’re using lol. The number just doesn’t match. Let solve this during our discussion in the next hour.\nBest, Thinh.\n\n\nHere’s a revised version that keeps your tone natural and friendly, but polishes the clarity and flow:\nSubject: Quick note before our meeting\nDear Julie,\nI’ve plotted the case counts in R, but it looks like there’s a discrepancy between the dataset I’m using and yours — the numbers don’t match up. Let’s go through it together during our discussion in the next hour.\nBest, Thinh\nLet me know if you’d like a more formal or more casual version."
   }
 ]
