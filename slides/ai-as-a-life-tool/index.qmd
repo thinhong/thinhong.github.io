@@ -28,6 +28,10 @@ filters:
 {{< video img/life-tool.mp4 >}}
 :::
 
+::: footer
+Video source: [@timmorrel](https://www.instagram.com/reel/DHwWc6RiH2P/?hl=en)
+:::
+
 ::::
 
 ## Prompting 101
