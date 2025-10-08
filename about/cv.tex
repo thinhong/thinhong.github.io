@@ -1,4 +1,5 @@
 % Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
@@ -7,22 +8,23 @@
   12pt,
   a4paper,
 ]{article}
-
+\usepackage{xcolor}
+\usepackage[top=14mm,left=15mm,right=15mm,bottom=20mm,heightrounded]{geometry}
 \usepackage{amsmath,amssymb}
-\usepackage{setspace}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
 \usepackage[]{libertine}
-\ifPDFTeX\else  
-    % xetex/luatex font selection
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -30,6 +32,7 @@
   \usepackage[]{microtype}
   \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
+\usepackage{setspace}
 \makeatletter
 \@ifundefined{KOMAClassName}{% if non-KOMA class
   \IfFileExists{parskip.sty}{%
@@ -40,10 +43,6 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
-\usepackage{xcolor}
-\usepackage[top=14mm,left=15mm,right=15mm,bottom=20mm,heightrounded]{geometry}
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 % Make \paragraph and \subparagraph free-standing
 \makeatletter
 \ifx\paragraph\undefined\else
@@ -69,8 +68,7 @@
 \makeatother
 
 
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -82,17 +80,33 @@
 \makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
 % Set default figure placement to htbp
-\makeatletter
 \def\fps@figure{htbp}
 \makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
 
 % Set spacing between rows in tables
 \renewcommand{\arraystretch}{1.35}
@@ -165,14 +179,9 @@
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
-
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
 \usepackage{bookmark}
-
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
   colorlinks=true,
   linkcolor={blue},
@@ -184,7 +193,6 @@
 
 \author{}
 \date{}
-
 \begin{document}
 
 \begin{huge}\begin{center}{\bf Thinh Ong}\end{center}\end{huge}
@@ -343,6 +351,10 @@ Further details are provided below.
   \emph{serosv: Analyse serological data and estimate infectious
   diseases parameters}. \url{https://oucru-modelling.github.io/serosv}.
 \item
+  Khuong QL, Pham NTN, \textbf{Ong T}, Getz K (2025). \emph{tvmedg:
+  Causal mediation analysis using g-computation}.
+  \url{https://causalepi.github.io/tvmedg/}.
+\item
   Luu PL, \textbf{Ong T}, Loc TTH, Lam D, Pidsley R, Stirzaker C, Clark
   SJ (2021). \emph{MethPanel: Analyse multiplex bisulphite PCR
   sequencing to assess DNA methylation biomarker panels for disease
@@ -365,6 +377,43 @@ Further details are provided below.
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
+\item
+  Phi HD, Ca TN, Oanh PM, Phong NT, \textbf{Ong T}, Nhung PTH. Impact of
+  measles vaccination on disease severity and economic burden among
+  children in northern Vietnam, 2017--2019. Vaccine: X. 2025;26: 100714.
+  doi:\href{https://doi.org/10.1016/j.jvacx.2025.100714}{10.1016/j.jvacx.2025.100714}
+\item
+  \textbf{Ong T}, Thuy CT, Tam NH, Nga LH, Uyen NTV, Lan TTT, Tran A,
+  Diem LTK, Khang HP, Dung DTX, Chuong LN, Tam NHT, Giang VC, Cam TTB,
+  Anh HTN, Thu PTM, Man DNH, Dung NT, Tung NLN, Phat HH, Toan LM, Lam
+  NT, Nguyen PNT, Nhung HN, Thanh TT, Chau NVV, Thuong TC, Thwaites G,
+  Thwaites CL, Choisy M, Tan LV. Detection of Immunity Gap before
+  Measles Outbreak, Ho Chi Minh City, Vietnam, 2024. Emerging Infectious
+  Diseases. NA;31(10):.
+  doi:\href{https://doi.org/10.3201/eid3110.250234}{10.3201/eid3110.250234}
+\item
+  Leung K, Cook AR, Wu JT, McVernon J, Prem K, Jit M, Kingkaew P,
+  Mukhopadhyay S, Isaranuwatchai W, Pan-ngum W, Teerawattananon Y, Huang
+  A, Djaafara B, Sukmanee J, \textbf{Ong T}, Laemlak S, Chua VW,
+  Rattanavipapong W, Dabak SV. Enhancing global health security
+  responses through greater inclusion of the global south in infectious
+  disease modelling. BMJ Glob Health. 2025;10(8):.
+  doi:\href{https://doi.org/10.1136/bmjgh-2025-019111}{10.1136/bmjgh-2025-019111}
+\item
+  Le TMC, Duong KT, \textbf{Ong T}, Nguyen THN, Thai TCT, Nguyen TTH,
+  Nguyen QA, Le QT, Pham NTN, Roque M, Alviggi C, Conforti A. O-187
+  Individualized luteal phase support with intramuscular progesterone in
+  patients with low serum progesterone on the day of frozen-thawed
+  embryo transfer: a randomized clinical trial. Hum Reprod.
+  2025;40(Supplement\_1):deaf097.187.
+  doi:\href{https://doi.org/10.1093/humrep/deaf097.187}{10.1093/humrep/deaf097.187}
+\item
+  Le TMC, Tran THD, Pham VP, Dang TL, Duong KT, Hua TT, Huynh TNT,
+  Nguyen THN, Le QT, Nguyen BMN, Vo MT, \textbf{Ong T}, Pham NTN, Amorim
+  CA. The first comparative study on the effectiveness of slow freezing
+  and vitrification of human ovarian tissue by xenotransplantation model
+  in Vietnam. J Assist Reprod Genet. 2025;42(5):1473-1484.
+  doi:\href{https://doi.org/10.1007/s10815-025-03439-z}{10.1007/s10815-025-03439-z}
 \item
   Pham NML, \textbf{Ong T}, Vuong NL, Nguyen TTH. HLA Compatibility and
   Graft Survival Rates Among Related and Unrelated Donors in Renal
