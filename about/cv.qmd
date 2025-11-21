@@ -97,8 +97,8 @@ I have successfully secured `r total_grants_text` in research grants since `r mi
 ```{r}
 cv_grants |>
   arrange(my_role, desc(outcome)) |>
-  select(period, budget_total_usd_formatted, my_role, title) |>
-  make_table(colwidths = c(12, 12, 7, 69), italic = T)
+  select(period, my_role, budget_total_usd_formatted, title) |>
+  make_table(colwidths = c(12, 7, 12, 69), italic = T)
 ```
 
 \begin{large}{\bf AWARDS}
@@ -141,7 +141,8 @@ cv_team_raw |>
 cv_policy_raw <- read_sheet(ss = cv_url, sheet = "policy")
 
 cv_policy_raw |> 
-  arrange(desc(date)) |> 
+  arrange(desc(year)) |> 
+  select(date, project) |> 
   make_table(colwidths = c(12, 88))
 ```
 
