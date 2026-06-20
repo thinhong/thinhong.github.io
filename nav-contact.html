@@ -1,0 +1,78 @@
+<script>
+(function(){
+  function add(){
+    var nc = document.querySelector('.navbar-container');
+    if (nc && !document.getElementById('navContact')) {
+      var wrap = document.createElement('div');
+      wrap.id = 'navContact';
+      wrap.className = 'nav-contact';
+      wrap.setAttribute('role', 'button');
+      wrap.setAttribute('tabindex', '0');
+      wrap.setAttribute('aria-label', 'Contact via LinkedIn or Email');
+      wrap.innerHTML =
+        '<span class="nc-extra">' +
+          '<a class="nc-ico" href="https://www.linkedin.com/in/thinh-ong/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>' +
+          '<a class="nc-ico" href="mailto:ongphucthinh@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>' +
+        '</span>' +
+        '<span class="nc-label">Contact</span>';
+      nc.appendChild(wrap);
+      wrap.addEventListener('click', function (e) {
+        if (e.target.closest('a.nc-ico')) return;
+        e.preventDefault();
+        wrap.classList.toggle('open');
+      });
+      wrap.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); wrap.classList.toggle('open'); }
+      });
+      document.addEventListener('click', function (e) {
+        if (!wrap.contains(e.target)) wrap.classList.remove('open');
+      });
+    }
+  }
+  if (document.readyState !== 'loading') add();
+  else document.addEventListener('DOMContentLoaded', add);
+})();
+
+// Sliding pill that glides between navbar links and rests on the current page
+(function(){
+  var nav, links, pill;
+  function activeLink(){ return nav.querySelector('.nav-link.active') || nav.querySelector('.nav-link[aria-current="page"]'); }
+  function place(link, animate){
+    if (!link) return;
+    if (!animate) pill.style.transition = 'none';
+    pill.style.opacity = '1';
+    pill.style.width = link.offsetWidth + 'px';
+    pill.style.height = link.offsetHeight + 'px';
+    pill.style.transform = 'translate(' + link.offsetLeft + 'px,' + link.offsetTop + 'px)';
+    links.forEach(function (l) { l.classList.toggle('lit', l === link); });
+    if (!animate) { void pill.offsetWidth; pill.style.transition = ''; }
+  }
+  function rest(){
+    var a = activeLink();
+    if (a) { place(a, true); }
+    else { pill.style.opacity = '0'; links.forEach(function (l) { l.classList.remove('lit'); }); }
+  }
+  function reposition(){
+    var cur = nav.querySelector('.nav-link.lit') || activeLink();
+    if (cur) place(cur, false); else pill.style.opacity = '0';
+  }
+  function init(){
+    nav = document.querySelector('#navbarCollapse .navbar-nav');
+    if (!nav) return;
+    links = [].slice.call(nav.querySelectorAll('.nav-link'));
+    if (!links.length || nav.querySelector('.nav-pill')) return;
+    nav.style.position = 'relative';
+    pill = document.createElement('span');
+    pill.className = 'nav-pill';
+    nav.insertBefore(pill, nav.firstChild);
+    links.forEach(function (l) { l.addEventListener('mouseenter', function () { place(l, true); }); });
+    nav.addEventListener('mouseleave', rest);
+    reposition();
+    setTimeout(reposition, 300);
+    window.addEventListener('load', reposition);
+    var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(reposition, 120); });
+  }
+  if (document.readyState !== 'loading') init();
+  else document.addEventListener('DOMContentLoaded', init);
+})();
+</script>

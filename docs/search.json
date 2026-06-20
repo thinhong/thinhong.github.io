@@ -7,228 +7,74 @@
     "text": "Presentation\n\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\nPreview image by Freepik\n\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {Is This a Good Journal?},\n  date = {2023-09-25},\n  url = {https://drthinhong.com/seminars/is-this-a-good-journal},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “Is This a Good Journal?” September 25,\n2023. https://drthinhong.com/seminars/is-this-a-good-journal."
   },
   {
-    "objectID": "teaching/others/r4babies/index.html",
-    "href": "teaching/others/r4babies/index.html",
-    "title": "R for babies",
+    "objectID": "teaching/others/rpkg4b/index.html",
+    "href": "teaching/others/rpkg4b/index.html",
+    "title": "R package for babies",
     "section": "",
-    "text": "Course homepage\nThis course has been taught for staff members of Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPreview image by Freepik\n\n\n\n\n Back to top"
+    "text": "Back to top"
   },
   {
-    "objectID": "teaching/modelling/idm4b/index.html",
-    "href": "teaching/modelling/idm4b/index.html",
-    "title": "Infectious disease modelling for babies",
+    "objectID": "teaching/others/aw4b/index.html",
+    "href": "teaching/others/aw4b/index.html",
+    "title": "Academic writing",
     "section": "",
-    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n Back to top"
+    "text": "Submitting a manuscript for publication is a lot like submitting an essay or taking a test. To succeed, you need to understand what the “test” will cover, who the judges are, and the rubrics they use to evaluate you. Journals have their own criteria, and editors act as the first judges of your work. If you write with these in mind, you’re much more likely to succeed.\n\n\n\nA typical publication process (Luo and McGregor 2021)\n\n\n\n\nThe manuscript is submitted by the corresponding author and typically includes:\n\nManuscript (of course)\nCover letter\nSeperate files for figures and/or tables\nReporting checklist (STROBE, CONSORT, PRISMA…)\n\n\n\n\nAn editor reviews the title, abstract and cover letter to assess the paper. If the manuscript passes this stage, it proceeds to peer review.\nWhat is the editor looking for?\n\nFit with the journal’s scope and standards.\nPotential impact, including likelihood of being cited.\n\nLike conducting a systematic review: just as you screen titles and abstracts to decide if a study fits your review question, editors quickly assess whether your manuscript fits their journal’s criteria. Their decision is swift, since they have many submissions to evaluate and limited time.\nIn marketing, there’s a “7-second rule” for making a first impression: consumers decide whether they want to buy a product within 7 seconds (Zhuoma, Kasamatsu, and Ainoya 2020). Editors often work just as quickly. Your title, abstract, and cover letter are your first and best chance to capture their attention. Make sure they clearly convey what your research is about, why it matters, and why it belongs in their journal.\nWhat does “potential impact” mean to an editor?\nEditors are not just looking for good science. They’re looking for papers that contribute meaningfully to their journal’s mission and audience. While every journal has its specific focus, they generally want research that:\n\nAddresses pressing questions in the field.\nHas the potential to advance knowledge or significantly influence the direction of the field.\nIs likely to be cited by other researchers, as citations indicate relevance and influence.\n\nWhy does this matter? Journals aim to publish research that resonates in their field and enhances their reputation. Metrics like the impact factor, which reflects how often articles in the journal are cited, are used as benchmarks for success. While this isn’t the sole driver for what editors accept, it’s fair to say they’re drawn to work that aligns with these goals.\nFraming it for authors\nFor authors, this means thinking strategically:\n\nFocus your manuscript’s message: Highlight what’s novel or significant about your findings.\nTarget the right journal: Research its audience and scope, because editors want papers that “fit”.\nWrite for clarity: Clear, accessible writing helps both the editor and readers see the potential impact of your work.\n\nBy understanding this perspective, you can position your manuscript not just as a contribution to science, but also as a meaningful addition to a journal’s growing conversation.\n\n\n\nThe editor will typically invite 3 reviewers. Reviewers evaluate your manuscript and submit reports back to the editor with recommendations.\nWhat are reviewers looking for?\n\nClarity: Is it well-structured and understandable?\nOriginality: Is the research novel and valuable?\nMethodology: Are methods robust, reproducible, and clear?\nValidity: Do results support the conclusions?\nImpact: Does this work advance knowledge in the field?\n\nReviewers give recommendations such as:\n\nAcceptance without changes: rare and exceptional\nAcceptance with revisions: minor or major changes needed\nRejection\n\nThink of reviewers as your essay graders. They’re checking if you’ve followed the “rubrics” of good science and clear writing.\n\n\n\nIt’s a common misconception that reviewers decide the fate of your manuscript. In reality, reviewers act more like consultants who provide insights and recommendations to support the editor. Ultimately, the editor has the final say on whether your manuscript is accepted, revised, or rejected.\nThe editor considers reviewers’ reports and decides:\n\nAcceptance without changes: rare and exceptional\nConditional acceptance with revisions:\n\nMinor revisions: authors revise, editor verifies the changes\nMajor revisions: authors submit a revised manuscript and detailed responses to reviewers, another round of peer review is likely to occur\n\nRejection: when the majority of reviewers recommend rejection"
   },
   {
-    "objectID": "teaching/index.html",
-    "href": "teaching/index.html",
-    "title": "Teaching",
+    "objectID": "teaching/others/aw4b/index.html#academic-publication-process",
+    "href": "teaching/others/aw4b/index.html#academic-publication-process",
+    "title": "Academic writing",
     "section": "",
-    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\nNo matching items"
+    "text": "Submitting a manuscript for publication is a lot like submitting an essay or taking a test. To succeed, you need to understand what the “test” will cover, who the judges are, and the rubrics they use to evaluate you. Journals have their own criteria, and editors act as the first judges of your work. If you write with these in mind, you’re much more likely to succeed.\n\n\n\nA typical publication process (Luo and McGregor 2021)\n\n\n\n\nThe manuscript is submitted by the corresponding author and typically includes:\n\nManuscript (of course)\nCover letter\nSeperate files for figures and/or tables\nReporting checklist (STROBE, CONSORT, PRISMA…)\n\n\n\n\nAn editor reviews the title, abstract and cover letter to assess the paper. If the manuscript passes this stage, it proceeds to peer review.\nWhat is the editor looking for?\n\nFit with the journal’s scope and standards.\nPotential impact, including likelihood of being cited.\n\nLike conducting a systematic review: just as you screen titles and abstracts to decide if a study fits your review question, editors quickly assess whether your manuscript fits their journal’s criteria. Their decision is swift, since they have many submissions to evaluate and limited time.\nIn marketing, there’s a “7-second rule” for making a first impression: consumers decide whether they want to buy a product within 7 seconds (Zhuoma, Kasamatsu, and Ainoya 2020). Editors often work just as quickly. Your title, abstract, and cover letter are your first and best chance to capture their attention. Make sure they clearly convey what your research is about, why it matters, and why it belongs in their journal.\nWhat does “potential impact” mean to an editor?\nEditors are not just looking for good science. They’re looking for papers that contribute meaningfully to their journal’s mission and audience. While every journal has its specific focus, they generally want research that:\n\nAddresses pressing questions in the field.\nHas the potential to advance knowledge or significantly influence the direction of the field.\nIs likely to be cited by other researchers, as citations indicate relevance and influence.\n\nWhy does this matter? Journals aim to publish research that resonates in their field and enhances their reputation. Metrics like the impact factor, which reflects how often articles in the journal are cited, are used as benchmarks for success. While this isn’t the sole driver for what editors accept, it’s fair to say they’re drawn to work that aligns with these goals.\nFraming it for authors\nFor authors, this means thinking strategically:\n\nFocus your manuscript’s message: Highlight what’s novel or significant about your findings.\nTarget the right journal: Research its audience and scope, because editors want papers that “fit”.\nWrite for clarity: Clear, accessible writing helps both the editor and readers see the potential impact of your work.\n\nBy understanding this perspective, you can position your manuscript not just as a contribution to science, but also as a meaningful addition to a journal’s growing conversation.\n\n\n\nThe editor will typically invite 3 reviewers. Reviewers evaluate your manuscript and submit reports back to the editor with recommendations.\nWhat are reviewers looking for?\n\nClarity: Is it well-structured and understandable?\nOriginality: Is the research novel and valuable?\nMethodology: Are methods robust, reproducible, and clear?\nValidity: Do results support the conclusions?\nImpact: Does this work advance knowledge in the field?\n\nReviewers give recommendations such as:\n\nAcceptance without changes: rare and exceptional\nAcceptance with revisions: minor or major changes needed\nRejection\n\nThink of reviewers as your essay graders. They’re checking if you’ve followed the “rubrics” of good science and clear writing.\n\n\n\nIt’s a common misconception that reviewers decide the fate of your manuscript. In reality, reviewers act more like consultants who provide insights and recommendations to support the editor. Ultimately, the editor has the final say on whether your manuscript is accepted, revised, or rejected.\nThe editor considers reviewers’ reports and decides:\n\nAcceptance without changes: rare and exceptional\nConditional acceptance with revisions:\n\nMinor revisions: authors revise, editor verifies the changes\nMajor revisions: authors submit a revised manuscript and detailed responses to reviewers, another round of peer review is likely to occur\n\nRejection: when the majority of reviewers recommend rejection"
   },
   {
-    "objectID": "teaching/index.html#modelling",
-    "href": "teaching/index.html#modelling",
-    "title": "Teaching",
+    "objectID": "teaching/others/aw4b/index.html#what-makes-a-manuscript",
+    "href": "teaching/others/aw4b/index.html#what-makes-a-manuscript",
+    "title": "Academic writing",
+    "section": "What makes a manuscript?",
+    "text": "What makes a manuscript?\n\nRead and analyse a paper\nPaper: Long-term waning of vaccine-induced immunity to measles in England: a mathematical modelling study (Robert, Suffel, and Kucharski 2024).\nAnswer the questions:\n\nWhat are the authors trying to prove?\nWhat are the key outputs of the study?\nHow did they conduct the study?\nWhere did you find the information to answer the above questions?\n\nReflect as a group on the following:\n\nWhich section was most helpful in understanding the paper?\nWhich section did you struggle with, and why?"
+  },
+  {
+    "objectID": "teaching/others/aw4b/index.html#manuscript-structure",
+    "href": "teaching/others/aw4b/index.html#manuscript-structure",
+    "title": "Academic writing",
+    "section": "Manuscript structure",
+    "text": "Manuscript structure\n\nIntroduction: context, the gap in knowledge, and study objectives\nMethods: how experiments were done\nResults: key outputs in figures and tables\nDiscussion: interpretation of findings, limitations, and broader implications"
+  },
+  {
+    "objectID": "teaching/others/aw4b/index.html#writing-strategies",
+    "href": "teaching/others/aw4b/index.html#writing-strategies",
+    "title": "Academic writing",
+    "section": "Writing strategies",
+    "text": "Writing strategies\n\nWhat sections should you write first?\nThe order of writing is often different from the order of presentation in the manuscript. Following a logical workflow can streamline the process and improve the coherence of your manuscript.\n\n\nMy strategy\n\nStudy objectives:\n\n\nStart here to clarify the central goals of your research. This will guide the entire manuscript. Focus on clear, compelling wording that immediately make people understand what are you doing.\n\n\nFigures and/or tables:\n\n\nThe first thing you should do is NOT WRITING. First, create one to four publication-quality plots or tables and show them to someone you trust. Make sure they truly “get” your story before you move on (Leek 2016).\nWrite up a story around the plots in the simplest language you feel you can get away with.\nThis is how you build up a story: think of them as a step-by-step narrative framework that guides readers through your study’s logic:\n\nEach figure or table should illustrate a key point\nWrite concise, informative captions that highlight their meaning\n\n\n\nResults:\n\n\nSummarise the findings shown in your figures and tables in words, ensuring a consistent and logical progression from one key insight to the next.\n\n\nMethods:\n\n\nBasically what have been done to produce results. By this stage, you know exactly what methods need to be highlighted to support your results.\n\n\nDiscussion:\n\n\nInterpret your findings in the context of existing research.\nLimitations and suggest implications or future directions.\n\n\nIntroduction:\n\n\nSet the context, highlight the research gap, and end with your objectives.\n\n\nAbstract\nTitle"
+  },
+  {
+    "objectID": "teaching/others/aw4b/index.html#drafting",
+    "href": "teaching/others/aw4b/index.html#drafting",
+    "title": "Academic writing",
+    "section": "Drafting",
+    "text": "Drafting\n\nA typical workflow\n\nTurn on “Do not disturb”.\nNote down everything that comes to mind, not in complete sentences.\nDon’t care about grammar, punctuation, references.\n\nOnce you’ve got a rough “mess” of words, start organising them into coherent sentences, trimming unnecessary parts as you go. Think of it as shaping raw clay into a polished form.\n\n\nVerbosity\nVisit this link and do the exercise.\n\n\n    \nHow to avoid being overly verbose\n\nDelete meaningless or redundant words: Words that add no value should go.\nBeware of repetition: Avoid restating the same idea in different ways.\nDelete implied words: Remove words that are already conveyed by other parts of the sentence.\nUse affirmations instead of negatives: For example, say “effective” instead of “not ineffective”.\nCut unnecessary adjectives and adverbs: Only keep modifiers that add genuine clarity.\nAvoid “burying the verb”: Keep your main verb clear and upfront.\nUse the active voice: Active constructions are clearer and more engaging."
+  },
+  {
+    "objectID": "teaching/others/aw4b/index.html#let-start-writing",
+    "href": "teaching/others/aw4b/index.html#let-start-writing",
+    "title": "Academic writing",
+    "section": "Let start writing!",
+    "text": "Let start writing!\n\nStudy objectives\nBegin by identifying the most important findings you want to highlight in your manuscript. These will form the core message of your study.\n\nReview recent papers: Prioritise the most recent and relevant studies in your field. Read them carefully to identify the research gaps they haven’t yet addressed.\nFind your “selling point”: Focus on how your data or findings can fill these gaps. This will not only guide your writing but also make your study more compelling to editors and reviewers.\n\nThis process is similar to conducting a quick literature review. It helps clarify your study’s objectives and provides valuable content for crafting the introduction and discussion sections later.\n\n\nFigures and/or tables\n\nStart with your key findings:\n\nDecide which results are central to your message and need visual representation.\nThink about whether a graph, chart, or table best conveys the information.\n\nChoose the right type of visual:\n\nFigures: Use for trends, relationships, and comparisons (e.g., bar charts, line graphs, scatter plots).\nTables: Use for detailed numerical data or when precise values matter.\n\nDesign for simplicity:\n\nKeep visuals clear and uncluttered. Avoid overloading them with excessive data or details.\nUse concise titles, clear labels, and consistent formatting.\n\nShow them to someone you trust, discuss and build a storyline: next meeting.\n\n\n\nKeywords\nSEO"
+  },
+  {
+    "objectID": "teaching/modelling/idm-intro/index.html",
+    "href": "teaching/modelling/idm-intro/index.html",
+    "title": "Introduction to infectious disease modelling",
     "section": "",
-    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\nNo matching items"
+    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\nPreview image by svstudioart on Freepik\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "teaching/index.html#others",
-    "href": "teaching/index.html#others",
-    "title": "Teaching",
-    "section": "Others",
-    "text": "Others\n\n\n\n\n\n\n\n\n\n\nR for babies\n\n\nBasic R programming for data science\n\n\n\n\n\n\n\n\n\n\n\n\nR package for babies\n\n\nA fun, beginner-friendly course covers every step, ensuring your package is CRAN-ready. Perfect for all ages.\n\n\n\n\n\n\n\n\n\n\nAcademic writing\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "teaching/index.html#seminars",
-    "href": "teaching/index.html#seminars",
-    "title": "Teaching",
-    "section": "Seminars",
-    "text": "Seminars\n\n\n\n\n\n\n\n\n\n\nAI as a life tool\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIs this a good journal?\n\n\nLearn how to identify trustworthy scientific journals and avoid predatory ones\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "slides/about/index.html#education",
-    "href": "slides/about/index.html#education",
-    "title": "Thinh Ong",
-    "section": "Education",
-    "text": "Education\n\n\n\n\n\n\n\n\n2022-2026\nDoctor of Philosophy in Clinical Medicine\nUniversity of Oxford, United Kingdom\n\n\n\n\n\n\n\n2012-2018\nDoctor of Medicine in Preventive Medicine\nUniversity of Medicine and Pharmacy at Ho Chi Minh City, Vietnam"
-  },
-  {
-    "objectID": "slides/about/index.html#awards-and-honours",
-    "href": "slides/about/index.html#awards-and-honours",
-    "title": "Thinh Ong",
-    "section": "Awards and honours",
-    "text": "Awards and honours\n\n\n\n\n\n\n\n\nFull DPhil studentship\n\n\n\n\n\n\n\nValedictorian, the only graduation with distinction grade in the fixed-curriculum system (prior to 2022)\nThe highest GPA in the history of the school\nThe highest score in dissertation"
-  },
-  {
-    "objectID": "slides/about/index.html#research",
-    "href": "slides/about/index.html#research",
-    "title": "Thinh Ong",
-    "section": "Research",
-    "text": "Research\n\n\n\n\n\n\n\nField\nExperience\n\n\n\n\nMathematical modelling\nDr. Marc Choisy  \n\n\nBioinformatics\nProf. Susan Clark, Dr. Phuc-Loi Luu \n\n\nBiostatistics\nClinical trials, public health institutions"
-  },
-  {
-    "objectID": "slides/about/index.html#achievements",
-    "href": "slides/about/index.html#achievements",
-    "title": "Thinh Ong",
-    "section": "Achievements",
-    "text": "Achievements\n\n14 research articles (international journals)\n4 international conferences\n4 software\n1 book chapter"
-  },
-  {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Blog",
+    "objectID": "software/index.html",
+    "href": "software/index.html",
+    "title": "\nTools I build\n",
     "section": "",
-    "text": "10 simple tips to chair a meeting\n\n\n\nleadership\n\n\n\nA survival kit when you are thrust into the chairing role\n\n\n\nThinh Ong\n\n\nAug 26, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
-  },
-  {
-    "objectID": "about/index.html",
-    "href": "about/index.html",
-    "title": "About me",
-    "section": "",
-    "text": "Presentation"
-  },
-  {
-    "objectID": "about/index.html#education",
-    "href": "about/index.html#education",
-    "title": "About me",
-    "section": "Education",
-    "text": "Education\n\nDoctor of Philosophy in Clinical Medicine, University of Oxford, United Kingdom (Graduation expected 2026)\nDoctor of Medicine in Preventive Medicine, University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam (2012-2018)"
-  },
-  {
-    "objectID": "about/index.html#awards-and-honours",
-    "href": "about/index.html#awards-and-honours",
-    "title": "About me",
-    "section": "Awards and honours",
-    "text": "Awards and honours\n\nFull DPhil studentship, issued by Oxford University Clinical Research Unit and University of Oxford (2022)\nAcademic Distinction Award (Valedictorian), issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nDissertation Distinction Award, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nStudent with the highest GPA, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2014, 2016, 2017)"
-  },
-  {
-    "objectID": "about/index.html#employment-history",
-    "href": "about/index.html#employment-history",
-    "title": "About me",
-    "section": "Employment history",
-    "text": "Employment history\n\nResearch Assistant, Oxford University Clinical Research Unit, Vietnam (2021-2022)\nResearch Assistant, Hanoi University of Public Health, Vietnam (2020)\nResearch Intern, Garvan Institute of Medical Research, Australia (remote, 2019-2020)\nStatistical consultant, Tu Du hospital, Vietnam (freelance, 2018-2023)"
-  },
-  {
-    "objectID": "about/index.html#society-memberships",
-    "href": "about/index.html#society-memberships",
-    "title": "About me",
-    "section": "Society memberships",
-    "text": "Society memberships\n\nMember, Modelling Infectious Diseases in South East Asia\nAffiliate, Vaccine Impact Modelling Consortium"
-  },
-  {
-    "objectID": "about/index.html#adventures",
-    "href": "about/index.html#adventures",
-    "title": "About me",
-    "section": "Adventures",
-    "text": "Adventures\nI’m a regular guy from a developing country. Going abroad used to be a dream. My research has given me the chance to visit different countries, connect with collaborators, attend international conferences and workshops. This map notes all my visits.\n\ncountries = JSON.parse(data)\nvisited = JSON.parse(data2)\nbertin = require(\"bertin@1.2.4\")\n\nbertin.draw({\n  params: { projection: \"Eckert3\" },\n  layers: [\n    {\n      type: \"layer\",\n      geojson: visited,\n      tooltip: [\"$NAMEen\", \"$visit1\", \"$visit2\", \"$visit3\"],\n      fill: {\n        type: \"typo\",\n        values: \"visit1\"\n      }\n    },\n    {\n      type: \"layer\",\n      geojson: countries,\n      fill: \"white\",\n      fillOpacity: 0.5\n    },\n    { type: \"graticule\" },\n    { type: \"outline\" }\n  ]\n})"
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html",
-    "title": "10 simple tips to chair a meeting",
-    "section": "",
-    "text": "Before the meeting:\n\nAlways aim for a structured meeting\nRemind what you expect attendees to do one day before the meeting\n\nDuring the meeting:\n\nMind where you sit\nStart with ice-breakers and introductions for new faces\nStick to the agenda, make sure to achieve meeting objectives\nSpeak up if it’s quiet, listen when others talk\nStop overexcited people, encourage the quieters\nGather opinions: volunteers first, introverts next\nAt the end, discuss agenda and assign tasks for next meeting\nRelax and remember that you don’t need to be perfect"
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#take-home-messages",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#take-home-messages",
-    "title": "10 simple tips to chair a meeting",
-    "section": "",
-    "text": "Before the meeting:\n\nAlways aim for a structured meeting\nRemind what you expect attendees to do one day before the meeting\n\nDuring the meeting:\n\nMind where you sit\nStart with ice-breakers and introductions for new faces\nStick to the agenda, make sure to achieve meeting objectives\nSpeak up if it’s quiet, listen when others talk\nStop overexcited people, encourage the quieters\nGather opinions: volunteers first, introverts next\nAt the end, discuss agenda and assign tasks for next meeting\nRelax and remember that you don’t need to be perfect"
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#always-aim-for-a-structured-meeting",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#always-aim-for-a-structured-meeting",
-    "title": "10 simple tips to chair a meeting",
-    "section": "1. Always aim for a structured meeting",
-    "text": "1. Always aim for a structured meeting\nIf you’re like me, standing in front of a group can turn your brain into a blank slate. Without agenda, a meeting becomes a symphony of confusion. Who talks when? What’s the point of all this? No plan, total chaos.\nSo, what’s the secret recipe for a structured meeting, you ask?\n\nObjectives: What we want to gain.\nAgenda: A detailed list of all topics and activities with timing.\nResponsibilities: Be very specific, who must do what. No guessing games here. Be super clear and make sure attendees fully understand their tasks."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#remind-what-you-expect-attendees-to-do-one-day-before-the-meeting",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#remind-what-you-expect-attendees-to-do-one-day-before-the-meeting",
-    "title": "10 simple tips to chair a meeting",
-    "section": "2. Remind what you expect attendees to do one day before the meeting",
-    "text": "2. Remind what you expect attendees to do one day before the meeting\nI’ve got a memory like a leaky bucket. But I know I’m not alone. Kindly remind attendees of their responsibilities one day ahead. Any attendee will fall into one of these two typical types: (1) those who get things ready right after your nudge, or (2) those who do so about an hour before the meeting kicks off. A single day prior to the meeting is somewhat ideal to recall what they must bring."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#mind-where-you-sit",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#mind-where-you-sit",
-    "title": "10 simple tips to chair a meeting",
-    "section": "3. Mind where you sit",
-    "text": "3. Mind where you sit\nNow, the meeting begins as you step into the room. You can find many online guides on where to sit, depending on the meeting’s purpose. I follow one rule: I sit where I can see everyone’s faces, and they can see mine.\nI made a mistake once by sitting in the same row as my team. When I talked to someone on my left, I turned my back to those on my right. There was no way to keep track of everybody as I always ended up missing half of the room."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#start-with-ice-breakers-and-introductions-for-new-faces",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#start-with-ice-breakers-and-introductions-for-new-faces",
-    "title": "10 simple tips to chair a meeting",
-    "section": "4. Start with ice-breakers and introductions for new faces",
-    "text": "4. Start with ice-breakers and introductions for new faces\nYou’ve got a great seat. However, it’s common that not everyone arrives on time. Someone will always be late, and you’ve decided to wait a few minutes for them. Even if no one is late, it’s better to ease everyone a bit before moving on to the main session. All eyes are on you now, and it’s time to begin.\n\nIf everyone is new, start by introducing yourself and then let each person take a turn to introduce themselves. To break the ice, choose someone at random and ask a question; they’ll surely appreciate it.\nIf there are only some new faces, let them introduce and pose 1-2 questions to them.\nIf you’re already familiar with the group, kick off by randomly selecting someone and ask how it’s going last week. Add a joke or two if you’re in the mood."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#stick-to-the-agenda-make-sure-to-achieve-meeting-objectives",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#stick-to-the-agenda-make-sure-to-achieve-meeting-objectives",
-    "title": "10 simple tips to chair a meeting",
-    "section": "5. Stick to the agenda, make sure to achieve meeting objectives",
-    "text": "5. Stick to the agenda, make sure to achieve meeting objectives\nHere is why structured meetings matter. The agenda has it all, and you simply follow it step by step, sticking to the plan. Even if the projector stages a rebellion and only display cat videos, you have the agenda, so you will be fine. But make sure that you achieve each objective before moving on to the next topic. If you only focus on timing and changing topics, people should bring in a robot to chair the meeting instead of you."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#speak-up-if-its-quiet-listen-when-others-talk",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#speak-up-if-its-quiet-listen-when-others-talk",
-    "title": "10 simple tips to chair a meeting",
-    "section": "6. Speak up if it’s quiet, listen when others talk",
-    "text": "6. Speak up if it’s quiet, listen when others talk\nBe ready, because everyone might expect the chairperson talks the most in the meeting. If it becomes quiet (unintentionally), you have to start talking. If you’re not sure what to say, ask the most outgoing person in the group.\nBut, when everyone is happily talking, you better off shutting your mouth. Act as a keen listener and resist the urge to interrupt. You only step in when matters violate Tip 7."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#stop-overexcited-people-encourage-the-quieters",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#stop-overexcited-people-encourage-the-quieters",
-    "title": "10 simple tips to chair a meeting",
-    "section": "7. Stop overexcited people, encourage the quieters",
-    "text": "7. Stop overexcited people, encourage the quieters\nHave you come across a single person dominating the entire group in a discussion (the Monopolizer)? How about a funny person who takes it a bit too far and starts to irritate others (the Clown)? Or maybe someone who consistently goes off-topic, putting meeting objectives at risk (the Diverter)? It is your responsibility to bring them back on track. Who else holds more authority than you in this meeting?\nThere are many ways to handle this, but from my view, two steps work: (1) recognize their points, (2) asking someone else to share their thoughts. This is a chance to encourage quieter individuals to speak up. Pay attention to them because otherwise they will always keep silent. Also, this approach sends a signal to those who talk a lot, reminding them to give others a chance."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#gather-opinions-volunteers-first-introverts-next",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#gather-opinions-volunteers-first-introverts-next",
-    "title": "10 simple tips to chair a meeting",
-    "section": "8. Gather opinions: volunteers first, introverts next",
-    "text": "8. Gather opinions: volunteers first, introverts next\nWhen seeking input, start with volunteers. If it’s quiet, turn to an introvert. If you ask an extrovert first, it’s very likely that the introverts will only say “I agree”, end of story. And you know what? The volunteers are very likely to be extroverts anyway."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#at-the-end-discuss-agenda-and-assign-tasks-for-next-meeting",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#at-the-end-discuss-agenda-and-assign-tasks-for-next-meeting",
-    "title": "10 simple tips to chair a meeting",
-    "section": "9. At the end, discuss agenda and assign tasks for next meeting",
-    "text": "9. At the end, discuss agenda and assign tasks for next meeting\nYou’ve met all the meeting goals, so it’s time to conclude. Decide if another meeting is needed. If yes, use this chance while everyone’s here to discuss the plan, assign tasks, and get agreement. Now, you’re good to say goodbye."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#relax-and-remember-that-you-dont-need-to-be-perfect",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#relax-and-remember-that-you-dont-need-to-be-perfect",
-    "title": "10 simple tips to chair a meeting",
-    "section": "10. Relax and remember that you don’t need to be perfect",
-    "text": "10. Relax and remember that you don’t need to be perfect\nPerfect is the enemy of very good. Most of your life, being good is enough. If you make a mistake, people will likely forget it 5 minutes later. So, just say what you want without worrying too much. Mistakes are okay – they help you learn and get better."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#extra-tip",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#extra-tip",
-    "title": "10 simple tips to chair a meeting",
-    "section": "Extra tip",
-    "text": "Extra tip\nI picked up a valuable tip from my supervisor at an Academic Meeting, where speakers present their research followed by a Q&A session. Before the meeting, he always asks in advance what they would like him to cover in his introduction, how they are connected to him and to the audience. He would come 15 minutes early, make sure everything works and note down a list of tasks he might forget."
-  },
-  {
-    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#acknowledgments",
-    "href": "blog/2023-08-26-chair-a-meeting/index.html#acknowledgments",
-    "title": "10 simple tips to chair a meeting",
-    "section": "Acknowledgments",
-    "text": "Acknowledgments\nSpecial thanks to Dr. Leigh Jones, my mentor, for her valuable insights that helped shape these tips and Dr. Marc Choisy, my cool PhD supervisor, for the extra tip. A big thank you to Ms. Gaye Proctor for the classification of participant behaviors in her Train the Trainer workshop, a valuable resource for my Tip 7.\n\nPreview image by storyset on Freepik"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Thinh Ong",
-    "section": "",
-    "text": "Hello! I’m Thinh - feel free to pronounce it as /think/. I’m a medical doctor pursuing my DPhil degree in Mathematical Modelling at the University of Oxford.\nDocendo discimus, the best way to learn is to teach. I’ve documented everything I’ve learned throughout my career on this website. Here you can find:\n\nPractical guides for leadership, R programming, and data science (on my blog)\nMy teaching materials on mathematical modelling methods for infectious diseases, R programming and others (on my teaching)\n\n\n(*) Special thanks to Đặng Nhật Vũ for the awesome profile photo!\n\n\n\n Back to top"
+    "text": "Open-source R packages and tools for research and the wider scientific community.\n\n\n\n6Open-source tools\n\n\n\n3Research areas\n\n\n\n\n\nAll\n\n\nInfectious Disease Modelling\n\n\nBiostatistics\n\n\nBioinformatics\n\n\n\n\n\nInfectious Disease Modelling\n\n2 tools\n\n\n\n\n\n\n\ndenimRC++\n\n\nConstruct and simulate deterministic discrete-time compartmental models with customisable dwell time distributions\n\n\nAuthors: Ong T, Phan TQA, Ha ML, Choisy M\n\n\n\nWebsiteCRANPaper\n\n\n\n\n\n\n\n\nserosvR\n\n\nAnalyse serological data and estimate infectious diseases parameters\n\n\nAuthors: Phan TQA, Pham NTN, Bui TL, Huynh NT, Choisy M, Ong T\n\n\n\nWebsiteCRAN\n\n\n\n\n\n\nBiostatistics\n\n2 tools\n\n\n\n\n\n\n\ntvmedgR\n\n\nCausal mediation analysis using g-computation\n\n\nAuthors: Khuong QL, Pham NTN, Ong T, Getz K\n\n\n\nWebsite\n\n\n\n\n\n\n\n\nhssR\n\n\nEstimate sample size for health study designs\n\n\nAuthors: Khuong QL, Ong T, Hoang VM\n\n\n\nOpen app\n\n\n\n\n\n\nBioinformatics\n\n2 tools\n\n\n\n\n\n\n\nLiftedRbash\n\n\nEnhance genome conversion robustness during reference assembly updates\n\n\nAuthors: Luu PL, Ong T, Dinh TP, Clark SJ\n\n\n\nGitHubPaper\n\n\n\n\n\n\n\n\nMethPanelRbash\n\n\nAnalyse multiplex bisulphite PCR sequencing to assess DNA methylation biomarker panels for disease detection\n\n\nAuthors: Luu PL, Ong T, Loc TTH, Lam D, Pidsley R, Stirzaker C, Clark SJ\n\n\n\nGitHubPaper\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "slides/is-this-a-good-journal/index.html#bài-tập",
@@ -263,7 +109,7 @@
     "href": "slides/is-this-a-good-journal/index.html#isi",
     "title": "Nhận biết tạp chí khoa học uy tín",
     "section": "ISI",
-    "text": "ISI\n\n\n\n\n\n\n\nInstitute for Scientific Information\nCơ sở dữ liệu tạp chí và chỉ số trích dẫn (impact factor)\nGồm 3 phân mục:\n\nScience Citation Index (SCI)\nSocial Sciences Citation Index (SSCI)\nArts and Humanities Citation Index (AHCI)\n\n\n\n\n\nDr. Eugene Garfield (1925 - 2017)"
+    "text": "ISI\n\n\n\n\nInstitute for Scientific Information\nCơ sở dữ liệu tạp chí và chỉ số trích dẫn (impact factor)\nGồm 3 phân mục:\n\nScience Citation Index (SCI)\nSocial Sciences Citation Index (SSCI)\nArts and Humanities Citation Index (AHCI)\n\n\n\n\n\nDr. Eugene Garfield (1925 - 2017)"
   },
   {
     "objectID": "slides/is-this-a-good-journal/index.html#isi-1",
@@ -305,14 +151,14 @@
     "href": "slides/is-this-a-good-journal/index.html#scopus",
     "title": "Nhận biết tạp chí khoa học uy tín",
     "section": "Scopus",
-    "text": "Scopus\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCơ sở dữ liệu giống như ISI\nThuộc sở hữu của nhà xuất bản Elsevier"
+    "text": "Scopus\n\n\n\n\n\n\n\n\n\n\n\nCơ sở dữ liệu giống như ISI\nThuộc sở hữu của nhà xuất bản Elsevier"
   },
   {
     "objectID": "slides/is-this-a-good-journal/index.html#scopus-1",
     "href": "slides/is-this-a-good-journal/index.html#scopus-1",
     "title": "Nhận biết tạp chí khoa học uy tín",
     "section": "Scopus",
-    "text": "Scopus\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTiêu chuẩn vào Scopus dễ hơn ISI, nên thông thường các tạp chí phấn đấu vào Scopus trước, sau đó vào ISI"
+    "text": "Scopus\n\n\n\n\n\n\n\n\n\n\n\nTiêu chuẩn vào Scopus dễ hơn ISI, nên thông thường các tạp chí phấn đấu vào Scopus trước, sau đó vào ISI"
   },
   {
     "objectID": "slides/is-this-a-good-journal/index.html#scopus-metrics",
@@ -438,7 +284,7 @@
     "href": "slides/is-this-a-good-journal/index.html#bài-tập-5",
     "title": "Nhận biết tạp chí khoa học uy tín",
     "section": "Bài tập",
-    "text": "Bài tập\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTạp chí con của NAR (Nucleic Acids Research, IF = 14.9)\nThời điểm đó chưa có IF nhưng hiện tại IF = 4.6"
+    "text": "Bài tập\n\n\n\n\n\n\n\n\n\n\n\nTạp chí con của NAR (Nucleic Acids Research, IF = 14.9)\nThời điểm đó chưa có IF nhưng hiện tại IF = 4.6"
   },
   {
     "objectID": "slides/is-this-a-good-journal/index.html#tóm-tắt",
@@ -448,158 +294,186 @@
     "text": "Tóm tắt\n\nDanh mục ISI, Scopus\nImpact factor\nSCImago Journal Rank\nNhà xuất bản uy tín\nOpen access"
   },
   {
-    "objectID": "software/index.html",
-    "href": "software/index.html",
-    "title": "Software",
+    "objectID": "slides/about/index.html#education",
+    "href": "slides/about/index.html#education",
+    "title": "Thinh Ong",
+    "section": "Education",
+    "text": "Education\n\n\n\n\n\n\n\n\n2022-2026\nDoctor of Philosophy in Clinical Medicine\nUniversity of Oxford, United Kingdom\n\n\n\n\n\n\n\n2012-2018\nDoctor of Medicine in Preventive Medicine\nUniversity of Medicine and Pharmacy at Ho Chi Minh City, Vietnam"
+  },
+  {
+    "objectID": "slides/about/index.html#awards-and-honours",
+    "href": "slides/about/index.html#awards-and-honours",
+    "title": "Thinh Ong",
+    "section": "Awards and honours",
+    "text": "Awards and honours\n\n\n\n\n\n\n\n\nFull DPhil studentship\n\n\n\n\n\n\n\nValedictorian, the only graduation with distinction grade in the fixed-curriculum system (prior to 2022)\nThe highest GPA in the history of the school\nThe highest score in dissertation"
+  },
+  {
+    "objectID": "slides/about/index.html#research",
+    "href": "slides/about/index.html#research",
+    "title": "Thinh Ong",
+    "section": "Research",
+    "text": "Research\n\n\n\n\n\n\n\nField\nExperience\n\n\n\n\nMathematical modelling\nDr. Marc Choisy  \n\n\nBioinformatics\nProf. Susan Clark, Dr. Phuc-Loi Luu \n\n\nBiostatistics\nClinical trials, public health institutions"
+  },
+  {
+    "objectID": "slides/about/index.html#achievements",
+    "href": "slides/about/index.html#achievements",
+    "title": "Thinh Ong",
+    "section": "Achievements",
+    "text": "Achievements\n\n14 research articles (international journals)\n4 international conferences\n4 software\n1 book chapter"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "",
     "section": "",
-    "text": "Infectious Disease Modelling\n\n\n\ndenimConstruct and simulate deterministic discrete-time compartmental models with customisable dwell time distributionsAuthors: Ong T, Phan TQA, Ha ML, Choisy MR C++ CRAN\n\n\n\n\n\n\n\nserosvAnalyse serological data and estimate infectious diseases parametersAuthors: Phan TQA, Pham NTN, Bui TL, Huynh NT, Choisy M, Ong TR\n\n\n\n\n\n\n\n\nBiostatistics\n\n\n\nhssEstimate sample size for health study designsAuthors: Khuong QL, Ong T, Hoang VMR\n\n\n\n\n\n\n\n\nBioinformatics\n\n\n\nLiftedEnhance genome conversion robustness during reference assembly updatesAuthors: Luu PL, Ong T, Dinh TP, Clark SJR bash Paper\n\n\n\n\n\n\n\nMethPanelAnalyse multiplex bisulphite PCR sequencing to assess DNA methylation biomarker panels for disease detectionAuthors: Luu PL, Ong T, Loc TTH, Lam D, Pidsley R, Stirzaker C, Clark SJR bash Paper\n\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "THINH ONG \n      MEDICALDOCTOR\n    \n    \n      \n      Hi\n    \n    \n      MATHEMATICALMODELLER\n      \n        A medical doctor and PhD in infectious disease modelling trained at the University of Oxford.\n        \n           View my CV\n           Scholar\n           Email\n        \n      \n    \n  \n\n  \n    Affiliations\n    \n      \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n      \n    \n  \n\n  \n    Selected work\n    \n  \n\n\n\n  Selected work\n  \n    \n      01\n      RESEARCH\n      RESEARCHMathematical models and epidemiology of infectious diseases, quantitative methods, and clinical studies.Explore research \n    \n    \n      02\n      TEACHING\n      TEACHINGCourse materials on modelling methods for infectious diseases and on R programming.See teaching \n    \n    \n      03\n      SOFTWARE\n      SOFTWARER packages and tools built for research and the wider scientific community.Browse software \n    \n  \n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "teaching/modelling/idm-intro/index.html",
-    "href": "teaching/modelling/idm-intro/index.html",
-    "title": "Introduction to infectious disease modelling",
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html",
+    "title": "10 simple tips to chair a meeting",
     "section": "",
-    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\nPreview image by svstudioart on Freepik\n\n\n\n\n Back to top"
+    "text": "Before the meeting:\n\nAlways aim for a structured meeting\nRemind what you expect attendees to do one day before the meeting\n\nDuring the meeting:\n\nMind where you sit\nStart with ice-breakers and introductions for new faces\nStick to the agenda, make sure to achieve meeting objectives\nSpeak up if it’s quiet, listen when others talk\nStop overexcited people, encourage the quieters\nGather opinions: volunteers first, introverts next\nAt the end, discuss agenda and assign tasks for next meeting\nRelax and remember that you don’t need to be perfect"
   },
   {
-    "objectID": "teaching/others/aw4b/index.html",
-    "href": "teaching/others/aw4b/index.html",
-    "title": "Academic writing",
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#take-home-messages",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#take-home-messages",
+    "title": "10 simple tips to chair a meeting",
     "section": "",
-    "text": "Submitting a manuscript for publication is a lot like submitting an essay or taking a test. To succeed, you need to understand what the “test” will cover, who the judges are, and the rubrics they use to evaluate you. Journals have their own criteria, and editors act as the first judges of your work. If you write with these in mind, you’re much more likely to succeed.\n\n\n\nA typical publication process (Luo and McGregor 2021)\n\n\n\n\nThe manuscript is submitted by the corresponding author and typically includes:\n\nManuscript (of course)\nCover letter\nSeperate files for figures and/or tables\nReporting checklist (STROBE, CONSORT, PRISMA…)\n\n\n\n\nAn editor reviews the title, abstract and cover letter to assess the paper. If the manuscript passes this stage, it proceeds to peer review.\nWhat is the editor looking for?\n\nFit with the journal’s scope and standards.\nPotential impact, including likelihood of being cited.\n\nLike conducting a systematic review: just as you screen titles and abstracts to decide if a study fits your review question, editors quickly assess whether your manuscript fits their journal’s criteria. Their decision is swift, since they have many submissions to evaluate and limited time.\nIn marketing, there’s a “7-second rule” for making a first impression: consumers decide whether they want to buy a product within 7 seconds (Zhuoma, Kasamatsu, and Ainoya 2020). Editors often work just as quickly. Your title, abstract, and cover letter are your first and best chance to capture their attention. Make sure they clearly convey what your research is about, why it matters, and why it belongs in their journal.\nWhat does “potential impact” mean to an editor?\nEditors are not just looking for good science. They’re looking for papers that contribute meaningfully to their journal’s mission and audience. While every journal has its specific focus, they generally want research that:\n\nAddresses pressing questions in the field.\nHas the potential to advance knowledge or significantly influence the direction of the field.\nIs likely to be cited by other researchers, as citations indicate relevance and influence.\n\nWhy does this matter? Journals aim to publish research that resonates in their field and enhances their reputation. Metrics like the impact factor, which reflects how often articles in the journal are cited, are used as benchmarks for success. While this isn’t the sole driver for what editors accept, it’s fair to say they’re drawn to work that aligns with these goals.\nFraming it for authors\nFor authors, this means thinking strategically:\n\nFocus your manuscript’s message: Highlight what’s novel or significant about your findings.\nTarget the right journal: Research its audience and scope, because editors want papers that “fit”.\nWrite for clarity: Clear, accessible writing helps both the editor and readers see the potential impact of your work.\n\nBy understanding this perspective, you can position your manuscript not just as a contribution to science, but also as a meaningful addition to a journal’s growing conversation.\n\n\n\nThe editor will typically invite 3 reviewers. Reviewers evaluate your manuscript and submit reports back to the editor with recommendations.\nWhat are reviewers looking for?\n\nClarity: Is it well-structured and understandable?\nOriginality: Is the research novel and valuable?\nMethodology: Are methods robust, reproducible, and clear?\nValidity: Do results support the conclusions?\nImpact: Does this work advance knowledge in the field?\n\nReviewers give recommendations such as:\n\nAcceptance without changes: rare and exceptional\nAcceptance with revisions: minor or major changes needed\nRejection\n\nThink of reviewers as your essay graders. They’re checking if you’ve followed the “rubrics” of good science and clear writing.\n\n\n\nIt’s a common misconception that reviewers decide the fate of your manuscript. In reality, reviewers act more like consultants who provide insights and recommendations to support the editor. Ultimately, the editor has the final say on whether your manuscript is accepted, revised, or rejected.\nThe editor considers reviewers’ reports and decides:\n\nAcceptance without changes: rare and exceptional\nConditional acceptance with revisions:\n\nMinor revisions: authors revise, editor verifies the changes\nMajor revisions: authors submit a revised manuscript and detailed responses to reviewers, another round of peer review is likely to occur\n\nRejection: when the majority of reviewers recommend rejection"
+    "text": "Before the meeting:\n\nAlways aim for a structured meeting\nRemind what you expect attendees to do one day before the meeting\n\nDuring the meeting:\n\nMind where you sit\nStart with ice-breakers and introductions for new faces\nStick to the agenda, make sure to achieve meeting objectives\nSpeak up if it’s quiet, listen when others talk\nStop overexcited people, encourage the quieters\nGather opinions: volunteers first, introverts next\nAt the end, discuss agenda and assign tasks for next meeting\nRelax and remember that you don’t need to be perfect"
   },
   {
-    "objectID": "teaching/others/aw4b/index.html#academic-publication-process",
-    "href": "teaching/others/aw4b/index.html#academic-publication-process",
-    "title": "Academic writing",
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#always-aim-for-a-structured-meeting",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#always-aim-for-a-structured-meeting",
+    "title": "10 simple tips to chair a meeting",
+    "section": "1. Always aim for a structured meeting",
+    "text": "1. Always aim for a structured meeting\nIf you’re like me, standing in front of a group can turn your brain into a blank slate. Without agenda, a meeting becomes a symphony of confusion. Who talks when? What’s the point of all this? No plan, total chaos.\nSo, what’s the secret recipe for a structured meeting, you ask?\n\nObjectives: What we want to gain.\nAgenda: A detailed list of all topics and activities with timing.\nResponsibilities: Be very specific, who must do what. No guessing games here. Be super clear and make sure attendees fully understand their tasks."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#remind-what-you-expect-attendees-to-do-one-day-before-the-meeting",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#remind-what-you-expect-attendees-to-do-one-day-before-the-meeting",
+    "title": "10 simple tips to chair a meeting",
+    "section": "2. Remind what you expect attendees to do one day before the meeting",
+    "text": "2. Remind what you expect attendees to do one day before the meeting\nI’ve got a memory like a leaky bucket. But I know I’m not alone. Kindly remind attendees of their responsibilities one day ahead. Any attendee will fall into one of these two typical types: (1) those who get things ready right after your nudge, or (2) those who do so about an hour before the meeting kicks off. A single day prior to the meeting is somewhat ideal to recall what they must bring."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#mind-where-you-sit",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#mind-where-you-sit",
+    "title": "10 simple tips to chair a meeting",
+    "section": "3. Mind where you sit",
+    "text": "3. Mind where you sit\nNow, the meeting begins as you step into the room. You can find many online guides on where to sit, depending on the meeting’s purpose. I follow one rule: I sit where I can see everyone’s faces, and they can see mine.\nI made a mistake once by sitting in the same row as my team. When I talked to someone on my left, I turned my back to those on my right. There was no way to keep track of everybody as I always ended up missing half of the room."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#start-with-ice-breakers-and-introductions-for-new-faces",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#start-with-ice-breakers-and-introductions-for-new-faces",
+    "title": "10 simple tips to chair a meeting",
+    "section": "4. Start with ice-breakers and introductions for new faces",
+    "text": "4. Start with ice-breakers and introductions for new faces\nYou’ve got a great seat. However, it’s common that not everyone arrives on time. Someone will always be late, and you’ve decided to wait a few minutes for them. Even if no one is late, it’s better to ease everyone a bit before moving on to the main session. All eyes are on you now, and it’s time to begin.\n\nIf everyone is new, start by introducing yourself and then let each person take a turn to introduce themselves. To break the ice, choose someone at random and ask a question; they’ll surely appreciate it.\nIf there are only some new faces, let them introduce and pose 1-2 questions to them.\nIf you’re already familiar with the group, kick off by randomly selecting someone and ask how it’s going last week. Add a joke or two if you’re in the mood."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#stick-to-the-agenda-make-sure-to-achieve-meeting-objectives",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#stick-to-the-agenda-make-sure-to-achieve-meeting-objectives",
+    "title": "10 simple tips to chair a meeting",
+    "section": "5. Stick to the agenda, make sure to achieve meeting objectives",
+    "text": "5. Stick to the agenda, make sure to achieve meeting objectives\nHere is why structured meetings matter. The agenda has it all, and you simply follow it step by step, sticking to the plan. Even if the projector stages a rebellion and only display cat videos, you have the agenda, so you will be fine. But make sure that you achieve each objective before moving on to the next topic. If you only focus on timing and changing topics, people should bring in a robot to chair the meeting instead of you."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#speak-up-if-its-quiet-listen-when-others-talk",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#speak-up-if-its-quiet-listen-when-others-talk",
+    "title": "10 simple tips to chair a meeting",
+    "section": "6. Speak up if it’s quiet, listen when others talk",
+    "text": "6. Speak up if it’s quiet, listen when others talk\nBe ready, because everyone might expect the chairperson talks the most in the meeting. If it becomes quiet (unintentionally), you have to start talking. If you’re not sure what to say, ask the most outgoing person in the group.\nBut, when everyone is happily talking, you better off shutting your mouth. Act as a keen listener and resist the urge to interrupt. You only step in when matters violate Tip 7."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#stop-overexcited-people-encourage-the-quieters",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#stop-overexcited-people-encourage-the-quieters",
+    "title": "10 simple tips to chair a meeting",
+    "section": "7. Stop overexcited people, encourage the quieters",
+    "text": "7. Stop overexcited people, encourage the quieters\nHave you come across a single person dominating the entire group in a discussion (the Monopolizer)? How about a funny person who takes it a bit too far and starts to irritate others (the Clown)? Or maybe someone who consistently goes off-topic, putting meeting objectives at risk (the Diverter)? It is your responsibility to bring them back on track. Who else holds more authority than you in this meeting?\nThere are many ways to handle this, but from my view, two steps work: (1) recognize their points, (2) asking someone else to share their thoughts. This is a chance to encourage quieter individuals to speak up. Pay attention to them because otherwise they will always keep silent. Also, this approach sends a signal to those who talk a lot, reminding them to give others a chance."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#gather-opinions-volunteers-first-introverts-next",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#gather-opinions-volunteers-first-introverts-next",
+    "title": "10 simple tips to chair a meeting",
+    "section": "8. Gather opinions: volunteers first, introverts next",
+    "text": "8. Gather opinions: volunteers first, introverts next\nWhen seeking input, start with volunteers. If it’s quiet, turn to an introvert. If you ask an extrovert first, it’s very likely that the introverts will only say “I agree”, end of story. And you know what? The volunteers are very likely to be extroverts anyway."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#at-the-end-discuss-agenda-and-assign-tasks-for-next-meeting",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#at-the-end-discuss-agenda-and-assign-tasks-for-next-meeting",
+    "title": "10 simple tips to chair a meeting",
+    "section": "9. At the end, discuss agenda and assign tasks for next meeting",
+    "text": "9. At the end, discuss agenda and assign tasks for next meeting\nYou’ve met all the meeting goals, so it’s time to conclude. Decide if another meeting is needed. If yes, use this chance while everyone’s here to discuss the plan, assign tasks, and get agreement. Now, you’re good to say goodbye."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#relax-and-remember-that-you-dont-need-to-be-perfect",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#relax-and-remember-that-you-dont-need-to-be-perfect",
+    "title": "10 simple tips to chair a meeting",
+    "section": "10. Relax and remember that you don’t need to be perfect",
+    "text": "10. Relax and remember that you don’t need to be perfect\nPerfect is the enemy of very good. Most of your life, being good is enough. If you make a mistake, people will likely forget it 5 minutes later. So, just say what you want without worrying too much. Mistakes are okay – they help you learn and get better."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#extra-tip",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#extra-tip",
+    "title": "10 simple tips to chair a meeting",
+    "section": "Extra tip",
+    "text": "Extra tip\nI picked up a valuable tip from my supervisor at an Academic Meeting, where speakers present their research followed by a Q&A session. Before the meeting, he always asks in advance what they would like him to cover in his introduction, how they are connected to him and to the audience. He would come 15 minutes early, make sure everything works and note down a list of tasks he might forget."
+  },
+  {
+    "objectID": "blog/2023-08-26-chair-a-meeting/index.html#acknowledgments",
+    "href": "blog/2023-08-26-chair-a-meeting/index.html#acknowledgments",
+    "title": "10 simple tips to chair a meeting",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nSpecial thanks to Dr. Leigh Jones, my mentor, for her valuable insights that helped shape these tips and Dr. Marc Choisy, my cool PhD supervisor, for the extra tip. A big thank you to Ms. Gaye Proctor for the classification of participant behaviors in her Train the Trainer workshop, a valuable resource for my Tip 7.\n\nPreview image by storyset on Freepik"
+  },
+  {
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "About me",
     "section": "",
-    "text": "Submitting a manuscript for publication is a lot like submitting an essay or taking a test. To succeed, you need to understand what the “test” will cover, who the judges are, and the rubrics they use to evaluate you. Journals have their own criteria, and editors act as the first judges of your work. If you write with these in mind, you’re much more likely to succeed.\n\n\n\nA typical publication process (Luo and McGregor 2021)\n\n\n\n\nThe manuscript is submitted by the corresponding author and typically includes:\n\nManuscript (of course)\nCover letter\nSeperate files for figures and/or tables\nReporting checklist (STROBE, CONSORT, PRISMA…)\n\n\n\n\nAn editor reviews the title, abstract and cover letter to assess the paper. If the manuscript passes this stage, it proceeds to peer review.\nWhat is the editor looking for?\n\nFit with the journal’s scope and standards.\nPotential impact, including likelihood of being cited.\n\nLike conducting a systematic review: just as you screen titles and abstracts to decide if a study fits your review question, editors quickly assess whether your manuscript fits their journal’s criteria. Their decision is swift, since they have many submissions to evaluate and limited time.\nIn marketing, there’s a “7-second rule” for making a first impression: consumers decide whether they want to buy a product within 7 seconds (Zhuoma, Kasamatsu, and Ainoya 2020). Editors often work just as quickly. Your title, abstract, and cover letter are your first and best chance to capture their attention. Make sure they clearly convey what your research is about, why it matters, and why it belongs in their journal.\nWhat does “potential impact” mean to an editor?\nEditors are not just looking for good science. They’re looking for papers that contribute meaningfully to their journal’s mission and audience. While every journal has its specific focus, they generally want research that:\n\nAddresses pressing questions in the field.\nHas the potential to advance knowledge or significantly influence the direction of the field.\nIs likely to be cited by other researchers, as citations indicate relevance and influence.\n\nWhy does this matter? Journals aim to publish research that resonates in their field and enhances their reputation. Metrics like the impact factor, which reflects how often articles in the journal are cited, are used as benchmarks for success. While this isn’t the sole driver for what editors accept, it’s fair to say they’re drawn to work that aligns with these goals.\nFraming it for authors\nFor authors, this means thinking strategically:\n\nFocus your manuscript’s message: Highlight what’s novel or significant about your findings.\nTarget the right journal: Research its audience and scope, because editors want papers that “fit”.\nWrite for clarity: Clear, accessible writing helps both the editor and readers see the potential impact of your work.\n\nBy understanding this perspective, you can position your manuscript not just as a contribution to science, but also as a meaningful addition to a journal’s growing conversation.\n\n\n\nThe editor will typically invite 3 reviewers. Reviewers evaluate your manuscript and submit reports back to the editor with recommendations.\nWhat are reviewers looking for?\n\nClarity: Is it well-structured and understandable?\nOriginality: Is the research novel and valuable?\nMethodology: Are methods robust, reproducible, and clear?\nValidity: Do results support the conclusions?\nImpact: Does this work advance knowledge in the field?\n\nReviewers give recommendations such as:\n\nAcceptance without changes: rare and exceptional\nAcceptance with revisions: minor or major changes needed\nRejection\n\nThink of reviewers as your essay graders. They’re checking if you’ve followed the “rubrics” of good science and clear writing.\n\n\n\nIt’s a common misconception that reviewers decide the fate of your manuscript. In reality, reviewers act more like consultants who provide insights and recommendations to support the editor. Ultimately, the editor has the final say on whether your manuscript is accepted, revised, or rejected.\nThe editor considers reviewers’ reports and decides:\n\nAcceptance without changes: rare and exceptional\nConditional acceptance with revisions:\n\nMinor revisions: authors revise, editor verifies the changes\nMajor revisions: authors submit a revised manuscript and detailed responses to reviewers, another round of peer review is likely to occur\n\nRejection: when the majority of reviewers recommend rejection"
+    "text": "Presentation"
   },
   {
-    "objectID": "teaching/others/aw4b/index.html#what-makes-a-manuscript",
-    "href": "teaching/others/aw4b/index.html#what-makes-a-manuscript",
-    "title": "Academic writing",
-    "section": "What makes a manuscript?",
-    "text": "What makes a manuscript?\n\nRead and analyse a paper\nPaper: Long-term waning of vaccine-induced immunity to measles in England: a mathematical modelling study (Robert, Suffel, and Kucharski 2024).\nAnswer the questions:\n\nWhat are the authors trying to prove?\nWhat are the key outputs of the study?\nHow did they conduct the study?\nWhere did you find the information to answer the above questions?\n\nReflect as a group on the following:\n\nWhich section was most helpful in understanding the paper?\nWhich section did you struggle with, and why?"
+    "objectID": "about/index.html#education",
+    "href": "about/index.html#education",
+    "title": "About me",
+    "section": "Education",
+    "text": "Education\n\nDoctor of Philosophy in Clinical Medicine, University of Oxford, United Kingdom (Graduation expected 2026)\nDoctor of Medicine in Preventive Medicine, University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam (2012-2018)"
   },
   {
-    "objectID": "teaching/others/aw4b/index.html#manuscript-structure",
-    "href": "teaching/others/aw4b/index.html#manuscript-structure",
-    "title": "Academic writing",
-    "section": "Manuscript structure",
-    "text": "Manuscript structure\n\nIntroduction: context, the gap in knowledge, and study objectives\nMethods: how experiments were done\nResults: key outputs in figures and tables\nDiscussion: interpretation of findings, limitations, and broader implications"
+    "objectID": "about/index.html#awards-and-honours",
+    "href": "about/index.html#awards-and-honours",
+    "title": "About me",
+    "section": "Awards and honours",
+    "text": "Awards and honours\n\nFull DPhil studentship, issued by Oxford University Clinical Research Unit and University of Oxford (2022)\nAcademic Distinction Award (Valedictorian), issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nDissertation Distinction Award, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nStudent with the highest GPA, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2014, 2016, 2017)"
   },
   {
-    "objectID": "teaching/others/aw4b/index.html#writing-strategies",
-    "href": "teaching/others/aw4b/index.html#writing-strategies",
-    "title": "Academic writing",
-    "section": "Writing strategies",
-    "text": "Writing strategies\n\nWhat sections should you write first?\nThe order of writing is often different from the order of presentation in the manuscript. Following a logical workflow can streamline the process and improve the coherence of your manuscript.\n\n\nMy strategy\n\nStudy objectives:\n\n\nStart here to clarify the central goals of your research. This will guide the entire manuscript. Focus on clear, compelling wording that immediately make people understand what are you doing.\n\n\nFigures and/or tables:\n\n\nThe first thing you should do is NOT WRITING. First, create one to four publication-quality plots or tables and show them to someone you trust. Make sure they truly “get” your story before you move on (Leek 2016).\nWrite up a story around the plots in the simplest language you feel you can get away with.\nThis is how you build up a story: think of them as a step-by-step narrative framework that guides readers through your study’s logic:\n\nEach figure or table should illustrate a key point\nWrite concise, informative captions that highlight their meaning\n\n\n\nResults:\n\n\nSummarise the findings shown in your figures and tables in words, ensuring a consistent and logical progression from one key insight to the next.\n\n\nMethods:\n\n\nBasically what have been done to produce results. By this stage, you know exactly what methods need to be highlighted to support your results.\n\n\nDiscussion:\n\n\nInterpret your findings in the context of existing research.\nLimitations and suggest implications or future directions.\n\n\nIntroduction:\n\n\nSet the context, highlight the research gap, and end with your objectives.\n\n\nAbstract\nTitle"
+    "objectID": "about/index.html#employment-history",
+    "href": "about/index.html#employment-history",
+    "title": "About me",
+    "section": "Employment history",
+    "text": "Employment history\n\nResearch Assistant, Oxford University Clinical Research Unit, Vietnam (2021-2022)\nResearch Assistant, Hanoi University of Public Health, Vietnam (2020)\nResearch Intern, Garvan Institute of Medical Research, Australia (remote, 2019-2020)\nStatistical consultant, Tu Du hospital, Vietnam (freelance, 2018-2023)"
   },
   {
-    "objectID": "teaching/others/aw4b/index.html#drafting",
-    "href": "teaching/others/aw4b/index.html#drafting",
-    "title": "Academic writing",
-    "section": "Drafting",
-    "text": "Drafting\n\nA typical workflow\n\nTurn on “Do not disturb”.\nNote down everything that comes to mind, not in complete sentences.\nDon’t care about grammar, punctuation, references.\n\nOnce you’ve got a rough “mess” of words, start organising them into coherent sentences, trimming unnecessary parts as you go. Think of it as shaping raw clay into a polished form.\n\n\nVerbosity\nVisit this link and do the exercise.\n\n\n    \nHow to avoid being overly verbose\n\nDelete meaningless or redundant words: Words that add no value should go.\nBeware of repetition: Avoid restating the same idea in different ways.\nDelete implied words: Remove words that are already conveyed by other parts of the sentence.\nUse affirmations instead of negatives: For example, say “effective” instead of “not ineffective”.\nCut unnecessary adjectives and adverbs: Only keep modifiers that add genuine clarity.\nAvoid “burying the verb”: Keep your main verb clear and upfront.\nUse the active voice: Active constructions are clearer and more engaging."
+    "objectID": "about/index.html#society-memberships",
+    "href": "about/index.html#society-memberships",
+    "title": "About me",
+    "section": "Society memberships",
+    "text": "Society memberships\n\nMember, Modelling Infectious Diseases in South East Asia\nAffiliate, Vaccine Impact Modelling Consortium"
   },
   {
-    "objectID": "teaching/others/aw4b/index.html#let-start-writing",
-    "href": "teaching/others/aw4b/index.html#let-start-writing",
-    "title": "Academic writing",
-    "section": "Let start writing!",
-    "text": "Let start writing!\n\nStudy objectives\nBegin by identifying the most important findings you want to highlight in your manuscript. These will form the core message of your study.\n\nReview recent papers: Prioritise the most recent and relevant studies in your field. Read them carefully to identify the research gaps they haven’t yet addressed.\nFind your “selling point”: Focus on how your data or findings can fill these gaps. This will not only guide your writing but also make your study more compelling to editors and reviewers.\n\nThis process is similar to conducting a quick literature review. It helps clarify your study’s objectives and provides valuable content for crafting the introduction and discussion sections later.\n\n\nFigures and/or tables\n\nStart with your key findings:\n\nDecide which results are central to your message and need visual representation.\nThink about whether a graph, chart, or table best conveys the information.\n\nChoose the right type of visual:\n\nFigures: Use for trends, relationships, and comparisons (e.g., bar charts, line graphs, scatter plots).\nTables: Use for detailed numerical data or when precise values matter.\n\nDesign for simplicity:\n\nKeep visuals clear and uncluttered. Avoid overloading them with excessive data or details.\nUse concise titles, clear labels, and consistent formatting.\n\nShow them to someone you trust, discuss and build a storyline: next meeting.\n\n\n\nKeywords\nSEO"
+    "objectID": "about/index.html#adventures",
+    "href": "about/index.html#adventures",
+    "title": "About me",
+    "section": "Adventures",
+    "text": "Adventures\nI’m a regular guy from a developing country. Going abroad used to be a dream. My research has given me the chance to visit different countries, connect with collaborators, attend international conferences and workshops. This map notes all my visits.\n\ncountries = JSON.parse(data)\nvisited = JSON.parse(data2)\nbertin = require(\"bertin@1.2.4\")\n\nbertin.draw({\n  params: { projection: \"Eckert3\" },\n  layers: [\n    {\n      type: \"layer\",\n      geojson: visited,\n      tooltip: [\"$NAMEen\", \"$visit1\", \"$visit2\", \"$visit3\"],\n      fill: {\n        type: \"typo\",\n        values: \"visit1\"\n      }\n    },\n    {\n      type: \"layer\",\n      geojson: countries,\n      fill: \"white\",\n      fillOpacity: 0.5\n    },\n    { type: \"graticule\" },\n    { type: \"outline\" }\n  ]\n})"
   },
   {
-    "objectID": "teaching/others/rpkg4b/index.html",
-    "href": "teaching/others/rpkg4b/index.html",
-    "title": "R package for babies",
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
     "section": "",
-    "text": "Back to top"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html",
-    "href": "slides/ai-as-a-life-tool/index.html",
-    "title": "AI as a life tool",
-    "section": "",
-    "text": "If output is bad: know why, and how to fix (instead of getting angry)\n\n\nreply"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#disclaimer",
-    "href": "slides/ai-as-a-life-tool/index.html#disclaimer",
-    "title": "AI as a life tool",
-    "section": "Disclaimer",
-    "text": "Disclaimer\n\n\n\nScan this for the slide \n\n    \nThis is NOT the best way to use AI\nI’m sharing how I use it\nPlease question me, challenge me, disagree with me (but don’t hit me)\n\n\n\n\n\nVideo source: @timmorrel"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#step-1.-learn",
-    "href": "slides/ai-as-a-life-tool/index.html#step-1.-learn",
-    "title": "AI as a life tool",
-    "section": "Step 1. Learn",
-    "text": "Step 1. Learn\n\nKnow how AI works (thanks Tuyen!)\nAsk better questions: provide sufficient information\nIf you don’t like the output: try to fix it (instead of getting angry)"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#step-2.-mindset",
-    "href": "slides/ai-as-a-life-tool/index.html#step-2.-mindset",
-    "title": "AI as a life tool",
-    "section": "Step 2. Mindset",
-    "text": "Step 2. Mindset\n\nAI = super enthusiastic intern\nYou = the supervisor\nDon’t hand over your work: stay in control\nTreat it like mentoring a junior: it learns from you\nYou remain the expert, AI just assists"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#step-3.-action",
-    "href": "slides/ai-as-a-life-tool/index.html#step-3.-action",
-    "title": "AI as a life tool",
-    "section": "Step 3. Action",
-    "text": "Step 3. Action\n\nTalk to AI → discover strengths & limits\n\nCompare: where AI beats you, where you stay valuable\n\nBuild confidence using it daily"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#writing",
-    "href": "slides/ai-as-a-life-tool/index.html#writing",
-    "title": "AI as a life tool",
-    "section": "Writing",
-    "text": "Writing"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#email",
-    "href": "slides/ai-as-a-life-tool/index.html#email",
-    "title": "AI as a life tool",
-    "section": "Email",
-    "text": "Email\nGive it 3 emails that I’m proud of and let it discover the style that I like:\n\nTone and voice\n\nProfessional but friendly: respectful, warm, and human.\nNever too formal or stiff; slightly casual is okay if context allows.\nSincere and humble: expressions of gratitude or apology are genuine, not exaggerated.\n\nStructure\n\nStart with a clear greeting and a short contextual sentence.\nBody should get straight to the point: one paragraph per key idea.\nEnd with a short, polite sign-off that doesn’t repeat too much.\n\nLanguage\n\nUse natural, spoken English: contractions like “I’m” or “we’re” are fine.\nAvoid flowery or overly elaborate words (e.g., “It would be an immense honour…” feels too much).\nPrefer plain and honest phrases (e.g., “Just want to check if…” / “I’m sorry I forgot”)."
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#stress-relief",
-    "href": "slides/ai-as-a-life-tool/index.html#stress-relief",
-    "title": "AI as a life tool",
-    "section": "Stress relief",
-    "text": "Stress relief"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#brainstorm-life-goals",
-    "href": "slides/ai-as-a-life-tool/index.html#brainstorm-life-goals",
-    "title": "AI as a life tool",
-    "section": "Brainstorm life goals",
-    "text": "Brainstorm life goals"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#my-favourite-prompts",
-    "href": "slides/ai-as-a-life-tool/index.html#my-favourite-prompts",
-    "title": "AI as a life tool",
-    "section": "My favourite prompts",
-    "text": "My favourite prompts\n\nWhat options do I have?\nI’m debating between X and Y: what are the pros and cons of each?\nWhat’s the strongest argument against my current view?\nGive me 3 alternative framings of this problem, each from a different perspective\nIf I was completely wrong, what would the world look like?\n\n(Keep being challenged and avoid bias)"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#takeaway",
-    "href": "slides/ai-as-a-life-tool/index.html#takeaway",
-    "title": "AI as a life tool",
-    "section": "Takeaway",
-    "text": "Takeaway\n\nLearn &gt; Mindset &gt; Action\nAI is a super enthusiastic intern, supervise it carefully\nLet it free up your time for what really matters"
-  },
-  {
-    "objectID": "teaching/seminars/ai-as-a-life-tool/index.html",
-    "href": "teaching/seminars/ai-as-a-life-tool/index.html",
-    "title": "AI as a life tool",
-    "section": "",
-    "text": "Presentation\n\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {AI as a Life Tool},\n  date = {2023-09-25},\n  url = {https://drthinhong.com/seminars/ai-as-a-life-tool},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “AI as a Life Tool.” September 25, 2023.\nhttps://drthinhong.com/seminars/ai-as-a-life-tool."
+    "text": "10 simple tips to chair a meeting\n\n\n\nleadership\n\n\n\nA survival kit when you are thrust into the chairing role\n\n\n\nThinh Ong\n\n\nAug 26, 2023\n\n\n\n\n\n\nNo matching items\n Back to top"
   },
   {
     "objectID": "research/index.html",
@@ -637,95 +511,11 @@
     "text": "Basic science\nMethodologies for animal model studies, genome and epigenome sequencing, biomarker development tool"
   },
   {
-    "objectID": "slides/ai-as-a-life-tool/index.html#my-3-steps-for-everything",
-    "href": "slides/ai-as-a-life-tool/index.html#my-3-steps-for-everything",
+    "objectID": "slides/ai-as-a-life-tool/index.html#disclaimer",
+    "href": "slides/ai-as-a-life-tool/index.html#disclaimer",
     "title": "AI as a life tool",
-    "section": "My 3 steps for everything",
-    "text": "My 3 steps for everything\n\nLearn\nMindset\nAction"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#learn-new-knowledge",
-    "href": "slides/ai-as-a-life-tool/index.html#learn-new-knowledge",
-    "title": "AI as a life tool",
-    "section": "Learn new knowledge",
-    "text": "Learn new knowledge"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#test",
-    "href": "slides/ai-as-a-life-tool/index.html#test",
-    "title": "AI as a life tool",
-    "section": "Test",
-    "text": "Test\n\nHello, this is from A\n\n\nHi, this is from B"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#chat-example",
-    "href": "slides/ai-as-a-life-tool/index.html#chat-example",
-    "title": "AI as a life tool",
-    "section": "Chat example",
-    "text": "Chat example\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#learn",
-    "href": "slides/ai-as-a-life-tool/index.html#learn",
-    "title": "AI as a life tool",
-    "section": "Learn",
-    "text": "Learn"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#discuss-book",
-    "href": "slides/ai-as-a-life-tool/index.html#discuss-book",
-    "title": "AI as a life tool",
-    "section": "Discuss book",
-    "text": "Discuss book\n\n\nI’m reading a book called “Four Thousand Weeks: Time Management for Mortals” and fascinated by viewing time in weeks. A week feels short enough to manage yet long enough to see progress, ending with a reset on the weekend. What am I missing in this perspective?\n\n\nThat’s a sharp observation. Seeing life in weeks is powerful because it gives you a rhythm that’s neither too microscopic (hours, which can feel frantic) nor too abstract (years, which can feel distant). But there are a few blind spots you might be missing:\n1. Weeks are artificial\nA week isn’t a natural unit of time like a day (sunrise–sunset) or a year (Earth’s orbit). It’s a social construct. This means while it feels like a natural reset, your body or goals might not always sync neatly with that 7-day rhythm. For example, recovery, creativity, or learning curves often don’t obey a weekly cycle.\n2. Risk of over-resetting\nIf every week feels like a fresh start, you may unintentionally devalue the continuity of long-term work. Some projects need momentum across many weeks, and focusing too much on weekly “resets” might make you restart energy or habits instead of compounding them."
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#discuss-book-1",
-    "href": "slides/ai-as-a-life-tool/index.html#discuss-book-1",
-    "title": "AI as a life tool",
-    "section": "Discuss book",
-    "text": "Discuss book\n\n\nHelp me find an ios app that can track goals over weeks. It shows both how many weeks have passed since I set a goal and how many weeks remain until the event. I want to see a graph (not just a number counter) and it must have a home screen widget\n\n\nCool idea — this is a good checklist of what to look for. I poked around; there are apps that hit many of your criteria, though maybe none perfect. Here are some that get close + suggestions + what to check so you can pick the best.\n\n\n\n\n\n\n\n\nApp\nWhat it does well\nWhat’s missing\n\n\n\n\nPretty Progress\nVery strong candidate. You can set a start & end date. Widgets show count up & count down. It supports displaying % completion, time passed vs time remaining.\nMight need PRO for some dashboard / widget styles. Check whether the widget graphically shows weeks passed vs weeks remaining (not just days %) — since you care about weeks, see if you can set the unit to weeks.\n\n\nLeft — Widgets for Time Left\nElegant countdown & time-left widgets: birthdays, milestones; can show weeks, months etc. Widgets are core to the app.\nNot clear if it shows graph (trend/history or weeks passed vs remaining) rather than just countdown. Might be more “static” or visual widget than full tracked graph."
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#discuss-a-book",
-    "href": "slides/ai-as-a-life-tool/index.html#discuss-a-book",
-    "title": "AI as a life tool",
-    "section": "Discuss a book",
-    "text": "Discuss a book\n\n\nI’m reading a book called “Four Thousand Weeks: Time Management for Mortals”. I’m fascinated by viewing time in weeks. A week is short enough to take control, and long enough to see progress. It ends with a deep break on the weekend. What am I missing in this perspective?\n\n\nThat’s a sharp observation. Seeing life in weeks is powerful because it gives you a rhythm that’s neither too microscopic (hours, which can feel frantic) nor too abstract (years, which can feel distant). But there are a few blind spots you might be missing:\n\nWeeks are artificial: A week isn’t a natural unit of time like a day (sunrise–sunset) or a year (Earth’s orbit). It’s a social construct. This means while it feels like a natural reset, your body or goals might not always sync neatly with that 7-day rhythm. For example, recovery, creativity, or learning curves often don’t obey a weekly cycle.\nRisk of over-resetting: If every week feels like a fresh start, you may unintentionally devalue the continuity of long-term work. Some projects need momentum across many weeks, and focusing too much on weekly “resets” might make you restart energy or habits instead of compounding them."
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#discuss-a-book-1",
-    "href": "slides/ai-as-a-life-tool/index.html#discuss-a-book-1",
-    "title": "AI as a life tool",
-    "section": "Discuss a book",
-    "text": "Discuss a book\n\n\nFind an iOS app to countdown to an event. It should show how many weeks have passed since I set a goal, and how many weeks are left until the event. I want a graph, not just a number counter, and it must have a home screen widget\n\n\nCool idea — this is a good checklist of what to look for. I poked around; there are apps that hit many of your criteria, though maybe none perfect. Here are some that get close + suggestions + what to check so you can pick the best.\n\n\n\n\n\n\n\n\nApp\nWhat it does well\nWhat’s missing\n\n\n\n\nPretty Progress\nVery strong candidate. You can set a start & end date. Widgets show count up & count down. It supports displaying % completion, time passed vs time remaining.\nMight need PRO for some dashboard / widget styles. Check whether the widget graphically shows weeks passed vs weeks remaining (not just days %) — since you care about weeks, see if you can set the unit to weeks."
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#discuss-a-book-2",
-    "href": "slides/ai-as-a-life-tool/index.html#discuss-a-book-2",
-    "title": "AI as a life tool",
-    "section": "Discuss a book",
-    "text": "Discuss a book"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#learn-new-skills",
-    "href": "slides/ai-as-a-life-tool/index.html#learn-new-skills",
-    "title": "AI as a life tool",
-    "section": "Learn new skills",
-    "text": "Learn new skills\n\n\nI was told that seeing reality clearly is really helpful for stress control. When thoughts come up, it is important to notice if they are real things or just in my head. I will use this chat for doing reality checks. Could you suggest me a very short but efficient way how are we going to work on this?\n\n\nWe can use just two steps for every thought you bring here:\nStep 1. Ask: 👉 “Is this happening right now in reality, or only in my head?”\nStep 2. Label:\nReality → something you can see, hear, touch, or prove.\nThought → story, fear, memory, or prediction.\nThat’s it. I’ll help you do the labelling when you write your thoughts here. Over time, you’ll start doing it automatically.\nDo you want me to keep the answers very short (just “Reality” or “Thought”), or would you prefer a tiny bit of explanation each time?"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#email-1",
-    "href": "slides/ai-as-a-life-tool/index.html#email-1",
-    "title": "AI as a life tool",
-    "section": "Email",
-    "text": "Email\n\n\nDear Julie,\nI made the line plot showing case count in R but there is actually a discrepancy between the data I’m using vs you’re using lol. The number just doesn’t match. Let solve this during our discussion in the next hour.\nBest, Thinh.\n\n\nHere’s a revised version that keeps your tone natural and friendly, but polishes the clarity and flow:\nSubject: Quick note before our meeting\nDear Julie,\nI’ve plotted the case counts in R, but it looks like there’s a discrepancy between the dataset I’m using and yours — the numbers don’t match up. Let’s go through it together during our discussion in the next hour.\nBest, Thinh\nLet me know if you’d like a more formal or more casual version."
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#email-2",
-    "href": "slides/ai-as-a-life-tool/index.html#email-2",
-    "title": "AI as a life tool",
-    "section": "Email",
-    "text": "Email\n\n\nDear Julie,\nI made the line plot showing case count in R but there is actually a discrepancy between the data I’m using vs you’re using lol. The number just doesn’t match. Let solve this during our discussion in the next hour.\nBest, Thinh.\n\n\nHere’s a revised version that keeps your tone natural and friendly, but polishes the clarity and flow:\nSubject: Quick note before our meeting\nDear Julie,\nI’ve plotted the case counts in R, but it looks like there’s a discrepancy between the dataset I’m using and yours — the numbers don’t match up. Let’s go through it together during our discussion in the next hour.\nBest, Thinh\nLet me know if you’d like a more formal or more casual version."
+    "section": "Disclaimer",
+    "text": "Disclaimer\n\n\n\nScan this for the slide \n\n    \nThis is NOT the best way to use AI\nI’m sharing how I use it\nPlease question me, challenge me, disagree with me (but don’t hit me)\n\n\n\n\n\nVideo source: @timmorrel"
   },
   {
     "objectID": "slides/ai-as-a-life-tool/index.html#prompting-101",
@@ -749,32 +539,60 @@
     "text": "Prompting 101\n\nProvide enough information and context\nTell it how to show the results, share examples if you have them\n\n“Give me a bulleted list”\n“Show me an R code using tidyverse style”\n\nFor complex tasks, ask step by step\nGood prompts = good communication"
   },
   {
-    "objectID": "slides/ai-as-a-life-tool/index.html#refine-email",
-    "href": "slides/ai-as-a-life-tool/index.html#refine-email",
+    "objectID": "slides/ai-as-a-life-tool/index.html#my-3-steps-for-everything",
+    "href": "slides/ai-as-a-life-tool/index.html#my-3-steps-for-everything",
     "title": "AI as a life tool",
-    "section": "Refine email",
-    "text": "Refine email\nGive it 3 emails I’m proud of and let it discover the style I like:\n\nTone and voice\n\nProfessional but friendly: respectful, warm, and human.\nNever too formal or stiff; slightly casual is okay if context allows.\nSincere and humble: expressions of gratitude or apology are genuine, not exaggerated.\n\nStructure\n\nStart with a clear greeting and a short contextual sentence.\nBody should get straight to the point: one paragraph per key idea.\nEnd with a short, polite sign-off that doesn’t repeat too much.\n\nLanguage\n\nUse natural, spoken English: contractions like “I’m” or “we’re” are fine.\nAvoid flowery or overly elaborate words (e.g., “It would be an immense honour…” feels too much).\nPrefer plain and honest phrases (e.g., “Just want to check if…” / “I’m sorry I forgot”)."
+    "section": "My 3 steps for everything",
+    "text": "My 3 steps for everything\n\nLearn\nMindset\nAction"
   },
   {
-    "objectID": "slides/ai-as-a-life-tool/index.html#refine-email-1",
-    "href": "slides/ai-as-a-life-tool/index.html#refine-email-1",
+    "objectID": "slides/ai-as-a-life-tool/index.html#step-1.-learn",
+    "href": "slides/ai-as-a-life-tool/index.html#step-1.-learn",
     "title": "AI as a life tool",
-    "section": "Refine email",
-    "text": "Refine email\n\n\nDear Julie,\nI made the line plot showing case count in R but there is actually a discrepancy between the data I’m using vs you’re using lol. The number just doesn’t match. Let solve this during our discussion in the next hour.\nBest, Thinh.\n\n\nHere’s a revised version that keeps your tone natural and friendly, but polishes the clarity and flow:\nSubject: Quick note before our meeting\nDear Julie,\nI’ve plotted the case counts in R, but it looks like there’s a discrepancy between the dataset I’m using and yours — the numbers don’t match up. Let’s go through it together during our discussion in the next hour.\nBest, Thinh\nLet me know if you’d like a more formal or more casual version."
+    "section": "Step 1. Learn",
+    "text": "Step 1. Learn\n\nKnow how AI works (thanks Tuyen!)\nAsk better questions: provide sufficient information\nIf you don’t like the output: try to fix it (instead of getting angry)"
   },
   {
-    "objectID": "slides/ai-as-a-life-tool/index.html#personal-coach",
-    "href": "slides/ai-as-a-life-tool/index.html#personal-coach",
+    "objectID": "slides/ai-as-a-life-tool/index.html#step-2.-mindset",
+    "href": "slides/ai-as-a-life-tool/index.html#step-2.-mindset",
     "title": "AI as a life tool",
-    "section": "Personal coach",
-    "text": "Personal coach\n\n\nAct as an interviewer for a data analyst position at WHO. Ask me one question at a time, give feedback on my answers, and suggest how I can improve\n\n\nAlright, let’s get into interview mode!\nHere’s your first question:\nQ1: At the World Health Organization, we often work with large, messy datasets from different countries. Can you walk me through how you would approach cleaning and preparing such a dataset for analysis?\nTake your time answering, and then I’ll give you feedback and tips."
+    "section": "Step 2. Mindset",
+    "text": "Step 2. Mindset\n\nAI = super enthusiastic intern\nYou = the supervisor\nDon’t hand over your work: stay in control\nTreat it like mentoring a junior: it learns from you\nYou remain the expert, AI just assists"
   },
   {
-    "objectID": "slides/ai-as-a-life-tool/index.html#scan-this",
-    "href": "slides/ai-as-a-life-tool/index.html#scan-this",
+    "objectID": "slides/ai-as-a-life-tool/index.html#step-3.-action",
+    "href": "slides/ai-as-a-life-tool/index.html#step-3.-action",
     "title": "AI as a life tool",
-    "section": "Scan this",
-    "text": "Scan this"
+    "section": "Step 3. Action",
+    "text": "Step 3. Action\n\nTalk to AI → discover strengths & limits\n\nCompare: where AI beats you, where you stay valuable\n\nBuild confidence using it daily"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#learn-new-skills",
+    "href": "slides/ai-as-a-life-tool/index.html#learn-new-skills",
+    "title": "AI as a life tool",
+    "section": "Learn new skills",
+    "text": "Learn new skills\n\n\nI was told that seeing reality clearly is really helpful for stress control. When thoughts come up, it is important to notice if they are real things or just in my head. I will use this chat for doing reality checks. Could you suggest me a very short but efficient way how are we going to work on this?\n\n\nWe can use just two steps for every thought you bring here:\nStep 1. Ask: 👉 “Is this happening right now in reality, or only in my head?”\nStep 2. Label:\nReality → something you can see, hear, touch, or prove.\nThought → story, fear, memory, or prediction.\nThat’s it. I’ll help you do the labelling when you write your thoughts here. Over time, you’ll start doing it automatically.\nDo you want me to keep the answers very short (just “Reality” or “Thought”), or would you prefer a tiny bit of explanation each time?"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#discuss-a-book",
+    "href": "slides/ai-as-a-life-tool/index.html#discuss-a-book",
+    "title": "AI as a life tool",
+    "section": "Discuss a book",
+    "text": "Discuss a book\n\n\nI’m reading a book called “Four Thousand Weeks: Time Management for Mortals”. I’m fascinated by viewing time in weeks. A week is short enough to take control, and long enough to see progress. It ends with a deep break on the weekend. What am I missing in this perspective?\n\n\nThat’s a sharp observation. Seeing life in weeks is powerful because it gives you a rhythm that’s neither too microscopic (hours, which can feel frantic) nor too abstract (years, which can feel distant). But there are a few blind spots you might be missing:\n\nWeeks are artificial: A week isn’t a natural unit of time like a day (sunrise–sunset) or a year (Earth’s orbit). It’s a social construct. This means while it feels like a natural reset, your body or goals might not always sync neatly with that 7-day rhythm. For example, recovery, creativity, or learning curves often don’t obey a weekly cycle.\nRisk of over-resetting: If every week feels like a fresh start, you may unintentionally devalue the continuity of long-term work. Some projects need momentum across many weeks, and focusing too much on weekly “resets” might make you restart energy or habits instead of compounding them."
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#discuss-a-book-1",
+    "href": "slides/ai-as-a-life-tool/index.html#discuss-a-book-1",
+    "title": "AI as a life tool",
+    "section": "Discuss a book",
+    "text": "Discuss a book\n\n\nFind an iOS app to countdown to an event. It should show how many weeks have passed since I set a goal, and how many weeks are left until the event. I want a graph, not just a number counter, and it must have a home screen widget\n\n\nCool idea — this is a good checklist of what to look for. I poked around; there are apps that hit many of your criteria, though maybe none perfect. Here are some that get close + suggestions + what to check so you can pick the best.\n\n\n\n\n\n\n\n\nApp\nWhat it does well\nWhat’s missing\n\n\n\n\nPretty Progress\nVery strong candidate. You can set a start & end date. Widgets show count up & count down. It supports displaying % completion, time passed vs time remaining.\nMight need PRO for some dashboard / widget styles. Check whether the widget graphically shows weeks passed vs weeks remaining (not just days %) — since you care about weeks, see if you can set the unit to weeks."
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#discuss-a-book-2",
+    "href": "slides/ai-as-a-life-tool/index.html#discuss-a-book-2",
+    "title": "AI as a life tool",
+    "section": "Discuss a book",
+    "text": "Discuss a book"
   },
   {
     "objectID": "slides/ai-as-a-life-tool/index.html#refine-writing",
@@ -796,5 +614,75 @@
     "title": "AI as a life tool",
     "section": "Refine emails",
     "text": "Refine emails\n\n\nDear Julie,\nI made the line plot showing case count in R but there is actually a discrepancy between the data I’m using vs you’re using lol. The number just doesn’t match. Let solve this during our discussion in the next hour.\nBest, Thinh.\n\n\nHere’s a revised version that keeps your tone natural and friendly, but polishes the clarity and flow:\nSubject: Quick note before our meeting\nDear Julie,\nI’ve plotted the case counts in R, but it looks like there’s a discrepancy between the dataset I’m using and yours — the numbers don’t match up. Let’s go through it together during our discussion in the next hour.\nBest, Thinh\nLet me know if you’d like a more formal or more casual version."
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#personal-coach",
+    "href": "slides/ai-as-a-life-tool/index.html#personal-coach",
+    "title": "AI as a life tool",
+    "section": "Personal coach",
+    "text": "Personal coach\n\n\nAct as an interviewer for a data analyst position at WHO. Ask me one question at a time, give feedback on my answers, and suggest how I can improve\n\n\nAlright, let’s get into interview mode!\nHere’s your first question:\nQ1: At the World Health Organization, we often work with large, messy datasets from different countries. Can you walk me through how you would approach cleaning and preparing such a dataset for analysis?\nTake your time answering, and then I’ll give you feedback and tips."
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#my-favourite-prompts",
+    "href": "slides/ai-as-a-life-tool/index.html#my-favourite-prompts",
+    "title": "AI as a life tool",
+    "section": "My favourite prompts",
+    "text": "My favourite prompts\n\nWhat options do I have?\nI’m debating between X and Y: what are the pros and cons of each?\nWhat’s the strongest argument against my current view?\nGive me 3 alternative framings of this problem, each from a different perspective\nIf I was completely wrong, what would the world look like?\n\n(Keep being challenged and avoid bias)"
+  },
+  {
+    "objectID": "slides/ai-as-a-life-tool/index.html#takeaway",
+    "href": "slides/ai-as-a-life-tool/index.html#takeaway",
+    "title": "AI as a life tool",
+    "section": "Takeaway",
+    "text": "Takeaway\n\nLearn &gt; Mindset &gt; Action\nAI is a super enthusiastic intern, supervise it carefully\nLet it free up your time for what really matters"
+  },
+  {
+    "objectID": "teaching/index.html",
+    "href": "teaching/index.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "teaching/index.html#modelling",
+    "href": "teaching/index.html#modelling",
+    "title": "Teaching",
+    "section": "",
+    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "teaching/index.html#others",
+    "href": "teaching/index.html#others",
+    "title": "Teaching",
+    "section": "Others",
+    "text": "Others\n\n\n\n\n\n\n\n\n\n\nR for babies\n\n\nBasic R programming for data science\n\n\n\n\n\n\n\n\n\n\n\n\nR package for babies\n\n\nA fun, beginner-friendly course covers every step, ensuring your package is CRAN-ready. Perfect for all ages.\n\n\n\n\n\n\n\n\n\n\nAcademic writing\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "teaching/index.html#seminars",
+    "href": "teaching/index.html#seminars",
+    "title": "Teaching",
+    "section": "Seminars",
+    "text": "Seminars\n\n\n\n\n\n\n\n\n\n\nAI as a life tool\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIs this a good journal?\n\n\nLearn how to identify trustworthy scientific journals and avoid predatory ones\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "teaching/modelling/idm4b/index.html",
+    "href": "teaching/modelling/idm4b/index.html",
+    "title": "Infectious disease modelling for babies",
+    "section": "",
+    "text": "Course homepage\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "teaching/others/r4babies/index.html",
+    "href": "teaching/others/r4babies/index.html",
+    "title": "R for babies",
+    "section": "",
+    "text": "Course homepage\nThis course has been taught for staff members of Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n\n\n\n\n\n\n\n\nPreview image by Freepik\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "teaching/seminars/ai-as-a-life-tool/index.html",
+    "href": "teaching/seminars/ai-as-a-life-tool/index.html",
+    "title": "AI as a life tool",
+    "section": "",
+    "text": "Presentation\n\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {AI as a Life Tool},\n  date = {2023-09-25},\n  url = {https://drthinhong.com/seminars/ai-as-a-life-tool},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “AI as a Life Tool.” September 25, 2023.\nhttps://drthinhong.com/seminars/ai-as-a-life-tool."
   }
 ]

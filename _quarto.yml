@@ -9,7 +9,7 @@ website:
   google-analytics: "G-RVRBE7Y1R2"
   back-to-top-navigation: true
   navbar:
-    logo: logo.svg
+    logo: logo-icon.svg
     left:
       - text: About
         href: about/index.qmd
@@ -22,8 +22,6 @@ website:
       - text: Blog
         href: blog/index.qmd
     right:
-      - icon: twitter
-        href: https://twitter.com/iamthinhong/
       - icon: github
         href: https://github.com/thinhong
       - icon: linkedin
@@ -37,5 +35,14 @@ website:
 format:
   html:
     theme: [cosmo, theme.scss]
+    include-in-header:
+      - text: |
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+      - theme-init.html
+    include-after-body:
+      - theme-toggle.html
+      - nav-contact.html
 
 

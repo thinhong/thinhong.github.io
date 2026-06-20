@@ -1,33 +1,149 @@
 ---
-title: "Thinh Ong"
+pagetitle: "Thinh Ong"
+description: "Thinh Ong is a medical doctor and infectious disease modeller at the University of Oxford, building mathematical models that turn outbreak data into evidence and decisions."
 image: profile.png
-about:
-  template: trestles
-  image-shape: round
-  links:
-    - icon: file-person-fill
-      text: My CV
-      href: about/cv.pdf
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com/iamthinhong/
-    - icon: github
-      text: Github
-      href: https://github.com/thinhong/
-    - icon: linkedin
-      text: Linkedin
-      href: https://www.linkedin.com/in/thinh-ong/
+page-layout: full
+toc: false
 comments: false
+anchor-sections: false
 ---
 
-Hello! I'm **Thinh** - feel free to pronounce it as ***/think/***. I'm a medical doctor pursuing my DPhil degree in Mathematical Modelling at the University of Oxford.
+```{=html}
+<section class="home-hero">
+  <div class="folio-hero">
+    <span class="fh-glow" aria-hidden="true"></span>
+    <div class="fh-side fh-left">
+      <p class="fh-name">THINH ONG <span class="fh-dot"></span></p>
+      <div class="fh-word"><span class="fw-thin">MEDICAL</span><span class="fw-fill">DOCTOR</span></div>
+    </div>
+    <figure class="fh-photo">
+      <img src="profile.png" alt="Thinh Ong">
+      <span class="fh-hi">Hi</span>
+    </figure>
+    <div class="fh-side fh-right">
+      <div class="fh-word"><span class="fw-thin">MATHEMATICAL</span><span class="fw-fill">MODELLER</span></div>
+      <div class="fh-below">
+        <p class="fh-tag">A medical doctor and PhD in infectious disease modelling trained at the University of Oxford.</p>
+        <div class="fh-links">
+          <a href="about/cv.pdf"><i class="bi bi-file-earmark-text"></i> View my CV</a>
+          <a href="https://scholar.google.com/citations?user=PkfvVs0AAAAJ"><i class="bi bi-mortarboard"></i> Scholar</a>
+          <a href="mailto:ongphucthinh@gmail.com"><i class="bi bi-envelope"></i> Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-*Docendo discimus*, the best way to learn is to teach. I've documented everything I've learned throughout my career on this website. Here you can find:
+  <div class="hero-affil reveal r5">
+    <span class="affil-cap">Affiliations</span>
+    <div class="logo-marquee">
+      <div class="lm-track">
+        <img src="img/affiliations/oxford.jpg" alt="University of Oxford">
+        <img src="img/affiliations/oucru.png" alt="Oxford University Clinical Research Unit">
+        <img src="img/affiliations/midsea.svg" alt="MIDSEA">
+        <img src="img/affiliations/mah.png" alt="Measles Analytics Hub">
+        <img src="img/affiliations/midvie.svg" alt="Modelling Infectious Diseases in Vietnam">
+        <img src="img/affiliations/oxford.jpg" alt="" aria-hidden="true">
+        <img src="img/affiliations/oucru.png" alt="" aria-hidden="true">
+        <img src="img/affiliations/midsea.svg" alt="" aria-hidden="true">
+        <img src="img/affiliations/mah.png" alt="" aria-hidden="true">
+        <img src="img/affiliations/midvie.svg" alt="" aria-hidden="true">
+        <img src="img/affiliations/oxford.jpg" alt="" aria-hidden="true">
+        <img src="img/affiliations/oucru.png" alt="" aria-hidden="true">
+        <img src="img/affiliations/midsea.svg" alt="" aria-hidden="true">
+        <img src="img/affiliations/mah.png" alt="" aria-hidden="true">
+        <img src="img/affiliations/midvie.svg" alt="" aria-hidden="true">
+        <img src="img/affiliations/oxford.jpg" alt="" aria-hidden="true">
+        <img src="img/affiliations/oucru.png" alt="" aria-hidden="true">
+        <img src="img/affiliations/midsea.svg" alt="" aria-hidden="true">
+        <img src="img/affiliations/mah.png" alt="" aria-hidden="true">
+        <img src="img/affiliations/midvie.svg" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </div>
 
-* Practical guides for **leadership**, **R programming**, and **data science** (on my [**blog**](blog))
-  
-* My teaching materials on **mathematical modelling** methods for **infectious diseases**, **R programming** and **others** (on my [**teaching**](teaching))
+  <a class="scroll-cue" href="#work" aria-label="Scroll to selected work">
+    <span class="scroll-cue-label">Selected work</span>
+    <span class="scroll-cue-icon"><i class="bi bi-chevron-down"></i></span>
+  </a>
+</section>
 
-:::{.credit}
-(*) Special thanks to Đặng Nhật Vũ for the awesome profile photo!
-:::
+<section class="section-work" id="work">
+  <h2 class="sec-title on-scroll"><span class="sec-dot"></span>Selected work</h2>
+  <div class="accordion">
+    <a class="acc open" href="research/index.qmd">
+      <span class="acc-bar"></span><span class="acc-num">01</span><i class="acc-ico bi bi-graph-up"></i>
+      <span class="acc-vt">RESEARCH</span>
+      <div class="acc-body"><h3>RESEARCH</h3><p>Mathematical models and epidemiology of infectious diseases, quantitative methods, and clinical studies.</p><span class="acc-go">Explore research <i class="bi bi-arrow-right"></i></span></div>
+    </a>
+    <a class="acc" href="teaching/index.qmd">
+      <span class="acc-bar"></span><span class="acc-num">02</span><i class="acc-ico bi bi-mortarboard"></i>
+      <span class="acc-vt">TEACHING</span>
+      <div class="acc-body"><h3>TEACHING</h3><p>Course materials on modelling methods for infectious diseases and on R programming.</p><span class="acc-go">See teaching <i class="bi bi-arrow-right"></i></span></div>
+    </a>
+    <a class="acc" href="software/index.qmd">
+      <span class="acc-bar"></span><span class="acc-num">03</span><i class="acc-ico bi bi-braces"></i>
+      <span class="acc-vt">SOFTWARE</span>
+      <div class="acc-body"><h3>SOFTWARE</h3><p>R packages and tools built for research and the wider scientific community.</p><span class="acc-go">Browse software <i class="bi bi-arrow-right"></i></span></div>
+    </a>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.on-scroll');
+  if (!reduce && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  } else {
+    els.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // Selected work accordion: hover to expand on desktop, tap on touch
+  var fine = window.matchMedia && window.matchMedia('(pointer:fine)').matches;
+  var panels = [].slice.call(document.querySelectorAll('.accordion .acc'));
+  function accOpen(p){ panels.forEach(function (x) { x.classList.toggle('open', x === p); }); }
+  panels.forEach(function (p) {
+    p.addEventListener('mouseenter', function () { if (fine) accOpen(p); });
+    p.addEventListener('click', function (e) { if (!fine && !p.classList.contains('open')) { e.preventDefault(); accOpen(p); } });
+  });
+
+  // Hero: choreographed entrance + cursor-depth parallax
+  var hero = document.querySelector('.folio-hero');
+  if (hero) {
+    requestAnimationFrame(function () { hero.classList.add('play'); });
+    if (fine && !reduce) {
+      var ph = hero.querySelector('.fh-photo'),
+          hi = hero.querySelector('.fh-hi'),
+          nm = hero.querySelector('.fh-name'),
+          gl = hero.querySelector('.fh-glow'),
+          lw = hero.querySelector('.fh-left .fh-word'),
+          rw = hero.querySelector('.fh-right .fh-word');
+      var tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
+      function loop() {
+        cx += (tx - cx) * 0.07; cy += (ty - cy) * 0.07;
+        if (ph) ph.style.transform = 'perspective(1000px) rotateY(' + (cx * 9).toFixed(2) + 'deg) rotateX(' + (-cy * 9).toFixed(2) + 'deg) translate(' + (cx * 16).toFixed(1) + 'px,' + (cy * 16).toFixed(1) + 'px)';
+        if (lw) lw.style.transform = 'translate(' + (-cx * 30).toFixed(1) + 'px,' + (-cy * 14).toFixed(1) + 'px)';
+        if (rw) rw.style.transform = 'translate(' + (cx * 30).toFixed(1) + 'px,' + (cy * 14).toFixed(1) + 'px)';
+        if (hi) hi.style.transform = 'translate(' + (cx * 46).toFixed(1) + 'px,' + (cy * 34).toFixed(1) + 'px)';
+        if (nm) nm.style.transform = 'translate(' + (-cx * 16).toFixed(1) + 'px,' + (-cy * 8).toFixed(1) + 'px)';
+        if (gl) gl.style.transform = 'translate(calc(-50% + ' + (cx * 70).toFixed(1) + 'px), calc(-50% + ' + (cy * 70).toFixed(1) + 'px))';
+        if (Math.abs(tx - cx) > 0.0008 || Math.abs(ty - cy) > 0.0008 || tx !== 0 || ty !== 0) { raf = requestAnimationFrame(loop); }
+        else { raf = 0; }
+      }
+      hero.addEventListener('mousemove', function (e) {
+        var r = hero.getBoundingClientRect();
+        tx = (e.clientX - r.left) / r.width - 0.5;
+        ty = (e.clientY - r.top) / r.height - 0.5;
+        if (!raf) raf = requestAnimationFrame(loop);
+      });
+      hero.addEventListener('mouseleave', function () { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(loop); });
+    }
+  }
+})();
+</script>
+```

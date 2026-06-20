@@ -1,0 +1,42 @@
+<script>
+// Site-wide floating light/dark toggle. Remembers the visitor's choice.
+(function () {
+  var root = document.documentElement;
+  function cur() { return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
+  function apply(mode) {
+    root.setAttribute('data-theme', mode);
+    root.setAttribute('data-bs-theme', mode);
+    if (document.body) {
+      document.body.classList.remove('quarto-light', 'quarto-dark');
+      document.body.classList.add(mode === 'dark' ? 'quarto-dark' : 'quarto-light');
+    }
+  }
+
+  var btn = document.createElement('button');
+  btn.className = 'theme-toggle';
+  btn.type = 'button';
+  btn.setAttribute('aria-label', 'Toggle light and dark theme');
+  btn.setAttribute('title', 'Toggle light and dark');
+  btn.innerHTML =
+    '<svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>' +
+    '<svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>';
+
+  function sync() { btn.setAttribute('data-mode', cur()); }
+
+  btn.addEventListener('click', function () {
+    var next = cur() === 'dark' ? 'light' : 'dark';
+    apply(next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    sync();
+  });
+
+  function init() { apply(cur()); document.body.appendChild(btn); sync(); }
+  if (document.readyState !== 'loading') { init(); } else { document.addEventListener('DOMContentLoaded', init); }
+  // Default theme is light; it only changes when the visitor clicks the toggle.
+
+  // Frost the navbar once the page is scrolled, so content does not show through the transparent bar.
+  var onScroll = function () { document.body.classList.toggle('scrolled', window.scrollY > 8); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>

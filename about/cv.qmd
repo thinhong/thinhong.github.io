@@ -253,7 +253,7 @@ cv_publications <- cv_publications |>
       title,
       journalAbbreviation,
       paste0(format(date, "%Y"), ";", volume_part),
-      paste0("doi:[", DOI, "](https://doi.org/", DOI, ")"),
+      paste0("doi:[ https://doi.org/", DOI, "](https://doi.org/", DOI, ")"),
       sep = ". "
     )
   )

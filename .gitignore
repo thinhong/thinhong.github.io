@@ -6,5 +6,9 @@
 .Renviron
 
 /.quarto/
+/design-mockups
 
 render.sh
+.positai
+
+**/*.quarto_ipynb
