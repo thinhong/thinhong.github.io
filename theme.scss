@@ -223,7 +223,10 @@ main:has(.home-hero) { margin-top: 0; padding-top: 0; }
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  padding: clamp(1.5rem, 3vh, 2.25rem) 1.5rem clamp(2.25rem, 4vh, 3rem);
+  justify-content: center;
+  min-height: calc(100svh - 6rem);
+  overflow-x: clip;
+  padding: clamp(1rem, 2.2vh, 1.8rem) 1.5rem clamp(1.2rem, 2.5vh, 2rem);
 }
 .home-hero .hero-grid {
   display: grid;
@@ -313,7 +316,7 @@ main:has(.home-hero) { margin-top: 0; padding-top: 0; }
 
 // Affiliations: full-colour logos in a continuous marquee (no chips)
 .home-hero .hero-affil {
-  margin-top: clamp(2rem, 4vh, 3rem);
+  margin-top: clamp(0.4rem, 1vh, 0.8rem);
   text-align: center;
 }
 .home-hero .affil-cap {
@@ -323,7 +326,7 @@ main:has(.home-hero) { margin-top: 0; padding-top: 0; }
   font-size: 0.7rem;
   font-weight: 600;
   color: var(--text-faint);
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.55rem;
 }
 .home-hero .logo-marquee {
   overflow: hidden;
@@ -364,7 +367,7 @@ html { scroll-behavior: smooth; }
 .home-hero .scroll-cue {
   position: relative;
   display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
-  width: max-content; margin: clamp(1.6rem, 4vh, 2.6rem) auto 0;
+  width: max-content; margin: clamp(0.25rem, 0.7vh, 0.55rem) auto 0;
   text-decoration: none; color: var(--text-faint);
   transition: color 0.25s ease;
 }
@@ -393,9 +396,9 @@ html { scroll-behavior: smooth; }
   .home-hero .hero-contacts { justify-content: center; }
   .home-hero .hero-affil { margin-top: 2rem; }
   .home-hero .lm-track { gap: clamp(1.8rem, 7vw, 3rem); }
-  .home-hero .lm-track img { height: 30px; }
-  .home-hero .lm-track img[src*="oxford"] { height: 30px; }
-  .home-hero .lm-track img[src*="oucru"]  { height: 50px; }
+  .home-hero .lm-track img { height: 25px; }
+  .home-hero .lm-track img[src*="oxford"] { height: 25px; }
+  .home-hero .lm-track img[src*="oucru"]  { height: 40px; }
   .home-hero .lm-track img[src*="midsea"] { height: 22px; }
   .home-hero .lm-track img[src*="mah"]    { height: 32px; }
   .home-hero .lm-track img[src*="midvie"] { height: 27px; }
@@ -760,7 +763,7 @@ html[data-theme="dark"] .hero-bg::before {
 // ============================================================
 //  Folio hero: artful outline + fill type flanking a portrait
 // ============================================================
-.home-hero { padding-top: clamp(2rem, 5vh, 3.5rem); }
+.home-hero { padding-top: clamp(0.5rem, 1.2vh, 1rem); }
 .home-hero .folio-hero {
   position: relative;
   display: grid;
@@ -780,8 +783,8 @@ html[data-theme="dark"] .hero-bg::before {
 .folio-hero .fw-fill { font-size: clamp(3rem, 9.5vw, 7.8rem); color: var(--heading); }
 .folio-hero .fw-thin {
   font-size: clamp(1.9rem, 5.4vw, 4.2rem);
-  color: transparent;
-  -webkit-text-stroke: 1.4px var(--heading);
+  color: #828b9e;
+  color: color-mix(in srgb, var(--heading) 45%, var(--bg));
 }
 .folio-hero .fh-name {
   position: absolute;
@@ -808,7 +811,7 @@ html[data-theme="dark"] .hero-bg::before {
 .folio-hero .fh-links a:first-child { background: var(--brand); border-color: var(--brand); color: #fff; }
 .folio-hero .fh-links a:first-child i { color: #fff; }
 .folio-hero .fh-links a:first-child:hover { background: var(--brand-strong); color: #fff; }
-.folio-hero .fh-photo { position: relative; justify-self: center; width: clamp(240px, 25vw, 320px); margin: 0; }
+.folio-hero .fh-photo { position: relative; justify-self: center; width: clamp(215px, min(25vw, 39vh), 310px); margin: 0; }
 .folio-hero .fh-photo img {
   width: 100%;
   aspect-ratio: 3 / 4;
@@ -861,16 +864,17 @@ html[data-theme="dark"] .hero-bg::before {
 .folio-hero .fh-hi:hover::before { opacity: 1; transform: translate(-50%, 0) rotate(45deg) scale(1); }
 @media (max-width: 991.98px) {
   .home-hero .folio-hero { grid-template-columns: 1fr; justify-items: center; }
-  .folio-hero .fh-photo { order: 2; width: clamp(200px, 60vw, 270px); }
+  .folio-hero .fh-photo { order: 2; width: clamp(118px, min(40vw, 15vh), 172px); }
   .folio-hero .fh-left { order: 1; }
   .folio-hero .fh-right { order: 3; }
   .folio-hero .fh-word { align-items: center; }
-  .folio-hero .fw-fill { font-size: clamp(3.2rem, 16vw, 5.2rem); }
-  .folio-hero .fw-thin { font-size: clamp(2rem, 9vw, 3.2rem); -webkit-text-stroke: 1.2px var(--heading); }
+  .folio-hero .fw-fill { font-size: clamp(1.85rem, 9vw, 3rem); }
+  .folio-hero .fw-thin { font-size: clamp(1.2rem, 5vw, 1.85rem); }
   .folio-hero .fh-name { position: static; display: flex; justify-content: center; margin: 0 0 0.3rem; }
-  .folio-hero .fh-below { position: static; text-align: center; margin: 0.9rem auto 0; max-width: 36ch; }
+  .folio-hero .fh-below { position: static; width: auto; text-align: center; margin: 0.3rem auto 0; max-width: min(22rem, 86vw); }
+  .folio-hero .fh-tag { font-size: 0.82rem; line-height: 1.4; }
   .folio-hero .fh-links { justify-content: center; }
-  .folio-hero .fh-hi { left: -12px; right: auto; bottom: -12px; width: 78px; height: 78px; font-size: 1.35rem; }
+  .folio-hero .fh-hi { left: -8px; right: auto; bottom: -8px; width: 38%; height: auto; aspect-ratio: 1; font-size: clamp(0.75rem, 2.6vw, 0.95rem); }
 }
 
 // Desktop: pull the left-side words in toward the portrait so both sides hug the photo
