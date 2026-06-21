@@ -1,0 +1,124 @@
+---
+# Copy this file to your-section/index.qmd to start a new editorial page.
+# It already uses the shared .pg-* system, so it matches Teaching and Software.
+# The leading underscore makes Quarto skip this template when rendering.
+pagetitle: "Section name - Thinh Ong"
+description: "One short sentence describing the page."
+page-layout: full
+toc: false
+comments: false
+anchor-sections: false
+---
+
+```{=html}
+<section class="pg">
+
+  <!-- Hero. The title is pinned to the top by the shared system, so it lines
+       up with every other page. The stats block is optional: delete it if the
+       page has no counters. -->
+  <div class="pg-hero">
+    <div class="pg-hero__head">
+      <span class="pg-eyebrow">Eyebrow label</span>
+      <h1 class="pg-title">Page <span class="pg-title-thin">&amp; Title</span></h1>
+    </div>
+    <div class="pg-hero__aside">
+      <p class="pg-lead">One short sentence that describes what this page is.</p>
+      <div class="pg-stats">
+        <div class="pg-stat"><span class="pg-stat-num" data-to="6">6</span><span class="pg-stat-label">Things</span></div>
+        <span class="pg-sep"></span>
+        <div class="pg-stat"><span class="pg-stat-num" data-to="3">3</span><span class="pg-stat-label">Categories</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Body: a stack of soft panels on the left, a sticky contents nav on the
+       right. Give every panel a unique id and a matching nav link. -->
+  <div class="pg-body">
+    <main class="pg-main">
+
+      <section class="pg-panel" id="sec-one">
+        <div class="pg-sechead">
+          <div>
+            <span class="pg-num">[01]</span>
+            <h2 class="pg-sectitle">Section one</h2>
+            <p class="pg-secsub">Optional one-line subtitle for the section.</p>
+          </div>
+          <span class="pg-count">2 items</span>
+        </div>
+        <!-- Page-specific content goes here. Namespace any new classes (for
+             example .xx-card) and style them with the design tokens. -->
+      </section>
+
+      <section class="pg-panel" id="sec-two">
+        <div class="pg-sechead">
+          <div>
+            <span class="pg-num">[02]</span>
+            <h2 class="pg-sectitle">Section two</h2>
+          </div>
+        </div>
+        <!-- ...content... -->
+      </section>
+
+    </main>
+
+    <nav class="pg-toc" aria-label="Sections on this page">
+      <p class="pg-toc-h">On this page</p>
+      <a href="#sec-one" class="active"><span class="tn">01</span><span class="tt">Section one</span></a>
+      <a href="#sec-two"><span class="tn">02</span><span class="tt">Section two</span></a>
+    </nav>
+  </div>
+</section>
+
+<script>
+// Standard behaviour for a .pg page: count-up stats, fade panels in on scroll,
+// and keep one contents-nav item highlighted. Copy as-is; it is generic.
+(function () {
+  var root = document.querySelector('.pg');
+  if (!root) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // count-up for hero stats
+  root.querySelectorAll('.pg-stat-num').forEach(function (el) {
+    var to = parseInt(el.getAttribute('data-to'), 10) || 0;
+    if (reduce) { el.textContent = to; return; }
+    var n = 0, step = Math.max(1, Math.round(to / 16));
+    el.textContent = '0';
+    var t = setInterval(function () { n += step; if (n >= to) { n = to; clearInterval(t); } el.textContent = n; }, 55);
+  });
+
+  // fade panels in
+  if (!reduce && 'IntersectionObserver' in window) {
+    root.classList.add('anim');
+    var reveal = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); reveal.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    root.querySelectorAll('.pg-panel').forEach(function (p) { reveal.observe(p); });
+  }
+
+  // contents-nav scrollspy
+  var links = root.querySelectorAll('.pg-toc a');
+  var panels = Array.prototype.slice.call(root.querySelectorAll('.pg-panel[id]'));
+  function linkFor(id) { for (var i = 0; i < links.length; i++) { if (links[i].hash === '#' + id) return links[i]; } return null; }
+  function setActive(link) { links.forEach(function (l) { l.classList.toggle('active', l === link); }); }
+  var navLock = false, lockT, ticking = false;
+  function syncActive() {
+    ticking = false;
+    if (navLock || !panels.length) return;
+    var line = window.innerHeight * 0.28, current = panels[0];
+    panels.forEach(function (p) { if (p.getBoundingClientRect().top <= line) current = p; });
+    setActive(linkFor(current.id));
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(syncActive); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  syncActive();
+  links.forEach(function (a) {
+    a.addEventListener('click', function () {
+      navLock = true; setActive(a);
+      clearTimeout(lockT);
+      lockT = setTimeout(function () { navLock = false; syncActive(); }, reduce ? 0 : 700);
+    });
+  });
+})();
+</script>
+```

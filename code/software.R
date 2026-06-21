@@ -1,5 +1,7 @@
-# Renders the Software page as a grouped index list with category filters.
-# Output classes are namespaced with `sw-` and styled in theme.scss.
+# Renders the Software page as an editorial index using the shared page system:
+# a two-column hero, soft category panels with package rows, and a sticky
+# contents nav. The shell (hero, panels, contents nav) uses the shared `pg-`
+# classes defined in theme.scss; the package-row internals use `sw-` classes.
 
 # --- helpers ---------------------------------------------------------------
 
@@ -12,6 +14,13 @@
   !is.na(xx) && nzchar(xx)
 }
 
+# slugify a category name into a stable anchor id
+.sw_slug <- function(s) {
+  s <- tolower(trimws(as.character(s)))
+  s <- gsub("[^a-z0-9]+", "-", s)
+  gsub("^-+|-+$", "", s)
+}
+
 # inline SVG icons (stroke uses currentColor)
 .sw_icon <- function(kind) {
   switch(kind,
@@ -20,8 +29,6 @@
     app    = "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='4' width='18' height='16' rx='2'/><path d='M3 9h18M8 14l2 2 4-4'/></svg>",
     cran   = "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'><path d='M21 16V8l-9-5-9 5v8l9 5 9-5z'/><path d='M3.3 7.5L12 12l8.7-4.5M12 12v9'/></svg>",
     paper  = "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'><path d='M6 2h9l5 5v15H6z'/><path d='M14 2v6h6M9 13h6M9 17h6'/></svg>",
-    tools  = "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M21 16V8l-9-5-9 5v8l9 5 9-5z'/><path d='M3.3 7.5L12 12l8.7-4.5M12 12v9'/></svg>",
-    areas  = "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 2 2 7l10 5 10-5-10-5z'/><path d='M2 12l10 5 10-5M2 17l10 5 10-5'/></svg>",
     ""
   )
 }
@@ -64,7 +71,7 @@
 .sw_logo <- function(z, i) {
   has_logo <- .sw_nz(z$logo[i]) && !grepl("/NA$", z$logo[i])
   if (has_logo) {
-    paste0("<div class='sw-logo'><img src='", z$logo[i], "' alt='", z$name[i], " logo' loading='lazy'></div>")
+    paste0("<div class='sw-logo'><img src='", z$logo[i], "' alt='", z$name[i], " logo' loading='lazy' decoding='async'></div>")
   } else {
     paste0("<div class='sw-logo sw-logo--mono'>", substr(z$name[i], 1, 2), "</div>")
   }
@@ -77,27 +84,27 @@
   if (.sw_nz(z$url_codecov[i]) && .sw_nz(z$token_codecov[i])) {
     cov <- paste0("<a class='sw-cov' href='", z$url_codecov[i],
                   "' target='_blank' rel='noopener' aria-label='Code coverage'><img src='",
-                  z$token_codecov[i], "' alt='code coverage'></a>")
+                  z$token_codecov[i], "' alt='code coverage' loading='lazy'></a>")
   }
   # action links
   acts <- "<div class='sw-actions'>"
   pr <- .sw_primary(z$url_github[i])
   if (!is.na(pr$label)) {
     acts <- paste0(acts, "<a class='sw-lnk sw-lnk--primary' href='", z$url_github[i],
-                   "' target='_blank' rel='noopener'>", pr$icon, pr$label, "</a>")
+                   "' target='_blank' rel='noopener'>", pr$icon, "<span>", pr$label, "</span></a>")
   }
   if (.sw_nz(z$url_cran[i])) {
     acts <- paste0(acts, "<a class='sw-lnk' href='", z$url_cran[i],
-                   "' target='_blank' rel='noopener'>", .sw_icon("cran"), "CRAN</a>")
+                   "' target='_blank' rel='noopener'>", .sw_icon("cran"), "<span>CRAN</span></a>")
   }
   if (.sw_nz(z$url_paper[i])) {
     acts <- paste0(acts, "<a class='sw-lnk' href='", z$url_paper[i],
-                   "' target='_blank' rel='noopener'>", .sw_icon("paper"), "Paper</a>")
+                   "' target='_blank' rel='noopener'>", .sw_icon("paper"), "<span>Paper</span></a>")
   }
   acts <- paste0(acts, "</div>")
 
   paste0(
-    "<div class='sw-row'>",
+    "<article class='sw-row'>",
     .sw_logo(z, i),
     "<div class='sw-main'>",
     "<div class='sw-name-row'><span class='sw-name'>", z$name[i], "</span>",
@@ -108,7 +115,7 @@
     "<p class='sw-authors'>Authors: ", .sw_bold_author(z$authors[i]), "</p>",
     "</div>",
     acts,
-    "</div>"
+    "</article>"
   )
 }
 
@@ -117,42 +124,67 @@
 gen_software_table <- function(cv_sheet) {
   z <- cv_sheet
   cats <- unique(z$category)
+  ncat <- length(cats)
   out <- ""
 
-  # Header with a stat pill (the navbar marks the active section)
+  # open shell + two-column hero
   out <- paste0(
     out,
-    "<header class='sw-head'>",
-    "<h1 class='sw-h1'>Tools I build</h1>",
-    "<p class='sw-intro'>Open-source R packages and tools for research and the wider scientific community.</p>",
-    "<div class='sw-stats'>",
-    "<div class='sw-stat'><span class='sw-stat-num' data-to='", nrow(z), "'>", nrow(z), "</span><span class='sw-stat-label'>Open-source tools</span></div>",
-    "<span class='sw-sep'></span>",
-    "<div class='sw-stat'><span class='sw-stat-num' data-to='", length(cats), "'>", length(cats), "</span><span class='sw-stat-label'>Research areas</span></div>",
+    "<section class='pg'>",
+    "<div class='pg-hero'>",
+    "<div class='pg-hero__head'>",
+    "<span class='pg-eyebrow'>Programming</span>",
+    "<h1 class='pg-title'>Software <span class='pg-title-thin'>&amp; Packages</span></h1>",
     "</div>",
-    "</header>"
+    "<div class='pg-hero__aside'>",
+    "<p class='pg-lead'>Open-source R packages and tools for infectious disease modelling, biostatistics, and bioinformatics.</p>",
+    "<div class='pg-stats'>",
+    "<div class='pg-stat'><span class='pg-stat-num' data-to='", nrow(z), "'>", nrow(z), "</span><span class='pg-stat-label'>Open-source tools</span></div>",
+    "<span class='pg-sep'></span>",
+    "<div class='pg-stat'><span class='pg-stat-num' data-to='", ncat, "'>", ncat, "</span><span class='pg-stat-label'>Research areas</span></div>",
+    "</div>",
+    "</div>",
+    "</div>"
   )
 
-  # Filter chips
-  out <- paste0(out, "<div class='sw-filters'>")
-  out <- paste0(out, "<button class='sw-filter-btn active' data-filter='all'>All</button>")
-  for (cat in cats) {
-    out <- paste0(out, "<button class='sw-filter-btn' data-filter=\"", cat, "\">", cat, "</button>")
-  }
-  out <- paste0(out, "</div>")
+  # body grid: main column + sticky contents nav
+  out <- paste0(out, "<div class='pg-body'><main class='pg-main'>")
 
-  # One section per category (the filter shows / hides whole sections)
-  for (cat in cats) {
-    tmp <- z[z$category == cat, ]
-    word <- if (nrow(tmp) == 1) " tool" else " tools"
-    out <- paste0(out, "<section class='sw-cat' data-cat=\"", cat, "\">",
-                  "<div class='sw-cat-h'><h2>", cat, "</h2><span class='sw-n'>", nrow(tmp), word,
-                  "</span><span class='sw-rule'></span></div>")
-    for (i in 1:nrow(tmp)) {
-      out <- paste0(out, .sw_row(tmp, i))
-    }
-    out <- paste0(out, "</section>")
+  for (k in seq_along(cats)) {
+    cat_name <- cats[k]
+    tmp  <- z[z$category == cat_name, ]
+    n    <- nrow(tmp)
+    word <- if (n == 1) " tool" else " tools"
+    slug <- .sw_slug(cat_name)
+    num  <- sprintf("%02d", k)
+
+    out <- paste0(out,
+      "<section class='pg-panel' id='cat-", slug, "'>",
+      "<div class='pg-sechead'><div>",
+      "<span class='pg-num'>[", num, "]</span>",
+      "<h2 class='pg-sectitle'>", cat_name, "</h2>",
+      "</div><span class='pg-count'>", n, word, "</span></div>",
+      "<div class='sw-rows'>")
+    for (i in 1:n) out <- paste0(out, .sw_row(tmp, i))
+    out <- paste0(out, "</div></section>")
   }
+
+  out <- paste0(out, "</main>")
+
+  # sticky contents nav
+  out <- paste0(out, "<nav class='pg-toc' aria-label='Categories on this page'><p class='pg-toc-h'>On this page</p>")
+  for (k in seq_along(cats)) {
+    cat_name <- cats[k]
+    slug <- .sw_slug(cat_name)
+    num  <- sprintf("%02d", k)
+    active <- if (k == 1) " class='active'" else ""
+    out <- paste0(out,
+      "<a href='#cat-", slug, "'", active, "><span class='tn'>", num,
+      "</span><span class='tt'>", cat_name, "</span></a>")
+  }
+  out <- paste0(out, "</nav>")
+
+  out <- paste0(out, "</div></section>")
 
   cat(out)
 }
