@@ -7,13 +7,6 @@
     "text": "Presentation\n\nVenue: Ho Chi Minh city’s Centre for Diseases Control.\n\n\nPreview image by Freepik\n\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {Is This a Good Journal?},\n  date = {2023-09-25},\n  url = {https://drthinhong.com/seminars/is-this-a-good-journal},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “Is This a Good Journal?” September 25,\n2023. https://drthinhong.com/seminars/is-this-a-good-journal."
   },
   {
-    "objectID": "teaching/others/rpkg4b/index.html",
-    "href": "teaching/others/rpkg4b/index.html",
-    "title": "R package for babies",
-    "section": "",
-    "text": "Back to top"
-  },
-  {
     "objectID": "teaching/others/aw4b/index.html",
     "href": "teaching/others/aw4b/index.html",
     "title": "Academic writing",
@@ -294,39 +287,88 @@
     "text": "Tóm tắt\n\nDanh mục ISI, Scopus\nImpact factor\nSCImago Journal Rank\nNhà xuất bản uy tín\nOpen access"
   },
   {
-    "objectID": "slides/about/index.html#education",
-    "href": "slides/about/index.html#education",
-    "title": "Thinh Ong",
-    "section": "Education",
-    "text": "Education\n\n\n\n\n\n\n\n\n2022-2026\nDoctor of Philosophy in Clinical Medicine\nUniversity of Oxford, United Kingdom\n\n\n\n\n\n\n\n2012-2018\nDoctor of Medicine in Preventive Medicine\nUniversity of Medicine and Pharmacy at Ho Chi Minh City, Vietnam"
-  },
-  {
-    "objectID": "slides/about/index.html#awards-and-honours",
-    "href": "slides/about/index.html#awards-and-honours",
-    "title": "Thinh Ong",
-    "section": "Awards and honours",
-    "text": "Awards and honours\n\n\n\n\n\n\n\n\nFull DPhil studentship\n\n\n\n\n\n\n\nValedictorian, the only graduation with distinction grade in the fixed-curriculum system (prior to 2022)\nThe highest GPA in the history of the school\nThe highest score in dissertation"
-  },
-  {
-    "objectID": "slides/about/index.html#research",
-    "href": "slides/about/index.html#research",
-    "title": "Thinh Ong",
-    "section": "Research",
-    "text": "Research\n\n\n\n\n\n\n\nField\nExperience\n\n\n\n\nMathematical modelling\nDr. Marc Choisy  \n\n\nBioinformatics\nProf. Susan Clark, Dr. Phuc-Loi Luu \n\n\nBiostatistics\nClinical trials, public health institutions"
-  },
-  {
-    "objectID": "slides/about/index.html#achievements",
-    "href": "slides/about/index.html#achievements",
-    "title": "Thinh Ong",
-    "section": "Achievements",
-    "text": "Achievements\n\n14 research articles (international journals)\n4 international conferences\n4 software\n1 book chapter"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "",
+    "objectID": "research/index.html",
+    "href": "research/index.html",
+    "title": "Research",
     "section": "",
-    "text": "THINH ONG \n      MEDICALDOCTOR\n    \n    \n      \n      Hi\n    \n    \n      MATHEMATICALMODELLER\n      \n        A medical doctor and PhD in infectious disease modelling trained at the University of Oxford.\n        \n           View my CV\n           Scholar\n           Email\n        \n      \n    \n  \n\n  \n    Affiliations\n    \n      \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n      \n    \n  \n\n  \n    Selected work\n    \n  \n\n\n\n  Selected work\n  \n    \n      01\n      RESEARCH\n      RESEARCHMathematical models and epidemiology of infectious diseases, quantitative methods, and clinical studies.Explore research \n    \n    \n      02\n      TEACHING\n      TEACHINGCourse materials on modelling methods for infectious diseases and on R programming.See teaching \n    \n    \n      03\n      SOFTWARE\n      SOFTWARER packages and tools built for research and the wider scientific community.Browse software \n    \n  \n\n\n\n\n\n\n Back to top"
+    "text": "Epidemiology of infectious and non communicable diseases, mathematical models for infectious diseases"
+  },
+  {
+    "objectID": "research/index.html#epidemiology",
+    "href": "research/index.html#epidemiology",
+    "title": "Research",
+    "section": "",
+    "text": "Epidemiology of infectious and non communicable diseases, mathematical models for infectious diseases"
+  },
+  {
+    "objectID": "research/index.html#quantitative-survey",
+    "href": "research/index.html#quantitative-survey",
+    "title": "Research",
+    "section": "Quantitative survey",
+    "text": "Quantitative survey\nDevelop, cross-cultural adaptation, methods to investigate reliability and validity of surveys."
+  },
+  {
+    "objectID": "research/index.html#clinical-studies",
+    "href": "research/index.html#clinical-studies",
+    "title": "Research",
+    "section": "Clinical studies",
+    "text": "Clinical studies\nIncluding randomized control trials, biomarker discovery."
+  },
+  {
+    "objectID": "research/index.html#basic-science",
+    "href": "research/index.html#basic-science",
+    "title": "Research",
+    "section": "Basic science",
+    "text": "Basic science\nMethodologies for animal model studies, genome and epigenome sequencing, biomarker development tool"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "10 simple tips to chair a meeting\n\n\n\nleadership\n\n\n\nA survival kit when you are thrust into the chairing role\n\n\n\nThinh Ong\n\n\nAug 26, 2023\n\n\n\n\n\n\nNo matching items\n Back to top"
+  },
+  {
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "About me",
+    "section": "",
+    "text": "Presentation"
+  },
+  {
+    "objectID": "about/index.html#education",
+    "href": "about/index.html#education",
+    "title": "About me",
+    "section": "Education",
+    "text": "Education\n\nDoctor of Philosophy in Clinical Medicine, University of Oxford, United Kingdom (Graduation expected 2026)\nDoctor of Medicine in Preventive Medicine, University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam (2012-2018)"
+  },
+  {
+    "objectID": "about/index.html#awards-and-honours",
+    "href": "about/index.html#awards-and-honours",
+    "title": "About me",
+    "section": "Awards and honours",
+    "text": "Awards and honours\n\nFull DPhil studentship, issued by Oxford University Clinical Research Unit and University of Oxford (2022)\nAcademic Distinction Award (Valedictorian), issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nDissertation Distinction Award, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nStudent with the highest GPA, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2014, 2016, 2017)"
+  },
+  {
+    "objectID": "about/index.html#employment-history",
+    "href": "about/index.html#employment-history",
+    "title": "About me",
+    "section": "Employment history",
+    "text": "Employment history\n\nResearch Assistant, Oxford University Clinical Research Unit, Vietnam (2021-2022)\nResearch Assistant, Hanoi University of Public Health, Vietnam (2020)\nResearch Intern, Garvan Institute of Medical Research, Australia (remote, 2019-2020)\nStatistical consultant, Tu Du hospital, Vietnam (freelance, 2018-2023)"
+  },
+  {
+    "objectID": "about/index.html#society-memberships",
+    "href": "about/index.html#society-memberships",
+    "title": "About me",
+    "section": "Society memberships",
+    "text": "Society memberships\n\nMember, Modelling Infectious Diseases in South East Asia\nAffiliate, Vaccine Impact Modelling Consortium"
+  },
+  {
+    "objectID": "about/index.html#adventures",
+    "href": "about/index.html#adventures",
+    "title": "About me",
+    "section": "Adventures",
+    "text": "Adventures\nI’m a regular guy from a developing country. Going abroad used to be a dream. My research has given me the chance to visit different countries, connect with collaborators, attend international conferences and workshops. This map notes all my visits.\n\ncountries = JSON.parse(data)\nvisited = JSON.parse(data2)\nbertin = require(\"bertin@1.2.4\")\n\nbertin.draw({\n  params: { projection: \"Eckert3\" },\n  layers: [\n    {\n      type: \"layer\",\n      geojson: visited,\n      tooltip: [\"$NAMEen\", \"$visit1\", \"$visit2\", \"$visit3\"],\n      fill: {\n        type: \"typo\",\n        values: \"visit1\"\n      }\n    },\n    {\n      type: \"layer\",\n      geojson: countries,\n      fill: \"white\",\n      fillOpacity: 0.5\n    },\n    { type: \"graticule\" },\n    { type: \"outline\" }\n  ]\n})"
   },
   {
     "objectID": "blog/2023-08-26-chair-a-meeting/index.html",
@@ -427,242 +469,46 @@
     "text": "Acknowledgments\nSpecial thanks to Dr. Leigh Jones, my mentor, for her valuable insights that helped shape these tips and Dr. Marc Choisy, my cool PhD supervisor, for the extra tip. A big thank you to Ms. Gaye Proctor for the classification of participant behaviors in her Train the Trainer workshop, a valuable resource for my Tip 7.\n\nPreview image by storyset on Freepik"
   },
   {
-    "objectID": "about/index.html",
-    "href": "about/index.html",
-    "title": "About me",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "",
     "section": "",
-    "text": "Presentation"
+    "text": "THINH ONG \n      MEDICALDOCTOR\n    \n    \n      \n      Hi\n    \n    \n      MATHEMATICALMODELLER\n      \n        A medical doctor and PhD in infectious disease modelling trained at the University of Oxford.\n        \n           View my CV\n           Scholar\n           Email\n        \n      \n    \n  \n\n  \n    Affiliations\n    \n      \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n        \n      \n    \n  \n\n  \n    Selected work\n    \n  \n\n\n\n  Selected work\n  \n    \n      01\n      RESEARCH\n      RESEARCHMathematical models and epidemiology of infectious diseases, quantitative methods, and clinical studies.Explore research \n    \n    \n      02\n      TEACHING\n      TEACHINGCourse materials on modelling methods for infectious diseases and on R programming.See teaching \n    \n    \n      03\n      SOFTWARE\n      SOFTWARER packages and tools built for research and the wider scientific community.Browse software \n    \n  \n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "about/index.html#education",
-    "href": "about/index.html#education",
-    "title": "About me",
+    "objectID": "slides/about/index.html#education",
+    "href": "slides/about/index.html#education",
+    "title": "Thinh Ong",
     "section": "Education",
-    "text": "Education\n\nDoctor of Philosophy in Clinical Medicine, University of Oxford, United Kingdom (Graduation expected 2026)\nDoctor of Medicine in Preventive Medicine, University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam (2012-2018)"
+    "text": "Education\n\n\n\n\n\n\n\n\n2022-2026\nDoctor of Philosophy in Clinical Medicine\nUniversity of Oxford, United Kingdom\n\n\n\n\n\n\n\n2012-2018\nDoctor of Medicine in Preventive Medicine\nUniversity of Medicine and Pharmacy at Ho Chi Minh City, Vietnam"
   },
   {
-    "objectID": "about/index.html#awards-and-honours",
-    "href": "about/index.html#awards-and-honours",
-    "title": "About me",
+    "objectID": "slides/about/index.html#awards-and-honours",
+    "href": "slides/about/index.html#awards-and-honours",
+    "title": "Thinh Ong",
     "section": "Awards and honours",
-    "text": "Awards and honours\n\nFull DPhil studentship, issued by Oxford University Clinical Research Unit and University of Oxford (2022)\nAcademic Distinction Award (Valedictorian), issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nDissertation Distinction Award, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)\nStudent with the highest GPA, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2014, 2016, 2017)"
+    "text": "Awards and honours\n\n\n\n\n\n\n\n\nFull DPhil studentship\n\n\n\n\n\n\n\nValedictorian, the only graduation with distinction grade in the fixed-curriculum system (prior to 2022)\nThe highest GPA in the history of the school\nThe highest score in dissertation"
   },
   {
-    "objectID": "about/index.html#employment-history",
-    "href": "about/index.html#employment-history",
-    "title": "About me",
-    "section": "Employment history",
-    "text": "Employment history\n\nResearch Assistant, Oxford University Clinical Research Unit, Vietnam (2021-2022)\nResearch Assistant, Hanoi University of Public Health, Vietnam (2020)\nResearch Intern, Garvan Institute of Medical Research, Australia (remote, 2019-2020)\nStatistical consultant, Tu Du hospital, Vietnam (freelance, 2018-2023)"
+    "objectID": "slides/about/index.html#research",
+    "href": "slides/about/index.html#research",
+    "title": "Thinh Ong",
+    "section": "Research",
+    "text": "Research\n\n\n\n\n\n\n\nField\nExperience\n\n\n\n\nMathematical modelling\nDr. Marc Choisy  \n\n\nBioinformatics\nProf. Susan Clark, Dr. Phuc-Loi Luu \n\n\nBiostatistics\nClinical trials, public health institutions"
   },
   {
-    "objectID": "about/index.html#society-memberships",
-    "href": "about/index.html#society-memberships",
-    "title": "About me",
-    "section": "Society memberships",
-    "text": "Society memberships\n\nMember, Modelling Infectious Diseases in South East Asia\nAffiliate, Vaccine Impact Modelling Consortium"
-  },
-  {
-    "objectID": "about/index.html#adventures",
-    "href": "about/index.html#adventures",
-    "title": "About me",
-    "section": "Adventures",
-    "text": "Adventures\nI’m a regular guy from a developing country. Going abroad used to be a dream. My research has given me the chance to visit different countries, connect with collaborators, attend international conferences and workshops. This map notes all my visits.\n\ncountries = JSON.parse(data)\nvisited = JSON.parse(data2)\nbertin = require(\"bertin@1.2.4\")\n\nbertin.draw({\n  params: { projection: \"Eckert3\" },\n  layers: [\n    {\n      type: \"layer\",\n      geojson: visited,\n      tooltip: [\"$NAMEen\", \"$visit1\", \"$visit2\", \"$visit3\"],\n      fill: {\n        type: \"typo\",\n        values: \"visit1\"\n      }\n    },\n    {\n      type: \"layer\",\n      geojson: countries,\n      fill: \"white\",\n      fillOpacity: 0.5\n    },\n    { type: \"graticule\" },\n    { type: \"outline\" }\n  ]\n})"
-  },
-  {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Blog",
-    "section": "",
-    "text": "10 simple tips to chair a meeting\n\n\n\nleadership\n\n\n\nA survival kit when you are thrust into the chairing role\n\n\n\nThinh Ong\n\n\nAug 26, 2023\n\n\n\n\n\n\nNo matching items\n Back to top"
-  },
-  {
-    "objectID": "research/index.html",
-    "href": "research/index.html",
-    "title": "Research",
-    "section": "",
-    "text": "Epidemiology of infectious and non communicable diseases, mathematical models for infectious diseases"
-  },
-  {
-    "objectID": "research/index.html#epidemiology",
-    "href": "research/index.html#epidemiology",
-    "title": "Research",
-    "section": "",
-    "text": "Epidemiology of infectious and non communicable diseases, mathematical models for infectious diseases"
-  },
-  {
-    "objectID": "research/index.html#quantitative-survey",
-    "href": "research/index.html#quantitative-survey",
-    "title": "Research",
-    "section": "Quantitative survey",
-    "text": "Quantitative survey\nDevelop, cross-cultural adaptation, methods to investigate reliability and validity of surveys."
-  },
-  {
-    "objectID": "research/index.html#clinical-studies",
-    "href": "research/index.html#clinical-studies",
-    "title": "Research",
-    "section": "Clinical studies",
-    "text": "Clinical studies\nIncluding randomized control trials, biomarker discovery."
-  },
-  {
-    "objectID": "research/index.html#basic-science",
-    "href": "research/index.html#basic-science",
-    "title": "Research",
-    "section": "Basic science",
-    "text": "Basic science\nMethodologies for animal model studies, genome and epigenome sequencing, biomarker development tool"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#disclaimer",
-    "href": "slides/ai-as-a-life-tool/index.html#disclaimer",
-    "title": "AI as a life tool",
-    "section": "Disclaimer",
-    "text": "Disclaimer\n\n\n\nScan this for the slide \n\n    \nThis is NOT the best way to use AI\nI’m sharing how I use it\nPlease question me, challenge me, disagree with me (but don’t hit me)\n\n\n\n\n\nVideo source: @timmorrel"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#prompting-101",
-    "href": "slides/ai-as-a-life-tool/index.html#prompting-101",
-    "title": "AI as a life tool",
-    "section": "Prompting 101",
-    "text": "Prompting 101\n\n\nI want to study finance basics, but I don’t know how to ask you. Please ask me what you need and then generate a good prompt once you have enough information\n\n\nGot it 👍 To create the right prompt for you, I need to understand a few things about your goals and preferences. Let me ask you step by step:\n\nPurpose: Why do you want to learn finance basics? (e.g., personal money management, investing, understanding economics, career development, etc.)\nLevel: Do you want a very simple, beginner-friendly explanation (like everyday examples), or a bit more structured (with some technical terms, formulas, etc.)?\nFormat: How do you prefer to learn? (e.g., short lessons, Q&A style, exercises, summaries, real-life applications)\nFocus areas: Finance is broad. Which areas interest you most? Personal finance (budgeting, saving, debt, retirement planning), Investing (stocks, bonds, funds, property), Business finance (cash flow, profit/loss, company value), Economics & money systems (banks, inflation, central banks)\nTime: How much time do you want to spend learning (daily/weekly)? Do you prefer a quick crash course or a slower step-by-step path?\n\n👉 Once you answer these, I’ll put everything together into a clear, ready-to-use prompt that you can copy/paste to guide our finance learning journey."
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#prompting-101-1",
-    "href": "slides/ai-as-a-life-tool/index.html#prompting-101-1",
-    "title": "AI as a life tool",
-    "section": "Prompting 101",
-    "text": "Prompting 101\n\n\n\nPersonal money management; 2. Very simple, beginner-friendly; 3. Short lessons; 4. Personal finance; 5. 30 minutes daily, I prefer a quick crash course\n\n\n\nPerfect — thanks for the clear answers. Based on what you told me, here’s a ready-to-use prompt you can copy and use with me anytime:\nPrompt: “I want to learn personal finance basics for personal money management. Please teach me in very simple, beginner-friendly language through short lessons, like a 30-day crash course I can study for about 30 minutes each day. Focus only on personal finance (budgeting, saving, debt, retirement planning, etc.), not business or advanced investing. Make each lesson practical, easy to understand, and with small exercises or examples I can apply right away.”\nDo you want me to actually design this 30-day crash course outline for you now, so you can see the roadmap before starting?"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#prompting-101-2",
-    "href": "slides/ai-as-a-life-tool/index.html#prompting-101-2",
-    "title": "AI as a life tool",
-    "section": "Prompting 101",
-    "text": "Prompting 101\n\nProvide enough information and context\nTell it how to show the results, share examples if you have them\n\n“Give me a bulleted list”\n“Show me an R code using tidyverse style”\n\nFor complex tasks, ask step by step\nGood prompts = good communication"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#my-3-steps-for-everything",
-    "href": "slides/ai-as-a-life-tool/index.html#my-3-steps-for-everything",
-    "title": "AI as a life tool",
-    "section": "My 3 steps for everything",
-    "text": "My 3 steps for everything\n\nLearn\nMindset\nAction"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#step-1.-learn",
-    "href": "slides/ai-as-a-life-tool/index.html#step-1.-learn",
-    "title": "AI as a life tool",
-    "section": "Step 1. Learn",
-    "text": "Step 1. Learn\n\nKnow how AI works (thanks Tuyen!)\nAsk better questions: provide sufficient information\nIf you don’t like the output: try to fix it (instead of getting angry)"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#step-2.-mindset",
-    "href": "slides/ai-as-a-life-tool/index.html#step-2.-mindset",
-    "title": "AI as a life tool",
-    "section": "Step 2. Mindset",
-    "text": "Step 2. Mindset\n\nAI = super enthusiastic intern\nYou = the supervisor\nDon’t hand over your work: stay in control\nTreat it like mentoring a junior: it learns from you\nYou remain the expert, AI just assists"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#step-3.-action",
-    "href": "slides/ai-as-a-life-tool/index.html#step-3.-action",
-    "title": "AI as a life tool",
-    "section": "Step 3. Action",
-    "text": "Step 3. Action\n\nTalk to AI → discover strengths & limits\n\nCompare: where AI beats you, where you stay valuable\n\nBuild confidence using it daily"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#learn-new-skills",
-    "href": "slides/ai-as-a-life-tool/index.html#learn-new-skills",
-    "title": "AI as a life tool",
-    "section": "Learn new skills",
-    "text": "Learn new skills\n\n\nI was told that seeing reality clearly is really helpful for stress control. When thoughts come up, it is important to notice if they are real things or just in my head. I will use this chat for doing reality checks. Could you suggest me a very short but efficient way how are we going to work on this?\n\n\nWe can use just two steps for every thought you bring here:\nStep 1. Ask: 👉 “Is this happening right now in reality, or only in my head?”\nStep 2. Label:\nReality → something you can see, hear, touch, or prove.\nThought → story, fear, memory, or prediction.\nThat’s it. I’ll help you do the labelling when you write your thoughts here. Over time, you’ll start doing it automatically.\nDo you want me to keep the answers very short (just “Reality” or “Thought”), or would you prefer a tiny bit of explanation each time?"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#discuss-a-book",
-    "href": "slides/ai-as-a-life-tool/index.html#discuss-a-book",
-    "title": "AI as a life tool",
-    "section": "Discuss a book",
-    "text": "Discuss a book\n\n\nI’m reading a book called “Four Thousand Weeks: Time Management for Mortals”. I’m fascinated by viewing time in weeks. A week is short enough to take control, and long enough to see progress. It ends with a deep break on the weekend. What am I missing in this perspective?\n\n\nThat’s a sharp observation. Seeing life in weeks is powerful because it gives you a rhythm that’s neither too microscopic (hours, which can feel frantic) nor too abstract (years, which can feel distant). But there are a few blind spots you might be missing:\n\nWeeks are artificial: A week isn’t a natural unit of time like a day (sunrise–sunset) or a year (Earth’s orbit). It’s a social construct. This means while it feels like a natural reset, your body or goals might not always sync neatly with that 7-day rhythm. For example, recovery, creativity, or learning curves often don’t obey a weekly cycle.\nRisk of over-resetting: If every week feels like a fresh start, you may unintentionally devalue the continuity of long-term work. Some projects need momentum across many weeks, and focusing too much on weekly “resets” might make you restart energy or habits instead of compounding them."
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#discuss-a-book-1",
-    "href": "slides/ai-as-a-life-tool/index.html#discuss-a-book-1",
-    "title": "AI as a life tool",
-    "section": "Discuss a book",
-    "text": "Discuss a book\n\n\nFind an iOS app to countdown to an event. It should show how many weeks have passed since I set a goal, and how many weeks are left until the event. I want a graph, not just a number counter, and it must have a home screen widget\n\n\nCool idea — this is a good checklist of what to look for. I poked around; there are apps that hit many of your criteria, though maybe none perfect. Here are some that get close + suggestions + what to check so you can pick the best.\n\n\n\n\n\n\n\n\nApp\nWhat it does well\nWhat’s missing\n\n\n\n\nPretty Progress\nVery strong candidate. You can set a start & end date. Widgets show count up & count down. It supports displaying % completion, time passed vs time remaining.\nMight need PRO for some dashboard / widget styles. Check whether the widget graphically shows weeks passed vs weeks remaining (not just days %) — since you care about weeks, see if you can set the unit to weeks."
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#discuss-a-book-2",
-    "href": "slides/ai-as-a-life-tool/index.html#discuss-a-book-2",
-    "title": "AI as a life tool",
-    "section": "Discuss a book",
-    "text": "Discuss a book"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#refine-writing",
-    "href": "slides/ai-as-a-life-tool/index.html#refine-writing",
-    "title": "AI as a life tool",
-    "section": "Refine writing",
-    "text": "Refine writing\n\n\nMake sure the grammar is correct and give me 5 versions for this: “The majority of ECR and senior faculty members (&gt;50%) were satisfied with the level of mentorship they were received. Mid-career researchers (lecturer - 62% and assistant professors - 56%) reported neutral or disagree with this statement.”\n\n\nHere are five grammatically correct and stylistically varied versions of your sentence:\nVersion 1 (clear and formal): The majority of early-career researchers and senior faculty members (&gt;50%) were satisfied with the mentorship they received. In contrast, most mid-career researchers—62% of lecturers and 56% of assistant professors—responded neutrally or disagreed.\nVersion 2 (concise): More than half of early-career researchers and senior faculty reported satisfaction with mentorship, while 62% of lecturers and 56% of assistant professors gave neutral or negative responses.\nVersion 3 (contrast emphasis): While most early-career researchers and senior faculty (&gt;50%) expressed satisfaction with mentorship, mid-career researchers were less positive: 62% of lecturers and 56% of assistant professors were neutral or disagreed.\nVersion 4 (data-led): Over half of early-career researchers and senior faculty reported being satisfied with their mentorship. By contrast, 62% of lecturers and 56% of assistant professors indicated neutral or negative views.\nVersion 5 (smooth narrative): Satisfaction with mentorship was reported by the majority of early-career researchers and senior faculty (&gt;50%). However, among mid-career researchers, 62% of lecturers and 56% of assistant professors gave neutral or disagreeing responses."
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#refine-emails",
-    "href": "slides/ai-as-a-life-tool/index.html#refine-emails",
-    "title": "AI as a life tool",
-    "section": "Refine emails",
-    "text": "Refine emails\nGive it 3 emails I’m proud of and let it discover the style I like:\n\nTone and voice\n\nProfessional but friendly: respectful, warm, and human.\nNever too formal or stiff; slightly casual is okay if context allows.\nSincere and humble: expressions of gratitude or apology are genuine, not exaggerated.\n\nStructure\n\nStart with a clear greeting and a short contextual sentence.\nBody should get straight to the point: one paragraph per key idea.\nEnd with a short, polite sign-off that doesn’t repeat too much.\n\nLanguage\n\nUse natural, spoken English: contractions like “I’m” or “we’re” are fine.\nAvoid flowery or overly elaborate words (e.g., “It would be an immense honour…” feels too much).\nPrefer plain and honest phrases (e.g., “Just want to check if…” / “I’m sorry I forgot”)."
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#refine-emails-1",
-    "href": "slides/ai-as-a-life-tool/index.html#refine-emails-1",
-    "title": "AI as a life tool",
-    "section": "Refine emails",
-    "text": "Refine emails\n\n\nDear Julie,\nI made the line plot showing case count in R but there is actually a discrepancy between the data I’m using vs you’re using lol. The number just doesn’t match. Let solve this during our discussion in the next hour.\nBest, Thinh.\n\n\nHere’s a revised version that keeps your tone natural and friendly, but polishes the clarity and flow:\nSubject: Quick note before our meeting\nDear Julie,\nI’ve plotted the case counts in R, but it looks like there’s a discrepancy between the dataset I’m using and yours — the numbers don’t match up. Let’s go through it together during our discussion in the next hour.\nBest, Thinh\nLet me know if you’d like a more formal or more casual version."
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#personal-coach",
-    "href": "slides/ai-as-a-life-tool/index.html#personal-coach",
-    "title": "AI as a life tool",
-    "section": "Personal coach",
-    "text": "Personal coach\n\n\nAct as an interviewer for a data analyst position at WHO. Ask me one question at a time, give feedback on my answers, and suggest how I can improve\n\n\nAlright, let’s get into interview mode!\nHere’s your first question:\nQ1: At the World Health Organization, we often work with large, messy datasets from different countries. Can you walk me through how you would approach cleaning and preparing such a dataset for analysis?\nTake your time answering, and then I’ll give you feedback and tips."
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#my-favourite-prompts",
-    "href": "slides/ai-as-a-life-tool/index.html#my-favourite-prompts",
-    "title": "AI as a life tool",
-    "section": "My favourite prompts",
-    "text": "My favourite prompts\n\nWhat options do I have?\nI’m debating between X and Y: what are the pros and cons of each?\nWhat’s the strongest argument against my current view?\nGive me 3 alternative framings of this problem, each from a different perspective\nIf I was completely wrong, what would the world look like?\n\n(Keep being challenged and avoid bias)"
-  },
-  {
-    "objectID": "slides/ai-as-a-life-tool/index.html#takeaway",
-    "href": "slides/ai-as-a-life-tool/index.html#takeaway",
-    "title": "AI as a life tool",
-    "section": "Takeaway",
-    "text": "Takeaway\n\nLearn &gt; Mindset &gt; Action\nAI is a super enthusiastic intern, supervise it carefully\nLet it free up your time for what really matters"
+    "objectID": "slides/about/index.html#achievements",
+    "href": "slides/about/index.html#achievements",
+    "title": "Thinh Ong",
+    "section": "Achievements",
+    "text": "Achievements\n\n14 research articles (international journals)\n4 international conferences\n4 software\n1 book chapter"
   },
   {
     "objectID": "teaching/index.html",
     "href": "teaching/index.html",
-    "title": "Teaching",
+    "title": "Teaching & Training",
     "section": "",
-    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "teaching/index.html#modelling",
-    "href": "teaching/index.html#modelling",
-    "title": "Teaching",
-    "section": "",
-    "text": "Learn the basics of infectious disease modelling through step-by-step lessons. Perfect for curious minds of all ages.\n\n\n\n\n\n\n\n\n\n\n\n\n\nA short course on compartmental models\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "teaching/index.html#others",
-    "href": "teaching/index.html#others",
-    "title": "Teaching",
-    "section": "Others",
-    "text": "Others\n\n\n\n\n\n\n\n\n\n\nR for babies\n\n\nBasic R programming for data science\n\n\n\n\n\n\n\n\n\n\n\n\nR package for babies\n\n\nA fun, beginner-friendly course covers every step, ensuring your package is CRAN-ready. Perfect for all ages.\n\n\n\n\n\n\n\n\n\n\nAcademic writing\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "teaching/index.html#seminars",
-    "href": "teaching/index.html#seminars",
-    "title": "Teaching",
-    "section": "Seminars",
-    "text": "Seminars\n\n\n\n\n\n\n\n\n\n\nAI as a life tool\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIs this a good journal?\n\n\nLearn how to identify trustworthy scientific journals and avoid predatory ones\n\n\n\n\n\nNo matching items"
+    "text": "Courses & talks\n      Teaching & Training\n    \n    Short courses, workshops and talks on infectious disease modelling, statistics, R, and the craft of research.\n  \n\n  \n    \n      \n      \n        \n          \n            [01]\n            Disease Modelling\n            Compartmental models, statistics, and the maths of outbreaks.\n          \n          3 courses\n        \n        \n          \n            \n              \n                \n                \n                \n                \n                \n                \n                \n              \n            \n            \n              Short courseMar 2023\n              Introduction to Infectious Disease Modelling\n              SIRCompartmentalR\n            \n          \n          \n            \n              \n                \n                \n                \n                \n                \n                \n              \n            \n            \n              Self-pacedMay 2024\n              Infectious Disease Modelling for Babies\n              SIRBeginnersIntuition\n            \n          \n          \n            \n              \n                \n                \n                \n                \n                \n                \n              \n            \n            \n              Self-pacedDec 2025\n              Statistics for Babies\n              ProbabilityBayesianMCMC\n            \n          \n        \n      \n\n      \n      \n        \n          \n            \n              [02]\n              R Programming\n              R for data science, from your first script.\n            \n          \n          \n            \n              \n                \n                \n                \n                \n                \n                \n                \n                \n              \n            \n            \n              Short courseAug 2023\n              R for Babies\n              RData scienceBeginners\n            \n          \n        \n\n        \n          \n            \n              [03]\n              Transferable Skills\n              Writing, reviewing and the craft around research.\n            \n          \n          \n            \n              \n                \n                \n                \n                \n                \n                \n                \n                \n              \n            \n            \n              Workshop2024\n              Academic Writing\n              Peer reviewManuscriptsPublishing\n            \n          \n        \n\n        \n          \n            \n              [04]\n              Seminars & Talks\n              Short talks on research life and tools.\n            \n          \n          \n            \n              \n                \n                \n                \n                \n                \n                \n                \n                \n                \n              \n            \n            \n              SeminarSep 2023\n              Is This a Good Journal?\n              PublishingPeer reviewTalk\n            \n          \n        \n      \n    \n\n    \n      On this page\n      01Disease Modelling\n      02R Programming\n      03Transferable Skills\n      04Seminars & Talks\n    \n  \n\n\n\n  \n  \n    \n    ✕\n    \n  \n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "teaching/modelling/idm4b/index.html",
@@ -677,12 +523,5 @@
     "title": "R for babies",
     "section": "",
     "text": "Course homepage\nThis course has been taught for staff members of Ho Chi Minh city’s Centre for Diseases Control.\n\n\n\n\n\n\n\n\n\n\n\nPreview image by Freepik\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "teaching/seminars/ai-as-a-life-tool/index.html",
-    "href": "teaching/seminars/ai-as-a-life-tool/index.html",
-    "title": "AI as a life tool",
-    "section": "",
-    "text": "Presentation\n\n\n\n\n Back to topCitationBibTeX citation:@online{ong2023,\n  author = {Ong, Thinh},\n  title = {AI as a Life Tool},\n  date = {2023-09-25},\n  url = {https://drthinhong.com/seminars/ai-as-a-life-tool},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nOng, Thinh. 2023. “AI as a Life Tool.” September 25, 2023.\nhttps://drthinhong.com/seminars/ai-as-a-life-tool."
   }
 ]
