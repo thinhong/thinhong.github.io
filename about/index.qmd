@@ -1,114 +1,393 @@
 ---
-title: "About me"
+pagetitle: "About - Thinh Ong"
+description: "Infectious disease modeller and medical doctor. Education, experience, and a map of where the research has taken me."
+page-layout: full
+toc: false
 comments: false
-execute:
-  echo: false
-  warning: false
+anchor-sections: false
 ---
 
-::: {.center-text}
-[{{< fa link >}} Presentation](/slides/about){.btn .btn-outline-secondary role="button"}
-:::
-
-::: {.center-text}
-[{{< fa link >}} CV](cv.pdf){.btn .btn-outline-secondary role="button"}
-:::
-
-## Education
-
-- Doctor of Philosophy in Clinical Medicine, University of Oxford, United Kingdom (Graduation expected 2026)
-- Doctor of Medicine in Preventive Medicine, University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam (2012-2018)
-
-## Awards and honours
-
-- Full DPhil studentship, issued by Oxford University Clinical Research Unit and University of Oxford (2022)
-- Academic Distinction Award (Valedictorian), issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)
-- Dissertation Distinction Award, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2018)
-- Student with the highest GPA, issued by University of Medicine and Pharmacy at Ho Chi Minh City (2014, 2016, 2017)
-
-## Employment history
-
-- Research Assistant, Oxford University Clinical Research Unit, Vietnam (2021-2022)
-- Research Assistant, Hanoi University of Public Health, Vietnam (2020)
-- Research Intern, Garvan Institute of Medical Research, Australia (remote, 2019-2020)
-- Statistical consultant, Tu Du hospital, Vietnam (freelance, 2018-2023)
-
-## Society memberships
-
-- Member, [Modelling Infectious Diseases in South East Asia](https://midsea.network/)
-- Affiliate, [Vaccine Impact Modelling Consortium](https://www.vaccineimpact.org/)
-
-## Adventures
-
-I'm a regular guy from a developing country. Going abroad used to be a dream. My research has given me the chance to visit different countries, connect with collaborators, attend international conferences and workshops. This map notes all my visits.
-
 ```{r}
-library(jsonlite)
-library(stringr)
-library(tidyr)
-library(dplyr)
-library(sf)
-library(geojsonsf)
-
-# Read json
-travel <- read_json("travel.json")
-
-# Transform json to dataframe
-year_country <- str_split_fixed(names(unlist(travel)), "\\.", 2)
-
-travel <- data.frame(country = year_country[,2], year = year_country[,1], visit = paste0(year_country[,1], ": ", unlist(travel)))
-
-travel <- travel %>% 
-  group_by(country) %>% 
-  arrange(desc(year)) %>% 
-  mutate(order = row_number())
-
-travel <- pivot_wider(travel, id_cols = country, names_from = order, values_from = visit, names_prefix = "visit")
-
-# Add Vietnam
-travel <- bind_rows(travel, data.frame(country = "VNM", visit1 = "My hometown"))
-
-# Replace NA with ""
-travel <- travel %>% 
-  mutate(across(starts_with("visit"), ~replace_na(.,"")))
-
-# Read map data
-geom <- geojson_sf("world.geojson")
-
-# Merge coordinates
-travel <- merge(geom, travel, by.x = "ISO3", by.y = "country", all.y = T)
-
-# Read data into ojs
-ojs_define(data = sf_geojson(geom))
-ojs_define(data2 = sf_geojson(travel))
+#| echo: false
+#| results: asis
+# Inject the country geometry and the travel data into the page as JSON so the
+# map (plain D3) can read them. Both stay in editable files: world.geojson and
+# travel.json. To add a trip, add one object to travel.json; nothing else changes.
+geo <- paste(readLines("world.geojson", encoding = "UTF-8"), collapse = "")
+trv <- paste(readLines("travel.json", encoding = "UTF-8"), collapse = "")
+cat('\n<script type="application/json" id="geo-data">', geo, '</script>\n', sep = "")
+cat('<script type="application/json" id="travel-data">', trv, '</script>\n\n', sep = "")
 ```
 
-```{ojs}
-countries = JSON.parse(data)
-visited = JSON.parse(data2)
-bertin = require("bertin@1.2.4")
+```{=html}
+<style>
+/* ===== About page: page-specific pieces (.ab-*), built on .pg-* tokens ===== */
+.pg{ --map-land:#dde3f0; --map-line:rgba(16,27,53,.10); }
+html[data-theme="dark"] .pg{ --map-land:#1b2540; --map-line:rgba(255,255,255,.07); }
 
-bertin.draw({
-  params: { projection: "Eckert3" },
-  layers: [
-    {
-      type: "layer",
-      geojson: visited,
-      tooltip: ["$NAMEen", "$visit1", "$visit2", "$visit3"],
-      fill: {
-        type: "typo",
-        values: "visit1"
-      }
-    },
-    {
-      type: "layer",
-      geojson: countries,
-      fill: "white",
-      fillOpacity: 0.5
-    },
-    { type: "graticule" },
-    { type: "outline" }
-  ]
-})
+/* soft decorative pattern blended into each panel's top-right corner */
+.pg-panel{ position:relative; overflow:hidden; }
+.pg-panel::after{
+  content:""; position:absolute; top:0; right:0; width:min(54%,360px); height:min(70%,210px); pointer-events:none;
+  background:
+    radial-gradient(circle, color-mix(in srgb, var(--hue,#4f7be0) 92%, transparent) 1.5px, transparent 1.9px) 0 0 / 15px 15px,
+    radial-gradient(125% 120% at 100% 0%, color-mix(in srgb, var(--hue,#4f7be0) 24%, transparent), transparent 70%);
+  -webkit-mask-image:radial-gradient(135% 130% at 100% 0%, #000 0%, rgba(0,0,0,.62) 42%, transparent 72%);
+  mask-image:radial-gradient(135% 130% at 100% 0%, #000 0%, rgba(0,0,0,.62) 42%, transparent 72%);
+  opacity:.82;
+}
+html[data-theme="dark"] .pg-panel::after{ opacity:.72; }
+
+/* hero call-to-action buttons */
+.ab-cta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+.ab-btn{ display:inline-flex; align-items:center; gap:8px; font-size:.86rem; font-weight:600; text-decoration:none; color:var(--heading); background:var(--surface); border:1px solid var(--border); border-radius:11px; padding:9px 15px; transition:transform .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease); }
+html[data-theme="dark"] .ab-btn{ background:rgba(255,255,255,.05); }
+.ab-btn svg{ width:15px; height:15px; flex:none; }
+@media (hover:hover){ .ab-btn:hover{ transform:translateY(-2px); color:var(--brand); border-color:color-mix(in srgb,var(--brand) 45%,var(--border)); } }
+.ab-btn--primary{ background:var(--brand-grad); border-color:transparent; color:#fff; box-shadow:0 8px 22px color-mix(in srgb,var(--brand) 32%, transparent); }
+@media (hover:hover){ .ab-btn--primary:hover{ color:#fff; background:var(--brand-grad-hi); border-color:transparent; } }
+
+/* timeline (Education, Experience, Memberships) */
+.ab-tl{ display:flex; flex-direction:column; position:relative; }
+.ab-tl-item{ display:grid; grid-template-columns:104px 1fr; gap:clamp(14px,2vw,26px); padding:16px 0; }
+.ab-tl-item+.ab-tl-item{ border-top:1px solid var(--border); }
+.ab-tl-year{ font-family:var(--display-font); font-size:1.15rem; letter-spacing:.5px; color:var(--brand); padding-top:2px; font-variant-numeric:tabular-nums; }
+.ab-tl-role{ margin:0 0 3px; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size:1rem; font-weight:600; letter-spacing:0; color:var(--heading); }
+.ab-tl-org{ margin:0; font-size:.9rem; color:var(--text-muted); }
+.ab-tl-note{ margin:5px 0 0; font-size:.84rem; color:var(--text-faint); }
+.ab-tl-org a{ color:var(--brand); text-decoration:none; }
+@media (hover:hover){ .ab-tl-org a:hover{ text-decoration:underline; } }
+
+/* honours list */
+.ab-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; }
+.ab-list li{ display:grid; grid-template-columns:104px 1fr; gap:clamp(14px,2vw,26px); padding:13px 0; font-size:.92rem; }
+.ab-list li+li{ border-top:1px solid var(--border); }
+.ab-list .yr{ font-family:var(--display-font); font-size:1.05rem; letter-spacing:.5px; color:var(--brand); font-variant-numeric:tabular-nums; }
+.ab-list .it{ color:var(--text); }
+.ab-list .it b{ color:var(--heading); font-weight:600; }
+
+/* Adventures: region nav + big map */
+.ab-intro{ margin:0 0 clamp(14px,2vw,18px); color:var(--text-muted); font-size:.94rem; max-width:64ch; }
+.ab-regions{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+.ab-region{ flex:0 0 auto; font-size:.78rem; font-weight:600; color:var(--text-muted); background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:8px 15px; cursor:pointer; white-space:nowrap; transition:color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease), transform .2s var(--ease); }
+html[data-theme="dark"] .ab-region{ background:rgba(255,255,255,.05); }
+@media (hover:hover){ .ab-region:hover{ color:var(--brand); transform:translateY(-1px); border-color:color-mix(in srgb,var(--brand) 45%,var(--border)); } }
+.ab-region.active{ color:var(--brand); border-color:var(--brand); background:color-mix(in srgb,var(--brand) 10%,transparent); }
+
+.ab-map{ position:relative; border-radius:var(--panel-radius); overflow:hidden; border:1px solid var(--border); background:radial-gradient(120% 120% at 50% 8%, color-mix(in srgb,var(--brand) 9%, var(--surface)), var(--surface)); }
+.ab-map svg{ display:block; width:100%; height:auto; touch-action:pan-y; }
+@media (hover:hover){ .ab-map svg{ cursor:grab; } .ab-map svg:active{ cursor:grabbing; } }
+.ab-map.is-full{ position:fixed; inset:0; z-index:1200; border:0; border-radius:0; background:var(--bg); display:grid; place-items:center; }
+.ab-map.is-full svg{ touch-action:none; max-height:100dvh; }
+.ab-sphere{ fill:transparent; }
+.ab-grat{ fill:none; stroke:var(--map-line); stroke-width:.4; opacity:.5; }
+.ab-country{ fill:var(--map-land); stroke:var(--map-line); stroke-width:.5; vector-effect:non-scaling-stroke; }
+.ab-country.visited{ fill:var(--brand); stroke:color-mix(in srgb,var(--brand) 55%, #000); cursor:pointer; filter:url(#ab-glow); transition:fill .2s var(--ease); }
+@media (hover:hover){ .ab-country.visited:hover{ fill:var(--brand-soft); } }
+#ab-glow feDropShadow{ flood-color:var(--brand); }
+.ab-dot{ fill:#fff; stroke:var(--brand); stroke-width:2; vector-effect:non-scaling-stroke; pointer-events:none; }
+.ab-dot.home{ fill:var(--brand); stroke:#fff; }
+.ab-hit{ fill:transparent; pointer-events:all; cursor:pointer; }
+.ab-halo{ fill:var(--brand); opacity:.4; pointer-events:none; transform-box:fill-box; transform-origin:center; animation:ab-halo 2.6s var(--ease) infinite; }
+@keyframes ab-halo{ 0%{ transform:scale(.7); opacity:.45 } 70%{ opacity:0 } 100%{ transform:scale(2.3); opacity:0 } }
+.ab-mapctrl{ position:absolute; top:12px; right:12px; display:flex; flex-direction:column; gap:6px; }
+.ab-mapctrl button{ width:38px; height:38px; border-radius:10px; border:1px solid var(--border); background:var(--surface); color:var(--heading); font-size:1.15rem; line-height:1; cursor:pointer; box-shadow:var(--card-shadow); display:grid; place-items:center; transition:color .2s var(--ease), transform .2s var(--ease); }
+html[data-theme="dark"] .ab-mapctrl button{ background:#0e1530; }
+.ab-mapctrl button svg{ width:17px; height:17px; }
+@media (hover:hover){ .ab-mapctrl button:hover{ color:var(--brand); transform:translateY(-1px); } }
+.ab-hint{ position:absolute; top:12px; left:14px; font-size:.68rem; color:var(--text-faint); pointer-events:none; }
+.ab-info{ position:absolute; left:14px; bottom:14px; max-width:60%; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:12px 15px; box-shadow:var(--card-shadow); opacity:0; transform:translateY(8px); transition:opacity .25s var(--ease), transform .25s var(--ease); pointer-events:none; }
+html[data-theme="dark"] .ab-info{ background:#0e1530; }
+.ab-info.show{ opacity:1; transform:none; }
+.ab-info h4{ margin:0 0 6px; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size:.98rem; font-weight:600; color:var(--heading); }
+.ab-info .r{ font-size:.8rem; color:var(--text-muted); padding:2px 0; }
+.ab-info .r b{ color:var(--brand); font-weight:600; }
+
+@media (max-width:680px){
+  .ab-tl-item, .ab-list li{ grid-template-columns:80px 1fr; gap:14px; }
+  .ab-regions{ flex-wrap:wrap; }                          /* show every region, nothing trimmed */
+  .ab-mapctrl{ flex-direction:row; }                      /* a low row, not a tall stack over a short map */
+  .ab-mapctrl button{ width:34px; height:34px; font-size:1rem; }
+  .ab-mapctrl button svg{ width:15px; height:15px; }
+  .ab-info{ left:8px; right:8px; bottom:8px; max-width:none; }
+  .ab-hint{ display:none; }                               /* declutter the small inline map */
+  .ab-map.is-full .ab-mapctrl{ flex-direction:column; }   /* roomy controls in fullscreen */
+  .ab-map.is-full .ab-mapctrl button{ width:42px; height:42px; }
+}
+@media (prefers-reduced-motion:reduce){ .ab-halo{ animation:none; opacity:0; } }
+</style>
+
+<section class="pg">
+  <div class="pg-hero">
+    <div class="pg-hero__head">
+      <span class="pg-eyebrow">About</span>
+      <h1 class="pg-title">A modeller's <span class="pg-title-thin">journey</span></h1>
+    </div>
+    <div class="pg-hero__aside">
+      <p class="pg-lead">I build mathematical models of how infectious diseases spread. I'm a DPhil researcher at the University of Oxford and a medical doctor by training from Ho Chi Minh City. This is the short version of how I got here, and the places the work has taken me.</p>
+      <div class="ab-cta">
+        <a class="ab-btn ab-btn--primary" href="cv.pdf"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 1.9 H4.4 a1.4 1.4 0 0 0 -1.4 1.4 v9.4 a1.4 1.4 0 0 0 1.4 1.4 h7.2 a1.4 1.4 0 0 0 1.4 -1.4 V6 Z"/><path d="M8.9 1.9 V6 h4.1"/><path d="M5.8 9 h4.4 M5.8 11.3 h3"/></svg> Download CV</a>
+        <a class="ab-btn" href="/slides/about"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.3" y="3" width="11.4" height="7.6" rx="1.3"/><path d="M8 10.6 V13 M5.6 13 H10.4"/></svg> Presentation</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pg-body">
+    <main class="pg-main">
+      <section class="pg-panel" id="sec-edu" style="--hue:#5b6fd6">
+        <div class="pg-sechead"><div><span class="pg-num">[01]</span><h2 class="pg-sectitle">Education</h2></div></div>
+        <div class="ab-tl">
+          <div class="ab-tl-item"><div class="ab-tl-year">2022-2026</div><div><h3 class="ab-tl-role">Doctor of Philosophy, Clinical Medicine</h3><p class="ab-tl-org">University of Oxford, United Kingdom</p><p class="ab-tl-note">Infectious disease modelling. Graduation expected 2026.</p></div></div>
+          <div class="ab-tl-item"><div class="ab-tl-year">2012-2018</div><div><h3 class="ab-tl-role">Doctor of Medicine, Preventive Medicine</h3><p class="ab-tl-org">University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam</p></div></div>
+        </div>
+      </section>
+
+      <section class="pg-panel" id="sec-exp" style="--hue:#3f93c4">
+        <div class="pg-sechead"><div><span class="pg-num">[02]</span><h2 class="pg-sectitle">Experience</h2></div></div>
+        <div class="ab-tl">
+          <div class="ab-tl-item"><div class="ab-tl-year">2021-2022</div><div><h3 class="ab-tl-role">Research Assistant</h3><p class="ab-tl-org">Oxford University Clinical Research Unit, Vietnam</p></div></div>
+          <div class="ab-tl-item"><div class="ab-tl-year">2020</div><div><h3 class="ab-tl-role">Research Assistant</h3><p class="ab-tl-org">Hanoi University of Public Health, Vietnam</p></div></div>
+          <div class="ab-tl-item"><div class="ab-tl-year">2019-2020</div><div><h3 class="ab-tl-role">Research Intern</h3><p class="ab-tl-org">Garvan Institute of Medical Research, Australia (remote)</p></div></div>
+          <div class="ab-tl-item"><div class="ab-tl-year">2018-2023</div><div><h3 class="ab-tl-role">Statistical Consultant</h3><p class="ab-tl-org">Tu Du Hospital, Vietnam (freelance)</p></div></div>
+        </div>
+      </section>
+
+      <section class="pg-panel" id="sec-hon" style="--hue:#8a6fd0">
+        <div class="pg-sechead"><div><span class="pg-num">[03]</span><h2 class="pg-sectitle">Honours</h2></div></div>
+        <ul class="ab-list">
+          <li><span class="yr">2022</span><span class="it"><b>Full DPhil studentship</b>, Oxford University Clinical Research Unit and University of Oxford</span></li>
+          <li><span class="yr">2018</span><span class="it"><b>Academic Distinction Award (Valedictorian)</b>, University of Medicine and Pharmacy at Ho Chi Minh City</span></li>
+          <li><span class="yr">2018</span><span class="it"><b>Dissertation Distinction Award</b>, University of Medicine and Pharmacy at Ho Chi Minh City</span></li>
+          <li><span class="yr">2014, 2016, 2017</span><span class="it"><b>Student with the highest GPA</b>, University of Medicine and Pharmacy at Ho Chi Minh City</span></li>
+        </ul>
+      </section>
+
+      <section class="pg-panel" id="sec-mem" style="--hue:#4fae9a">
+        <div class="pg-sechead"><div><span class="pg-num">[04]</span><h2 class="pg-sectitle">Memberships</h2></div></div>
+        <div class="ab-tl">
+          <div class="ab-tl-item"><div class="ab-tl-year">Member</div><div><h3 class="ab-tl-role">Modelling Infectious Diseases in South East Asia</h3><p class="ab-tl-org"><a href="https://midsea.network/" target="_blank" rel="noopener">midsea.network &#8599;</a></p></div></div>
+          <div class="ab-tl-item"><div class="ab-tl-year">Affiliate</div><div><h3 class="ab-tl-role">Vaccine Impact Modelling Consortium</h3><p class="ab-tl-org"><a href="https://www.vaccineimpact.org/" target="_blank" rel="noopener">vaccineimpact.org &#8599;</a></p></div></div>
+        </div>
+      </section>
+
+      <section class="pg-panel" id="sec-adv" style="--hue:#3f6fd8">
+        <div class="pg-sechead"><div><span class="pg-num">[05]</span><h2 class="pg-sectitle">Adventures</h2></div></div>
+        <p class="ab-intro">I'm a regular guy from a developing country, where going abroad once felt like a dream. Research changed that. Every highlighted country is a conference, workshop, or collaboration the work has taken me to. Jump to a region below, or tap a marker to zoom in (tap the sea to zoom back out).</p>
+        <div class="ab-regions" id="ab-regions"></div>
+        <div class="ab-map" id="ab-map">
+          <div class="ab-hint">Hover or tap a marker &middot; tap the sea to reset</div>
+          <div class="ab-mapctrl"><button id="ab-zin" aria-label="Zoom in">+</button><button id="ab-zout" aria-label="Zoom out">&minus;</button><button id="ab-zreset" aria-label="Reset view">&#8962;</button><button id="ab-zfull" aria-label="Full screen"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3 H3 V7 M13 3 H17 V7 M17 13 V17 H13 M3 13 V17 H7"/></svg></button></div>
+          <div class="ab-info" id="ab-info"></div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="pg-toc" aria-label="Sections on this page">
+      <p class="pg-toc-h">On this page</p>
+      <a href="#sec-edu" class="active"><span class="tn">01</span><span class="tt">Education</span></a>
+      <a href="#sec-exp"><span class="tn">02</span><span class="tt">Experience</span></a>
+      <a href="#sec-hon"><span class="tn">03</span><span class="tt">Honours</span></a>
+      <a href="#sec-mem"><span class="tn">04</span><span class="tt">Memberships</span></a>
+      <a href="#sec-adv"><span class="tn">05</span><span class="tt">Adventures</span></a>
+    </nav>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script>
+/* ---- shared .pg behaviour: fade panels in, keep one contents-nav item active ---- */
+(function () {
+  var root = document.querySelector('.pg');
+  if (!root) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && 'IntersectionObserver' in window) {
+    root.classList.add('anim');
+    var reveal = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); reveal.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    root.querySelectorAll('.pg-panel').forEach(function (p) { reveal.observe(p); });
+  }
+  var links = root.querySelectorAll('.pg-toc a');
+  var panels = Array.prototype.slice.call(root.querySelectorAll('.pg-panel[id]'));
+  function linkFor(id) { for (var i = 0; i < links.length; i++) { if (links[i].hash === '#' + id) return links[i]; } return null; }
+  function setActive(link) { links.forEach(function (l) { l.classList.toggle('active', l === link); }); }
+  var navLock = false, lockT, ticking = false;
+  function syncActive() {
+    ticking = false;
+    if (navLock || !panels.length) return;
+    var line = window.innerHeight * 0.28, current = panels[0];
+    panels.forEach(function (p) { if (p.getBoundingClientRect().top <= line) current = p; });
+    setActive(linkFor(current.id));
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(syncActive); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  syncActive();
+  links.forEach(function (a) {
+    a.addEventListener('click', function () {
+      navLock = true; setActive(a);
+      clearTimeout(lockT);
+      lockT = setTimeout(function () { navLock = false; syncActive(); }, reduce ? 0 : 700);
+    });
+  });
+})();
+
+/* ---- Adventures map (D3 choropleth, theme-following, responsive, touch-friendly) ---- */
+(function () {
+  if (!window.d3) return;
+  var geoEl = document.getElementById('geo-data'), trvEl = document.getElementById('travel-data');
+  if (!geoEl || !trvEl) return;
+  var GEO = JSON.parse(geoEl.textContent), TRAVEL = JSON.parse(trvEl.textContent);
+
+  // group trips by country (iso3)
+  var COUNTRIES = {};
+  TRAVEL.trips.forEach(function (t) {
+    if (!COUNTRIES[t.iso3]) COUNTRIES[t.iso3] = { country: t.country, iso3: t.iso3, coords: t.coords, trips: [] };
+    COUNTRIES[t.iso3].trips.push(t);
+  });
+  Object.keys(COUNTRIES).forEach(function (k) { COUNTRIES[k].trips.sort(function (a, b) { return b.year - a.year; }); });
+  var VISITED = {}; Object.keys(COUNTRIES).forEach(function (k) { VISITED[k] = true; });
+
+  // drop Antarctica so the map frames only the inhabited world (no empty band)
+  var landFeatures = GEO.features.filter(function (d) { return d.properties.ISO3 !== 'ATA'; });
+  var landFC = { type: 'FeatureCollection', features: landFeatures };
+
+  var W = 1000, H = 460, stage = document.getElementById('ab-map'), info = document.getElementById('ab-info');
+  var proj = d3.geoNaturalEarth1();
+  var pathGen = d3.geoPath(proj);
+  var svg = d3.select(stage).insert('svg', '.ab-hint').attr('role', 'img').attr('aria-label', 'World map of countries visited');
+  svg.append('defs').html('<filter id="ab-glow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-opacity="0.7"/></filter>');
+  var g = svg.append('g');
+  var sphere = g.append('path').attr('class', 'ab-sphere');
+  var grat = g.append('path').attr('class', 'ab-grat');
+
+  var featByIso = {};
+  var countrySel = g.append('g').selectAll('path').data(landFeatures).join('path')
+    .attr('class', function (d) { return VISITED[d.properties.ISO3] ? 'ab-country visited' : 'ab-country'; })
+    .each(function (d) { if (VISITED[d.properties.ISO3]) featByIso[d.properties.ISO3] = d; })
+    .on('click', function (e, d) { if (VISITED[d.properties.ISO3]) { e.stopPropagation(); selectCountry(COUNTRIES[d.properties.ISO3]); } })
+    .on('pointerenter', function (e, d) { if (VISITED[d.properties.ISO3] && e.pointerType === 'mouse') { clearTimeout(hideT); showInfo(COUNTRIES[d.properties.ISO3]); } })
+    .on('pointerleave', function (e) { if (e.pointerType === 'mouse') scheduleRestore(); });
+
+  // markers: home first, then each visited country
+  var markers = [{ iso: '__home', coords: TRAVEL.home.coords, home: true }];
+  Object.keys(COUNTRIES).forEach(function (iso) { markers.push({ iso: iso, coords: COUNTRIES[iso].coords, home: false }); });
+  var haloG = g.append('g'), dotsG = g.append('g'), hitG = g.append('g');
+  var halo = haloG.append('circle').attr('class', 'ab-halo');
+  var dotSel = dotsG.selectAll('circle').data(markers).join('circle')
+    .attr('class', function (d) { return d.home ? 'ab-dot home' : 'ab-dot'; });
+  // invisible, generous hit targets on top (so tiny countries like Singapore are easy to hover/tap)
+  var hitSel = hitG.selectAll('circle').data(markers).join('circle').attr('class', 'ab-hit')
+    .on('click', function (e, d) { e.stopPropagation(); if (d.home) { selected = 'home'; clearTimeout(hideT); showHome(); zoomToCoord(TRAVEL.home.coords, 4); } else { selectCountry(COUNTRIES[d.iso]); } })
+    .on('pointerenter', function (e, d) { if (e.pointerType === 'mouse') { clearTimeout(hideT); if (d.home) showHome(); else showInfo(COUNTRIES[d.iso]); } })
+    .on('pointerleave', function (e) { if (e.pointerType === 'mouse') scheduleRestore(); });
+
+  var baseR = 6, curK = 1, selected = null, hideT, fullMode = false;
+  var zoom = d3.zoom().scaleExtent([1, 9])
+    .filter(function (e) {
+      if (e.type === 'wheel') return fullMode || e.ctrlKey; // inline: ctrl/cmd+scroll or pinch; fullscreen: free wheel
+      if (e.type === 'dblclick') return false;
+      if (e.pointerType && e.pointerType !== 'mouse') return fullMode; // touch pans only in fullscreen (else the page scrolls)
+      return !e.button;
+    })
+    .on('zoom', function (e) {
+      g.attr('transform', e.transform); curK = e.transform.k; var r = baseR / curK;
+      dotSel.attr('r', function (d) { return d.home ? r * 1.05 : r; });
+      hitSel.attr('r', baseR * 2.4 / curK);
+      halo.attr('r', r * 1.05);
+    });
+  svg.call(zoom).on('dblclick.zoom', null);
+
+  function layout() {
+    var rw = stage.clientWidth || 1000, pad = 10;
+    proj.fitWidth(1000 - pad * 2, landFC);               // scale to fit the inhabited world to a working width
+    var b = pathGen.bounds(landFC), t = proj.translate();
+    proj.translate([t[0] - b[0][0] + pad, t[1] - b[0][1] + pad]); // move the land's top-left to (pad,pad)
+    var b2 = pathGen.bounds(landFC);
+    W = Math.ceil(b2[1][0] + pad); H = Math.ceil(b2[1][1] + pad);  // viewBox hugs the land: no empty Antarctic band
+    svg.attr('viewBox', '0 0 ' + W + ' ' + H);
+    sphere.attr('d', pathGen({ type: 'Sphere' }));
+    grat.attr('d', pathGen(d3.geoGraticule10()));
+    countrySel.attr('d', pathGen);
+    baseR = (rw < 640 ? 9 : 6) * W / rw;                 // markers a constant, finger-sized SCREEN size
+    function px(d, i) { return proj([d.coords[1], d.coords[0]])[i]; }
+    dotSel.attr('cx', function (d) { return px(d, 0); }).attr('cy', function (d) { return px(d, 1); }).attr('r', function (d) { return d.home ? baseR * 1.05 : baseR; });
+    hitSel.attr('cx', function (d) { return px(d, 0); }).attr('cy', function (d) { return px(d, 1); }).attr('r', baseR * 2.4);
+    var hp = proj([TRAVEL.home.coords[1], TRAVEL.home.coords[0]]);
+    halo.attr('cx', hp[0]).attr('cy', hp[1]).attr('r', baseR * 1.05);
+    zoom.translateExtent([[0, 0], [W, H]]);
+    svg.call(zoom.transform, d3.zoomIdentity); curK = 1;
+  }
+  layout();
+  var rT; window.addEventListener('resize', function () { clearTimeout(rT); rT = setTimeout(layout, 180); }, { passive: true });
+
+  // click on sea / empty resets, but not after a drag
+  var downXY = null, moved = false;
+  svg.on('pointerdown.guard', function (e) { downXY = [e.clientX, e.clientY]; moved = false; });
+  svg.on('pointermove.guard', function (e) { if (downXY && Math.hypot(e.clientX - downXY[0], e.clientY - downXY[1]) > 6) moved = true; });
+  svg.on('click.guard', function () { if (!moved && curK > 1.05) resetZoom(); });
+
+  function transformTo(cx, cy, k) { svg.transition().duration(820).call(zoom.transform, d3.zoomIdentity.translate(W / 2, H / 2).scale(k).translate(-cx, -cy)); }
+  function zoomToFeature(feat) {
+    var b = pathGen.bounds(feat), dx = b[1][0] - b[0][0], dy = b[1][1] - b[0][1];
+    var k = Math.max(1.6, Math.min(8, 0.7 / Math.max(dx / W, dy / H)));
+    transformTo((b[0][0] + b[1][0]) / 2, (b[0][1] + b[1][1]) / 2, k);
+  }
+  function zoomToCoord(coords, k) { var p = proj([coords[1], coords[0]]); transformTo(p[0], p[1], k || 4); }
+  function zoomToBBox(b) {
+    var xs = [], ys = [], nx = 8, ny = 8, i, j, p;
+    for (i = 0; i <= nx; i++) for (j = 0; j <= ny; j++) { p = proj([b[0] + (b[2] - b[0]) * i / nx, b[1] + (b[3] - b[1]) * j / ny]); xs.push(p[0]); ys.push(p[1]); }
+    var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs), y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
+    var k = Math.max(1.2, Math.min(8, 0.9 / Math.max((x1 - x0) / W, (y1 - y0) / H)));
+    transformTo((x0 + x1) / 2, (y0 + y1) / 2, k);
+  }
+  function resetZoom() { svg.transition().duration(700).call(zoom.transform, d3.zoomIdentity); selected = null; clearTimeout(hideT); hideInfo(); setRegion('world'); }
+  function selectCountry(c) { if (!c) return; selected = c; clearTimeout(hideT); showInfo(c); var f = featByIso[c.iso3]; if (f) zoomToFeature(f); else zoomToCoord(c.coords, 5); }
+  function showInfo(c) { info.innerHTML = '<h4>' + c.country + '</h4>' + c.trips.map(function (t) { return '<div class="r"><b>' + t.year + '</b> &middot; ' + t.city + ', ' + t.event + '</div>'; }).join(''); info.classList.add('show'); }
+  function showHome() { info.innerHTML = '<h4>' + TRAVEL.home.country + '</h4><div class="r"><b>Home</b> &middot; ' + TRAVEL.home.city + ', ' + TRAVEL.home.note + '</div>'; info.classList.add('show'); }
+  function hideInfo() { info.classList.remove('show'); }
+  function scheduleRestore() { clearTimeout(hideT); hideT = setTimeout(restoreInfo, 90); }
+  function restoreInfo() { if (selected === 'home') { showHome(); } else if (selected) { showInfo(selected); } else { hideInfo(); } }
+
+  // region navigation
+  var REGIONS = [
+    { id: 'world', label: 'World' },
+    { id: 'home', label: 'Home', coords: TRAVEL.home.coords, k: 4 },
+    { id: 'sea', label: 'Southeast Asia', bbox: [92, -11, 142, 24] },
+    { id: 'eu', label: 'Europe', bbox: [-12, 35, 30, 60] },
+    { id: 'na', label: 'North America', bbox: [-130, 12, -60, 55] }
+  ];
+  var regWrap = document.getElementById('ab-regions');
+  REGIONS.forEach(function (rg) {
+    var b = document.createElement('button'); b.className = 'ab-region' + (rg.id === 'world' ? ' active' : ''); b.textContent = rg.label; b.dataset.region = rg.id;
+    b.addEventListener('click', function () {
+      setRegion(rg.id);
+      if (rg.id === 'world') { resetZoom(); }
+      else if (rg.bbox) { selected = null; clearTimeout(hideT); zoomToBBox(rg.bbox); hideInfo(); }
+      else if (rg.coords) { selected = 'home'; clearTimeout(hideT); showHome(); zoomToCoord(rg.coords, rg.k); }
+    });
+    regWrap.appendChild(b);
+  });
+  function setRegion(id) { regWrap.querySelectorAll('.ab-region').forEach(function (b) { b.classList.toggle('active', b.dataset.region === id); }); }
+
+  document.getElementById('ab-zin').onclick = function () { svg.transition().duration(300).call(zoom.scaleBy, 1.6); };
+  document.getElementById('ab-zout').onclick = function () { svg.transition().duration(300).call(zoom.scaleBy, 1 / 1.6); };
+  document.getElementById('ab-zreset').onclick = resetZoom;
+
+  // fullscreen map (CSS overlay, works on every phone; enables touch pan/zoom while open)
+  var fullBtn = document.getElementById('ab-zfull');
+  var EXPAND = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3 H3 V7 M13 3 H17 V7 M17 13 V17 H13 M3 13 V17 H7"/></svg>';
+  var CLOSE = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M5 5 L15 15 M15 5 L5 15"/></svg>';
+  function setFull(on) {
+    fullMode = on;
+    stage.classList.toggle('is-full', on);
+    document.documentElement.style.overflow = on ? 'hidden' : '';
+    fullBtn.innerHTML = on ? CLOSE : EXPAND;
+    fullBtn.setAttribute('aria-label', on ? 'Exit full screen' : 'Full screen');
+    requestAnimationFrame(layout);
+  }
+  fullBtn.onclick = function () { setFull(!fullMode); };
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && fullMode) setFull(false); });
+})();
+</script>
 ```
-

@@ -1,15 +1,67 @@
 {
-  "2024": {
-    "THA": "Oxford Tropical Network Meeting 2024"
+  "home": {
+    "country": "Vietnam",
+    "iso3": "VNM",
+    "city": "Ho Chi Minh City",
+    "coords": [10.8231, 106.6297],
+    "note": "My hometown"
   },
-  "2023": {
-    "USA": "Summer Institute in Statistics and Modeling in Infectious Diseases",
-    "ITA": "EPIDEMICS 9 conference",
-    "THA": "Modelling infectious diseases in South East Asia workshop"
-  },
-  "2022": {
-    "SGP": "Lee Kong Chian School of Medicine and Imperial College London workshop",
-    "GBR": "Vaccine Impact Modelling Consortium workshop",
-    "THA": "Joint International Tropical Medicine Meeting conference"
-  }
+  "trips": [
+    {
+      "country": "Thailand",
+      "iso3": "THA",
+      "city": "Bangkok",
+      "coords": [13.7563, 100.5018],
+      "year": 2024,
+      "event": "Oxford Tropical Network Meeting"
+    },
+    {
+      "country": "United States",
+      "iso3": "USA",
+      "city": "Seattle",
+      "coords": [47.6062, -122.3321],
+      "year": 2023,
+      "event": "Summer Institute in Statistics and Modeling in Infectious Diseases"
+    },
+    {
+      "country": "Italy",
+      "iso3": "ITA",
+      "city": "Bologna",
+      "coords": [44.4949, 11.3426],
+      "year": 2023,
+      "event": "EPIDEMICS9 conference"
+    },
+    {
+      "country": "Thailand",
+      "iso3": "THA",
+      "city": "Bangkok",
+      "coords": [13.7563, 100.5018],
+      "year": 2023,
+      "event": "Modelling Infectious Diseases in South East Asia workshop"
+    },
+    {
+      "country": "Singapore",
+      "iso3": "SGP",
+      "city": "Singapore",
+      "coords": [1.3521, 103.8198],
+      "year": 2022,
+      "event": "Lee Kong Chian School of Medicine and Imperial College London workshop"
+    },
+    {
+      "country": "United Kingdom",
+      "iso3": "GBR",
+      "city": "London",
+      "coords": [51.5074, -0.1278],
+      "year": 2022,
+      "event": "Vaccine Impact Modelling Consortium workshop"
+    },
+    {
+      "country": "Thailand",
+      "iso3": "THA",
+      "city": "Bangkok",
+      "coords": [13.7563, 100.5018],
+      "year": 2022,
+      "event": "Joint International Tropical Medicine Meeting conference"
+    }
+  ]
 }
