@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thinh Ong - Curriculum Vitae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fffefb; --ink:#1f1c17; --muted:#6b6558; --faint:#d8d0c0; --rule:#e8e1d3; --link:#36506e;
+    --serif:'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --when-w:104px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:#ecebe5; color:var(--ink);
+    font-family:var(--serif); font-size:15.5px; line-height:1.55;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    font-variant-numeric:oldstyle-nums proportional-nums;
+    font-feature-settings:"onum" 1,"pnum" 1,"liga" 1,"kern" 1;
+    padding:34px 18px 70px;
+  }
+
+  .cv{
+    width:100%; max-width:830px; margin:0 auto;
+    background:var(--paper);
+    box-shadow:0 18px 50px rgba(40,34,22,.16), 0 2px 9px rgba(40,34,22,.07);
+    padding:60px 66px;
+  }
+
+  .cv-head{text-align:center; margin-bottom:28px}
+  .cv-name{font-size:42px; font-weight:600; letter-spacing:.004em; line-height:1.04; margin:0; color:var(--ink)}
+  .cv-role{margin:.45em 0 0; font-style:italic; font-size:1.04rem; color:var(--muted)}
+  .cv-contact{
+    list-style:none; padding:0; margin:.85em 0 0;
+    font-variant-caps:small-caps; letter-spacing:.045em; font-size:.92rem; color:var(--muted);
+  }
+  .cv-contact li{display:inline}
+  .cv-contact li:not(:last-child)::after{content:" · "; color:var(--faint)}
+  .cv-contact a{color:var(--link); text-decoration:none}
+  .cv-summary{margin:1.05em auto 0; max-width:60ch; color:var(--ink); font-style:italic; font-size:1.02rem; line-height:1.5}
+
+  .cv-sec{margin-top:27px}
+  .cv-h{
+    font-family:var(--serif); font-size:.86rem; font-weight:600;
+    font-variant-caps:small-caps; letter-spacing:.22em; color:var(--ink);
+    margin:0 0 13px; padding-bottom:6px; border-bottom:1px solid var(--rule); text-align:center;
+  }
+  .cv-lead{margin:0 0 11px; color:var(--ink); font-style:italic; font-size:1rem; line-height:1.5; text-align:center}
+
+  .cv-table{width:100%; border-collapse:collapse}
+  .cv-table td, .cv-table th{padding:6px 0; vertical-align:baseline; text-align:left; font-weight:400}
+  .cv-table thead th{font-style:italic; font-variant-caps:small-caps; letter-spacing:.05em; color:var(--muted); border-bottom:1px solid var(--rule); padding-bottom:7px}
+  .cv-table .c-when{width:var(--when-w); color:var(--muted); white-space:nowrap; padding-right:18px}
+  .cv-table .c-role{width:3.6em; font-style:italic; color:var(--muted)}
+  .cv-table .c-amt{width:6.4em; text-align:right; padding-right:22px; color:var(--ink); white-space:nowrap}
+  .cv-table .c-num{width:5.4em; text-align:right; padding-right:22px; color:var(--muted)}
+  .cv-table .c-role-s{width:4.2em; color:var(--muted)}
+  .cv-table .c-name{width:13.5em}
+  .cv-table .t{font-weight:600; color:var(--ink)}
+  .cv-table .cv-meta{color:var(--muted)}
+  .cv-table a{color:var(--link); text-decoration:none}
+  .cv-table .cv-subgroup td{padding:12px 0 3px; font-style:italic; font-variant-caps:small-caps; letter-spacing:.07em; color:var(--muted)}
+
+  .cv-pubs{margin:2px 0 0; padding-left:1.7em}
+  .cv-pubs li{margin-bottom:8px; padding-left:.2em; line-height:1.45}
+  .cv-pubs b{font-weight:600; color:var(--ink)}
+  .cv-pubs i{font-style:italic}
+  .cv-pubs a{color:var(--link); text-decoration:none; font-size:.92em}
+
+  .cv-foot{margin-top:32px; padding-top:13px; border-top:1px solid var(--rule); font-size:.88rem; font-style:italic; color:var(--muted)}
+  .cv-foot td{padding:0}
+  .cv-foot .r{text-align:right}
+
+  @media print{
+    body{background:#fff; padding:0}
+    .cv{box-shadow:none; max-width:none; width:100%; padding:0; margin:0}
+    .cv-table tr{break-inside:avoid}
+    .cv-h{break-after:avoid}
+    @page{size:A4; margin:15mm}
+  }
+</style>
+</head>
+<body>
+  <article class="cv">
+
+    <header class="cv-head">
+      <h1 class="cv-name">Thinh Ong</h1>
+      <p class="cv-role">Infectious disease modelling and vaccine epidemiology</p>
+      <ul class="cv-contact">
+        <li><a href="mailto:ongphucthinh@gmail.com">ongphucthinh@gmail.com</a></li>
+        <li><a href="https://drthinhong.com">drthinhong.com</a></li>
+        <li><a href="https://www.linkedin.com/in/thinh-ong/">linkedin.com/in/thinh-ong</a></li>
+        <li>Oxford and Ho Chi Minh City</li>
+      </ul>
+      <p class="cv-summary">I build mathematical models of vaccine-preventable disease to strengthen outbreak surveillance and immunisation policy in Vietnam and the global south.</p>
+    </header>
+
+    {{SECTIONS}}
+
+    <table class="cv-foot" style="width:100%"><tbody><tr>
+      <td>Thinh Ong, curriculum vitae</td>
+      <td class="r">Updated June 2026</td>
+    </tr></tbody></table>
+
+  </article>
+</body>
+</html>

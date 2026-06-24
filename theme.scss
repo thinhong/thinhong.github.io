@@ -973,7 +973,7 @@ html[data-theme="dark"] .section-work .t-nav.c2 .ti { color: #e3b585; }
 }
 @media (max-width: 460px) {
   .section-work .bento { grid-template-columns: minmax(0, 1fr); }
-  .section-work .t-denim, .section-work .t-hcdc, .section-work .t-nav, .section-work .t-nav.wide { grid-column: span 1; }
+  .section-work .tile { grid-column: 1 / -1; }
   .section-work .stat-row { gap: 1.1rem; }
 }
 @media (prefers-reduced-motion: reduce) {
