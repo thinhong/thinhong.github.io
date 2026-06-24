@@ -129,7 +129,12 @@ Key behaviour, do not change without updating both pages:
   the same new piece, add it to `.pg-*` once.
 - Page-unique pieces are namespaced (`.sw-*`, `.tq-*`, etc.) and live with the
   page. They still use the tokens.
-- Headings use `--display-font`. Body text uses Inter (the site default).
+- The site uses **two fonts only**. Display titles (page title, section title)
+  use `--display-font` (Bebas Neue). Everything else, including every sub-heading
+  (h3 to h6, card titles, role titles) and all blog article headings, uses Inter,
+  with weight and size giving the hierarchy. There is no third heading font; the
+  theme default `$headings-font-family` is Inter, so a plain markdown heading is
+  on-brand automatically.
 - Motion uses `--ease`. Hover effects go inside `@media (hover: hover)` so taps
   stay clean on touch. Always honour `@media (prefers-reduced-motion: reduce)`.
 - Keep animations to `opacity` and `transform` so they stay smooth.

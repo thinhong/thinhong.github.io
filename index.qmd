@@ -8,6 +8,22 @@ comments: false
 anchor-sections: false
 ---
 
+```{r}
+#| echo: false
+#| output: asis
+#| warning: false
+#| message: false
+# Citation indices (shared with the research page through the same 24h cache)
+# and the package count (written by the software page) so the homepage numbers
+# stay consistent and auto-update, with safe fallbacks if a source is missing.
+sch <- tryCatch({ source("code/scholar.R"); get_scholar_indices(cache = "research/.scholar-cache.json") },
+                error = function(e) list(citations = 313L, hindex = 8L))
+npkg <- tryCatch(as.integer(readLines("code/.pkg-count", n = 1)), error = function(e) NA_integer_)
+if (length(npkg) != 1 || is.na(npkg) || npkg <= 0) npkg <- 6L
+cat(sprintf('<script>window.SCHOLAR={citations:%d,hindex:%d};window.PKGCOUNT=%d;</script>',
+            as.integer(sch$citations), as.integer(sch$hindex), as.integer(npkg)))
+```
+
 ```{=html}
 <section class="home-hero">
   <div class="folio-hero">
@@ -69,21 +85,56 @@ anchor-sections: false
 
 <section class="section-work" id="work">
   <h2 class="sec-title on-scroll"><span class="sec-dot"></span>Selected work</h2>
-  <div class="accordion">
-    <a class="acc open" href="research/index.qmd">
-      <span class="acc-bar"></span><span class="acc-num">01</span><i class="acc-ico bi bi-graph-up"></i>
-      <span class="acc-vt">RESEARCH</span>
-      <div class="acc-body"><h3>RESEARCH</h3><p>Mathematical models and epidemiology of infectious diseases, quantitative methods, and clinical studies.</p><span class="acc-go">Explore research <i class="bi bi-arrow-right"></i></span></div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="fg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#5fa6c6"></stop><stop offset=".5" stop-color="#7d92d6"></stop><stop offset="1" stop-color="#e0896a"></stop></linearGradient></defs></svg>
+  <div class="bento">
+    <div class="tile t-stats">
+      <span class="tk"><i class="bi bi-graph-up-arrow"></i> Research impact</span>
+      <div class="stat-row">
+        <div class="stat"><b class="ct" data-key="citations" data-fallback="313">0</b><span>Citations</span></div>
+        <div class="stat"><b class="ct" data-key="hindex" data-fallback="8">0</b><span>h-index</span></div>
+        <div class="stat"><b class="ct" data-key="packages" data-fallback="6">0</b><span>R packages</span></div>
+      </div>
+      <p class="stat-foot">A <b>medical doctor</b> and <b>infectious disease modeller</b>, turning routine data into outbreak decisions.</p>
+    </div>
+
+    <a class="tile t-feature" href="https://doi.org/10.3201/eid3110.250234" target="_blank" rel="noopener">
+      <span class="tk"><i class="bi bi-star-fill"></i> First author &middot; Emerg Infect Dis 2025</span>
+      <h3 class="tname">A measles immunity gap, caught before the outbreak</h3>
+      <p class="tdesc">Integrating routine data to quantify population immunity and flag rising outbreak risk early.</p>
+      <span class="tgo">Read the paper <i class="bi bi-arrow-right"></i></span>
+      <svg class="feat-art" viewBox="0 0 240 150" aria-hidden="true"><path d="M6,140 C50,134 70,120 96,64 C112,30 124,14 150,14 C178,14 196,96 210,118 L234,118" stroke="url(#fg)"></path></svg>
     </a>
-    <a class="acc" href="teaching/index.qmd">
-      <span class="acc-bar"></span><span class="acc-num">02</span><i class="acc-ico bi bi-mortarboard"></i>
-      <span class="acc-vt">TEACHING</span>
-      <div class="acc-body"><h3>TEACHING</h3><p>Course materials on modelling methods for infectious diseases and on R programming.</p><span class="acc-go">See teaching <i class="bi bi-arrow-right"></i></span></div>
+
+    <a class="tile t-denim" href="https://thinhong.github.io/denim" target="_blank" rel="noopener">
+      <span class="ti"><i class="bi bi-box"></i></span>
+      <span class="tk">Open source</span>
+      <h3 class="tname">denim, a compartmental modelling engine</h3>
+      <p class="tdesc">First-author R package for fast epidemic simulation.</p>
+      <span class="tgo">Explore the package <i class="bi bi-arrow-right"></i></span>
     </a>
-    <a class="acc" href="software/index.qmd">
-      <span class="acc-bar"></span><span class="acc-num">03</span><i class="acc-ico bi bi-braces"></i>
-      <span class="acc-vt">SOFTWARE</span>
-      <div class="acc-body"><h3>SOFTWARE</h3><p>R packages and tools built for research and the wider scientific community.</p><span class="acc-go">Browse software <i class="bi bi-arrow-right"></i></span></div>
+
+    <a class="tile t-hcdc" href="research/index.qmd">
+      <span class="ti"><i class="bi bi-diagram-3"></i></span>
+      <span class="tk">Real-world impact</span>
+      <h3 class="tname">Ho Chi Minh City CDC</h3>
+      <p class="tdesc">Training their in-house team to model outbreaks.</p>
+      <span class="tgo">How I advise <i class="bi bi-arrow-right"></i></span>
+    </a>
+
+    <a class="tile t-nav c1" href="research/index.qmd">
+      <span class="ti"><i class="bi bi-graph-up"></i></span>
+      <span class="tname">Research</span>
+      <i class="bi bi-arrow-right arr"></i>
+    </a>
+    <a class="tile t-nav c2" href="teaching/index.qmd">
+      <span class="ti"><i class="bi bi-mortarboard"></i></span>
+      <span class="tname">Teaching</span>
+      <i class="bi bi-arrow-right arr"></i>
+    </a>
+    <a class="tile t-nav wide c3" href="software/index.qmd">
+      <span class="ti"><i class="bi bi-braces"></i></span>
+      <span class="tname">Software &middot; <span class="pkgn">6</span> open-source packages</span>
+      <i class="bi bi-arrow-right arr"></i>
     </a>
   </div>
 </section>
@@ -103,14 +154,43 @@ anchor-sections: false
     els.forEach(function (el) { el.classList.add('in'); });
   }
 
-  // Selected work accordion: hover to expand on desktop, tap on touch
+  // pointer type (also used by the hero parallax below)
   var fine = window.matchMedia && window.matchMedia('(pointer:fine)').matches;
-  var panels = [].slice.call(document.querySelectorAll('.accordion .acc'));
-  function accOpen(p){ panels.forEach(function (x) { x.classList.toggle('open', x === p); }); }
-  panels.forEach(function (p) {
-    p.addEventListener('mouseenter', function () { if (fine) accOpen(p); });
-    p.addEventListener('click', function (e) { if (!fine && !p.classList.contains('open')) { e.preventDefault(); accOpen(p); } });
-  });
+
+  // Selected work bento: staggered reveal + count-up
+  var tiles = [].slice.call(document.querySelectorAll('.section-work .tile'));
+  if (!reduce && 'IntersectionObserver' in window) {
+    var tio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          var el = en.target;
+          el.classList.add('in');
+          el.addEventListener('transitionend', function clr(e) { if (e.propertyName === 'opacity') { el.style.transitionDelay = '0s'; el.removeEventListener('transitionend', clr); } });
+          tio.unobserve(el);
+        }
+      });
+    }, { threshold: 0.18 });
+    tiles.forEach(function (el, i) { el.style.transitionDelay = (i * 0.06) + 's'; tio.observe(el); });
+  } else {
+    tiles.forEach(function (el) { el.classList.add('in'); });
+  }
+  function workTarget(el) {
+    var S = window.SCHOLAR || {}, k = el.getAttribute('data-key');
+    if (k === 'citations' && S.citations) return +S.citations;
+    if (k === 'hindex' && S.hindex) return +S.hindex;
+    if (k === 'packages' && window.PKGCOUNT) return +window.PKGCOUNT;
+    return parseInt(el.getAttribute('data-fallback'), 10) || 0;
+  }
+  function workCount(el) { var to = workTarget(el); if (reduce) { el.textContent = to; return; } var n = 0, step = Math.max(1, Math.round(to / 26)); var t = setInterval(function () { n += step; if (n >= to) { n = to; clearInterval(t); } el.textContent = n; }, 38); }
+  var pkgn = document.querySelector('.section-work .pkgn');
+  if (pkgn && window.PKGCOUNT) pkgn.textContent = window.PKGCOUNT;
+  var cts = [].slice.call(document.querySelectorAll('.section-work .ct'));
+  if ('IntersectionObserver' in window) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { workCount(en.target); cio.unobserve(en.target); } });
+    }, { threshold: 0.6 });
+    cts.forEach(function (el) { cio.observe(el); });
+  } else { cts.forEach(workCount); }
 
   // Hero: choreographed entrance + cursor-depth parallax
   var hero = document.querySelector('.folio-hero');

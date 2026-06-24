@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Writing on infectious disease modelling, R, and the craft of research.">
 
-<title>Blog</title>
+<title>Blog - Thinh Ong</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -38,12 +39,11 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-bc3ea65b49b7e2b000bda9433f793a0b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-daf50e81c34763e36e748cf6bf6746af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,20 +74,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-postlist .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-project','listing-website','listing-format','listing-language','listing-comments','listing-reading-time','listing-title','listing-description','listing-date','listing-categories','listing-author','listing-citation','listing-draft','listing-image','listing-title-block-banner','listing-title-block-banner-color','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-comments","listing-reading-time","listing-title","listing-description","listing-date","listing-categories","listing-author","listing-citation","listing-draft","listing-image","listing-title-block-banner","listing-title-block-banner-color","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-postlist'] = new List('listing-postlist', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -123,7 +123,7 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&amp;family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -180,7 +180,7 @@ window.Quarto = {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=PkfvVs0AAAAJ"> 
+    <a class="nav-link" href="../research/index.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
@@ -215,72 +215,109 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGVhZGVyc2hpcA==">leadership <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Blog</h1>
-</div>
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
+<section class="pg">
+  <!-- blog index: hero, topic dropdown, listing -->
+  <div class="pg-hero">
+    <div class="pg-hero__head">
+      <span class="pg-eyebrow">Writing</span>
+      <h1 class="pg-title">Blog <span class="pg-title-thin">&amp; Notes</span></h1>
+    </div>
+    <div class="pg-hero__aside">
+      <p class="pg-lead">A place to think out loud about disease modelling, code, and the work of science.</p>
+    </div>
   </div>
-  
 
-
-</header>
-
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="bGVhZGVyc2hpcA==" data-listing-date-sort="1692982800000" data-listing-file-modified-sort="1734188957619" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1122">
-<a href="../blog/2023-08-26-chair-a-meeting/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../blog/2023-08-26-chair-a-meeting/preview.svg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-10 simple tips to chair a meeting
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bGVhZGVyc2hpcA=='); return false;">leadership</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A survival kit when you are thrust into the chairing role</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Thinh Ong
-</div>
-<div class="listing-date">
-Aug 26, 2023
-</div>
-</div>
-</div>
-</div></a>
-</div>
+  <div class="blg-filter" id="blg-filter">
+    <button class="blg-fbtn" id="blg-fbtn" type="button" aria-haspopup="listbox" aria-expanded="false">
+      <span class="blg-fdot" id="blg-fdot" hidden=""></span>
+      <span class="blg-flabel" id="blg-flabel">All posts</span>
+      <svg class="blg-fchev" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+    </button>
+    <div class="blg-fmenu" id="blg-fmenu" role="listbox" aria-label="Filter by topic"></div>
+  </div>
+<div id="listing-postlist" class="quarto-listing quarto-listing-container-custom">
+<div id="blg-grid" class="blg-grid">
+<p><a class="blg-card blg-leadership blg-wide" href="../blog/chair-conf/index.html" data-topic="leadership"> <span class="blg-img"><img class="blg-art" src="../img/blog-art/cover-leadership-1.svg" alt="" loading="lazy"></span> <span class="blg-metatop"><span class="blg-cat">Leadership</span><span class="blg-date">Jun 23, 2026 · 5 min</span></span> <span class="blg-cardname">How to chair a conference session</span> </a></p>
+<p><a class="blg-card blg-leadership" href="../blog/2023-08-26-chair-a-meeting/index.html" data-topic="leadership"> <span class="blg-img"><img class="blg-art" src="../img/blog-art/cover-leadership-2.svg" alt="" loading="lazy"></span> <span class="blg-metatop"><span class="blg-cat">Leadership</span><span class="blg-date">Aug 26, 2023 · 6 min</span></span> <span class="blg-cardname">10 simple tips to chair a meeting</span> </a></p>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+</div>
+</section>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var grid = document.getElementById('blg-grid');
+  if (!grid) return;
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.blg-card'));
+
+  // entrance reveal (opacity + transform only)
+  if (!reduce && 'IntersectionObserver' in window) {
+    grid.classList.add('anim');
+    var rev = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); rev.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    cards.forEach(function (t) { rev.observe(t); });
+  }
+
+  // topic dropdown, built from the topics that actually have posts
+  var wrap = document.getElementById('blg-filter');
+  var btn = document.getElementById('blg-fbtn');
+  var menu = document.getElementById('blg-fmenu');
+  var flabel = document.getElementById('blg-flabel');
+  var fdot = document.getElementById('blg-fdot');
+  if (!wrap || !btn || !menu) return;
+
+  var META = {
+    modelling: ['Modelling', '#3a6fd6'], code: ['R & code', '#2a9490'],
+    academia: ['Academia', '#5a62d4'], productivity: ['Productivity', '#2f9a72'],
+    reflections: ['Reflections', '#9466a0'], leadership: ['Leadership', '#5c7aa0']
+  };
+  var used = [];
+  cards.forEach(function (c) { var t = c.getAttribute('data-topic'); if (t && used.indexOf(t) < 0) used.push(t); });
+  var opts = [{ f: 'all', label: 'All posts', color: '' }].concat(used.map(function (t) {
+    var m = META[t] || [t.charAt(0).toUpperCase() + t.slice(1), '#8a929b'];
+    return { f: t, label: m[0], color: m[1] };
+  }));
+  menu.innerHTML = opts.map(function (o) {
+    return '<button type="button" class="blg-fopt' + (o.f === 'all' ? ' active' : '') + '" data-filter="' + o.f + '">' +
+      (o.color ? '<span class="blg-fopt-dot" style="background:' + o.color + '"></span>' : '<span class="blg-fopt-dot blg-fopt-all"></span>') +
+      o.label + '</button>';
+  }).join('');
+
+  function closeMenu() { wrap.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+  function openMenu() { wrap.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+  btn.addEventListener('click', function (e) { e.stopPropagation(); wrap.classList.contains('open') ? closeMenu() : openMenu(); });
+  menu.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('.blg-fopt') : null;
+    if (!b) return;
+    var f = b.getAttribute('data-filter');
+    menu.querySelectorAll('.blg-fopt').forEach(function (x) { x.classList.toggle('active', x === b); });
+    flabel.textContent = b.textContent.trim();
+    var o = opts.filter(function (x) { return x.f === f; })[0];
+    if (o && o.color) { fdot.style.background = o.color; fdot.hidden = false; } else { fdot.hidden = true; }
+    cards.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-topic') === f); });
+    closeMenu();
+  });
+  document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) closeMenu(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
+
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script>
 // Site-wide floating light/dark toggle. Remembers the visitor's choice.
 (function () {
@@ -403,13 +440,6 @@ Aug 26, 2023
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

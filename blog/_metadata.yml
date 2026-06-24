@@ -1,3 +1,6 @@
-format: 
+reading-time: true
+format:
   html:
     toc: true
+    toc-location: right
+    toc-title: "On this page"

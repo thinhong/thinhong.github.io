@@ -1,0 +1,32 @@
+<%
+// Blog index listing: Teaching-style cards (soft tile + topic symbol + grain, title below) in a mosaic.
+// Each post's cover symbol matches its topic; within a topic the variant cycles (1..3) so two posts
+// in the same topic get a different symbol and tone. Covers are baked SVG files (inline SVG would be
+// escaped by the pandoc pass). Children are spans to avoid block-in-anchor nesting.
+const known = ["modelling","code","academia","productivity","reflections","leadership"];
+const labels = { modelling:"Modelling", code:"R & code", academia:"Academia", productivity:"Productivity", reflections:"Reflections", leadership:"Leadership" };
+const VARIANTS = 3;
+const seen = {};
+%>
+<div class="blg-grid" id="blg-grid">
+<% for (let i = 0; i < items.length; i++) {
+     const item = items[i];
+     const cat = (item.categories && item.categories.length) ? String(item.categories[0]) : "";
+     const topic = (cat && known.indexOf(cat.toLowerCase()) >= 0) ? cat.toLowerCase() : "modelling";
+     const n = items.length;
+     const isLead = (i === 0);
+     const cls = isLead ? (n >= 3 ? " blg-feat" : (n === 2 ? " blg-wide" : " blg-solo")) : "";
+     let ds = "";
+     if (item.date) { const d = new Date(item.date); if (!isNaN(d.getTime())) ds = d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }); }
+     const rt = item["reading-time"] ? item["reading-time"] : "";
+     const vi = (seen[topic] || 0); seen[topic] = vi + 1;
+     const v = (vi % VARIANTS) + 1;
+     const cover = "/img/blog-art/cover-" + topic + "-" + v + ".svg";
+%>
+  <a class="blg-card blg-<%= topic %><%= cls %>" href="<%= item.path %>" data-topic="<%= topic %>">
+    <span class="blg-img"><img class="blg-art" src="<%= cover %>" alt="" loading="lazy"></span>
+    <span class="blg-metatop"><span class="blg-cat"><%= labels[topic] || (cat ? cat : "Notes") %></span><span class="blg-date"><%= ds %><%= (ds && rt) ? " · " : "" %><%= rt %></span></span>
+    <span class="blg-cardname"><%= item.title %></span>
+  </a>
+<% } %>
+</div>

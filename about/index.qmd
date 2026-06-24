@@ -28,15 +28,18 @@ html[data-theme="dark"] .pg{ --map-land:#1b2540; --map-line:rgba(255,255,255,.07
 /* soft decorative pattern blended into each panel's top-right corner */
 .pg-panel{ position:relative; overflow:hidden; }
 .pg-panel::after{
-  content:""; position:absolute; top:0; right:0; width:min(54%,360px); height:min(70%,210px); pointer-events:none;
-  background:
-    radial-gradient(circle, color-mix(in srgb, var(--hue,#4f7be0) 92%, transparent) 1.5px, transparent 1.9px) 0 0 / 15px 15px,
-    radial-gradient(125% 120% at 100% 0%, color-mix(in srgb, var(--hue,#4f7be0) 24%, transparent), transparent 70%);
-  -webkit-mask-image:radial-gradient(135% 130% at 100% 0%, #000 0%, rgba(0,0,0,.62) 42%, transparent 72%);
-  mask-image:radial-gradient(135% 130% at 100% 0%, #000 0%, rgba(0,0,0,.62) 42%, transparent 72%);
-  opacity:.82;
+  content:""; position:absolute; inset:0; pointer-events:none; border-radius:inherit;
+  background:radial-gradient(380px 340px at calc(100% + 28px) -34px,
+    color-mix(in srgb, var(--hue,#4f7be0) 30%, transparent) 0%,
+    color-mix(in srgb, var(--hue,#4f7be0) 11%, transparent) 36%,
+    transparent 62%);
 }
-html[data-theme="dark"] .pg-panel::after{ opacity:.72; }
+html[data-theme="dark"] .pg-panel::after{
+  background:radial-gradient(380px 340px at calc(100% + 28px) -34px,
+    color-mix(in srgb, var(--hue,#4f7be0) 38%, transparent) 0%,
+    color-mix(in srgb, var(--hue,#4f7be0) 14%, transparent) 36%,
+    transparent 62%);
+}
 
 /* hero call-to-action buttons */
 .ab-cta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
@@ -82,9 +85,8 @@ html[data-theme="dark"] .ab-region{ background:rgba(255,255,255,.05); }
 .ab-sphere{ fill:transparent; }
 .ab-grat{ fill:none; stroke:var(--map-line); stroke-width:.4; opacity:.5; }
 .ab-country{ fill:var(--map-land); stroke:var(--map-line); stroke-width:.5; vector-effect:non-scaling-stroke; }
-.ab-country.visited{ fill:var(--brand); stroke:color-mix(in srgb,var(--brand) 55%, #000); cursor:pointer; filter:url(#ab-glow); transition:fill .2s var(--ease); }
+.ab-country.visited{ fill:var(--brand); stroke:color-mix(in srgb,var(--brand) 55%, #000); cursor:pointer; filter:drop-shadow(0 0 2.5px color-mix(in srgb, var(--brand) 60%, transparent)); transition:fill .2s var(--ease); }
 @media (hover:hover){ .ab-country.visited:hover{ fill:var(--brand-soft); } }
-#ab-glow feDropShadow{ flood-color:var(--brand); }
 .ab-dot{ fill:#fff; stroke:var(--brand); stroke-width:2; vector-effect:non-scaling-stroke; pointer-events:none; }
 .ab-dot.home{ fill:var(--brand); stroke:#fff; }
 .ab-hit{ fill:transparent; pointer-events:all; cursor:pointer; }
@@ -134,7 +136,7 @@ html[data-theme="dark"] .ab-info{ background:#0e1530; }
 
   <div class="pg-body">
     <main class="pg-main">
-      <section class="pg-panel" id="sec-edu" style="--hue:#5b6fd6">
+      <section class="pg-panel" id="sec-edu" style="--hue:#5e6fe0">
         <div class="pg-sechead"><div><span class="pg-num">[01]</span><h2 class="pg-sectitle">Education</h2></div></div>
         <div class="ab-tl">
           <div class="ab-tl-item"><div class="ab-tl-year">2022-2026</div><div><h3 class="ab-tl-role">Doctor of Philosophy, Clinical Medicine</h3><p class="ab-tl-org">University of Oxford, United Kingdom</p><p class="ab-tl-note">Infectious disease modelling. Graduation expected 2026.</p></div></div>
@@ -142,7 +144,7 @@ html[data-theme="dark"] .ab-info{ background:#0e1530; }
         </div>
       </section>
 
-      <section class="pg-panel" id="sec-exp" style="--hue:#3f93c4">
+      <section class="pg-panel" id="sec-exp" style="--hue:#3f86d6">
         <div class="pg-sechead"><div><span class="pg-num">[02]</span><h2 class="pg-sectitle">Experience</h2></div></div>
         <div class="ab-tl">
           <div class="ab-tl-item"><div class="ab-tl-year">2021-2022</div><div><h3 class="ab-tl-role">Research Assistant</h3><p class="ab-tl-org">Oxford University Clinical Research Unit, Vietnam</p></div></div>
@@ -162,7 +164,7 @@ html[data-theme="dark"] .ab-info{ background:#0e1530; }
         </ul>
       </section>
 
-      <section class="pg-panel" id="sec-mem" style="--hue:#4fae9a">
+      <section class="pg-panel" id="sec-mem" style="--hue:#2fa790">
         <div class="pg-sechead"><div><span class="pg-num">[04]</span><h2 class="pg-sectitle">Memberships</h2></div></div>
         <div class="ab-tl">
           <div class="ab-tl-item"><div class="ab-tl-year">Member</div><div><h3 class="ab-tl-role">Modelling Infectious Diseases in South East Asia</h3><p class="ab-tl-org"><a href="https://midsea.network/" target="_blank" rel="noopener">midsea.network &#8599;</a></p></div></div>
@@ -170,7 +172,7 @@ html[data-theme="dark"] .ab-info{ background:#0e1530; }
         </div>
       </section>
 
-      <section class="pg-panel" id="sec-adv" style="--hue:#3f6fd8">
+      <section class="pg-panel" id="sec-adv" style="--hue:#4170dc">
         <div class="pg-sechead"><div><span class="pg-num">[05]</span><h2 class="pg-sectitle">Adventures</h2></div></div>
         <p class="ab-intro">I'm a regular guy from a developing country, where going abroad once felt like a dream. Research changed that. Every highlighted country is a conference, workshop, or collaboration the work has taken me to. Jump to a region below, or tap a marker to zoom in (tap the sea to zoom back out).</p>
         <div class="ab-regions" id="ab-regions"></div>
@@ -256,7 +258,6 @@ html[data-theme="dark"] .ab-info{ background:#0e1530; }
   var proj = d3.geoNaturalEarth1();
   var pathGen = d3.geoPath(proj);
   var svg = d3.select(stage).insert('svg', '.ab-hint').attr('role', 'img').attr('aria-label', 'World map of countries visited');
-  svg.append('defs').html('<filter id="ab-glow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-opacity="0.7"/></filter>');
   var g = svg.append('g');
   var sphere = g.append('path').attr('class', 'ab-sphere');
   var grat = g.append('path').attr('class', 'ab-grat');

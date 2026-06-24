@@ -1,8 +1,106 @@
 ---
-title: "Blog"
-listing:
-  type: grid
-  sort: "date desc"
-  categories: true
+pagetitle: "Blog - Thinh Ong"
+description: "Writing on infectious disease modelling, R, and the craft of research."
+page-layout: full
+toc: false
 comments: false
+anchor-sections: false
+listing:
+  id: postlist
+  template: listing-mosaic.ejs
+  contents: "*/index.qmd"
+  sort: "date desc"
+  categories: false
+  filter-ui: false
+  sort-ui: false
 ---
+
+```{=html}
+<section class="pg">
+  <!-- blog index: hero, topic dropdown, listing -->
+  <div class="pg-hero">
+    <div class="pg-hero__head">
+      <span class="pg-eyebrow">Writing</span>
+      <h1 class="pg-title">Blog <span class="pg-title-thin">&amp; Notes</span></h1>
+    </div>
+    <div class="pg-hero__aside">
+      <p class="pg-lead">A place to think out loud about disease modelling, code, and the work of science.</p>
+    </div>
+  </div>
+
+  <div class="blg-filter" id="blg-filter">
+    <button class="blg-fbtn" id="blg-fbtn" type="button" aria-haspopup="listbox" aria-expanded="false">
+      <span class="blg-fdot" id="blg-fdot" hidden></span>
+      <span class="blg-flabel" id="blg-flabel">All posts</span>
+      <svg class="blg-fchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="blg-fmenu" id="blg-fmenu" role="listbox" aria-label="Filter by topic"></div>
+  </div>
+```
+
+::: {#postlist}
+:::
+
+```{=html}
+</section>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var grid = document.getElementById('blg-grid');
+  if (!grid) return;
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.blg-card'));
+
+  // entrance reveal (opacity + transform only)
+  if (!reduce && 'IntersectionObserver' in window) {
+    grid.classList.add('anim');
+    var rev = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); rev.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    cards.forEach(function (t) { rev.observe(t); });
+  }
+
+  // topic dropdown, built from the topics that actually have posts
+  var wrap = document.getElementById('blg-filter');
+  var btn = document.getElementById('blg-fbtn');
+  var menu = document.getElementById('blg-fmenu');
+  var flabel = document.getElementById('blg-flabel');
+  var fdot = document.getElementById('blg-fdot');
+  if (!wrap || !btn || !menu) return;
+
+  var META = {
+    modelling: ['Modelling', '#3a6fd6'], code: ['R & code', '#2a9490'],
+    academia: ['Academia', '#5a62d4'], productivity: ['Productivity', '#2f9a72'],
+    reflections: ['Reflections', '#9466a0'], leadership: ['Leadership', '#5c7aa0']
+  };
+  var used = [];
+  cards.forEach(function (c) { var t = c.getAttribute('data-topic'); if (t && used.indexOf(t) < 0) used.push(t); });
+  var opts = [{ f: 'all', label: 'All posts', color: '' }].concat(used.map(function (t) {
+    var m = META[t] || [t.charAt(0).toUpperCase() + t.slice(1), '#8a929b'];
+    return { f: t, label: m[0], color: m[1] };
+  }));
+  menu.innerHTML = opts.map(function (o) {
+    return '<button type="button" class="blg-fopt' + (o.f === 'all' ? ' active' : '') + '" data-filter="' + o.f + '">' +
+      (o.color ? '<span class="blg-fopt-dot" style="background:' + o.color + '"></span>' : '<span class="blg-fopt-dot blg-fopt-all"></span>') +
+      o.label + '</button>';
+  }).join('');
+
+  function closeMenu() { wrap.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+  function openMenu() { wrap.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+  btn.addEventListener('click', function (e) { e.stopPropagation(); wrap.classList.contains('open') ? closeMenu() : openMenu(); });
+  menu.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('.blg-fopt') : null;
+    if (!b) return;
+    var f = b.getAttribute('data-filter');
+    menu.querySelectorAll('.blg-fopt').forEach(function (x) { x.classList.toggle('active', x === b); });
+    flabel.textContent = b.textContent.trim();
+    var o = opts.filter(function (x) { return x.f === f; })[0];
+    if (o && o.color) { fdot.style.background = o.color; fdot.hidden = false; } else { fdot.hidden = true; }
+    cards.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-topic') === f); });
+    closeMenu();
+  });
+  document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) closeMenu(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
+```

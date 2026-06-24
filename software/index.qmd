@@ -19,6 +19,11 @@ gs4_auth("ongphucthinh@gmail.com")
 cv_sheet <- read_sheet(ss = "https://docs.google.com/spreadsheets/d/1ecqMkclPn-lhzgGHw2UTueiKkjTxuoAvJjpFKs3Jtm4/edit?usp=sharing", sheet = "software")
 
 cv_sheet$logo <- paste0("../img/software/", cv_sheet$logo)
+
+# expose the package count so other pages (the homepage) can show a consistent,
+# auto-updated number without re-fetching the sheet
+tryCatch(writeLines(as.character(nrow(cv_sheet)), "../code/.pkg-count"),
+         error = function(e) NULL)
 ```
 
 ```{r}

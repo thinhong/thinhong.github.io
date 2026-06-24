@@ -11,6 +11,8 @@ citation:
   url: https://drthinhong.com/blog/2023-08-26-chair-a-meeting/
 draft: false
 image: preview.svg
+title-block-banner: /img/blog-art/leadership.svg
+title-block-banner-color: white
 ---
 
 ## Take home messages

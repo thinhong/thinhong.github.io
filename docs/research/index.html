@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Thinh Ong’s research on vaccination and population immunity, infectious disease modelling, and outbreak response.">
 
-<title>Research</title>
+<title>Research - Thinh Ong</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -36,12 +37,11 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-bc3ea65b49b7e2b000bda9433f793a0b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-daf50e81c34763e36e748cf6bf6746af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -92,12 +92,12 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&amp;family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -120,7 +120,7 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=PkfvVs0AAAAJ"> 
+    <a class="nav-link active" href="../research/index.html" aria-current="page"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
@@ -155,50 +155,365 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Research</h1>
-</div>
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
+<script>window.SCHOLAR={citations:314,hindex:8};</script>
+<style>
+/* Research page. The shell (hero, panels, contents nav) is the shared .pg-*
+   system in theme.scss; everything here is the page's own matte layer,
+   namespaced .rx-*, using the shared tokens. No gloss: flat hue tiles with a
+   real grain. Motion is the "Draw" style, each symbol draws/assembles itself
+   as it scrolls in. Opacity/transform/stroke only. */
+
+/* hero: Scholar + CV up top, then two auto-updating stats */
+.rx-actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+.rx-cta{ display:inline-flex; align-items:center; gap:.5rem; font-size:.84rem; font-weight:600; padding:9px 15px; border-radius:999px; border:1px solid var(--border); background:var(--surface); color:var(--heading); transition:border-color .2s var(--e),color .2s var(--e),transform .2s var(--e); }
+.rx-cta svg{ width:15px; height:15px; stroke:currentColor; fill:none; stroke-width:1.8; }
+.rx-cta--p{ background:var(--brand); border-color:var(--brand); color:#fff; }
+.rx-cta:active{ transform:scale(.97); }
+.rx-stats{ display:inline-flex; align-items:center; gap:1.4rem; margin-top:18px; }
+.rx-stat{ display:flex; flex-direction:column; line-height:1; }
+.rx-stat b{ font-family:"Bebas Neue",sans-serif; font-weight:400; font-size:2.4rem; line-height:1; color:var(--brand); }
+.rx-stat span{ margin-top:.4rem; font-size:.72rem; letter-spacing:.06em; color:var(--text-faint); }
+.rx-sep{ width:1px; height:34px; background:var(--border); }
+
+/* matte tile recipe (matches the Teaching cards) */
+.rx-img{ position:relative; overflow:hidden; border-radius:14px; display:grid; place-items:center;
+  --deep:color-mix(in srgb,var(--hue) 55%,#0b1228); --mid:var(--hue);
+  --lite:color-mix(in srgb,var(--hue) 58%,#ffffff); --soft:color-mix(in srgb,var(--hue) 80%,#ffffff);
+  background:color-mix(in srgb,var(--hue) 26%,#ffffff); }
+html[data-theme="dark"] .rx-img{ background:color-mix(in srgb,var(--hue) 26%,var(--bg-2)); }
+.rx-art{ width:66%; height:66%; display:block; transition:transform .4s var(--e); }
+
+/* labels used inside features */
+.rx-kicker{ display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--brand); }
+.rx-role{ display:inline-flex; align-items:center; gap:8px; font-size:.68rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--brand); }
+.rx-role svg{ width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:1.8; }
+
+/* feature block (research focus, and HCDC) */
+.rx-feature{ display:grid; grid-template-columns:150px 1fr; gap:clamp(16px,2.4vw,26px); align-items:center; background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:clamp(16px,2vw,22px); margin-bottom:clamp(14px,1.8vw,18px); }
+html[data-theme="dark"] .rx-feature{ background:rgba(255,255,255,.05); }
+.rx-feature .rx-img{ aspect-ratio:1; width:100%; }
+.rx-feature h3{ margin:.5rem 0 0; font-size:1.12rem; font-weight:600; color:var(--heading); line-height:1.3; }
+.rx-feature p{ margin:.45rem 0 0; color:var(--text-muted); font-size:.92rem; line-height:1.6; max-width:56ch; }
+.rx-vision{ margin:.7rem 0 0; padding-left:14px; border-left:2px solid color-mix(in srgb,var(--brand) 45%,var(--border)); color:var(--text); font-size:.9rem; line-height:1.6; max-width:56ch; }
+.rx-pill{ display:inline-block; margin-top:12px; font-size:.72rem; font-weight:600; color:var(--brand); background:color-mix(in srgb,var(--brand) 12%,transparent); border-radius:999px; padding:5px 12px; }
+
+/* work cards (Teaching-style) */
+.rx-cards{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.rx-card{ display:block; }
+.rx-card .rx-img{ aspect-ratio:5/4; transition:transform .4s var(--e),box-shadow .4s var(--e); }
+.rx-card:active .rx-img{ transform:translateY(-2px) scale(.99); }
+.rx-meta{ margin:9px 2px 0; display:flex; align-items:center; gap:8px; }
+.rx-tag{ font-size:.62rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--brand-soft); }
+.rx-yr{ margin-left:auto; font-size:.72rem; color:var(--text-faint); font-variant-numeric:tabular-nums; }
+.rx-name{ margin:5px 2px 0; font-size:.92rem; font-weight:500; line-height:1.32; color:var(--heading); transition:color .25s var(--e); }
+
+/* methods chips */
+.rx-caps{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.rx-cap{ display:flex; gap:12px; align-items:flex-start; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 16px; transition:transform .3s var(--e),border-color .3s var(--e); }
+html[data-theme="dark"] .rx-cap{ background:rgba(255,255,255,.05); }
+.rx-cap .ic{ flex:none; width:32px; height:32px; border-radius:9px; display:grid; place-items:center; color:var(--brand); background:color-mix(in srgb,var(--brand) 10%,transparent); }
+.rx-cap .ic svg{ width:17px; height:17px; stroke:currentColor; fill:none; stroke-width:1.7; }
+.rx-cap b{ font-size:.92rem; font-weight:600; color:var(--heading); }
+.rx-cap span{ display:block; margin-top:2px; font-size:.8rem; color:var(--text-muted); line-height:1.45; }
+
+/* foundations pills */
+.rx-found{ display:flex; flex-wrap:wrap; gap:9px; }
+.rx-fpill{ font-size:.84rem; font-weight:500; color:var(--text-muted); background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:8px 14px; transition:transform .2s var(--e),border-color .2s var(--e); }
+html[data-theme="dark"] .rx-fpill{ background:rgba(255,255,255,.04); }
+.rx-found-note{ margin:14px 2px 0; font-size:.82rem; color:var(--text-faint); }
+
+/* entrance: rise + fade (panels fade via the shared .pg system); --d staggers */
+.pg.anim .rise{ opacity:0; transform:translateY(16px); transition:opacity .6s var(--e) var(--d,0s),transform .6s var(--e) var(--d,0s); }
+.pg.anim .rise.in{ opacity:1; transform:none; }
+
+/* Draw: each matte symbol draws / assembles itself when its card reveals */
+@keyframes rxDraw{ to{ stroke-dashoffset:0; } }
+@keyframes rxFade{ to{ opacity:1; } }
+@keyframes rxPop{ to{ opacity:1; transform:scale(1); } }
+@keyframes rxFill{ to{ transform:scaleY(1); } }
+.pg.anim .d-line{ stroke-dasharray:320; stroke-dashoffset:320; }
+.pg.anim .d-grid{ stroke-dasharray:170; stroke-dashoffset:170; }
+.pg.anim .d-area{ opacity:0; }
+.pg.anim .d-face,.pg.anim .d-orb{ opacity:0; transform-box:fill-box; transform-origin:center; transform:scale(.5); }
+.pg.anim .d-liquid{ transform-box:fill-box; transform-origin:50% 100%; transform:scaleY(0); }
+.pg.anim .rx-card.in .d-line,.pg.anim .rx-feature.in .d-line{ animation:rxDraw 1.1s var(--e) var(--d,0s) forwards; }
+.pg.anim .rx-card.in .d-grid,.pg.anim .rx-feature.in .d-grid{ animation:rxDraw 1s var(--e) calc(var(--d,0s) + .25s) forwards; }
+.pg.anim .rx-card.in .d-area,.pg.anim .rx-feature.in .d-area{ animation:rxFade .9s var(--e) calc(var(--d,0s) + .3s) forwards; }
+.pg.anim .rx-card.in .d-orb,.pg.anim .rx-feature.in .d-orb{ animation:rxPop .6s var(--e) calc(var(--d,0s) + .05s) forwards; }
+.pg.anim .rx-card.in .d-f1{ animation:rxPop .5s var(--e) calc(var(--d,0s) + .05s) forwards; }
+.pg.anim .rx-card.in .d-f2{ animation:rxPop .5s var(--e) calc(var(--d,0s) + .17s) forwards; }
+.pg.anim .rx-card.in .d-f3{ animation:rxPop .5s var(--e) calc(var(--d,0s) + .29s) forwards; }
+.pg.anim .rx-card.in .d-liquid{ animation:rxFill .9s var(--e) calc(var(--d,0s) + .2s) forwards; }
+
+@media (hover:hover){
+  .rx-card:hover .rx-img{ transform:translateY(-5px); box-shadow:var(--card-shadow); }
+  .rx-card:hover .rx-art{ transform:scale(1.05); }
+  .rx-card:hover .rx-name{ color:var(--brand); }
+  .rx-cta:hover{ border-color:var(--brand); color:var(--brand); }
+  .rx-cta--p:hover{ color:#fff; background:var(--brand-soft); border-color:var(--brand-soft); }
+  .rx-cap:hover{ transform:translateY(-3px); border-color:color-mix(in srgb,var(--brand) 24%,var(--border)); }
+  .rx-fpill:hover{ transform:translateY(-2px); border-color:var(--brand-soft); }
+}
+@media (max-width:680px){
+  .rx-cards{ grid-template-columns:repeat(2,1fr); }
+  .rx-feature{ grid-template-columns:1fr; }
+  .rx-feature .rx-img{ max-width:150px; }
+  .rx-caps{ grid-template-columns:1fr; }
+}
+@media (prefers-reduced-motion:reduce){
+  .pg.anim .rise, .pg.anim .rise.in{ opacity:1 !important; transform:none !important; transition:none !important; }
+  .pg.anim .d-line, .pg.anim .d-grid{ stroke-dashoffset:0 !important; }
+  .pg.anim .d-area, .pg.anim .d-orb, .pg.anim .d-face{ opacity:1 !important; transform:none !important; }
+  .pg.anim .d-liquid{ transform:scaleY(1) !important; }
+  .pg.anim .rx-card.in .d-line, .pg.anim .rx-feature.in .d-line, .pg.anim .rx-card.in .d-grid, .pg.anim .rx-feature.in .d-grid, .pg.anim .rx-card.in .d-area, .pg.anim .rx-feature.in .d-area, .pg.anim .rx-card.in .d-orb, .pg.anim .rx-feature.in .d-orb, .pg.anim .rx-card.in .d-f1, .pg.anim .rx-card.in .d-f2, .pg.anim .rx-card.in .d-f3, .pg.anim .rx-card.in .d-liquid{ animation:none !important; }
+  .rx-img, .rx-art, .rx-cta, .rx-cap, .rx-fpill{ transition:none !important; }
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="rx-grain"><feturbulence type="fractalNoise" basefrequency="0.9" numoctaves="2" stitchtiles="stitch"></feturbulence><fecolormatrix type="saturate" values="0"></fecolormatrix><fecomponenttransfer><fefunca type="linear" slope="0.55"></fefunca></fecomponenttransfer></filter>
+</svg>
+
+<section class="pg">
+
+  <!-- HERO -->
+  <div class="pg-hero">
+    <div class="pg-hero__head">
+      <span class="pg-eyebrow">Infectious disease modelling</span>
+      <h1 class="pg-title">Research <span class="pg-title-thin">&amp; Advisory</span></h1>
+    </div>
+    <div class="pg-hero__aside">
+      <p class="pg-lead">I work on vaccination and population immunity, turning routine data into models of outbreak risk, and I bring those methods to research across clinical and basic science.</p>
+      <div class="rx-actions">
+        <a class="rx-cta rx-cta--p" href="https://scholar.google.com/citations?user=PkfvVs0AAAAJ" target="_blank" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 14 4 9l8-5 8 5z"></path><path d="M4 9v6l8 5 8-5V9"></path></svg>Google Scholar</a>
+        <a class="rx-cta" href="../about/cv.html"><svg viewbox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"></path><path d="M14 2v6h6M9 13h6M9 17h6"></path></svg>Full CV</a>
+      </div>
+      <div class="rx-stats">
+        <div class="rx-stat"><b class="ct" data-key="citations" data-fallback="313">0</b><span>Citations</span></div>
+        <span class="rx-sep"></span>
+        <div class="rx-stat"><b class="ct" data-key="hindex" data-fallback="8">0</b><span>h-index</span></div>
+      </div>
+    </div>
   </div>
-  
 
+  <div class="pg-body">
+    <main class="pg-main">
 
-</header>
+      <!-- [01] OWN RESEARCH: vaccination & population immunity -->
+      <section class="pg-panel" id="focus">
+        <div class="pg-sechead">
+          <div><span class="pg-num">[01]</span><h2 class="pg-sectitle">Vaccination &amp; immunity</h2><p class="pg-secsub">What I'm working on now.</p></div>
+          <span class="pg-count">Current</span>
+        </div>
 
+        <article class="rx-feature rise" style="--d:0s">
+          <div class="rx-img" style="--hue:#7d92d6">
+            <svg class="rx-art" viewbox="0 0 120 120">
+              <defs><clippath id="cpShield"><path d="M60,16 L98,30 L98,62 C98,86 81,101 60,107 C39,101 22,86 22,62 L22,30 Z"></path></clippath></defs>
+              <path class="d-orb" d="M60,16 L98,30 L98,62 C98,86 81,101 60,107 C39,101 22,86 22,62 L22,30 Z" fill="var(--mid)"></path>
+              <g fill="none" stroke="var(--lite)" stroke-width="4" stroke-linecap="round"><path class="d-grid" d="M50,60 a14,14 0 0 1 20,0" opacity=".9"></path><path class="d-grid" d="M44,52 a23,23 0 0 1 32,0" opacity=".6"></path></g>
+              <circle cx="60" cy="66" r="5" fill="var(--lite)"></circle>
+              <g clip-path="url(#cpShield)" style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#rx-grain)"></rect></g>
+            </svg>
+          </div>
+          <div>
+            <span class="rx-kicker">Research focus</span>
+            <h3>Quantifying population immunity</h3>
+            <p>Measuring population immunity remains a persistent challenge. My research integrates routine data streams to quantify it, and to understand how immunity and transmission together shape outbreak risk.</p>
+            <p class="rx-vision">The long-term goal: build sustainable surveillance that stays low cost but effective, so public health can move from monitoring the past to forecasting future immunity and guiding proactive response.</p>
+          </div>
+        </article>
 
-<section id="epidemiology" class="level2">
-<h2 class="anchored" data-anchor-id="epidemiology">Epidemiology</h2>
-<p>Epidemiology of infectious and non communicable diseases, mathematical models for infectious diseases</p>
+        <div class="rx-cards">
+          <a class="rx-card rise" style="--hue:#7d92d6; --d:.05s" href="https://doi.org/10.3201/eid3110.250234" target="_blank" rel="noopener">
+            <div class="rx-img">
+              <svg class="rx-art" viewbox="0 0 120 120">
+                <defs><clippath id="cpCurve"><path d="M14,98 C36,94 48,86 60,58 C68,40 74,28 86,28 C98,28 104,66 110,78 L110,98 Z"></path></clippath></defs>
+                <path class="d-area" d="M14,98 C36,94 48,86 60,58 C68,40 74,28 86,28 C98,28 104,66 110,78 L110,98 Z" fill="var(--mid)"></path>
+                <path class="d-line" d="M14,96 C36,92 48,84 60,56 C68,38 74,26 86,26 C98,26 104,64 110,76" fill="none" stroke="var(--deep)" stroke-width="5" stroke-linecap="round"></path>
+                <g clip-path="url(#cpCurve)" style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#rx-grain)"></rect></g>
+              </svg>
+            </div>
+            <div class="rx-meta"><span class="rx-tag">First author</span><span class="rx-yr">2025</span></div>
+            <p class="rx-name">Measles immunity gap, caught before the outbreak</p>
+          </a>
+
+          <a class="rx-card rise" style="--hue:#9485cf; --d:.18s" href="https://doi.org/10.1111/2041-210X.70256" target="_blank" rel="noopener">
+            <div class="rx-img">
+              <svg class="rx-art" viewbox="0 0 120 120">
+                <defs><clippath id="cpCube"><polygon points="60,26 86,41 86,77 60,92 34,77 34,41"></polygon></clippath></defs>
+                <polygon class="d-face d-f1" points="60,26 86,41 60,56 34,41" fill="var(--lite)"></polygon>
+                <polygon class="d-face d-f2" points="34,41 60,56 60,92 34,77" fill="var(--deep)"></polygon>
+                <polygon class="d-face d-f3" points="86,41 60,56 60,92 86,77" fill="var(--mid)"></polygon>
+                <g clip-path="url(#cpCube)" style="mix-blend-mode:soft-light;opacity:.45"><rect x="0" y="0" width="120" height="120" filter="url(#rx-grain)"></rect></g>
+              </svg>
+            </div>
+            <div class="rx-meta"><span class="rx-tag">First author</span><span class="rx-yr">2026</span></div>
+            <p class="rx-name">denim: the compartmental modelling engine</p>
+          </a>
+
+          <a class="rx-card rise" style="--hue:#6fae9a; --d:.31s" href="https://doi.org/10.1136/bmjgh-2025-019111" target="_blank" rel="noopener">
+            <div class="rx-img">
+              <svg class="rx-art" viewbox="0 0 120 120">
+                <defs><clippath id="cpGlobe"><circle cx="60" cy="59" r="33"></circle></clippath></defs>
+                <circle class="d-orb" cx="60" cy="59" r="33" fill="var(--mid)"></circle>
+                <g clip-path="url(#cpGlobe)" fill="none" stroke="var(--deep)" stroke-width="3" opacity=".7"><ellipse class="d-grid" cx="60" cy="59" rx="13" ry="33"></ellipse><line class="d-grid" x1="27" y1="49" x2="93" y2="49"></line><line class="d-grid" x1="27" y1="69" x2="93" y2="69"></line></g>
+                <g clip-path="url(#cpGlobe)" style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#rx-grain)"></rect></g>
+              </svg>
+            </div>
+            <div class="rx-meta"><span class="rx-tag">Co-author</span><span class="rx-yr">2025</span></div>
+            <p class="rx-name">Modelling capacity for the global south</p>
+          </a>
+
+          <a class="rx-card rise" style="--hue:#5fa6c6; --d:.44s" href="https://doi.org/10.1016/j.vaccine.2026.128375" target="_blank" rel="noopener">
+            <div class="rx-img">
+              <svg class="rx-art" viewbox="0 0 120 120">
+                <defs><clippath id="cpVial"><rect x="47" y="22" width="26" height="72" rx="9"></rect></clippath></defs>
+                <rect x="47" y="22" width="26" height="72" rx="9" fill="var(--lite)"></rect>
+                <g clip-path="url(#cpVial)"><rect class="d-liquid" x="47" y="50" width="26" height="44" fill="var(--mid)"></rect></g>
+                <rect x="43" y="16" width="34" height="13" rx="5" fill="var(--deep)"></rect>
+                <g clip-path="url(#cpVial)" style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#rx-grain)"></rect></g>
+              </svg>
+            </div>
+            <div class="rx-meta"><span class="rx-tag">Co-author</span><span class="rx-yr">2026</span></div>
+            <p class="rx-name">Infants under six months, most at risk</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- [02] ADVISORY: capacity building with HCDC -->
+      <section class="pg-panel" id="advisory">
+        <div class="pg-sechead">
+          <div><span class="pg-num">[02]</span><h2 class="pg-sectitle">Capacity building</h2><p class="pg-secsub">Advising Ho Chi Minh City CDC.</p></div>
+          <span class="pg-count">Advisory</span>
+        </div>
+
+        <article class="rx-feature rise" style="--d:0s">
+          <div class="rx-img" style="--hue:#6fae9a">
+            <svg class="rx-art" viewbox="0 0 120 120">
+              <defs><clippath id="cpNet"><circle cx="60" cy="60" r="47"></circle></clippath></defs>
+              <g clip-path="url(#cpNet)">
+                <g stroke="var(--deep)" stroke-width="3" opacity=".55"><line class="d-grid" x1="60" y1="60" x2="60" y2="28"></line><line class="d-grid" x1="60" y1="60" x2="92" y2="60"></line><line class="d-grid" x1="60" y1="60" x2="60" y2="92"></line><line class="d-grid" x1="60" y1="60" x2="28" y2="60"></line></g>
+                <circle class="d-orb" cx="60" cy="28" r="8" fill="var(--lite)"></circle><circle class="d-orb" cx="92" cy="60" r="8" fill="var(--deep)"></circle><circle class="d-orb" cx="60" cy="92" r="8" fill="var(--lite)"></circle><circle class="d-orb" cx="28" cy="60" r="8" fill="var(--deep)"></circle>
+                <circle class="d-orb" cx="60" cy="60" r="12" fill="var(--mid)"></circle>
+                <g style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#rx-grain)"></rect></g>
+              </g>
+            </svg>
+          </div>
+          <div>
+            <span class="rx-role"><svg viewbox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6z"></path><path d="m9 12 2 2 4-4"></path></svg>Advisor &amp; research supervisor</span>
+            <h3>Capacity building with Ho Chi Minh City CDC</h3>
+            <p>I train HCDC's in-house modelling team and advise their research, building the local capacity to model outbreaks and turn analysis into action.</p>
+            <span class="rx-pill">Training the in-house modelling team · research supervision</span>
+          </div>
+        </article>
+      </section>
+
+      <!-- [03] METHODS & COLLABORATION -->
+      <section class="pg-panel" id="methods">
+        <div class="pg-sechead">
+          <div><span class="pg-num">[03]</span><h2 class="pg-sectitle">Methods &amp; collaboration</h2><p class="pg-secsub">How I help other teams' studies.</p></div>
+          <span class="pg-count">Support</span>
+        </div>
+        <div class="rx-caps">
+          <div class="rx-cap rise" style="--d:0s"><span class="ic"><svg viewbox="0 0 24 24"><path d="M3 3v18h18"></path><path d="M7 15c2-6 4-8 6-8s2 4 4 4 2-3 3-4"></path></svg></span><div><b>Bayesian &amp; multilevel modelling</b><span>Hierarchical models for clustered cohort and survey data.</span></div></div>
+          <div class="rx-cap rise" style="--d:.07s"><span class="ic"><svg viewbox="0 0 24 24"><path d="M9 3h6M10 3v5l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"></path></svg></span><div><b>Trials &amp; study design</b><span>Randomised trials, sample size, prognostic models.</span></div></div>
+          <div class="rx-cap rise" style="--d:.14s"><span class="ic"><svg viewbox="0 0 24 24"><path d="M4 5h16M4 12h10M4 19h7"></path><circle cx="18" cy="16" r="3"></circle></svg></span><div><b>Survey development &amp; validation</b><span>Cross-cultural adaptation, reliability and validity.</span></div></div>
+          <div class="rx-cap rise" style="--d:.21s"><span class="ic"><svg viewbox="0 0 24 24"><path d="M6 3v6a6 6 0 0 0 12 0V3"></path><path d="M6 21v-6a6 6 0 0 1 12 0v6"></path><path d="M6 12h12"></path></svg></span><div><b>Genomics &amp; biomarker pipelines</b><span>Reproducible tools for sequencing and methylation panels.</span></div></div>
+        </div>
+      </section>
+
+      <!-- [04] FOUNDATIONS -->
+      <section class="pg-panel" id="foundations">
+        <div class="pg-sechead">
+          <div><span class="pg-num">[04]</span><h2 class="pg-sectitle">Foundations</h2><p class="pg-secsub">The range I came through.</p></div>
+          <span class="pg-count">Earlier work</span>
+        </div>
+        <div class="rx-found">
+          <span class="rx-fpill">Neonatal trials</span><span class="rx-fpill">Reproductive medicine</span><span class="rx-fpill">HLA genetics</span><span class="rx-fpill">Transplantation</span><span class="rx-fpill">Epigenomics</span><span class="rx-fpill">Bioinformatics</span><span class="rx-fpill">Clinical biomarkers</span>
+        </div>
+        <p class="rx-found-note">The full record, with every paper and venue, lives in the CV.</p>
+      </section>
+
+    </main>
+
+    <nav class="pg-toc" aria-label="Sections on this page">
+      <p class="pg-toc-h">On this page</p>
+      <a href="#focus" class="active"><span class="tn">01</span><span class="tt">Vaccination</span></a>
+      <a href="#advisory"><span class="tn">02</span><span class="tt">Advisory</span></a>
+      <a href="#methods"><span class="tn">03</span><span class="tt">Methods</span></a>
+      <a href="#foundations"><span class="tn">04</span><span class="tt">Foundations</span></a>
+    </nav>
+  </div>
 </section>
-<section id="quantitative-survey" class="level2">
-<h2 class="anchored" data-anchor-id="quantitative-survey">Quantitative survey</h2>
-<p>Develop, cross-cultural adaptation, methods to investigate reliability and validity of surveys.</p>
-</section>
-<section id="clinical-studies" class="level2">
-<h2 class="anchored" data-anchor-id="clinical-studies">Clinical studies</h2>
-<p>Including randomized control trials, biomarker discovery.</p>
-</section>
-<section id="basic-science" class="level2">
-<h2 class="anchored" data-anchor-id="basic-science">Basic science</h2>
-<p>Methodologies for animal model studies, genome and epigenome sequencing, biomarker development tool</p>
+
+<script>
+(function(){
+  var root = document.querySelector(".pg");
+  if(!root) return;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // count-up, values come from window.SCHOLAR (build-time Scholar fetch)
+  function countUp(el){
+    var key = el.getAttribute("data-key");
+    var S = window.SCHOLAR || {};
+    var to = (S && typeof S[key] === "number") ? S[key] : (parseInt(el.getAttribute("data-fallback"),10) || 0);
+    if(reduce){ el.textContent = to; return; }
+    var n = 0, step = Math.max(1, Math.round(to/28));
+    var t = setInterval(function(){ n += step; if(n >= to){ n = to; clearInterval(t); } el.textContent = n; }, 40);
+  }
+
+  if("IntersectionObserver" in window){
+    root.classList.add("anim");
+    var pan = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); pan.unobserve(e.target); } }); }, { threshold:0.12 });
+    root.querySelectorAll(".pg-panel").forEach(function(p){ pan.observe(p); });
+    var rev = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); rev.unobserve(e.target); } }); }, { threshold:0.2 });
+    root.querySelectorAll(".rise").forEach(function(el){ rev.observe(el); });
+    var ctO = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ countUp(e.target); ctO.unobserve(e.target); } }); }, { threshold:0.6 });
+    root.querySelectorAll(".ct").forEach(function(el){ ctO.observe(el); });
+  } else {
+    root.querySelectorAll(".rise").forEach(function(el){ el.classList.add("in"); });
+    root.querySelectorAll(".ct").forEach(countUp);
+  }
+
+  // contents-nav scrollspy (matches the shared .pg pages)
+  var links = root.querySelectorAll(".pg-toc a");
+  var panels = Array.prototype.slice.call(root.querySelectorAll(".pg-panel[id]"));
+  function linkFor(id){ for(var i=0;i<links.length;i++){ if(links[i].hash === "#"+id) return links[i]; } return null; }
+  function setActive(link){ links.forEach(function(l){ l.classList.toggle("active", l === link); }); }
+  var navLock = false, lockT, ticking = false;
+  function syncActive(){
+    ticking = false;
+    if(navLock || !panels.length) return;
+    var line = window.innerHeight * 0.28, current = panels[0];
+    panels.forEach(function(p){ if(p.getBoundingClientRect().top <= line) current = p; });
+    setActive(linkFor(current.id));
+  }
+  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(syncActive); } }
+  window.addEventListener("scroll", onScroll, { passive:true });
+  window.addEventListener("resize", onScroll, { passive:true });
+  syncActive();
+  links.forEach(function(a){
+    a.addEventListener("click", function(){
+      navLock = true; setActive(a);
+      clearTimeout(lockT);
+      lockT = setTimeout(function(){ navLock = false; syncActive(); }, reduce ? 0 : 700);
+    });
+  });
+})();
+</script>
 
 
-</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script>
@@ -323,13 +638,6 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -721,35 +1029,6 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
     }
   });
   </script>
-<input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark">
-<script>
-  function loadGiscus() {
-    // Function to get the theme based on body class
-    const getTheme = () => {
-      let baseTheme = document.getElementById('giscus-base-theme').value;
-      let altTheme = document.getElementById('giscus-alt-theme').value;
-      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
-    };
-    const script = document.createElement("script");
-    script.src = "https://giscus.app/client.js";
-    script.async = true;
-    script.dataset.repo = "thinhong/thinhong.github.io";
-    script.dataset.repoId = "R_kgDOKL9B-g";
-    script.dataset.category = "General";
-    script.dataset.categoryId = "DIC_kwDOKL9B-s4CY4zC";
-    script.dataset.mapping = "title";
-    script.dataset.reactionsEnabled = "1";
-    script.dataset.emitMetadata = "0";
-    script.dataset.inputPosition = "top";
-    script.dataset.theme = getTheme();
-    script.dataset.lang = "en";
-    script.crossOrigin = "anonymous";
-    // Append the script to the desired div instead of at the end of the body
-    document.getElementById("quarto-content").appendChild(script);
-  }
-  loadGiscus();
-</script>
 </div> <!-- /content -->
 
 
