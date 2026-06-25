@@ -5,7 +5,7 @@
 *.Rproj
 .Renviron
 /docs/
-/.quarto/
+/site_libs/
 /.quarto/
 /design-mockups
 
