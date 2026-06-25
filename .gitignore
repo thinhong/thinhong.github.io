@@ -4,7 +4,8 @@
 .Ruserdata
 *.Rproj
 .Renviron
-
+/docs/
+/.quarto/
 /.quarto/
 /design-mockups
 
