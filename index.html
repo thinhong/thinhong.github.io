@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-813e3262ed84df716511dc6e4fb01da0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-eb8afb3066789a27746d928437a2102a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -183,14 +183,14 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
     <span class="fh-glow" aria-hidden="true"></span>
     <div class="fh-side fh-left">
       <p class="fh-name">THINH ONG <span class="fh-dot"></span></p>
-      <div class="fh-word"><span class="fw-thin">MEDICAL</span><span class="fw-fill">DOCTOR</span></div>
+      <div class="fh-word"><span class="fw-thin">MEDICAL</span><span class="fw-fill" data-text="DOCTOR">DOCTOR</span></div>
     </div>
     <figure class="fh-photo figure">
       <img src="profile.png" alt="Thinh Ong" class="figure-img">
       <span class="fh-hi">Hi</span>
     </figure>
     <div class="fh-side fh-right">
-      <div class="fh-word"><span class="fw-thin">MATHEMATICAL</span><span class="fw-fill">MODELLER</span></div>
+      <div class="fh-word"><span class="fw-thin">MATHEMATICAL</span><span class="fw-fill" data-text="MODELLER">MODELLER</span></div>
       <div class="fh-below">
         <p class="fh-tag">A medical doctor and PhD in infectious disease modelling trained at the University of Oxford.</p>
         <div class="fh-links">
@@ -345,37 +345,11 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
     cts.forEach(function (el) { cio.observe(el); });
   } else { cts.forEach(workCount); }
 
-  // Hero: choreographed entrance + cursor-depth parallax
+  // Hero: choreographed entrance only. The photo now stays still (the cursor
+  // parallax was removed); DOCTOR / MODELLER float and shift colour via CSS.
   var hero = document.querySelector('.folio-hero');
   if (hero) {
     requestAnimationFrame(function () { hero.classList.add('play'); });
-    if (fine && !reduce) {
-      var ph = hero.querySelector('.fh-photo'),
-          hi = hero.querySelector('.fh-hi'),
-          nm = hero.querySelector('.fh-name'),
-          gl = hero.querySelector('.fh-glow'),
-          lw = hero.querySelector('.fh-left .fh-word'),
-          rw = hero.querySelector('.fh-right .fh-word');
-      var tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
-      function loop() {
-        cx += (tx - cx) * 0.07; cy += (ty - cy) * 0.07;
-        if (ph) ph.style.transform = 'perspective(1000px) rotateY(' + (cx * 9).toFixed(2) + 'deg) rotateX(' + (-cy * 9).toFixed(2) + 'deg) translate(' + (cx * 16).toFixed(1) + 'px,' + (cy * 16).toFixed(1) + 'px)';
-        if (lw) lw.style.transform = 'translate(' + (-cx * 30).toFixed(1) + 'px,' + (-cy * 14).toFixed(1) + 'px)';
-        if (rw) rw.style.transform = 'translate(' + (cx * 30).toFixed(1) + 'px,' + (cy * 14).toFixed(1) + 'px)';
-        if (hi) hi.style.transform = 'translate(' + (cx * 46).toFixed(1) + 'px,' + (cy * 34).toFixed(1) + 'px)';
-        if (nm) nm.style.transform = 'translate(' + (-cx * 16).toFixed(1) + 'px,' + (-cy * 8).toFixed(1) + 'px)';
-        if (gl) gl.style.transform = 'translate(calc(-50% + ' + (cx * 70).toFixed(1) + 'px), calc(-50% + ' + (cy * 70).toFixed(1) + 'px))';
-        if (Math.abs(tx - cx) > 0.0008 || Math.abs(ty - cy) > 0.0008 || tx !== 0 || ty !== 0) { raf = requestAnimationFrame(loop); }
-        else { raf = 0; }
-      }
-      hero.addEventListener('mousemove', function (e) {
-        var r = hero.getBoundingClientRect();
-        tx = (e.clientX - r.left) / r.width - 0.5;
-        ty = (e.clientY - r.top) / r.height - 0.5;
-        if (!raf) raf = requestAnimationFrame(loop);
-      });
-      hero.addEventListener('mouseleave', function () { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(loop); });
-    }
   }
 })();
 </script>
@@ -689,7 +663,7 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/drthinhong\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
