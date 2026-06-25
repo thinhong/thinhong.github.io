@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Short courses, workshops and talks on infectious disease modelling, statistics, R, and the craft of research.">
+
+<title>Teaching - Thinh Ong</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../logo-icon.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-813e3262ed84df716511dc6e4fb01da0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-RVRBE7Y1R2"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
+</script>
+<script>
+
+// Applied in <head> before paint so there is no flash of the wrong theme.
+
+// Default is LIGHT for first-time visitors; a manual toggle choice is remembered.
+
+(function () {
+
+  try {
+
+    var saved = localStorage.getItem('theme');
+
+    var mode = saved || 'light';
+
+    document.documentElement.setAttribute('data-theme', mode);
+
+    document.documentElement.setAttribute('data-bs-theme', mode);
+
+  } catch (e) {}
+
+})();
+
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../logo-icon.svg" alt="" class="navbar-logo light-content">
+    <img src="../logo-icon.svg" alt="" class="navbar-logo dark-content">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about/index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../research/index.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../teaching/index.html" aria-current="page"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../software/index.html"> 
+<span class="menu-text">Software</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/thinhong"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/thinh-ong"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<style>
+/* ===================== Teaching page (bento panels + contents nav + modal) ===================== */
+.tq{ --e:cubic-bezier(.22,.61,.36,1); --tq-panel:#f3f5fb; max-width:1200px; margin:0 auto; padding:0 clamp(18px,4vw,46px) 46px; }
+html[data-theme="dark"] .tq{ --tq-panel:rgba(255,255,255,.045); }
+
+/* compact two-column hero */
+.tq-hero{ display:grid; grid-template-columns:1.5fr 1fr; align-items:end; gap:clamp(20px,4vw,56px); padding:clamp(8px,1.8vw,16px) 0 clamp(18px,2.4vw,26px); }
+.tq-eyebrow{ display:inline-flex; align-items:center; gap:9px; font-size:.74rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--brand-soft); }
+.tq-eyebrow::before{ content:""; width:22px; height:2px; border-radius:2px; background:var(--brand-soft); }
+.tq-h1{ margin:.1em 0 0; font-family:"Bebas Neue",sans-serif; font-weight:400; line-height:.9; letter-spacing:.5px; text-transform:uppercase; font-size:clamp(2.3rem,5vw,4rem); color:var(--heading); border-bottom:0 !important; padding-bottom:0 !important; }
+.tq-h1 .tq-thin{ color:color-mix(in srgb, var(--heading) 42%, var(--bg)); }
+.tq-lead{ margin:0 0 .35em; color:var(--text-muted); font-size:clamp(.88rem,1vw,.98rem); line-height:1.55; }
+
+/* body: content + sticky contents nav */
+.tq-body{ display:grid; grid-template-columns:1fr 196px; gap:clamp(26px,3.4vw,48px); align-items:start; }
+.tq-main{ min-width:0; display:flex; flex-direction:column; gap:clamp(16px,2vw,24px); }
+
+/* soft panels separate sections instead of lines */
+.tq-block{ background:var(--tq-panel); border-radius:18px; padding:clamp(18px,2.3vw,30px); scroll-margin-top:96px; }
+/* neutralise the theme's :target::before offset hack (it breaks the subgrid columns); scroll-margin-top handles the offset */
+.tq-block:target::before, .tq-col:target::before{ content:none !important; display:none !important; }
+
+/* contents nav */
+.tq-toc{ position:sticky; top:92px; align-self:start; display:flex; flex-direction:column; gap:2px; }
+.tq-toc-h{ font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; color:var(--text-faint); margin:0 0 6px 14px; }
+.tq-toc a{ display:flex; align-items:baseline; gap:10px; padding:8px 13px; color:var(--text-muted); text-decoration:none; line-height:1.2;
+  border-left:2px solid transparent; border-radius:0 8px 8px 0; transition:background .2s var(--e), color .2s var(--e), border-color .2s var(--e); }
+.tq-toc a:hover{ color:var(--heading); background:color-mix(in srgb,var(--brand) 7%, transparent); }
+.tq-toc a.active{ color:var(--brand); border-left-color:var(--brand); background:color-mix(in srgb,var(--brand) 9%, transparent); }
+.tq-toc .tn{ font-size:.66rem; color:var(--brand-soft); font-variant-numeric:tabular-nums; }
+.tq-toc .tt{ font-size:.9rem; font-weight:500; }
+
+/* section heads */
+.tq-sechead{ display:flex; align-items:flex-end; justify-content:space-between; gap:14px; margin-bottom:clamp(12px,1.6vw,16px); }
+.tq-num{ display:block; font-size:.7rem; letter-spacing:.2em; color:var(--brand-soft); font-variant-numeric:tabular-nums; margin-bottom:7px; }
+.tq-sectitle{ margin:0; font-family:"Bebas Neue",sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:.5px; line-height:1.02; font-size:clamp(1.4rem,2.2vw,1.9rem); color:var(--heading); border-bottom:0 !important; padding-bottom:0 !important; }
+.tq-secsub{ margin:8px 0 0; font-size:.83rem; color:var(--text-muted); line-height:1.5; max-width:52ch; }
+.tq-count{ flex:none; font-size:.74rem; color:var(--text-faint); white-space:nowrap; }
+
+/* cards */
+.tq-row{ display:grid; gap:clamp(14px,1.6vw,22px); }
+.tq-row.multi{ grid-template-columns:repeat(3,1fr); }
+.tq-card{ display:block; text-decoration:none; color:inherit; cursor:pointer; }
+.tq-img{ position:relative; aspect-ratio:3/2; border-radius:12px; overflow:hidden; display:grid; place-items:center;
+  --deep:color-mix(in srgb, var(--hue) 55%, #0b1228);
+  --mid:var(--hue);
+  --lite:color-mix(in srgb, var(--hue) 58%, #ffffff);
+  --soft:color-mix(in srgb, var(--hue) 80%, #ffffff);
+  background:color-mix(in srgb, var(--hue) 26%, #ffffff);
+  transition:transform .4s var(--e), box-shadow .4s var(--e); will-change:transform; }
+html[data-theme="dark"] .tq-img{ background:color-mix(in srgb, var(--hue) 26%, var(--bg-2)); }
+.tq-art{ width:64%; height:64%; display:block; transition:transform .5s var(--e); }
+.tq-meta{ margin-top:11px; }
+.tq-meta-top{ display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+.tq-format{ font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-faint); }
+.tq-date{ font-size:.76rem; color:var(--text-muted); font-variant-numeric:tabular-nums; }
+.tq-cardname{ margin:6px 0 0; font-size:.95rem; font-weight:500; line-height:1.32; color:var(--heading); transition:color .25s var(--e); }
+.tq-tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+.tq-tag{ font-size:.66rem; color:var(--text-muted); border:1px solid var(--border); border-radius:999px; padding:3px 9px; white-space:nowrap; }
+
+/* duo of single-course topics, aligned with subgrid */
+.tq-duo{ display:grid; grid-template-columns:repeat(2,1fr); column-gap:clamp(16px,2vw,26px); row-gap:14px; }
+.tq-col{ display:flex; flex-direction:column; gap:14px; min-width:0; scroll-margin-top:96px; }
+@supports (grid-template-rows:subgrid){
+  .tq-duo{ grid-template-rows:auto auto; }
+  .tq-duo .tq-col{ display:grid; grid-row:span 2; grid-template-rows:subgrid; }
+}
+
+/* hover + tap */
+@media (hover:hover){
+  .tq-card:hover .tq-img{ transform:translateY(-5px); box-shadow:var(--card-shadow); }
+  .tq-card:hover .tq-art{ transform:scale(1.05); }
+  .tq-card:hover .tq-cardname{ color:var(--brand); }
+}
+.tq-card:active .tq-img{ transform:translateY(-2px) scale(.99); }
+
+/* entrance (opacity only, so transforms never fight the subgrid) */
+.tq.anim .tq-block{ opacity:0; transition:opacity .6s var(--e); }
+.tq.anim .tq-block.in{ opacity:1; }
+.tq.anim .tq-block .tq-card{ opacity:0; }
+.tq.anim .tq-block.in .tq-card{ opacity:1; transition:opacity .5s var(--e); }
+.tq.anim .tq-block.in .tq-row.multi .tq-card:nth-child(1){ transition-delay:.06s; }
+.tq.anim .tq-block.in .tq-row.multi .tq-card:nth-child(2){ transition-delay:.14s; }
+.tq.anim .tq-block.in .tq-row.multi .tq-card:nth-child(3){ transition-delay:.22s; }
+.tq.anim .tq-duo.in .tq-col:nth-child(1) .tq-card{ transition-delay:.06s; }
+.tq.anim .tq-duo.in .tq-col:nth-child(2) .tq-card{ transition-delay:.14s; }
+
+/* ===== modal ===== */
+.tqm{ position:fixed; inset:0; z-index:3000; display:none; }
+.tqm.open{ display:block; }
+.tqm-scrim{ position:absolute; inset:0; background:rgba(10,16,36,.5); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); opacity:0; transition:opacity .3s var(--e); }
+.tqm.open .tqm-scrim{ opacity:1; }
+.tqm-dialog{ position:absolute; left:50%; top:50%; transform:translate(-50%,-46%); width:min(660px,94vw); max-height:88vh; display:flex; flex-direction:column; overflow:hidden;
+  background:var(--surface,#fff); border-radius:18px; box-shadow:0 30px 80px rgba(16,27,53,.32); opacity:0; transition:opacity .3s var(--e), transform .38s var(--e); }
+html[data-theme="dark"] .tqm-dialog{ background:#0e1530; }
+.tqm.open .tqm-dialog{ opacity:1; transform:translate(-50%,-50%); }
+.tqm-accent{ height:5px; flex:none; }
+.tqm-x{ position:absolute; top:13px; right:13px; z-index:3; width:34px; height:34px; border-radius:50%; cursor:pointer; border:1px solid var(--border); background:var(--bg); color:var(--heading); font-size:.95rem; display:grid; place-items:center; transition:transform .25s var(--e), color .2s var(--e); }
+.tqm-x:hover{ transform:rotate(90deg); color:var(--brand); }
+.tqm-body{ overflow-y:auto; padding:clamp(20px,3vw,30px); }
+.tqm-eyebrow{ font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--brand-soft); }
+.tqm-title{ margin:6px 0 0; font-family:"Bebas Neue",sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:.5px; line-height:1; font-size:clamp(1.7rem,3.4vw,2.4rem); color:var(--heading); border-bottom:0 !important; padding-bottom:0 !important; }
+.tqm-gal{ display:flex; gap:10px; overflow-x:auto; margin:16px 0 4px; scroll-snap-type:x mandatory; scrollbar-width:thin; }
+.tqm-gal figure{ margin:0; flex:0 0 auto; width:min(76%,300px); scroll-snap-align:center; }
+.tqm-gal img{ width:100%; aspect-ratio:3/2; object-fit:cover; border-radius:12px; display:block; }
+.tqm-gal figcaption{ font-size:.74rem; color:var(--text-muted); margin-top:6px; }
+.tqm-meta{ display:grid; grid-template-columns:1fr 1fr; gap:12px 18px; padding:15px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); margin:16px 0; }
+.tqm-meta .k{ font-size:.63rem; text-transform:uppercase; letter-spacing:.1em; color:var(--text-faint); }
+.tqm-meta .v{ font-size:.9rem; color:var(--heading); font-weight:500; margin-top:3px; }
+.tqm-long{ color:var(--text); line-height:1.62; font-size:.95rem; margin:0; }
+.tqm-tags{ display:flex; flex-wrap:wrap; gap:7px; margin-top:14px; }
+.tqm-tag{ font-size:.7rem; color:var(--text-muted); border:1px solid var(--border); border-radius:999px; padding:4px 11px; }
+.tqm-btns{ display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+.tqm-btn{ display:inline-flex; align-items:center; gap:7px; font-weight:600; font-size:.9rem; padding:11px 18px; border-radius:11px; text-decoration:none; background:var(--brand); color:#fff; transition:background .2s var(--e), transform .2s var(--e); }
+.tqm-btn:hover{ background:var(--brand-strong); color:#fff; transform:translateY(-1px); }
+
+/* responsive */
+@media (max-width:860px){ .tq-body{ grid-template-columns:1fr; } .tq-toc{ display:none; } }
+@media (max-width:680px){
+  .tq-hero{ grid-template-columns:1fr; align-items:start; gap:12px; }
+  .tq-row.multi{ grid-template-columns:repeat(2,1fr); }
+  .tq-duo{ grid-template-columns:1fr; row-gap:0; }
+  .tq-duo .tq-col + .tq-col{ margin-top:18px; }
+  .tq-duo .tq-card{ display:grid; grid-template-columns:96px 1fr; gap:14px; align-items:center; }
+  .tq-duo .tq-img{ aspect-ratio:1/1; }
+  .tq-duo .tq-meta{ margin-top:0; }
+  .tq-duo .tq-art{ width:62%; height:62%; }
+  .tqm-dialog{ top:auto; bottom:0; transform:translate(-50%,100%); width:100vw; max-height:92vh; border-radius:18px 18px 0 0; }
+  .tqm.open .tqm-dialog{ transform:translate(-50%,0); }
+}
+@media (prefers-reduced-motion:reduce){
+  .tq.anim .tq-block, .tq.anim .tq-block .tq-card{ opacity:1 !important; }
+  .tq-img, .tq-art, .tqm-dialog, .tqm-scrim{ transition:none !important; }
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="tq-grain"><feturbulence type="fractalNoise" basefrequency="0.9" numoctaves="2" stitchtiles="stitch"></feturbulence><fecolormatrix type="saturate" values="0"></fecolormatrix><fecomponenttransfer><fefunca type="linear" slope="0.55"></fefunca></fecomponenttransfer></filter>
+</svg>
+
+<section class="tq">
+  <div class="tq-hero">
+    <div>
+      <span class="tq-eyebrow">Courses &amp; talks</span>
+      <h1 class="tq-h1">Teaching <span class="tq-thin">&amp; Training</span></h1>
+    </div>
+    <p class="tq-lead">Short courses, workshops and talks on infectious disease modelling, statistics, R, and the craft of research.</p>
+  </div>
+
+  <div class="tq-body">
+    <main class="tq-main">
+      <!-- 01 -->
+      <section class="tq-block" id="sec-modelling">
+        <div class="tq-sechead">
+          <div>
+            <span class="tq-num">[01]</span>
+            <h2 class="tq-sectitle">Disease Modelling</h2>
+            <p class="tq-secsub">Compartmental models, statistics, and the maths of outbreaks.</p>
+          </div>
+          <span class="tq-count">3 courses</span>
+        </div>
+        <div class="tq-row multi">
+          <a class="tq-card" data-id="idm-intro" href="modelling/idm-intro/">
+            <div class="tq-img" style="--hue:#7d92d6">
+              <svg class="tq-art" viewbox="0 0 120 120">
+                <defs><clippath id="tqc-sir"><circle cx="38" cy="44" r="15"></circle><circle cx="82" cy="44" r="15"></circle><circle cx="60" cy="88" r="15"></circle></clippath></defs>
+                <line x1="53" y1="44" x2="67" y2="44" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;opacity:.55"></line>
+                <line x1="76" y1="56" x2="66" y2="76" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;opacity:.55"></line>
+                <circle cx="38" cy="44" r="15" style="fill:var(--lite)"></circle>
+                <circle cx="82" cy="44" r="15" style="fill:var(--mid)"></circle>
+                <circle cx="60" cy="88" r="15" style="fill:var(--deep)"></circle>
+                <g clip-path="url(#tqc-sir)" style="mix-blend-mode:soft-light;opacity:.55"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
+              </svg>
+            </div>
+            <div class="tq-meta">
+              <div class="tq-meta-top"><span class="tq-format">Short course</span><span class="tq-date">Mar 2023</span></div>
+              <p class="tq-cardname">Introduction to Infectious Disease Modelling</p>
+              <div class="tq-tags"><span class="tq-tag">SIR</span><span class="tq-tag">Compartmental</span><span class="tq-tag">R</span></div>
+            </div>
+          </a>
+          <a class="tq-card" data-id="idm4b" href="modelling/idm4b/">
+            <div class="tq-img" style="--hue:#5fa6c6">
+              <svg class="tq-art" viewbox="0 0 120 120">
+                <defs><clippath id="tqc-curve"><path d="M16 96 C 44 96 46 44 60 44 C 74 44 76 96 104 96 Z"></path></clippath></defs>
+                <line x1="14" y1="96" x2="106" y2="96" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;opacity:.35"></line>
+                <path d="M16 96 C 44 96 46 44 60 44 C 74 44 76 96 104 96 Z" style="fill:var(--mid)"></path>
+                <path d="M16 96 C 44 96 46 44 60 44 C 74 44 76 96 104 96" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;stroke-linejoin:round"></path>
+                <circle cx="60" cy="44" r="4.5" style="fill:var(--deep)"></circle>
+                <g clip-path="url(#tqc-curve)" style="mix-blend-mode:soft-light;opacity:.55"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
+              </svg>
+            </div>
+            <div class="tq-meta">
+              <div class="tq-meta-top"><span class="tq-format">Lecture series</span><span class="tq-date">May 2024</span></div>
+              <p class="tq-cardname">Infectious Disease Modelling for Babies</p>
+              <div class="tq-tags"><span class="tq-tag">SIR</span><span class="tq-tag">Beginners</span><span class="tq-tag">Intuition</span></div>
+            </div>
+          </a>
+          <a class="tq-card" data-id="s4bvn" href="https://drthinhong.com/s4bvn/" target="_blank" rel="noopener">
+            <div class="tq-img" style="--hue:#9485cf">
+              <svg class="tq-art" viewbox="0 0 120 120">
+                <defs><clippath id="tqc-stats"><path d="M20 96 C 40 96 48 52 60 52 C 72 52 80 96 100 96 Z"></path></clippath></defs>
+                <line x1="14" y1="96" x2="106" y2="96" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;opacity:.35"></line>
+                <path d="M20 96 C 40 96 48 52 60 52 C 72 52 80 96 100 96 Z" style="fill:var(--mid)"></path>
+                <path d="M20 96 C 40 96 48 52 60 52 C 72 52 80 96 100 96" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;stroke-linejoin:round"></path>
+                <line x1="60" y1="54" x2="60" y2="96" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round"></line>
+                <g clip-path="url(#tqc-stats)" style="mix-blend-mode:soft-light;opacity:.55"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
+              </svg>
+            </div>
+            <div class="tq-meta">
+              <div class="tq-meta-top"><span class="tq-format">Lecture series</span><span class="tq-date">Dec 2025</span></div>
+              <p class="tq-cardname">Statistics for Babies</p>
+              <div class="tq-tags"><span class="tq-tag">Probability</span><span class="tq-tag">Bayesian</span><span class="tq-tag">MCMC</span></div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 02 -->
+      <section class="tq-block" id="sec-r">
+        <div class="tq-sechead">
+          <div>
+            <span class="tq-num">[02]</span>
+            <h2 class="tq-sectitle">R Programming</h2>
+            <p class="tq-secsub">R for data science, from your first script onward.</p>
+          </div>
+          <span class="tq-count">3 courses</span>
+        </div>
+        <div class="tq-row multi">
+          <a class="tq-card" data-id="r4babies" href="others/r4babies/">
+            <div class="tq-img" style="--hue:#c8a86a">
+              <svg class="tq-art" viewbox="0 0 120 120">
+                <defs><clippath id="tqc-data"><rect x="32" y="70" width="14" height="26" rx="3"></rect><rect x="53" y="56" width="14" height="40" rx="3"></rect><rect x="74" y="42" width="14" height="54" rx="3"></rect></clippath></defs>
+                <line x1="24" y1="96" x2="96" y2="96" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;opacity:.35"></line>
+                <rect x="32" y="70" width="14" height="26" rx="3" style="fill:var(--lite)"></rect>
+                <rect x="53" y="56" width="14" height="40" rx="3" style="fill:var(--mid)"></rect>
+                <rect x="74" y="42" width="14" height="54" rx="3" style="fill:var(--deep)"></rect>
+                <polyline points="39,66 60,52 81,38" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;opacity:.7"></polyline>
+                <circle cx="81" cy="38" r="4" style="fill:var(--deep)"></circle>
+                <g clip-path="url(#tqc-data)" style="mix-blend-mode:soft-light;opacity:.55"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
+              </svg>
+            </div>
+            <div class="tq-meta">
+              <div class="tq-meta-top"><span class="tq-format">Short course</span><span class="tq-date">Aug 2023</span></div>
+              <p class="tq-cardname">R for Babies</p>
+              <div class="tq-tags"><span class="tq-tag">R</span><span class="tq-tag">Data science</span><span class="tq-tag">Beginners</span></div>
+            </div>
+          </a>
+          <a class="tq-card" data-id="r-training" href="https://oucru-modelling.github.io/R-training-2025/" target="_blank" rel="noopener">
+            <div class="tq-img" style="--hue:#8aa86a">
+              <svg class="tq-art" viewbox="0 0 120 120">
+                <defs><clippath id="tqc-code"><rect x="26" y="32" width="68" height="56" rx="8"></rect></clippath></defs>
+                <rect x="26" y="32" width="68" height="56" rx="8" style="fill:var(--lite)"></rect>
+                <circle cx="35" cy="40" r="2.4" style="fill:var(--deep);opacity:.55"></circle>
+                <circle cx="43" cy="40" r="2.4" style="fill:var(--deep);opacity:.55"></circle>
+                <circle cx="51" cy="40" r="2.4" style="fill:var(--deep);opacity:.55"></circle>
+                <line x1="26" y1="47" x2="94" y2="47" style="fill:none;stroke:var(--deep);stroke-width:1.6;opacity:.3"></line>
+                <line x1="35" y1="60" x2="57" y2="60" style="fill:none;stroke:var(--mid);stroke-width:3.2;stroke-linecap:round"></line>
+                <line x1="61" y1="60" x2="79" y2="60" style="fill:none;stroke:var(--deep);stroke-width:3.2;stroke-linecap:round"></line>
+                <line x1="42" y1="69" x2="74" y2="69" style="fill:none;stroke:var(--deep);stroke-width:3.2;stroke-linecap:round;opacity:.7"></line>
+                <line x1="42" y1="78" x2="60" y2="78" style="fill:none;stroke:var(--deep);stroke-width:3.2;stroke-linecap:round;opacity:.7"></line>
+                <g clip-path="url(#tqc-code)" style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
+              </svg>
+            </div>
+            <div class="tq-meta">
+              <div class="tq-meta-top"><span class="tq-format">Short course</span><span class="tq-date">2025</span></div>
+              <p class="tq-cardname">OUCRU R Training</p>
+              <div class="tq-tags"><span class="tq-tag">R</span><span class="tq-tag">Data viz</span><span class="tq-tag">Quarto</span></div>
+            </div>
+          </a>
+          <a class="tq-card" data-id="r-cafe" href="https://oucru-modelling.github.io/R-cafe-materials/" target="_blank" rel="noopener">
+            <div class="tq-img" style="--hue:#a8845e">
+              <svg class="tq-art" viewbox="0 0 120 120">
+                <defs><clippath id="tqc-cafe"><path d="M40 50 H80 L75 84 Q73 89 60 89 Q47 89 45 84 Z"></path></clippath></defs>
+                <ellipse cx="60" cy="93" rx="27" ry="4" style="fill:var(--lite)"></ellipse>
+                <path d="M40 50 H80 L75 84 Q73 89 60 89 Q47 89 45 84 Z" style="fill:var(--mid)"></path>
+                <path d="M80 56 Q93 57 93 67 Q93 77 80 77" style="fill:none;stroke:var(--deep);stroke-width:5;stroke-linecap:round"></path>
+                <ellipse cx="60" cy="50" rx="20" ry="4.5" style="fill:var(--deep);opacity:.7"></ellipse>
+                <path d="M53 30 q-5 6 0 12 M61 27 q-5 6 0 12 M69 30 q-5 6 0 12" style="fill:none;stroke:var(--deep);stroke-width:2.6;stroke-linecap:round;opacity:.4"></path>
+                <g clip-path="url(#tqc-cafe)" style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
+              </svg>
+            </div>
+            <div class="tq-meta">
+              <div class="tq-meta-top"><span class="tq-format">Short course</span><span class="tq-date">2025</span></div>
+              <p class="tq-cardname">R Café</p>
+              <div class="tq-tags"><span class="tq-tag">R</span><span class="tq-tag">tidyverse</span><span class="tq-tag">Quarto</span></div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- single-course topics, side by side -->
+      <div class="tq-block tq-duo">
+        <section class="tq-col" id="sec-skills">
+          <div class="tq-sechead">
+            <div>
+              <span class="tq-num">[03]</span>
+              <h2 class="tq-sectitle">Transferable Skills</h2>
+              <p class="tq-secsub">Writing, reviewing and the craft around research.</p>
+            </div>
+          </div>
+          <a class="tq-card" data-id="aw4b" href="others/aw4b/">
+            <div class="tq-img" style="--hue:#c187a8">
+              <svg class="tq-art" viewbox="0 0 120 120">
+                <defs><clippath id="tqc-doc"><rect x="34" y="26" width="52" height="68" rx="7"></rect><circle cx="82" cy="82" r="13"></circle></clippath></defs>
+                <rect x="34" y="26" width="52" height="68" rx="7" style="fill:var(--lite)"></rect>
+                <line x1="44" y1="44" x2="76" y2="44" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5"></line>
+                <line x1="44" y1="56" x2="76" y2="56" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5"></line>
+                <line x1="44" y1="68" x2="64" y2="68" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5"></line>
+                <circle cx="82" cy="82" r="13" style="fill:var(--deep)"></circle>
+                <path d="M76 82 l4 4 l9 -11" style="fill:none;stroke:var(--lite);stroke-width:3;stroke-linecap:round;stroke-linejoin:round"></path>
+                <g clip-path="url(#tqc-doc)" style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
+              </svg>
+            </div>
+            <div class="tq-meta">
+              <div class="tq-meta-top"><span class="tq-format">Workshop</span><span class="tq-date">2024</span></div>
+              <p class="tq-cardname">Academic Writing</p>
+              <div class="tq-tags"><span class="tq-tag">Peer review</span><span class="tq-tag">Manuscripts</span><span class="tq-tag">Publishing</span></div>
+            </div>
+          </a>
+        </section>
+
+        <section class="tq-col" id="sec-seminars">
+          <div class="tq-sechead">
+            <div>
+              <span class="tq-num">[04]</span>
+              <h2 class="tq-sectitle">Seminars &amp; Talks</h2>
+              <p class="tq-secsub">Short talks on research life and tools.</p>
+            </div>
+          </div>
+          <a class="tq-card" data-id="isgj" href="seminars/is-this-a-good-journal/">
+            <div class="tq-img" style="--hue:#6fae9a">
+              <svg class="tq-art" viewbox="0 0 120 120">
+                <defs><clippath id="tqc-lens"><rect x="28" y="30" width="44" height="42" rx="5"></rect><circle cx="70" cy="66" r="19"></circle></clippath></defs>
+                <rect x="28" y="30" width="44" height="42" rx="5" style="fill:var(--lite)"></rect>
+                <line x1="36" y1="44" x2="62" y2="44" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5"></line>
+                <line x1="36" y1="55" x2="56" y2="55" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5"></line>
+                <line x1="82" y1="80" x2="95" y2="93" style="fill:none;stroke:var(--deep);stroke-width:5;stroke-linecap:round"></line>
+                <circle cx="70" cy="66" r="19" style="fill:var(--mid)"></circle>
+                <circle cx="70" cy="66" r="19" style="fill:none;stroke:var(--deep);stroke-width:3"></circle>
+                <circle cx="64" cy="60" r="6" style="fill:var(--soft);opacity:.6"></circle>
+                <g clip-path="url(#tqc-lens)" style="mix-blend-mode:soft-light;opacity:.55"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
+              </svg>
+            </div>
+            <div class="tq-meta">
+              <div class="tq-meta-top"><span class="tq-format">Seminar</span><span class="tq-date">Sep 2023</span></div>
+              <p class="tq-cardname">Is This a Good Journal?</p>
+              <div class="tq-tags"><span class="tq-tag">Publishing</span><span class="tq-tag">Peer review</span><span class="tq-tag">Talk</span></div>
+            </div>
+          </a>
+        </section>
+      </div>
+    </main>
+
+    <nav class="tq-toc" aria-label="Topics on this page">
+      <p class="tq-toc-h">On this page</p>
+      <a href="#sec-modelling" class="active"><span class="tn">01</span><span class="tt">Disease Modelling</span></a>
+      <a href="#sec-r"><span class="tn">02</span><span class="tt">R Programming</span></a>
+      <a href="#sec-skills"><span class="tn">03</span><span class="tt">Transferable Skills</span></a>
+      <a href="#sec-seminars"><span class="tn">04</span><span class="tt">Seminars &amp; Talks</span></a>
+    </nav>
+  </div>
+</section>
+
+<div class="tqm" id="tqm" aria-hidden="true">
+  <div class="tqm-scrim" data-close=""></div>
+  <div class="tqm-dialog" role="dialog" aria-modal="true" aria-labelledby="tqm-title" tabindex="-1">
+    <div class="tqm-accent" id="tqm-accent"></div>
+    <button class="tqm-x" data-close="" aria-label="Close">✕</button>
+    <div class="tqm-body" id="tqm-body"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var root = document.querySelector(".tq");
+  if(!root) return;
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if(!reduce && "IntersectionObserver" in window){
+    root.classList.add("anim");
+    var reveal = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); reveal.unobserve(e.target); } });
+    }, { threshold:.08 });
+    root.querySelectorAll(".tq-block").forEach(function(b){ reveal.observe(b); });
+  }
+
+  // contents nav: one active group at a time (Disease Modelling, R Programming, or the duo)
+  var links = root.querySelectorAll(".tq-toc a");
+  var groups = [];
+  var modSec = document.getElementById("sec-modelling");
+  var rSec = document.getElementById("sec-r");
+  var duoEl = root.querySelector(".tq-duo");
+  if(modSec) groups.push({ el:modSec, ids:["sec-modelling"] });
+  if(rSec) groups.push({ el:rSec, ids:["sec-r"] });
+  if(duoEl) groups.push({ el:duoEl, ids:["sec-skills","sec-seminars"] });
+  function setActive(ids){ links.forEach(function(l){ l.classList.toggle("active", ids.indexOf((l.hash||"").slice(1))>-1); }); }
+  var navLock = 0;
+  links.forEach(function(l){
+    l.addEventListener("click", function(){
+      var id=(l.hash||"").slice(1), g=null, i;
+      for(i=0;i<groups.length;i++){ if(groups[i].ids.indexOf(id)>-1){ g=groups[i]; break; } }
+      setActive(g?g.ids:[id]); navLock=Date.now();
+    });
+  });
+  function spyScroll(){
+    if(Date.now()-navLock < 1000 || !groups.length) return;
+    var line=150, cur=groups[0], i;
+    for(i=0;i<groups.length;i++){ if(groups[i].el.getBoundingClientRect().top <= line) cur=groups[i]; }
+    setActive(cur.ids);
+  }
+  var ticking=false;
+  window.addEventListener("scroll", function(){ if(!ticking){ ticking=true; requestAnimationFrame(function(){ spyScroll(); ticking=false; }); } }, {passive:true});
+  window.addEventListener("resize", spyScroll, {passive:true});
+  spyScroll();
+
+  // ---- course modal ----
+  var DATA = {
+    "idm-intro":{topic:"Disease Modelling",name:"Introduction to Infectious Disease Modelling",hue:"#7d92d6",level:"Short course",format:"In person",when:"March 2023",where:"HCMC Centre for Disease Control",withWho:"Phung Khanh Lam and Thinh Ong",long:"A hands-on first course in compartmental modelling. Participants build SIR-type models from first principles, fit them to outbreak data, and learn to read the results so they can support real public health decisions.",tags:["SIR","Compartmental models","R"],link:"https://lampk.github.io/IDMIntro/",linkLabel:"Course homepage",photos:[]},
+    "idm4b":{topic:"Disease Modelling",name:"Infectious Disease Modelling for Babies",hue:"#5fa6c6",level:"Lecture series",format:"In person",when:"May 2024",where:"HCMC Centre for Disease Control",withWho:"Thinh Ong",long:"A friendly lecture series on the basics of infectious disease modelling, taught in small, step-by-step sessions with plain language and approachable examples that make the maths feel within reach.",tags:["SIR","Beginners","Intuition"],link:"https://drthinhong.com/idm4b/",linkLabel:"Course homepage",photos:[]},
+    "s4bvn":{topic:"Disease Modelling",name:"Statistics for Babies",hue:"#9485cf",level:"Lecture series",format:"In person",when:"December 2025",where:"HCMC Centre for Disease Control",withWho:"Thinh Ong",long:"A gentle lecture series on the statistics behind modelling: probability, distributions, likelihood, Bayesian inference and MCMC. Built on STATS 210 (Auckland) and Bolker's Ecological Models and Data in R.",tags:["Probability","Bayesian","MCMC"],link:"https://drthinhong.com/s4bvn/",linkLabel:"Read the book",photos:[]},
+    "r4babies":{topic:"R Programming",name:"R for Babies",hue:"#c8a86a",level:"Short course",format:"In person",when:"August 2023",where:"HCMC Centre for Disease Control",withWho:"Thinh Ong",long:"A gentle, beginner-first path into R for data science. Taught for staff at the HCMC Centre for Disease Control, with live coding, real datasets, and plenty of small wins along the way.",tags:["R","Data science","Beginners"],link:"https://drthinhong.com/r4babies/",linkLabel:"Course homepage",photos:[{src:"others/r4babies/img/hcdc1.jpg",cap:"Live coding at HCMC CDC"},{src:"others/r4babies/img/hcdc2.jpg",cap:"Hands-on session with participants"}]},
+    "r-training":{topic:"R Programming",name:"OUCRU R Training",hue:"#8aa86a",level:"Short course",format:"In person and online",when:"2025",where:"OUCRU",withWho:"Ronald Geskus, Thinh Ong and the OUCRU Modelling team",long:"A five-day OUCRU course covering R from the ground up: handling and exploring data in RStudio, the grammar of graphics for visualisation, advanced topics like functions, piping and iteration, and reproducible research with Quarto.",tags:["R","Data viz","Quarto"],link:"https://oucru-modelling.github.io/R-training-2025/",linkLabel:"Course homepage",photos:[]},
+    "r-cafe":{topic:"R Programming",name:"R Café",hue:"#a8845e",level:"Short course",format:"In person and online",when:"2025",where:"OUCRU",withWho:"Thinh Ong and the OUCRU Modelling team",long:"A weekly, hands-on R cafe at OUCRU: three-hour face-to-face sessions with take-home exercises in between, covering R and Git, the tidyverse, data visualisation with ggplot2, and reproducible tables and reports with Quarto and gtsummary.",tags:["R","tidyverse","Quarto"],link:"https://oucru-modelling.github.io/R-cafe-materials/",linkLabel:"Course materials",photos:[]},
+    "aw4b":{topic:"Transferable Skills",name:"Academic Writing",hue:"#c187a8",level:"Workshop",format:"In person",when:"2024",where:"HCMC Centre for Disease Control",withWho:"Thinh Ong",long:"A practical guide to the academic publication process. Understand what reviewers look for, how editors decide, and how to write a manuscript and cover letter that pass the test the first time.",tags:["Peer review","Manuscripts","Publishing"],link:"",linkLabel:"",photos:[]},
+    "isgj":{topic:"Seminars & Talks",name:"Is This a Good Journal?",hue:"#6fae9a",level:"Seminar",format:"In person",when:"September 2023",where:"HCMC Centre for Disease Control",withWho:"Thinh Ong",long:"Learn how to tell trustworthy scientific journals from predatory ones, with simple checks you can run before you submit. A short, practical talk you can apply to your very next paper.",tags:["Publishing","Peer review","Talk"],link:"/slides/is-this-a-good-journal",linkLabel:"Presentation",photos:[{src:"seminars/is-this-a-good-journal/img/hcdc.jpg",cap:"Seminar with participants"}]}
+  };
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];}); }
+  var modal=document.getElementById("tqm"), mbody=document.getElementById("tqm-body"), accent=document.getElementById("tqm-accent"), lastFocus=null;
+  if(modal && modal.parentNode!==document.body){ document.body.appendChild(modal); }
+  function openModal(id){
+    var it=DATA[id]; if(!it) return;
+    accent.style.background="linear-gradient(90deg,"+it.hue+", color-mix(in srgb,"+it.hue+" 55%, #ffffff))";
+    var gal = (it.photos&&it.photos.length) ? '<div class="tqm-gal">'+it.photos.map(function(p){return '<figure><img loading="lazy" decoding="async" src="'+p.src+'" alt="'+esc(p.cap)+'"><figcaption>'+esc(p.cap)+'</figcaption></figure>';}).join("")+'</div>' : "";
+    var btn = it.link ? '<div class="tqm-btns"><a class="tqm-btn" href="'+it.link+'" target="_blank" rel="noopener">'+esc(it.linkLabel||"Visit")+' &#8599;</a></div>' : "";
+    mbody.innerHTML =
+      '<span class="tqm-eyebrow">'+esc(it.topic)+'</span>'+
+      '<h2 class="tqm-title" id="tqm-title">'+esc(it.name)+'</h2>'+
+      gal +
+      '<div class="tqm-meta">'+
+        '<div><div class="k">When</div><div class="v">'+esc(it.when)+'</div></div>'+
+        '<div><div class="k">Where</div><div class="v">'+esc(it.where)+'</div></div>'+
+        '<div><div class="k">With</div><div class="v">'+esc(it.withWho)+'</div></div>'+
+        '<div><div class="k">Format</div><div class="v">'+esc(it.level)+' &middot; '+esc(it.format)+'</div></div>'+
+      '</div>'+
+      '<p class="tqm-long">'+esc(it.long)+'</p>'+
+      '<div class="tqm-tags">'+it.tags.map(function(t){return '<span class="tqm-tag">'+esc(t)+'</span>';}).join("")+'</div>'+
+      btn;
+    modal.classList.add("open"); modal.setAttribute("aria-hidden","false");
+    document.documentElement.style.overflow="hidden"; lastFocus=document.activeElement;
+    modal.querySelector(".tqm-dialog").focus();
+  }
+  function closeModal(){ modal.classList.remove("open"); modal.setAttribute("aria-hidden","true"); document.documentElement.style.overflow=""; if(lastFocus) lastFocus.focus(); }
+  root.querySelectorAll(".tq-card").forEach(function(c){
+    c.addEventListener("click", function(e){ var id=c.getAttribute("data-id"); if(id&&DATA[id]){ e.preventDefault(); openModal(id); } });
+  });
+  modal.addEventListener("click", function(e){ if(e.target.hasAttribute("data-close")) closeModal(); });
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape" && modal.classList.contains("open")) closeModal(); });
+})();
+</script>
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script>
+
+// Site-wide floating light/dark toggle. Remembers the visitor's choice.
+
+(function () {
+
+  var root = document.documentElement;
+
+  function cur() { return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
+
+  function apply(mode) {
+
+    root.setAttribute('data-theme', mode);
+
+    root.setAttribute('data-bs-theme', mode);
+
+    if (document.body) {
+
+      document.body.classList.remove('quarto-light', 'quarto-dark');
+
+      document.body.classList.add(mode === 'dark' ? 'quarto-dark' : 'quarto-light');
+
+    }
+
+  }
+
+
+
+  var btn = document.createElement('button');
+
+  btn.className = 'theme-toggle';
+
+  btn.type = 'button';
+
+  btn.setAttribute('aria-label', 'Toggle light and dark theme');
+
+  btn.setAttribute('title', 'Toggle light and dark');
+
+  btn.innerHTML =
+
+    '<svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>' +
+
+    '<svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>';
+
+
+
+  function sync() { btn.setAttribute('data-mode', cur()); }
+
+
+
+  btn.addEventListener('click', function () {
+
+    var next = cur() === 'dark' ? 'light' : 'dark';
+
+    apply(next);
+
+    try { localStorage.setItem('theme', next); } catch (e) {}
+
+    sync();
+
+  });
+
+
+
+  function init() { apply(cur()); document.body.appendChild(btn); sync(); }
+
+  if (document.readyState !== 'loading') { init(); } else { document.addEventListener('DOMContentLoaded', init); }
+
+  // Default theme is light; it only changes when the visitor clicks the toggle.
+
+
+
+  // Frost the navbar once the page is scrolled, so content does not show through the transparent bar.
+
+  var onScroll = function () { document.body.classList.toggle('scrolled', window.scrollY > 8); };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  onScroll();
+
+})();
+
+</script>
+
+<script>
+
+(function(){
+
+  function add(){
+
+    var nc = document.querySelector('.navbar-container');
+
+    if (nc && !document.getElementById('navContact')) {
+
+      var wrap = document.createElement('div');
+
+      wrap.id = 'navContact';
+
+      wrap.className = 'nav-contact';
+
+      wrap.setAttribute('role', 'button');
+
+      wrap.setAttribute('tabindex', '0');
+
+      wrap.setAttribute('aria-label', 'Contact via LinkedIn or Email');
+
+      wrap.innerHTML =
+
+        '<span class="nc-extra">' +
+
+          '<a class="nc-ico" href="https://www.linkedin.com/in/thinh-ong/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>' +
+
+          '<a class="nc-ico" href="mailto:ongphucthinh@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>' +
+
+        '</span>' +
+
+        '<span class="nc-label">Contact</span>';
+
+      nc.appendChild(wrap);
+
+      wrap.addEventListener('click', function (e) {
+
+        if (e.target.closest('a.nc-ico')) return;
+
+        e.preventDefault();
+
+        wrap.classList.toggle('open');
+
+      });
+
+      wrap.addEventListener('keydown', function (e) {
+
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); wrap.classList.toggle('open'); }
+
+      });
+
+      document.addEventListener('click', function (e) {
+
+        if (!wrap.contains(e.target)) wrap.classList.remove('open');
+
+      });
+
+    }
+
+  }
+
+  if (document.readyState !== 'loading') add();
+
+  else document.addEventListener('DOMContentLoaded', add);
+
+})();
+
+
+
+// Sliding pill that glides between navbar links and rests on the current page
+
+(function(){
+
+  var nav, links, pill;
+
+  function activeLink(){ return nav.querySelector('.nav-link.active') || nav.querySelector('.nav-link[aria-current="page"]'); }
+
+  function place(link, animate){
+
+    if (!link) return;
+
+    if (!animate) pill.style.transition = 'none';
+
+    pill.style.opacity = '1';
+
+    pill.style.width = link.offsetWidth + 'px';
+
+    pill.style.height = link.offsetHeight + 'px';
+
+    pill.style.transform = 'translate(' + link.offsetLeft + 'px,' + link.offsetTop + 'px)';
+
+    links.forEach(function (l) { l.classList.toggle('lit', l === link); });
+
+    if (!animate) { void pill.offsetWidth; pill.style.transition = ''; }
+
+  }
+
+  function rest(){
+
+    var a = activeLink();
+
+    if (a) { place(a, true); }
+
+    else { pill.style.opacity = '0'; links.forEach(function (l) { l.classList.remove('lit'); }); }
+
+  }
+
+  function reposition(){
+
+    var cur = nav.querySelector('.nav-link.lit') || activeLink();
+
+    if (cur) place(cur, false); else pill.style.opacity = '0';
+
+  }
+
+  function init(){
+
+    nav = document.querySelector('#navbarCollapse .navbar-nav');
+
+    if (!nav) return;
+
+    links = [].slice.call(nav.querySelectorAll('.nav-link'));
+
+    if (!links.length || nav.querySelector('.nav-pill')) return;
+
+    nav.style.position = 'relative';
+
+    pill = document.createElement('span');
+
+    pill.className = 'nav-pill';
+
+    nav.insertBefore(pill, nav.firstChild);
+
+    links.forEach(function (l) { l.addEventListener('mouseenter', function () { place(l, true); }); });
+
+    nav.addEventListener('mouseleave', rest);
+
+    reposition();
+
+    setTimeout(reposition, 300);
+
+    window.addEventListener('load', reposition);
+
+    var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(reposition, 120); });
+
+  }
+
+  if (document.readyState !== 'loading') init();
+
+  else document.addEventListener('DOMContentLoaded', init);
+
+})();
+
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
