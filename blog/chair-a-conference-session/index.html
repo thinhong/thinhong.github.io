@@ -243,6 +243,13 @@ background: url(../../img/blog-art/banner-chair-conf.svg);
   <li><a href="#arrive-early-and-meet-your-presenters" id="toc-arrive-early-and-meet-your-presenters" class="nav-link active" data-scroll-target="#arrive-early-and-meet-your-presenters">Arrive early and meet your presenters</a></li>
   <li><a href="#send-them-to-check-their-slides" id="toc-send-them-to-check-their-slides" class="nav-link" data-scroll-target="#send-them-to-check-their-slides">Send them to check their slides</a></li>
   <li><a href="#set-up-the-timer" id="toc-set-up-the-timer" class="nav-link" data-scroll-target="#set-up-the-timer">Set up the timer</a></li>
+  <li><a href="#tell-the-presenter-where-the-buffer-is" id="toc-tell-the-presenter-where-the-buffer-is" class="nav-link" data-scroll-target="#tell-the-presenter-where-the-buffer-is">Tell the presenter where the buffer is</a></li>
+  <li><a href="#a-template-to-introduce-the-presenter" id="toc-a-template-to-introduce-the-presenter" class="nav-link" data-scroll-target="#a-template-to-introduce-the-presenter">A template to introduce the presenter</a></li>
+  <li><a href="#during-the-talk" id="toc-during-the-talk" class="nav-link" data-scroll-target="#during-the-talk">During the talk</a></li>
+  <li><a href="#a-template-to-thank-the-speaker-and-open-questions" id="toc-a-template-to-thank-the-speaker-and-open-questions" class="nav-link" data-scroll-target="#a-template-to-thank-the-speaker-and-open-questions">A template to thank the speaker and open questions</a></li>
+  <li><a href="#when-nobody-asks-a-question" id="toc-when-nobody-asks-a-question" class="nav-link" data-scroll-target="#when-nobody-asks-a-question">When nobody asks a question</a></li>
+  <li><a href="#close-the-session" id="toc-close-the-session" class="nav-link" data-scroll-target="#close-the-session">Close the session</a></li>
+  <li><a href="#one-last-thing" id="toc-one-last-thing" class="nav-link" data-scroll-target="#one-last-thing">One last thing</a></li>
   </ul>
 </nav>
     </div>
@@ -281,19 +288,20 @@ background: url(../../img/blog-art/banner-chair-conf.svg);
 </ul>
 <p>Agree on the exact thresholds, for example yellow at two minutes and red at zero, and make sure the presenter can see the timer from where they will stand.</p>
 <figure class="tsw figure">
-<div id="tsw1" class="tsw-stage">
-<pre><code>&lt;img class="tsw-img tsw-base" src="timer-green.jpg" width="1800" height="558" loading="lazy" decoding="async" alt="Session timer reading 4:39 with the green light lit, signalling there is plenty of time"&gt;
-&lt;img class="tsw-img tsw-over" src="timer-yellow.jpg" width="1800" height="558" loading="lazy" decoding="async" alt="Session timer reading 2:41 with the yellow light lit, signalling it is time to wrap up"&gt;</code></pre>
-</div>
-<div class="tsw-bar">
-<pre><code>&lt;div class="tsw-seg" data-active="green" role="group" aria-label="Switch the timer light"&gt;
-  &lt;span class="tsw-thumb" aria-hidden="true"&gt;&lt;/span&gt;
-  &lt;button class="tsw-btn is-active" type="button" data-go="green" aria-pressed="true"&gt;&lt;span class="tsw-dot tsw-dot--g" aria-hidden="true"&gt;&lt;/span&gt;Green&lt;/button&gt;
-  &lt;button class="tsw-btn" type="button" data-go="yellow" aria-pressed="false"&gt;&lt;span class="tsw-dot tsw-dot--y" aria-hidden="true"&gt;&lt;/span&gt;Yellow&lt;/button&gt;
-&lt;/div&gt;
-&lt;figcaption class="tsw-cap" aria-live="polite"&gt;Green: plenty of time&lt;/figcaption&gt;</code></pre>
-</div>
+  <div class="tsw-stage" id="tsw1">
+    <img class="tsw-img tsw-base figure-img" src="timer-green.jpg" width="1800" height="558" loading="lazy" decoding="async" alt="Session timer reading 4:39 with the green light lit, signalling there is plenty of time">
+    <img class="tsw-img tsw-over figure-img" src="timer-yellow.jpg" width="1800" height="558" loading="lazy" decoding="async" alt="Session timer reading 2:41 with the yellow light lit, signalling it is time to wrap up">
+  </div>
+  <div class="tsw-bar">
+    <div class="tsw-seg" data-active="green" role="group" aria-label="Switch the timer light">
+      <span class="tsw-thumb" aria-hidden="true"></span>
+      <button class="tsw-btn is-active" type="button" data-go="green" aria-pressed="true"><span class="tsw-dot tsw-dot--g" aria-hidden="true"></span>Green</button>
+      <button class="tsw-btn" type="button" data-go="yellow" aria-pressed="false"><span class="tsw-dot tsw-dot--y" aria-hidden="true"></span>Yellow</button>
+    </div>
+    <figcaption class="tsw-cap" aria-live="polite">Green: plenty of time</figcaption>
+  </div>
 </figure>
+
 <style>
 .tsw{margin:1.6rem 0;}
 .tsw-stage{position:relative;width:100%;aspect-ratio:1800 / 558;border-radius:var(--card-radius);overflow:hidden;background:var(--panel-bg);border:1px solid var(--border);box-shadow:var(--card-shadow);}
@@ -316,17 +324,96 @@ background: url(../../img/blog-art/banner-chair-conf.svg);
 @media (prefers-reduced-motion:reduce){.tsw-img,.tsw-thumb,.tsw-btn{transition:none;}}
 @media (max-width:560px){.tsw-bar{justify-content:center;}.tsw-cap{flex-basis:100%;text-align:center;}}
 </style>
+
 <script>
-<p>(function(){ var stage=document.getElementById(‘tsw1’); if(!stage)return; var fig=stage.closest(‘.tsw’); var seg=fig.querySelector(‘.tsw-seg’); var btns=fig.querySelectorAll(‘.tsw-btn’); var over=stag</p>
-<div id="quarto-navigation-envelope" class="hidden">
-<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl">How to chair a conference session</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXItdGl0bGU=">How to chair a conference session</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6QWJvdXQ=">About</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2Fib3V0L2luZGV4Lmh0bWw=">/about/index.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6UmVzZWFyY2g=">Research</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L3Jlc2VhcmNoL2luZGV4Lmh0bWw=">/research/index.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6VGVhY2hpbmc=">Teaching</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L3RlYWNoaW5nL2luZGV4Lmh0bWw=">/teaching/index.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6U29mdHdhcmU=">Software</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L3NvZnR3YXJlL2luZGV4Lmh0bWw=">/software/index.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6QmxvZw==">Blog</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2Jsb2cvaW5kZXguaHRtbA==">/blog/index.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6aHR0cHM6Ly9naXRodWIuY29tL3RoaW5ob25n">https://github.com/thinhong</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3RoaW5oLW9uZw==">https://www.linkedin.com/in/thinh-ong</span></p>
-</div>
-<div id="quarto-meta-markdown" class="hidden">
-<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ==">How to chair a conference session</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=">How to chair a conference session</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl">How to chair a conference session</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw==">The quiet work before and during a session that makes presenters comfortable</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj">The quiet work before and during a session that makes presenters comfortable</span></p>
-</div>
+(function(){
+  var stage=document.getElementById('tsw1');
+  if(!stage)return;
+  var fig=stage.closest('.tsw');
+  var seg=fig.querySelector('.tsw-seg');
+  var btns=fig.querySelectorAll('.tsw-btn');
+  var over=stage.querySelector('.tsw-over');
+  var cap=fig.querySelector('.tsw-cap');
+  var labels={green:'Green: plenty of time',yellow:'Yellow: start wrapping up'};
+  function set(state){
+    if(seg.getAttribute('data-active')===state)return;
+    seg.setAttribute('data-active',state);
+    btns.forEach(function(b){var on=b.dataset.go===state;b.classList.toggle('is-active',on);b.setAttribute('aria-pressed',on?'true':'false');});
+    over.classList.toggle('show',state==='yellow');
+    if(cap)cap.textContent=labels[state];
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.go);});});
+  var x0=null,y0=null;
+  stage.addEventListener('touchstart',function(e){var t=e.changedTouches[0];x0=t.clientX;y0=t.clientY;},{passive:true});
+  stage.addEventListener('touchend',function(e){if(x0===null)return;var t=e.changedTouches[0];var dx=t.clientX-x0,dy=t.clientY-y0;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){set(dx<0?'yellow':'green');}x0=y0=null;},{passive:true});
+})();
+</script>
+</section>
+<section id="tell-the-presenter-where-the-buffer-is" class="level2">
+<h2 class="anchored" data-anchor-id="tell-the-presenter-where-the-buffer-is">Tell the presenter where the buffer is</h2>
+<p>This is the part I care about most, because I know how it feels to be anxious about time.</p>
+<p>Let the presenter know if there is a little flexibility. For example, if you have room in the schedule, you might tell them that if they run slightly over, you can trim a question or two from the Q&amp;A. Speakers who know there is a small buffer relax, and relaxed speakers give better talks.</p>
+<p>The reverse is also worth saying out loud. If someone tends to get carried away, gently let them know in advance that you will keep an eye on the time and may move to questions when the timer turns red. Setting that expectation early means you are not surprising them on stage.</p>
+</section>
+<section id="a-template-to-introduce-the-presenter" class="level2">
+<h2 class="anchored" data-anchor-id="a-template-to-introduce-the-presenter">A template to introduce the presenter</h2>
+<p>Keep the introduction short. The audience came for the speaker, not for you.</p>
+<blockquote class="blockquote">
+<p>Good morning, everyone. Our next speaker is [Name], [title] at [affiliation]. [One sentence on why they are well placed to speak on this topic.] Today they will be talking about [title of talk]. Please join me in welcoming [Name].</p>
+</blockquote>
+<p>Read the name slowly and clearly, then sit back and let them take over.</p>
+</section>
+<section id="during-the-talk" class="level2">
+<h2 class="anchored" data-anchor-id="during-the-talk">During the talk</h2>
+<p>Watch the time so the presenter does not have to. Use the timer or an agreed hand signal. If you promised a buffer, honour it. If the talk is overrunning and there is no room left, be ready to step in politely when the timer turns red.</p>
+</section>
+<section id="a-template-to-thank-the-speaker-and-open-questions" class="level2">
+<h2 class="anchored" data-anchor-id="a-template-to-thank-the-speaker-and-open-questions">A template to thank the speaker and open questions</h2>
+<p>When the talk ends, thank the presenter and invite questions clearly:</p>
+<blockquote class="blockquote">
+<p>Thank you, [Name], for that excellent talk. We have a few minutes for questions. If you have one, please raise your hand and wait for the microphone.</p>
+</blockquote>
+<p>If there is a microphone, remind people to wait for it, and repeat or paraphrase each question before the speaker answers. This helps everyone at the back of the room, and it matters even more if the session is being recorded or streamed.</p>
+</section>
+<section id="when-nobody-asks-a-question" class="level2">
+<h2 class="anchored" data-anchor-id="when-nobody-asks-a-question">When nobody asks a question</h2>
+<p>Silence after a talk is normal and almost always temporary. Give it a few seconds, then start things off yourself. Having a couple of strong questions ready takes the pressure off everyone.</p>
+<p>Good fallback questions are open, easy to answer, and invite the speaker to reflect rather than defend:</p>
+<ul>
+<li>What surprised you most in this work?</li>
+<li>If you had more time or resources, what would be your next step?</li>
+<li>What do you see as the main limitation, and how might it be addressed?</li>
+<li>How would this apply in a different setting, for example a lower-resource one?</li>
+<li>What is the single most important takeaway for the people in this room?</li>
+</ul>
+<p>Once you ask the first one, others usually follow.</p>
+<p>If a questioner starts giving a speech instead of asking a question, you can bring them back gently: “That is a great point. What is your question for the speaker?” Keep things moving so as many people as possible get a turn.</p>
+</section>
+<section id="close-the-session" class="level2">
+<h2 class="anchored" data-anchor-id="close-the-session">Close the session</h2>
+<p>When time is up, thank the speaker again, thank the audience, and hand over cleanly to whatever comes next:</p>
+<blockquote class="blockquote">
+<p>Thank you again, [Name], and thank you all for your questions. [Any housekeeping, for example: the next session starts at X, or coffee is outside.] Let us give our speakers one more round of applause.</p>
+</blockquote>
+</section>
+<section id="one-last-thing" class="level2">
+<h2 class="anchored" data-anchor-id="one-last-thing">One last thing</h2>
+<p>Remember that the focus is on the presenter, not on you. Your job is to make them look good and keep things running smoothly. If you have done the quiet work beforehand, the session almost runs itself. So relax, enjoy it, and you will be fine.</p>
+
+
 </section>
 
-</main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ong2026,
+  author = {Ong, Thinh},
+  title = {How to Chair a Conference Session},
+  date = {2026-06-23},
+  url = {https://drthinhong.com/blog/chair-a-conference-session/},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ong2026" class="csl-entry quarto-appendix-citeas" role="listitem">
+Ong, Thinh. 2026. <span>“How to Chair a Conference Session.”</span> June
+23, 2026. <a href="https://drthinhong.com/blog/chair-a-conference-session/">https://drthinhong.com/blog/chair-a-conference-session/</a>.
+</div></div></section></div></main> <!-- /main -->
 <script>
 
 // Site-wide floating light/dark toggle. Remembers the visitor's choice.
@@ -996,17 +1083,7 @@ background: url(../../img/blog-art/banner-chair-conf.svg);
   }
   loadGiscus();
 </script>
-</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ong2026,
-  author = {Ong, Thinh},
-  title = {How to Chair a Conference Session},
-  date = {2026-06-23},
-  url = {https://drthinhong.com/blog/chair-a-conference-session/},
-  langid = {en}
-}
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ong2026" class="csl-entry quarto-appendix-citeas" role="listitem">
-Ong, Thinh. 2026. <span>“How to Chair a Conference Session.”</span> June
-23, 2026. <a href="https://drthinhong.com/blog/chair-a-conference-session/">https://drthinhong.com/blog/chair-a-conference-session/</a>.
-</div></div></section></div></main></div> <!-- /content -->
+</div> <!-- /content -->
 
 
 

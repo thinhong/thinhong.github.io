@@ -123,7 +123,7 @@
     "href": "blog/index.html",
     "title": "Blog & Notes",
     "section": "",
-    "text": "Writing\n      Blog & Notes\n    \n    \n      A place to think out loud about disease modelling, code, and the work of science.\n    \n  \n\n  \n    \n      \n      All posts\n      \n    \n    \n  \n\n\n  LeadershipJun 23, 2026 · 3 min How to chair a conference session \n  LeadershipAug 26, 2023 · 6 min 10 simple tips to chair a meeting \n\nNo matching items\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "Writing\n      Blog & Notes\n    \n    \n      A place to think out loud about disease modelling, code, and the work of science.\n    \n  \n\n  \n    \n      \n      All posts\n      \n    \n    \n  \n\n\n  LeadershipJun 23, 2026 · 6 min How to chair a conference session \n  LeadershipAug 26, 2023 · 6 min 10 simple tips to chair a meeting \n\nNo matching items\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "blog/chair-a-conference-session/index.html",
@@ -151,7 +151,56 @@
     "href": "blog/chair-a-conference-session/index.html#set-up-the-timer",
     "title": "How to chair a conference session",
     "section": "Set up the timer",
-    "text": "Set up the timer\nIf the room has a timer, decide how you want it to work and tell the support team before the session starts. Many timers use a traffic light system:\n\nGreen: there is plenty of time.\nYellow: start wrapping up (for example, yellow when 2 minutes are left).\nRed: stop.\n\nAgree on the exact thresholds, for example yellow at two minutes and red at zero, and make sure the presenter can see the timer from where they will stand.\n\n\n&lt;img class=\"tsw-img tsw-base\" src=\"timer-green.jpg\" width=\"1800\" height=\"558\" loading=\"lazy\" decoding=\"async\" alt=\"Session timer reading 4:39 with the green light lit, signalling there is plenty of time\"&gt;\n&lt;img class=\"tsw-img tsw-over\" src=\"timer-yellow.jpg\" width=\"1800\" height=\"558\" loading=\"lazy\" decoding=\"async\" alt=\"Session timer reading 2:41 with the yellow light lit, signalling it is time to wrap up\"&gt;\n\n\n&lt;div class=\"tsw-seg\" data-active=\"green\" role=\"group\" aria-label=\"Switch the timer light\"&gt;\n  &lt;span class=\"tsw-thumb\" aria-hidden=\"true\"&gt;&lt;/span&gt;\n  &lt;button class=\"tsw-btn is-active\" type=\"button\" data-go=\"green\" aria-pressed=\"true\"&gt;&lt;span class=\"tsw-dot tsw-dot--g\" aria-hidden=\"true\"&gt;&lt;/span&gt;Green&lt;/button&gt;\n  &lt;button class=\"tsw-btn\" type=\"button\" data-go=\"yellow\" aria-pressed=\"false\"&gt;&lt;span class=\"tsw-dot tsw-dot--y\" aria-hidden=\"true\"&gt;&lt;/span&gt;Yellow&lt;/button&gt;\n&lt;/div&gt;\n&lt;figcaption class=\"tsw-cap\" aria-live=\"polite\"&gt;Green: plenty of time&lt;/figcaption&gt;"
+    "text": "Set up the timer\nIf the room has a timer, decide how you want it to work and tell the support team before the session starts. Many timers use a traffic light system:\n\nGreen: there is plenty of time.\nYellow: start wrapping up (for example, yellow when 2 minutes are left).\nRed: stop.\n\nAgree on the exact thresholds, for example yellow at two minutes and red at zero, and make sure the presenter can see the timer from where they will stand.\n\n  \n    \n    \n  \n  \n    \n      \n      Green\n      Yellow\n    \n    Green: plenty of time"
+  },
+  {
+    "objectID": "blog/chair-a-conference-session/index.html#tell-the-presenter-where-the-buffer-is",
+    "href": "blog/chair-a-conference-session/index.html#tell-the-presenter-where-the-buffer-is",
+    "title": "How to chair a conference session",
+    "section": "Tell the presenter where the buffer is",
+    "text": "Tell the presenter where the buffer is\nThis is the part I care about most, because I know how it feels to be anxious about time.\nLet the presenter know if there is a little flexibility. For example, if you have room in the schedule, you might tell them that if they run slightly over, you can trim a question or two from the Q&A. Speakers who know there is a small buffer relax, and relaxed speakers give better talks.\nThe reverse is also worth saying out loud. If someone tends to get carried away, gently let them know in advance that you will keep an eye on the time and may move to questions when the timer turns red. Setting that expectation early means you are not surprising them on stage."
+  },
+  {
+    "objectID": "blog/chair-a-conference-session/index.html#a-template-to-introduce-the-presenter",
+    "href": "blog/chair-a-conference-session/index.html#a-template-to-introduce-the-presenter",
+    "title": "How to chair a conference session",
+    "section": "A template to introduce the presenter",
+    "text": "A template to introduce the presenter\nKeep the introduction short. The audience came for the speaker, not for you.\n\nGood morning, everyone. Our next speaker is [Name], [title] at [affiliation]. [One sentence on why they are well placed to speak on this topic.] Today they will be talking about [title of talk]. Please join me in welcoming [Name].\n\nRead the name slowly and clearly, then sit back and let them take over."
+  },
+  {
+    "objectID": "blog/chair-a-conference-session/index.html#during-the-talk",
+    "href": "blog/chair-a-conference-session/index.html#during-the-talk",
+    "title": "How to chair a conference session",
+    "section": "During the talk",
+    "text": "During the talk\nWatch the time so the presenter does not have to. Use the timer or an agreed hand signal. If you promised a buffer, honour it. If the talk is overrunning and there is no room left, be ready to step in politely when the timer turns red."
+  },
+  {
+    "objectID": "blog/chair-a-conference-session/index.html#a-template-to-thank-the-speaker-and-open-questions",
+    "href": "blog/chair-a-conference-session/index.html#a-template-to-thank-the-speaker-and-open-questions",
+    "title": "How to chair a conference session",
+    "section": "A template to thank the speaker and open questions",
+    "text": "A template to thank the speaker and open questions\nWhen the talk ends, thank the presenter and invite questions clearly:\n\nThank you, [Name], for that excellent talk. We have a few minutes for questions. If you have one, please raise your hand and wait for the microphone.\n\nIf there is a microphone, remind people to wait for it, and repeat or paraphrase each question before the speaker answers. This helps everyone at the back of the room, and it matters even more if the session is being recorded or streamed."
+  },
+  {
+    "objectID": "blog/chair-a-conference-session/index.html#when-nobody-asks-a-question",
+    "href": "blog/chair-a-conference-session/index.html#when-nobody-asks-a-question",
+    "title": "How to chair a conference session",
+    "section": "When nobody asks a question",
+    "text": "When nobody asks a question\nSilence after a talk is normal and almost always temporary. Give it a few seconds, then start things off yourself. Having a couple of strong questions ready takes the pressure off everyone.\nGood fallback questions are open, easy to answer, and invite the speaker to reflect rather than defend:\n\nWhat surprised you most in this work?\nIf you had more time or resources, what would be your next step?\nWhat do you see as the main limitation, and how might it be addressed?\nHow would this apply in a different setting, for example a lower-resource one?\nWhat is the single most important takeaway for the people in this room?\n\nOnce you ask the first one, others usually follow.\nIf a questioner starts giving a speech instead of asking a question, you can bring them back gently: “That is a great point. What is your question for the speaker?” Keep things moving so as many people as possible get a turn."
+  },
+  {
+    "objectID": "blog/chair-a-conference-session/index.html#close-the-session",
+    "href": "blog/chair-a-conference-session/index.html#close-the-session",
+    "title": "How to chair a conference session",
+    "section": "Close the session",
+    "text": "Close the session\nWhen time is up, thank the speaker again, thank the audience, and hand over cleanly to whatever comes next:\n\nThank you again, [Name], and thank you all for your questions. [Any housekeeping, for example: the next session starts at X, or coffee is outside.] Let us give our speakers one more round of applause."
+  },
+  {
+    "objectID": "blog/chair-a-conference-session/index.html#one-last-thing",
+    "href": "blog/chair-a-conference-session/index.html#one-last-thing",
+    "title": "How to chair a conference session",
+    "section": "One last thing",
+    "text": "One last thing\nRemember that the focus is on the presenter, not on you. Your job is to make them look good and keep things running smoothly. If you have done the quiet work beforehand, the session almost runs itself. So relax, enjoy it, and you will be fine."
   },
   {
     "objectID": "about/index.html",
@@ -256,7 +305,7 @@
     "href": "blog/chair-a-meeting/index.html#acknowledgments",
     "title": "10 simple tips to chair a meeting",
     "section": "Acknowledgments",
-    "text": "Acknowledgments\nSpecial thanks to Dr. Leigh Jones, my mentor, for her valuable insights that helped shape these tips and Dr. Marc Choisy, my cool PhD supervisor, for the extra tip. A big thank you to Ms. Gaye Proctor for the classification of participant behaviors in her Train the Trainer workshop, a valuable resource for my Tip 7.\n\nPreview image by storyset"
+    "text": "Acknowledgments\nSpecial thanks to Dr. Leigh Jones, my mentor, for her valuable insights that helped shape these tips and Dr. Marc Choisy, my cool PhD supervisor, for the extra tip. A big thank you to Ms. Gaye Proctor for the classification of participant behaviors in her Train the Trainer workshop, a valuable resource for my Tip 7."
   },
   {
     "objectID": "index.html",
