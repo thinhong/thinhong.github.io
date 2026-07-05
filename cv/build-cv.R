@@ -1,101 +1,246 @@
 #!/usr/bin/env Rscript
 # =====================================================================
-# cv/build-cv.R  -  Build Thinh Ong's master CV (HTML + PDF) from the
-# Google Sheet + Zotero, in the Scholarly design.
+# cv/build-cv.R - Build the CV (cv/cv.html + cv/cv.pdf) from the Google
+# Sheet + Zotero, in the Scholarly design.
 #
-# RUN from the project root (the folder that holds code/ and cv/):
+# This runs automatically as a Quarto pre-render script (_quarto.yml),
+# so `quarto render` and `quarto publish gh-pages` always ship a CV
+# freshly built from the data. You can still run it by hand from the
+# project root:
 #     Rscript cv/build-cv.R
 #
-# PREREQUISITES (the same setup your current CV already uses):
-#   * R packages: googlesheets4, dplyr, tidyr, stringr, lubridate, httr, jsonlite
-#   * Google auth + ZOTERO_API_KEY / ZOTERO_USER_ID / ZOTERO_COLLECTION_KEY
-#     in .Renviron  (already configured for your old cv.qmd)
-#   * For the PDF only:  pip install weasyprint
-#     and either an internet connection (so WeasyPrint can fetch Source Serif 4
-#     from Google Fonts) or the Source Serif 4 font installed on your machine.
+# When it runs:
+#   * Full project render (quarto render / publish / preview startup):
+#     refetch the data and rebuild both files. If the network fails, it
+#     falls back to the last cached data with a loud warning.
+#   * Incremental preview renders: skipped when cv.html + cv.pdf exist.
+#   * Manual run: always rebuilds with fresh data.
 #
-# OUTPUT:  cv/cv.html   and, if WeasyPrint is available,  cv/cv.pdf
-# The design lives in cv/cv-template.html; this script only fills in the data.
+# Escape hatches (environment variables):
+#   CV_SKIP=1      skip the CV entirely (handy while designing pages)
+#   CV_FORCE=1     rebuild + refetch no matter what
+#   CV_SKIP_PDF=1  rebuild cv.html only (accepting a possibly stale pdf)
+#
+# Requirements:
+#   * R packages: googlesheets4, dplyr, stringr, lubridate, httr,
+#     jsonlite, pagedown  (pagedown is NOT in renv yet:
+#     run  renv::install("pagedown"); renv::snapshot()  once)
+#   * Chrome or Edge installed (pagedown uses it to print the PDF)
+#   * ZOTERO_API_KEY / ZOTERO_USER_ID / ZOTERO_COLLECTION_KEY in .Renviron
+#   * Google auth is only needed if the Sheet is not link-viewable;
+#     in that case the cached gargle token for my_email is used.
 # =====================================================================
 
 suppressPackageStartupMessages({
-  library(dplyr); library(tidyr); library(stringr); library(lubridate)
+  library(googlesheets4); library(dplyr); library(stringr); library(lubridate)
 })
 
-if (!file.exists("code/cv.R"))
+## ---------------- config ----------------
+cv_url     <- "https://docs.google.com/spreadsheets/d/1ecqMkclPn-lhzgGHw2UTueiKkjTxuoAvJjpFKs3Jtm4/edit?usp=sharing"
+tab_names  <- c("edu", "employ", "grants", "awards", "team", "policy", "teaching", "software")
+template   <- "cv/cv-template.html"
+out_html   <- "cv/cv.html"
+out_pdf    <- "cv/cv.pdf"
+cache_file <- "cv/.cv-cache.rds"
+cache_ttl  <- 24                      # hours
+my_email   <- "ongphucthinh@gmail.com"
+
+if (!file.exists("_quarto.yml") || !file.exists(template))
   stop("Run this from the project root, e.g.  Rscript cv/build-cv.R")
 
-## Reuse the existing fetch helpers: Google auth, read_sheet, Zotero functions,
-## api_key, base_url, process_authors.
-source("code/cv.R")
+## ---------------- decide whether to run ----------------
+in_quarto   <- nzchar(Sys.getenv("QUARTO_PROJECT_DIR"))
+full_render <- nzchar(Sys.getenv("QUARTO_PROJECT_RENDER_ALL"))
+forced      <- nzchar(Sys.getenv("CV_FORCE"))
+have_out    <- file.exists(out_html) && file.exists(out_pdf)
 
-cv_url   <- "https://docs.google.com/spreadsheets/d/1ecqMkclPn-lhzgGHw2UTueiKkjTxuoAvJjpFKs3Jtm4/edit?usp=sharing"
-template <- "cv/cv-template.html"
-out_html <- "cv/cv.html"
-out_pdf  <- "cv/cv.pdf"
+if (nzchar(Sys.getenv("CV_SKIP"))) {
+  message("cv: CV_SKIP is set, skipping.")
+  quit(save = "no")
+}
+if (in_quarto && !full_render && !forced && have_out) {
+  message("cv: incremental render and cv.html/cv.pdf exist, skipping (CV_FORCE=1 to rebuild).")
+  quit(save = "no")
+}
 
-read_tab <- function(sheet) suppressMessages(read_sheet(ss = cv_url, sheet = sheet))
+## ---------------- data fetch (cached) ----------------
+`%or%` <- function(a, b) if (is.null(a) || length(a) == 0 || is.na(a[1])) b else a
+
+# read_sheet returns list-columns for mixed-type cells; flatten to character
+flatten_cols <- function(df) {
+  df[] <- lapply(df, function(col) {
+    if (!is.list(col)) return(col)
+    vapply(col, function(v) {
+      if (is.null(v) || length(v) == 0 || all(is.na(v))) NA_character_ else as.character(v[[1]])
+    }, character(1))
+  })
+  df
+}
+
+fetch_tabs <- function() {
+  read_one <- function(s) flatten_cols(suppressMessages(read_sheet(ss = cv_url, sheet = s)))
+  gs4_deauth()                                       # works if the Sheet is link-viewable
+  tabs <- try(setNames(lapply(tab_names, read_one), tab_names), silent = TRUE)
+  if (inherits(tabs, "try-error")) {
+    message("cv: public read failed, signing in to Google instead ...")
+    gs4_auth(my_email)
+    tabs <- setNames(lapply(tab_names, read_one), tab_names)
+  }
+  tabs
+}
+
+# "LastName Initials" for every author; institutional authors keep their name
+process_authors <- function(creators) {
+  a <- creators[creators$creatorType == "author", , drop = FALSE]
+  if (nrow(a) == 0) return(NA_character_)
+  one <- vapply(seq_len(nrow(a)), function(i) {
+    ln <- if ("lastName" %in% names(a)) a$lastName[i] else NA
+    if (is.na(ln %or% NA)) return((if ("name" %in% names(a)) a$name[i] else NA) %or% "")
+    ini <- paste0(substr(unlist(strsplit(a$firstName[i] %or% "", "[- ]")), 1, 1), collapse = "")
+    trimws(paste(ln, ini))
+  }, character(1))
+  paste(one[nzchar(one)], collapse = ", ")
+}
+
+ensure_cols <- function(df, cols) {
+  for (cl in cols) if (!cl %in% names(df)) df[[cl]] <- NA_character_
+  df
+}
+
+fetch_pubs <- function() {
+  key <- Sys.getenv("ZOTERO_API_KEY"); usr <- Sys.getenv("ZOTERO_USER_ID"); col <- Sys.getenv("ZOTERO_COLLECTION_KEY")
+  if (!nzchar(key) || !nzchar(usr) || !nzchar(col))
+    stop("ZOTERO_API_KEY / ZOTERO_USER_ID / ZOTERO_COLLECTION_KEY missing from .Renviron")
+  url <- sprintf("https://api.zotero.org/users/%s/collections/%s/items", usr, col)
+  pages <- list(); start <- 0
+  repeat {                                            # Zotero caps limit at 100: paginate
+    r <- httr::GET(url, query = list(format = "json", limit = 100, start = start),
+                   httr::add_headers("Zotero-API-Key" = key), httr::timeout(60))
+    if (httr::status_code(r) != 200) stop("Zotero API returned ", httr::status_code(r))
+    d <- jsonlite::fromJSON(httr::content(r, "text", encoding = "UTF-8"))$data
+    if (is.null(d) || !is.data.frame(d) || nrow(d) == 0) break
+    pages[[length(pages) + 1]] <- d
+    if (nrow(d) < 100) break
+    start <- start + 100
+  }
+  z <- dplyr::bind_rows(pages)
+  if (nrow(z) == 0) stop("the Zotero collection came back empty")
+  z <- ensure_cols(z, c("itemType", "title", "date", "journalAbbreviation",
+                        "publicationTitle", "volume", "issue", "pages", "DOI"))
+  z$authors <- if ("creators" %in% names(z)) {
+    vapply(z$creators, function(cr)
+      if (is.data.frame(cr) && nrow(cr) > 0) process_authors(cr) else NA_character_,
+      character(1))
+  } else NA_character_
+  z[, c("itemType", "authors", "title", "date", "journalAbbreviation",
+        "publicationTitle", "volume", "issue", "pages", "DOI")]
+}
+
+get_data <- function(refresh) {
+  cache <- if (file.exists(cache_file)) readRDS(cache_file) else NULL
+  if (!refresh && !is.null(cache)) {
+    age <- as.numeric(difftime(Sys.time(), cache$fetched_at, units = "hours"))
+    if (age < cache_ttl) {
+      message(sprintf("cv: using cached data (%.1f h old). CV_FORCE=1 for a fresh fetch.", age))
+      return(cache)
+    }
+  }
+  message("cv: fetching the Google Sheet + Zotero ...")
+  dat <- tryCatch(
+    list(fetched_at = Sys.time(), tabs = fetch_tabs(), pubs = fetch_pubs()),
+    error = function(e) { message("cv: FETCH FAILED - ", conditionMessage(e)); NULL })
+  if (!is.null(dat)) { saveRDS(dat, cache_file); return(dat) }
+  if (!is.null(cache)) {
+    message("cv: *** USING STALE CACHED DATA from ", format(cache$fetched_at),
+            " - the published CV may be out of date. ***")
+    return(cache)
+  }
+  NULL
+}
 
 ## ---------------- small HTML helpers ----------------
-esc <- function(x){
+esc <- function(x) {
   x <- ifelse(is.na(x), "", as.character(x))
-  x <- gsub("&", "&amp;", x, fixed = TRUE)
-  x <- gsub("<", "&lt;",  x, fixed = TRUE)
-  x <- gsub(">", "&gt;",  x, fixed = TRUE)
-  x
+  x <- gsub("&", "&amp;",  x, fixed = TRUE)
+  x <- gsub("<", "&lt;",   x, fixed = TRUE)
+  x <- gsub(">", "&gt;",   x, fixed = TRUE)
+  x <- gsub('"', "&quot;", x, fixed = TRUE)
+  gsub("'", "&#39;", x, fixed = TRUE)
+}
+clean <- function(x) {                       # NA, "", "null", "0" -> "" (metadata placeholders)
+  x <- ifelse(is.na(x), "", as.character(x))
+  ifelse(x %in% c("null", "0"), "", x)
+}
+to_date <- function(x) {
+  if (inherits(x, "Date"))   return(x)
+  if (inherits(x, "POSIXt")) return(as.Date(x))
+  suppressWarnings(ymd(substr(as.character(x), 1, 10)))
 }
 strip_scheme <- function(u) sub("/+$", "", sub("^https?://", "", u))
-bold_name <- function(x) gsub("Ong T([A-Z]*)", "<b>Ong T\\1</b>", x)   # bold my name
-lead_bold <- function(s){            # wrap the text before the first comma in <span class="t">
+bold_name    <- function(x) gsub("\\bOng T([A-Z]*)", "<b>Ong T\\1</b>", x)
+lead_bold    <- function(s) {                # bold the part before the first comma
   s <- esc(s); pos <- regexpr(",", s, fixed = TRUE)
   ifelse(pos > 0,
          paste0('<span class="t">', substr(s, 1, pos - 1), '</span>', substr(s, pos, nchar(s))),
          paste0('<span class="t">', s, '</span>'))
 }
-section     <- function(title, inner)
+section <- function(title, inner)
   sprintf('<section class="cv-sec">\n  <h2 class="cv-h">%s</h2>\n  %s\n</section>', title, inner)
 table_plain <- function(rows)
   sprintf('<table class="cv-table"><tbody>\n%s\n</tbody></table>', paste(rows, collapse = "\n"))
+arr_desc <- function(df, col) {              # numeric-aware descending sort, NAs last
+  if (!col %in% names(df)) return(df)
+  v <- suppressWarnings(as.numeric(df[[col]]))
+  if (all(is.na(v))) v <- df[[col]]
+  df[order(v, decreasing = TRUE, na.last = TRUE), , drop = FALSE]
+}
 
 ## ---------------- sections ----------------
-build_education <- function(){
-  d <- read_tab("edu")                                   # columns in order: date, degree, school
+build_education <- function(d) {
+  if (all(c("date", "degree", "school") %in% names(d))) {
+    when <- d$date; degree <- d$degree; school <- d$school
+  } else {                                   # fall back to the documented column order
+    warning("cv: 'edu' tab is missing date/degree/school column names, using column order")
+    when <- d[[1]]; degree <- d[[2]]; school <- d[[3]]
+  }
   rows <- sprintf('<tr><td class="c-when">%s</td><td><span class="t">%s</span>, %s</td></tr>',
-                  esc(d[[1]]), esc(d[[2]]), esc(d[[3]]))
+                  esc(when), esc(degree), esc(school))
   section("Education", table_plain(rows))
 }
 
-build_experience <- function(){
-  d <- read_tab("employ")
+build_experience <- function(d) {
   full <- paste0(d$job, ", ", d$aff)
   rows <- sprintf('<tr><td class="c-when">%s</td><td>%s</td></tr>', esc(d$date), lead_bold(full))
   section("Experience", table_plain(rows))
 }
 
-build_grants <- function(){
-  d <- read_tab("grants") |>
-    mutate(my_role = factor(my_role, levels = c("PI", "Co-PI", "Co-I")),
-           outcome_year = year(outcome)) |>
-    arrange(my_role, desc(outcome))
-  total <- sum(d$budget_total_usd, na.rm = TRUE)
-  lead  <- sprintf('<p class="cv-lead">Secured $%s in research grants since %s.</p>',
-                   format(total, big.mark = ",", trim = TRUE), min(d$outcome_year, na.rm = TRUE))
-  amt   <- paste0("$", format(d$budget_total_usd, big.mark = ",", trim = TRUE))
-  rows  <- sprintf(
-    '<tr><td class="c-when">%s</td><td class="c-role">%s</td><td class="c-amt">%s</td><td><span class="t">%s</span> <span class="cv-meta">%s</span></td></tr>',
-    esc(d$period), esc(as.character(d$my_role)), esc(amt), esc(d$title), esc(d$sponsor))
+build_grants <- function(d) {
+  d$budget <- suppressWarnings(as.numeric(d$budget_total_usd))
+  d$odate  <- to_date(d$outcome)
+  d$role   <- factor(d$my_role, levels = c("PI", "Co-PI", "Co-I"))
+  d <- d[order(d$role, -as.numeric(d$odate), na.last = TRUE), , drop = FALSE]
+  total <- sum(d$budget, na.rm = TRUE)
+  since <- suppressWarnings(min(year(d$odate), na.rm = TRUE))
+  lead  <- sprintf('<p class="cv-lead">Secured $%s in research grants%s.</p>',
+                   format(round(total), big.mark = ",", trim = TRUE, scientific = FALSE),
+                   if (is.finite(since)) paste0(" since ", since) else "")
+  amt <- ifelse(is.na(d$budget), "",
+                paste0("$", format(round(d$budget), big.mark = ",", trim = TRUE, scientific = FALSE)))
+  rows <- sprintf(
+    '<tr><td class="c-when">%s</td><td class="c-role">%s</td><td class="c-amt">%s</td><td><span class="t">%s.</span> <span class="cv-meta">%s.</span></td></tr>',
+    esc(d$period), esc(as.character(d$role)), esc(amt), esc(d$title), esc(d$sponsor))
   section("Grants", paste0(lead, "\n", table_plain(rows)))
 }
 
-build_awards <- function(){
-  d <- read_tab("awards") |> arrange(desc(year))
+build_awards <- function(d) {
+  d <- arr_desc(d, "year")
   rows <- sprintf('<tr><td class="c-when">%s</td><td>%s</td></tr>', esc(d$date), lead_bold(d$description))
   section("Awards", table_plain(rows))
 }
 
-build_team <- function(){
-  d <- read_tab("team") |>
-    mutate(year = as.numeric(year),
+build_team <- function(d) {
+  d <- d |>
+    mutate(year = suppressWarnings(as.numeric(year)),
            role = factor(role, levels = c("RA", "Intern")),
            next_dest = ifelse(is.na(next_dest), "", next_dest)) |>
     arrange(role, next_dest != "", desc(year))
@@ -106,26 +251,28 @@ build_team <- function(){
   section("Research team", inner)
 }
 
-build_policy <- function(){
-  d <- read_tab("policy") |> arrange(desc(year))
+build_policy <- function(d) {
+  d <- arr_desc(d, "date")
   rows <- sprintf('<tr><td class="c-when">%s</td><td>%s</td></tr>', esc(d$date), esc(d$project))
   section("Policy engagement", table_plain(rows))
 }
 
-build_teaching <- function(){
-  d <- read_tab("teaching") |>
-    mutate(website = ifelse(is.na(website), "", website)) |>
-    arrange(desc(year))
+build_teaching <- function(d) {
+  d <- d |> mutate(website = ifelse(is.na(website), "", website))
+  d <- arr_desc(d, "year")
   groups <- c("Modelling" = "modelling", "Other courses" = "other", "Seminars" = "seminar")
   body <- ""
-  for (label in names(groups)){
+  for (label in names(groups)) {
     g <- d |> filter(type == groups[[label]])
     if (nrow(g) == 0) next
     link <- ifelse(g$website != "",
                    sprintf(' <a href="%s">%s</a>', esc(g$website), esc(strip_scheme(g$website))), "")
-    meta <- paste0(esc(g$note), ". ", esc(g$venue), ".", link)
+    meta <- mapply(function(n, v) {          # join non-empty parts, no dangling dots
+      parts <- c(n, v); parts <- parts[nzchar(parts)]
+      if (length(parts) == 0) "" else paste0(paste(parts, collapse = ". "), ".")
+    }, esc(g$note), esc(g$venue), USE.NAMES = FALSE)
     rows <- sprintf('<tr><td class="c-when">%s</td><td class="c-num">%s</td><td><span class="t">%s</span> <span class="cv-meta">%s</span></td></tr>',
-                    esc(g$date), esc(g$attd), esc(g$name), meta)
+                    esc(g$date), esc(g$attd), esc(g$name), paste0(meta, link))
     body <- paste0(body,
                    sprintf('<tr class="cv-subgroup"><td colspan="3">%s</td></tr>\n', label),
                    paste(rows, collapse = "\n"), "\n")
@@ -135,58 +282,97 @@ build_teaching <- function(){
   section("Teaching", inner)
 }
 
-build_software <- function(){
-  d <- read_tab("software") |> arrange(desc(year))
-  link <- sprintf(' <a href="%s">%s</a>', esc(d$url_github), esc(strip_scheme(d$url_github)))
+build_software <- function(d) {
+  d <- arr_desc(d, "year")
+  url  <- ifelse(is.na(d$url_github), "", d$url_github)
+  link <- ifelse(nzchar(url),
+                 sprintf(' <a href="%s">%s</a>', esc(url), esc(strip_scheme(url))), "")
   rows <- sprintf('<tr><td class="c-when">%s</td><td><span class="t">%s.</span> <span class="cv-meta">%s.</span>%s</td></tr>',
                   esc(d$year), esc(d$name), esc(d$summary), link)
   section("Software", table_plain(rows))
 }
 
-build_publications <- function(){
-  p <- fetch_zotero_items(api_key, base_url)
-  p <- p |> filter(itemType == "journalArticle")
-  p$authors <- sapply(p$creators, function(cr) if (is.data.frame(cr)) process_authors(cr) else NA)
-  parsed <- suppressWarnings(ymd(p$date))
-  p <- p |>
-    mutate(
-      pdate    = parsed,
-      pyear    = ifelse(is.na(parsed), substr(p$date, 1, 4), format(parsed, "%Y")),
-      journal  = ifelse(journalAbbreviation == "" | is.na(journalAbbreviation), publicationTitle, journalAbbreviation),
-      vp       = ifelse(issue == "" | issue == "null" | is.na(issue),
-                        paste0(volume, ": ", pages), paste0(volume, "(", issue, "):", pages))
-    ) |>
-    arrange(desc(pdate))
+build_publications <- function(p) {
+  p <- p |> filter(itemType == "journalArticle")   # note: preprints/chapters are excluded on purpose
+  if (nrow(p) == 0) stop("no journal articles found in the Zotero data")
+  pdate <- to_date(p$date)
+  pyear <- ifelse(is.na(pdate), str_extract(p$date, "[0-9]{4}"), format(pdate, "%Y"))
+  pyear <- ifelse(is.na(pyear), "", pyear)
+  # sort key: real date, else mid-year of the extracted year, else bottom
+  key <- pdate
+  key[is.na(key)] <- suppressWarnings(ymd(paste0(pyear[is.na(key)], "-06-30")))
+  ord <- order(key, decreasing = TRUE, na.last = TRUE)
+  p <- p[ord, , drop = FALSE]; pyear <- pyear[ord]
+
+  jr  <- clean(p$journalAbbreviation)
+  jr  <- ifelse(nzchar(jr), jr, clean(p$publicationTitle))
+  vol <- clean(p$volume); iss <- clean(p$issue); pg <- clean(p$pages)
+  core <- ifelse(nzchar(vol), paste0(vol, ifelse(nzchar(iss), paste0("(", iss, ")"), "")), "")
+  vp   <- ifelse(nzchar(core) & nzchar(pg), paste0(core, ":", pg),
+                 ifelse(nzchar(core), core, pg))
+  tail <- ifelse(nzchar(vp), paste0(esc(pyear), ";", esc(vp), "."), paste0(esc(pyear), "."))
+  doi  <- clean(p$DOI)
+  doi_a <- ifelse(nzchar(doi),
+                  sprintf(' <a href="https://doi.org/%s">doi</a>', esc(doi)), "")
   authors <- bold_name(esc(str_trim(p$authors)))
-  ref <- sprintf('%s. %s. <i>%s</i>. %s;%s. <a href="https://doi.org/%s">doi</a>',
-                 authors, esc(p$title), esc(p$journal), esc(p$pyear), esc(p$vp), esc(p$DOI))
+  ref   <- sprintf('%s. %s. <i>%s</i>. %s%s', authors, esc(p$title), esc(jr), tail, doi_a)
   items <- paste(sprintf('<li>%s</li>', ref), collapse = "\n")
   section("Publications", sprintf('<ol class="cv-pubs">\n%s\n</ol>', items))
 }
 
 ## ---------------- assemble ----------------
-message("Fetching data and building sections ...")
+refresh <- full_render || !in_quarto || forced
+dat <- get_data(refresh)
+if (is.null(dat)) {
+  if (have_out) {
+    message("cv: *** KEEPING the existing cv.html / cv.pdf (no data available). They may be STALE. ***")
+    quit(save = "no")
+  }
+  stop("cv: no data and no cache - cannot build the CV.")
+}
+
+message("cv: building sections ...")
 sections <- paste(
-  build_education(), build_experience(), build_grants(),  build_awards(),
-  build_team(),      build_policy(),     build_teaching(), build_software(),
-  build_publications(),
+  build_education(dat$tabs$edu),     build_experience(dat$tabs$employ),
+  build_grants(dat$tabs$grants),     build_awards(dat$tabs$awards),
+  build_team(dat$tabs$team),         build_policy(dat$tabs$policy),
+  build_teaching(dat$tabs$teaching), build_software(dat$tabs$software),
+  build_publications(dat$pubs),
   sep = "\n\n")
 
 tmpl <- paste(readLines(template, warn = FALSE), collapse = "\n")
+if (!grepl("{{SECTIONS}}", tmpl, fixed = TRUE))
+  stop("cv-template.html is missing the {{SECTIONS}} placeholder")
 html <- sub("{{SECTIONS}}", sections, tmpl, fixed = TRUE)
+html <- sub("{{UPDATED}}",
+            paste(month.name[as.integer(format(Sys.Date(), "%m"))], format(Sys.Date(), "%Y")),
+            html, fixed = TRUE)
 
+# write to a temp file first so a failure never leaves a half-written cv.html
 tmp <- tempfile(fileext = ".html")
 writeLines(html, tmp, useBytes = TRUE)
 file.copy(tmp, out_html, overwrite = TRUE); unlink(tmp)
-message("Wrote ", out_html)
+message("cv: wrote ", out_html)
 
-## ---------------- optional PDF via WeasyPrint ----------------
-invisible(tryCatch(
-  system2("weasyprint", c(shQuote(out_html), shQuote(out_pdf)), stdout = TRUE, stderr = TRUE),
-  error = function(e) NULL))
-if (file.exists(out_pdf)) {
-  message("Wrote ", out_pdf)
+## ---------------- PDF via Chrome (pagedown) ----------------
+if (nzchar(Sys.getenv("CV_SKIP_PDF"))) {
+  message("cv: CV_SKIP_PDF is set - cv.pdf NOT rebuilt",
+          if (file.exists(out_pdf)) " and may now be stale." else ".")
 } else {
-  message("PDF skipped. Install WeasyPrint (pip install weasyprint), or just open ",
-          out_html, " in your browser and Save as PDF.")
+  if (!requireNamespace("pagedown", quietly = TRUE))
+    stop("cv: the PDF needs the 'pagedown' package. Run  renv::install(\"pagedown\"); renv::snapshot()  ",
+         "or set CV_SKIP_PDF=1 to build the HTML only.")
+  before <- if (file.exists(out_pdf)) file.mtime(out_pdf) else as.POSIXct("1970-01-01", tz = "UTC")
+  ok <- tryCatch({
+    pagedown::chrome_print(out_html, out_pdf,
+                           options = list(printBackground = TRUE, preferCSSPageSize = TRUE))
+    TRUE
+  }, error = function(e) { message("cv: chrome_print failed - ", conditionMessage(e)); FALSE })
+  if (ok && file.exists(out_pdf) && file.mtime(out_pdf) > before) {
+    message("cv: wrote ", out_pdf)
+  } else {
+    stop("cv: cv.pdf was NOT regenerated. Publishing now would ship a stale or missing PDF. ",
+         "Check that Chrome and 'pagedown' are available, or rerun with CV_SKIP_PDF=1 if you accept that.")
+  }
 }
+message("cv: done.")

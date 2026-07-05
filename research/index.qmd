@@ -152,7 +152,7 @@ html[data-theme="dark"] .rx-fpill{ background:rgba(255,255,255,.04); }
       <p class="pg-lead">I work on vaccination and population immunity, turning routine data into models of outbreak risk, and I bring those methods to research across clinical and basic science.</p>
       <div class="rx-actions">
         <a class="rx-cta rx-cta--p" href="https://scholar.google.com/citations?user=PkfvVs0AAAAJ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 14 4 9l8-5 8 5z"/><path d="M4 9v6l8 5 8-5V9"/></svg>Google Scholar</a>
-        <a class="rx-cta" href="../about/cv.html"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>Full CV</a>
+        <a class="rx-cta" href="../cv/cv.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>Full CV</a>
       </div>
       <div class="rx-stats">
         <div class="rx-stat"><b class="ct" data-key="citations" data-fallback="313">0</b><span>Citations</span></div>

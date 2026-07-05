@@ -7,12 +7,15 @@ author:
   - name: Thinh Ong
     url: https://thinhong.github.io
     orcid: 0000-0001-6772-9291
-citation: 
-  url: https://drthinhong.com/blog/2023-08-26-chair-a-meeting/
-draft: false
-image: preview.svg
-title-block-banner: /img/blog-art/leadership.svg
+image: share-card.jpg
+image-alt: "Matte strata banner in deep blues for the post 10 simple tips to chair a meeting"
+title-block-banner: "url(/img/blog-art/banner-chair-meeting.svg)"
 title-block-banner-color: white
+citation:
+  url: https://drthinhong.com/blog/chair-a-meeting/
+aliases:
+  - /blog/2023-08-26-chair-a-meeting/
+draft: false
 ---
 
 ## Take home messages
@@ -112,7 +115,4 @@ I picked up a valuable tip from my supervisor at an Academic Meeting, where spea
 ## Acknowledgments
 
 Special thanks to **Dr. Leigh Jones**, my mentor, for her valuable insights that helped shape these tips and **Dr. Marc Choisy**, my cool PhD supervisor, for the extra tip. A big thank you to **Ms. Gaye Proctor** for the classification of participant behaviors in her ***Train the Trainer*** workshop, a valuable resource for my Tip 7.
-
-:::{.credit}
-Preview image by [storyset](https://www.freepik.com/free-vector/team-concept-illustration_8961437.htm) on Freepik
-:::
+ 

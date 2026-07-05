@@ -1,11 +1,20 @@
 project:
   type: website
+  pre-render: cv/build-cv.R
   resources:
     - CNAME
     - img/blog-art
+    - img/og-default.png
+    - cv/cv.html
+    - cv/cv.pdf
+    - about/cv.html
   output-dir: docs
 
 website:
+  site-url: https://drthinhong.com
+  image: /img/og-default.png
+  open-graph: true
+  twitter-card: true
   favicon: logo-icon.svg
   google-analytics: "G-RVRBE7Y1R2"
   back-to-top-navigation: true
@@ -27,7 +36,6 @@ website:
         href: https://github.com/thinhong
       - icon: linkedin
         href: https://www.linkedin.com/in/thinh-ong
-    draft-mode: unlinked
   comments:
     giscus:
       repo: thinhong/thinhong.github.io

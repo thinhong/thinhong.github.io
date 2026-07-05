@@ -30,18 +30,18 @@ cat(sprintf('<script>window.SCHOLAR={citations:%d,hindex:%d};window.PKGCOUNT=%d;
     <span class="fh-glow" aria-hidden="true"></span>
     <div class="fh-side fh-left">
       <p class="fh-name">THINH ONG <span class="fh-dot"></span></p>
-      <div class="fh-word"><span class="fw-thin">MEDICAL</span><span class="fw-fill">DOCTOR</span></div>
+      <div class="fh-word"><span class="fw-thin" data-text="MEDICAL">MEDICAL</span><span class="fw-fill" data-text="DOCTOR">DOCTOR</span></div>
     </div>
     <figure class="fh-photo">
       <img src="profile.png" alt="Thinh Ong">
       <span class="fh-hi">Hi</span>
     </figure>
     <div class="fh-side fh-right">
-      <div class="fh-word"><span class="fw-thin">MATHEMATICAL</span><span class="fw-fill">MODELLER</span></div>
+      <div class="fh-word"><span class="fw-thin" data-text="MATHEMATICAL">MATHEMATICAL</span><span class="fw-fill" data-text="MODELLER">MODELLER</span></div>
       <div class="fh-below">
         <p class="fh-tag">A medical doctor and PhD in infectious disease modelling trained at the University of Oxford.</p>
         <div class="fh-links">
-          <a href="about/cv.pdf"><i class="bi bi-file-earmark-text"></i> View my CV</a>
+          <a href="cv/cv.html" target="_blank" rel="noopener"><i class="bi bi-file-earmark-text"></i> View my CV</a>
           <a href="https://scholar.google.com/citations?user=PkfvVs0AAAAJ"><i class="bi bi-mortarboard"></i> Scholar</a>
           <a href="mailto:ongphucthinh@gmail.com"><i class="bi bi-envelope"></i> Email</a>
         </div>
@@ -92,7 +92,7 @@ cat(sprintf('<script>window.SCHOLAR={citations:%d,hindex:%d};window.PKGCOUNT=%d;
       <div class="stat-row">
         <div class="stat"><b class="ct" data-key="citations" data-fallback="313">0</b><span>Citations</span></div>
         <div class="stat"><b class="ct" data-key="hindex" data-fallback="8">0</b><span>h-index</span></div>
-        <div class="stat"><b class="ct" data-key="packages" data-fallback="6">0</b><span>R packages</span></div>
+        <div class="stat"><b class="ct" data-key="packages" data-fallback="6">0</b><span>software</span></div>
       </div>
       <p class="stat-foot">A <b>medical doctor</b> and <b>infectious disease modeller</b>, turning routine data into outbreak decisions.</p>
     </div>
@@ -154,9 +154,6 @@ cat(sprintf('<script>window.SCHOLAR={citations:%d,hindex:%d};window.PKGCOUNT=%d;
     els.forEach(function (el) { el.classList.add('in'); });
   }
 
-  // pointer type (also used by the hero parallax below)
-  var fine = window.matchMedia && window.matchMedia('(pointer:fine)').matches;
-
   // Selected work bento: staggered reveal + count-up
   var tiles = [].slice.call(document.querySelectorAll('.section-work .tile'));
   if (!reduce && 'IntersectionObserver' in window) {
@@ -192,37 +189,77 @@ cat(sprintf('<script>window.SCHOLAR={citations:%d,hindex:%d};window.PKGCOUNT=%d;
     cts.forEach(function (el) { cio.observe(el); });
   } else { cts.forEach(workCount); }
 
-  // Hero: choreographed entrance + cursor-depth parallax
+  // Hero: kinetic type. The four words are split into letters that rise in on
+  // load; a colour sheen ripples through DOCTOR then MODELLER now and then;
+  // hover (desktop) or tap (touch) runs a letter wave; Hi wobbles on tap.
+  // All hidden pre-entrance states hang off .k, added only here, so a stale
+  // render (old markup or old JS) still shows a fully visible static hero.
   var hero = document.querySelector('.folio-hero');
-  if (hero) {
-    requestAnimationFrame(function () { hero.classList.add('play'); });
-    if (fine && !reduce) {
-      var ph = hero.querySelector('.fh-photo'),
-          hi = hero.querySelector('.fh-hi'),
-          nm = hero.querySelector('.fh-name'),
-          gl = hero.querySelector('.fh-glow'),
-          lw = hero.querySelector('.fh-left .fh-word'),
-          rw = hero.querySelector('.fh-right .fh-word');
-      var tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
-      function loop() {
-        cx += (tx - cx) * 0.07; cy += (ty - cy) * 0.07;
-        if (ph) ph.style.transform = 'perspective(1000px) rotateY(' + (cx * 9).toFixed(2) + 'deg) rotateX(' + (-cy * 9).toFixed(2) + 'deg) translate(' + (cx * 16).toFixed(1) + 'px,' + (cy * 16).toFixed(1) + 'px)';
-        if (lw) lw.style.transform = 'translate(' + (-cx * 30).toFixed(1) + 'px,' + (-cy * 14).toFixed(1) + 'px)';
-        if (rw) rw.style.transform = 'translate(' + (cx * 30).toFixed(1) + 'px,' + (cy * 14).toFixed(1) + 'px)';
-        if (hi) hi.style.transform = 'translate(' + (cx * 46).toFixed(1) + 'px,' + (cy * 34).toFixed(1) + 'px)';
-        if (nm) nm.style.transform = 'translate(' + (-cx * 16).toFixed(1) + 'px,' + (-cy * 8).toFixed(1) + 'px)';
-        if (gl) gl.style.transform = 'translate(calc(-50% + ' + (cx * 70).toFixed(1) + 'px), calc(-50% + ' + (cy * 70).toFixed(1) + 'px))';
-        if (Math.abs(tx - cx) > 0.0008 || Math.abs(ty - cy) > 0.0008 || tx !== 0 || ty !== 0) { raf = requestAnimationFrame(loop); }
-        else { raf = 0; }
+  if (hero && !reduce) {
+    var hoverFine = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+    var kwords = [].slice.call(hero.querySelectorAll('.fw-thin, .fw-fill'));
+    var kdelays = ['0.3s', '0.42s', '0.56s', '0.68s'];
+    kwords.forEach(function (w, wi) {
+      var text = w.textContent;
+      w.setAttribute('role', 'text');
+      w.setAttribute('aria-label', text);
+      w.textContent = '';
+      for (var i = 0; i < text.length; i++) {
+        var s = document.createElement('span');
+        s.className = 'ch';
+        s.textContent = text.charAt(i);
+        s.setAttribute('aria-hidden', 'true');
+        s.style.setProperty('--i', i);
+        s.style.setProperty('--d', kdelays[wi] || '0s');
+        w.appendChild(s);
       }
-      hero.addEventListener('mousemove', function (e) {
-        var r = hero.getBoundingClientRect();
-        tx = (e.clientX - r.left) / r.width - 0.5;
-        ty = (e.clientY - r.top) / r.height - 0.5;
-        if (!raf) raf = requestAnimationFrame(loop);
-      });
-      hero.addEventListener('mouseleave', function () { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(loop); });
+    });
+    function wave(w) {
+      if (!w || w.classList.contains('waverun') || w.classList.contains('sheenrun')) return;
+      w.classList.add('waverun');
+      setTimeout(function () { w.classList.remove('waverun'); }, w.children.length * 26 + 700);
     }
+    if (hoverFine) {
+      kwords.forEach(function (w) {
+        w.addEventListener('pointerenter', function () { wave(w); });
+      });
+    } else {
+      [].slice.call(hero.querySelectorAll('.fh-word')).forEach(function (b) {
+        b.addEventListener('pointerdown', function (e) {
+          if (e.target.closest('a')) return;
+          wave(b.querySelector('.fw-fill'));
+        });
+      });
+    }
+    // sheen only while the hero is on screen and the tab is visible
+    var heroVis = true;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) {
+        heroVis = en[en.length - 1].isIntersecting;
+      }, { threshold: 0.15 }).observe(hero);
+    }
+    var sheens = [].slice.call(hero.querySelectorAll('.fw-fill')), si = 0;
+    setInterval(function () {
+      if (document.hidden || !heroVis || !sheens.length) return;
+      var w = sheens[si % sheens.length]; si++;
+      if (w.classList.contains('waverun')) return;
+      w.classList.add('sheenrun');
+      setTimeout(function () { w.classList.remove('sheenrun'); }, w.children.length * 42 + 1050);
+    }, 4600);
+    var hi = hero.querySelector('.fh-hi');
+    if (hi) {
+      hi.addEventListener('pointerdown', function () {
+        hi.classList.remove('wob'); void hi.offsetWidth; hi.classList.add('wob');
+        if (!hoverFine) hi.classList.toggle('show');
+      });
+    }
+    document.addEventListener('visibilitychange', function () {
+      document.body.classList.toggle('tab-hidden', document.hidden);
+    });
+    hero.classList.add('k');
+    requestAnimationFrame(function () { hero.classList.add('play'); });
+  } else if (hero) {
+    hero.classList.add('play');
   }
 })();
 </script>

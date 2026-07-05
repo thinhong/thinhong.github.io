@@ -9,6 +9,11 @@
 /.quarto/
 /design-mockups
 
+# generated CV artifacts (rebuilt by cv/build-cv.R on every full render)
+/cv/cv.html
+/cv/cv.pdf
+/cv/.cv-cache.rds
+
 render.sh
 .positai
 

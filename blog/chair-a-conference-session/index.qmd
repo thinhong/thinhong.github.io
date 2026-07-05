@@ -7,8 +7,14 @@ author:
   - name: Thinh Ong
     url: https://thinhong.github.io
     orcid: 0000-0001-6772-9291
-title-block-banner: /img/blog-art/leadership.svg
+image: share-card.jpg
+image-alt: "Matte strata banner in deep blues for the post How to chair a conference session"
+title-block-banner: "url(/img/blog-art/banner-chair-conf.svg)"
 title-block-banner-color: white
+citation:
+  url: https://drthinhong.com/blog/chair-a-conference-session/
+aliases:
+  - /blog/chair-conf/
 draft: false
 ---
 
@@ -44,7 +50,69 @@ If the room has a timer, decide how you want it to work and tell the support tea
 
 Agree on the exact thresholds, for example yellow at two minutes and red at zero, and make sure the presenter can see the timer from where they will stand.
 
-*(Drop in your photo of the timer here so readers can picture the lights.)*
+```{=html}
+<figure class="tsw">
+  <div class="tsw-stage" id="tsw1">
+    <img class="tsw-img tsw-base" src="timer-green.jpg" width="1800" height="558" loading="lazy" decoding="async" alt="Session timer reading 4:39 with the green light lit, signalling there is plenty of time">
+    <img class="tsw-img tsw-over" src="timer-yellow.jpg" width="1800" height="558" loading="lazy" decoding="async" alt="Session timer reading 2:41 with the yellow light lit, signalling it is time to wrap up">
+  </div>
+  <div class="tsw-bar">
+    <div class="tsw-seg" data-active="green" role="group" aria-label="Switch the timer light">
+      <span class="tsw-thumb" aria-hidden="true"></span>
+      <button class="tsw-btn is-active" type="button" data-go="green" aria-pressed="true"><span class="tsw-dot tsw-dot--g" aria-hidden="true"></span>Green</button>
+      <button class="tsw-btn" type="button" data-go="yellow" aria-pressed="false"><span class="tsw-dot tsw-dot--y" aria-hidden="true"></span>Yellow</button>
+    </div>
+    <figcaption class="tsw-cap" aria-live="polite">Green: plenty of time</figcaption>
+  </div>
+</figure>
+
+<style>
+.tsw{margin:1.6rem 0;}
+.tsw-stage{position:relative;width:100%;aspect-ratio:1800 / 558;border-radius:var(--card-radius);overflow:hidden;background:var(--panel-bg);border:1px solid var(--border);box-shadow:var(--card-shadow);}
+.tsw-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.tsw-base{z-index:1;}
+.tsw-over{z-index:2;opacity:0;transition:opacity .65s var(--ease);will-change:opacity;}
+.tsw-over.show{opacity:1;}
+.tsw-bar{display:flex;align-items:center;justify-content:space-between;gap:.7rem 1rem;flex-wrap:wrap;margin-top:.75rem;}
+.tsw-seg{position:relative;display:inline-flex;padding:4px;background:var(--panel-bg);border:1px solid var(--border);border-radius:999px;}
+.tsw-thumb{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:var(--surface);background:color-mix(in srgb, var(--brand) 16%, var(--bg));box-shadow:0 1px 3px rgba(16,27,53,.14);transform:translateX(0);transition:transform .35s var(--ease);}
+.tsw-seg[data-active="yellow"] .tsw-thumb{transform:translateX(100%);}
+.tsw-btn{position:relative;z-index:1;flex:1 1 0;min-width:92px;display:inline-flex;align-items:center;justify-content:center;gap:.45rem;padding:.44rem .9rem;border:0;background:transparent;border-radius:999px;font-family:inherit;font-weight:600;font-size:.82rem;line-height:1;color:var(--text-muted);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:color .2s var(--ease);}
+.tsw-btn.is-active{color:var(--heading);}
+.tsw-btn:focus-visible{outline:2px solid var(--brand);outline-offset:3px;}
+.tsw-dot{width:9px;height:9px;border-radius:50%;flex:none;}
+.tsw-dot--g{background:#2bb24c;box-shadow:0 0 0 3px rgba(43,178,76,.16);}
+.tsw-dot--y{background:#f3a712;box-shadow:0 0 0 3px rgba(243,167,18,.16);}
+.tsw-cap{margin:0;font-size:.8rem;color:var(--text-muted);}
+@media (hover:hover){.tsw-btn:not(.is-active):hover{color:var(--heading);}}
+@media (prefers-reduced-motion:reduce){.tsw-img,.tsw-thumb,.tsw-btn{transition:none;}}
+@media (max-width:560px){.tsw-bar{justify-content:center;}.tsw-cap{flex-basis:100%;text-align:center;}}
+</style>
+
+<script>
+(function(){
+  var stage=document.getElementById('tsw1');
+  if(!stage)return;
+  var fig=stage.closest('.tsw');
+  var seg=fig.querySelector('.tsw-seg');
+  var btns=fig.querySelectorAll('.tsw-btn');
+  var over=stage.querySelector('.tsw-over');
+  var cap=fig.querySelector('.tsw-cap');
+  var labels={green:'Green: plenty of time',yellow:'Yellow: start wrapping up'};
+  function set(state){
+    if(seg.getAttribute('data-active')===state)return;
+    seg.setAttribute('data-active',state);
+    btns.forEach(function(b){var on=b.dataset.go===state;b.classList.toggle('is-active',on);b.setAttribute('aria-pressed',on?'true':'false');});
+    over.classList.toggle('show',state==='yellow');
+    if(cap)cap.textContent=labels[state];
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.go);});});
+  var x0=null,y0=null;
+  stage.addEventListener('touchstart',function(e){var t=e.changedTouches[0];x0=t.clientX;y0=t.clientY;},{passive:true});
+  stage.addEventListener('touchend',function(e){if(x0===null)return;var t=e.changedTouches[0];var dx=t.clientX-x0,dy=t.clientY-y0;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){set(dx<0?'yellow':'green');}x0=y0=null;},{passive:true});
+})();
+</script>
+```
 
 ## Tell the presenter where the buffer is
 

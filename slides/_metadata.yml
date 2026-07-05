@@ -5,7 +5,7 @@ freeze: true
 format:
   revealjs:
     slide-number: true
-    logo: /logo.svg
+    logo: /logo-icon.svg
 include-after-body:
   text: |
     <script type="text/javascript">
