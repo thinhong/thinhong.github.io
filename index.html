@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d17028142d7938c3eec6100be387efc2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e8c613d3a37813f8030c7f7660089231.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -188,7 +188,7 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 
 
 
-<script>window.SCHOLAR={citations:314,hindex:8};window.PKGCOUNT=6;</script>
+<script>window.SCHOLAR={citations:316,hindex:8};window.PKGCOUNT=6;</script>
 <section class="home-hero">
   <div class="folio-hero">
     <span class="fh-glow" aria-hidden="true"></span>
@@ -205,7 +205,7 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
       <div class="fh-below">
         <p class="fh-tag">A medical doctor and PhD in infectious disease modelling trained at the University of Oxford.</p>
         <div class="fh-links">
-          <a href="about/cv.pdf"><i class="bi bi-file-earmark-text"></i> View my CV</a>
+          <a href="cv/cv.html" target="_blank" rel="noopener"><i class="bi bi-file-earmark-text"></i> View my CV</a>
           <a href="https://scholar.google.com/citations?user=PkfvVs0AAAAJ"><i class="bi bi-mortarboard"></i> Scholar</a>
           <a href="mailto:ongphucthinh@gmail.com"><i class="bi bi-envelope"></i> Email</a>
         </div>
@@ -256,7 +256,7 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
       <div class="stat-row">
         <div class="stat"><b class="ct" data-key="citations" data-fallback="313">0</b><span>Citations</span></div>
         <div class="stat"><b class="ct" data-key="hindex" data-fallback="8">0</b><span>h-index</span></div>
-        <div class="stat"><b class="ct" data-key="packages" data-fallback="6">0</b><span>R packages</span></div>
+        <div class="stat"><b class="ct" data-key="packages" data-fallback="6">0</b><span>software</span></div>
       </div>
       <p class="stat-foot">A <b>medical doctor</b> and <b>infectious disease modeller</b>, turning routine data into outbreak decisions.</p>
     </div>
@@ -318,9 +318,6 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
     els.forEach(function (el) { el.classList.add('in'); });
   }
 
-  // pointer type (also used by the hero parallax below)
-  var fine = window.matchMedia && window.matchMedia('(pointer:fine)').matches;
-
   // Selected work bento: staggered reveal + count-up
   var tiles = [].slice.call(document.querySelectorAll('.section-work .tile'));
   if (!reduce && 'IntersectionObserver' in window) {
@@ -356,11 +353,77 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
     cts.forEach(function (el) { cio.observe(el); });
   } else { cts.forEach(workCount); }
 
-  // Hero: choreographed entrance only. The photo now stays still (the cursor
-  // parallax was removed); DOCTOR / MODELLER float and shift colour via CSS.
+  // Hero: kinetic type. The four words are split into letters that rise in on
+  // load; a colour sheen ripples through DOCTOR then MODELLER now and then;
+  // hover (desktop) or tap (touch) runs a letter wave; Hi wobbles on tap.
+  // All hidden pre-entrance states hang off .k, added only here, so a stale
+  // render (old markup or old JS) still shows a fully visible static hero.
   var hero = document.querySelector('.folio-hero');
-  if (hero) {
+  if (hero && !reduce) {
+    var hoverFine = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+    var kwords = [].slice.call(hero.querySelectorAll('.fw-thin, .fw-fill'));
+    var kdelays = ['0.3s', '0.42s', '0.56s', '0.68s'];
+    kwords.forEach(function (w, wi) {
+      var text = w.textContent;
+      w.setAttribute('role', 'text');
+      w.setAttribute('aria-label', text);
+      w.textContent = '';
+      for (var i = 0; i < text.length; i++) {
+        var s = document.createElement('span');
+        s.className = 'ch';
+        s.textContent = text.charAt(i);
+        s.setAttribute('aria-hidden', 'true');
+        s.style.setProperty('--i', i);
+        s.style.setProperty('--d', kdelays[wi] || '0s');
+        w.appendChild(s);
+      }
+    });
+    function wave(w) {
+      if (!w || w.classList.contains('waverun') || w.classList.contains('sheenrun')) return;
+      w.classList.add('waverun');
+      setTimeout(function () { w.classList.remove('waverun'); }, w.children.length * 26 + 700);
+    }
+    if (hoverFine) {
+      kwords.forEach(function (w) {
+        w.addEventListener('pointerenter', function () { wave(w); });
+      });
+    } else {
+      [].slice.call(hero.querySelectorAll('.fh-word')).forEach(function (b) {
+        b.addEventListener('pointerdown', function (e) {
+          if (e.target.closest('a')) return;
+          wave(b.querySelector('.fw-fill'));
+        });
+      });
+    }
+    // sheen only while the hero is on screen and the tab is visible
+    var heroVis = true;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) {
+        heroVis = en[en.length - 1].isIntersecting;
+      }, { threshold: 0.15 }).observe(hero);
+    }
+    var sheens = [].slice.call(hero.querySelectorAll('.fw-fill')), si = 0;
+    setInterval(function () {
+      if (document.hidden || !heroVis || !sheens.length) return;
+      var w = sheens[si % sheens.length]; si++;
+      if (w.classList.contains('waverun')) return;
+      w.classList.add('sheenrun');
+      setTimeout(function () { w.classList.remove('sheenrun'); }, w.children.length * 42 + 1050);
+    }, 4600);
+    var hi = hero.querySelector('.fh-hi');
+    if (hi) {
+      hi.addEventListener('pointerdown', function () {
+        hi.classList.remove('wob'); void hi.offsetWidth; hi.classList.add('wob');
+        if (!hoverFine) hi.classList.toggle('show');
+      });
+    }
+    document.addEventListener('visibilitychange', function () {
+      document.body.classList.toggle('tab-hidden', document.hidden);
+    });
+    hero.classList.add('k');
     requestAnimationFrame(function () { hero.classList.add('play'); });
+  } else if (hero) {
+    hero.classList.add('play');
   }
 })();
 </script>
