@@ -3,22 +3,23 @@
 # cv/build-cv.R - Build the CV (cv/cv.html + cv/cv.pdf) from the Google
 # Sheet + Zotero, in the Scholarly design.
 #
-# This runs automatically as a Quarto pre-render script (_quarto.yml),
-# so `quarto render` and `quarto publish gh-pages` always ship a CV
-# freshly built from the data. You can still run it by hand from the
-# project root:
-#     Rscript cv/build-cv.R
+# This is wired as a Quarto pre-render script (_quarto.yml) but is DECOUPLED
+# from rendering: by default it does NOTHING during a render or preview, so
+# editing pages never rebuilds the CV. Rebuild it deliberately instead:
+#     Rscript cv/build-cv.R                 # standalone, always rebuilds
+#     CV_BUILD=1 quarto publish gh-pages    # publish a freshly built CV
 #
 # When it runs:
-#   * Full project render (quarto render / publish / preview startup):
-#     refetch the data and rebuild both files. If the network fails, it
-#     falls back to the last cached data with a loud warning.
-#   * Incremental preview renders: skipped when cv.html + cv.pdf exist.
-#   * Manual run: always rebuilds with fresh data.
+#   * During ANY quarto render / preview: skips instantly unless CV_BUILD=1
+#     (or CV_FORCE=1) is set, so normal editing never touches the CV.
+#   * With CV_BUILD=1 on a whole-site render/publish: refetch + rebuild both
+#     files. On network failure it falls back to the cache with a loud warning.
+#   * Manual run (Rscript cv/build-cv.R): always rebuilds with fresh data.
 #
-# Escape hatches (environment variables):
-#   CV_SKIP=1      skip the CV entirely (handy while designing pages)
-#   CV_FORCE=1     rebuild + refetch no matter what
+# Environment variables:
+#   CV_BUILD=1     let a quarto render/publish rebuild the CV (off by default)
+#   CV_FORCE=1     force a rebuild + fresh fetch (also implies CV_BUILD)
+#   CV_SKIP=1      skip the CV even on a manual run
 #   CV_SKIP_PDF=1  rebuild cv.html only (accepting a possibly stale pdf)
 #
 # Requirements:
@@ -30,6 +31,24 @@
 #   * Google auth is only needed if the Sheet is not link-viewable;
 #     in that case the cached gargle token for my_email is used.
 # =====================================================================
+
+## ---------------- fast gate: is a build even wanted? (runs before anything loads) ----------------
+# The CV build is DECOUPLED from normal Quarto renders. As a pre-render hook this
+# script exits instantly and changes nothing, so editing or previewing pages never
+# rebuilds the CV. Rebuild it on purpose in one of these ways:
+#     Rscript cv/build-cv.R                 # standalone, always rebuilds
+#     CV_BUILD=1 quarto render              # rebuild while rendering the site
+#     CV_BUILD=1 quarto publish gh-pages    # publish a freshly built CV
+in_quarto  <- nzchar(Sys.getenv("QUARTO_PROJECT_DIR"))
+want_build <- nzchar(Sys.getenv("CV_BUILD")) || nzchar(Sys.getenv("CV_FORCE"))
+if (nzchar(Sys.getenv("CV_SKIP"))) {
+  message("cv: CV_SKIP is set, skipping.")
+  quit(save = "no")
+}
+if (in_quarto && !want_build) {
+  message("cv: not rebuilt (decoupled from render). Run  Rscript cv/build-cv.R  or set CV_BUILD=1 to build.")
+  quit(save = "no")
+}
 
 suppressPackageStartupMessages({
   library(googlesheets4); library(dplyr); library(stringr); library(lubridate)
@@ -48,20 +67,13 @@ my_email   <- "ongphucthinh@gmail.com"
 if (!file.exists("_quarto.yml") || !file.exists(template))
   stop("Run this from the project root, e.g.  Rscript cv/build-cv.R")
 
-## ---------------- decide whether to run ----------------
-in_quarto   <- nzchar(Sys.getenv("QUARTO_PROJECT_DIR"))
+## ---------------- data-refresh policy (past the gate, so a build is wanted) ----------------
+# in_quarto was set at the gate above. full_render tells a whole-site render or
+# publish (fresh fetch) apart from a single-file render (reuse cached data unless
+# CV_FORCE). have_out is used only to keep existing files if a fetch yields nothing.
 full_render <- nzchar(Sys.getenv("QUARTO_PROJECT_RENDER_ALL"))
 forced      <- nzchar(Sys.getenv("CV_FORCE"))
 have_out    <- file.exists(out_html) && file.exists(out_pdf)
-
-if (nzchar(Sys.getenv("CV_SKIP"))) {
-  message("cv: CV_SKIP is set, skipping.")
-  quit(save = "no")
-}
-if (in_quarto && !full_render && !forced && have_out) {
-  message("cv: incremental render and cv.html/cv.pdf exist, skipping (CV_FORCE=1 to rebuild).")
-  quit(save = "no")
-}
 
 ## ---------------- data fetch (cached) ----------------
 `%or%` <- function(a, b) if (is.null(a) || length(a) == 0 || is.na(a[1])) b else a
@@ -167,6 +179,22 @@ esc <- function(x) {
   x <- gsub('"', "&quot;", x, fixed = TRUE)
   gsub("'", "&#39;", x, fixed = TRUE)
 }
+# Inline mini-markdown for FREE-TEXT cells (policy, grants, awards, teaching,
+# software, team next-destination). Escapes real HTML FIRST, then allows a tiny,
+# safe markup set so a Google-Sheet cell can carry emphasis and links:
+#   **bold**      -> <strong>              *italic*  -> <em>
+#   [label](url)  -> <a href="url">label</a>   (only http / https / mailto URLs)
+# Anything that is not one of these exact patterns is left as typed, so a stray
+# "*" or "(2020-2023)" in ordinary prose is safe. Vectorised over a column.
+# Convention: a URL may not contain a space or a ")"; put bold INSIDE the link
+# label, e.g.  [**top ten achievements of 2024**](https://example.com/x).
+md_inline <- function(x) {
+  x <- esc(x)                                                              # 1) neutralise real HTML
+  x <- gsub("\\[([^\\]]+)\\]\\((https?://[^) ]+|mailto:[^) ]+)\\)",
+            '<a href="\\2">\\1</a>', x, perl = TRUE)                       # 2) [label](url)
+  x <- gsub("\\*\\*([^*]+)\\*\\*", "<strong>\\1</strong>", x, perl = TRUE) # 3) **bold**
+  gsub("\\*([^*]+)\\*", "<em>\\1</em>", x, perl = TRUE)                    # 4) *italic* (after bold)
+}
 clean <- function(x) {                       # NA, "", "null", "0" -> "" (metadata placeholders)
   x <- ifelse(is.na(x), "", as.character(x))
   ifelse(x %in% c("null", "0"), "", x)
@@ -178,11 +206,12 @@ to_date <- function(x) {
 }
 strip_scheme <- function(u) sub("/+$", "", sub("^https?://", "", u))
 bold_name    <- function(x) gsub("\\bOng T([A-Z]*)", "<b>Ong T\\1</b>", x)
-lead_bold    <- function(s) {                # bold the part before the first comma
-  s <- esc(s); pos <- regexpr(",", s, fixed = TRUE)
-  ifelse(pos > 0,
-         paste0('<span class="t">', substr(s, 1, pos - 1), '</span>', substr(s, pos, nchar(s))),
-         paste0('<span class="t">', s, '</span>'))
+lead_bold    <- function(s) {                # bold the lead (before the first comma); allow inline markup in the rest
+  s <- as.character(s); s[is.na(s)] <- ""
+  pos  <- regexpr(",", s, fixed = TRUE)      # split the RAW text, then md_inline each half
+  lead <- ifelse(pos > 0, substr(s, 1, pos - 1), s)
+  rest <- ifelse(pos > 0, substr(s, pos, nchar(s)), "")
+  paste0('<span class="t">', md_inline(lead), '</span>', md_inline(rest))
 }
 section <- function(title, inner)
   sprintf('<section class="cv-sec">\n  <h2 class="cv-h">%s</h2>\n  %s\n</section>', title, inner)
@@ -228,7 +257,7 @@ build_grants <- function(d) {
                 paste0("$", format(round(d$budget), big.mark = ",", trim = TRUE, scientific = FALSE)))
   rows <- sprintf(
     '<tr><td class="c-when">%s</td><td class="c-role">%s</td><td class="c-amt">%s</td><td><span class="t">%s.</span> <span class="cv-meta">%s.</span></td></tr>',
-    esc(d$period), esc(as.character(d$role)), esc(amt), esc(d$title), esc(d$sponsor))
+    esc(d$period), esc(as.character(d$role)), esc(amt), md_inline(d$title), md_inline(d$sponsor))
   section("Grants", paste0(lead, "\n", table_plain(rows)))
 }
 
@@ -246,14 +275,14 @@ build_team <- function(d) {
     arrange(role, next_dest != "", desc(year))
   thead <- '<thead><tr><th class="c-when">Tenure</th><th class="c-role-s">Role</th><th class="c-name">Name</th><th>Next destination</th></tr></thead>'
   rows  <- sprintf('<tr><td class="c-when">%s</td><td class="c-role-s">%s</td><td class="c-name">%s</td><td class="cv-meta">%s</td></tr>',
-                   esc(d$period), esc(as.character(d$role)), esc(d$name), esc(d$next_dest))
+                   esc(d$period), esc(as.character(d$role)), esc(d$name), md_inline(d$next_dest))
   inner <- sprintf('<table class="cv-table">%s<tbody>\n%s\n</tbody></table>', thead, paste(rows, collapse = "\n"))
   section("Research team", inner)
 }
 
 build_policy <- function(d) {
   d <- arr_desc(d, "date")
-  rows <- sprintf('<tr><td class="c-when">%s</td><td>%s</td></tr>', esc(d$date), esc(d$project))
+  rows <- sprintf('<tr><td class="c-when">%s</td><td>%s</td></tr>', esc(d$date), md_inline(d$project))
   section("Policy engagement", table_plain(rows))
 }
 
@@ -270,7 +299,7 @@ build_teaching <- function(d) {
     meta <- mapply(function(n, v) {          # join non-empty parts, no dangling dots
       parts <- c(n, v); parts <- parts[nzchar(parts)]
       if (length(parts) == 0) "" else paste0(paste(parts, collapse = ". "), ".")
-    }, esc(g$note), esc(g$venue), USE.NAMES = FALSE)
+    }, md_inline(g$note), md_inline(g$venue), USE.NAMES = FALSE)
     rows <- sprintf('<tr><td class="c-when">%s</td><td class="c-num">%s</td><td><span class="t">%s</span> <span class="cv-meta">%s</span></td></tr>',
                     esc(g$date), esc(g$attd), esc(g$name), paste0(meta, link))
     body <- paste0(body,
@@ -288,7 +317,7 @@ build_software <- function(d) {
   link <- ifelse(nzchar(url),
                  sprintf(' <a href="%s">%s</a>', esc(url), esc(strip_scheme(url))), "")
   rows <- sprintf('<tr><td class="c-when">%s</td><td><span class="t">%s.</span> <span class="cv-meta">%s.</span>%s</td></tr>',
-                  esc(d$year), esc(d$name), esc(d$summary), link)
+                  esc(d$year), esc(d$name), md_inline(d$summary), link)
   section("Software", table_plain(rows))
 }
 
@@ -312,8 +341,8 @@ build_publications <- function(p) {
                  ifelse(nzchar(core), core, pg))
   tail <- ifelse(nzchar(vp), paste0(esc(pyear), ";", esc(vp), "."), paste0(esc(pyear), "."))
   doi  <- clean(p$DOI)
-  doi_a <- ifelse(nzchar(doi),
-                  sprintf(' <a href="https://doi.org/%s">doi</a>', esc(doi)), "")
+  doi_a <- ifelse(nzchar(doi),                       # AMA style: doi:10.xxxx (identifier linked, no space)
+                  sprintf(' doi:<a href="https://doi.org/%s">%s</a>', esc(doi), esc(doi)), "")
   authors <- bold_name(esc(str_trim(p$authors)))
   ref   <- sprintf('%s. %s. <i>%s</i>. %s%s', authors, esc(p$title), esc(jr), tail, doi_a)
   items <- paste(sprintf('<li>%s</li>', ref), collapse = "\n")

@@ -1,0 +1,63 @@
+---
+title: "How to supervise and advise someone more junior"
+description: "The real job is not the task. It is helping someone believe they can do the thing they cannot do yet."
+date: 2026-07-11
+categories: [leadership]
+author:
+  - name: Thinh Ong
+    url: https://thinhong.github.io
+    orcid: 0000-0001-6772-9291
+# image: share-card.jpg        # add a 1200x630 social card here before publishing
+# image-alt: "Two rings and an upward arrow on a deep blue matte banner"
+title-block-banner: "url(/img/blog-art/banner-supervise.svg)"
+title-block-banner-color: white
+citation:
+  url: https://drthinhong.com/blog/supervise-a-junior/
+draft: false
+---
+
+::: {.callout-note appearance="simple" icon=false}
+
+1. Bring hope: your real job is to help them believe they can do it, under your guidance
+
+2. Aim at their goal, not yours
+
+3. Encourage like a judge on a children's show: honest, but never harsh
+
+4. Turn the mountain into a staircase
+
+5. Make yourself unnecessary in the end
+
+:::
+
+## Bring hope
+
+When you supervise or advise someone, the most important thing is also the easiest to forget: your job is to bring them hope, not to leave them disappointed or ready to give up.
+
+People come to you because they were handed a task, or chose one, that they cannot do yet. Everything else you do sits on top of a single job: helping them believe that they can do it, with your guidance. Once someone believes they can, they will find the energy to learn all the rest. Once they stop believing, they will quietly give up. I think the main business of a supervisor is building belief.
+
+## Aim at their goal, not yours
+
+Before planning any of the work, find out what the person actually wants from it. A student might be after their first paper, or a method they can carry into the next project, or simply the proof to themselves that they can finish a hard thing. A young colleague might want a promotion, a new skill, or just to stop feeling lost. You cannot guess them, so just ask and be straightforward.
+
+Once you know their aim, you can tailor the task to it, and a task that serves someone's own goal barely needs pushing. If you only ever steer people toward your goals, the best you get is compliance. Lead them toward theirs and you get their self-motivation, because now the work is theirs.
+
+## Be a judge on a children's show
+
+Watch a children's talent show and notice how the judges speak. A kid forgets the words halfway through, and the judge still finds something true and kind to say, something that makes the child want to sing again. Now watch the adult version of the same show, where the judges are extremely brutal. Somewhere along the way we seem to have decided that an adult does not need kindness. Does an adult really deserve that treatment?
+
+I do not think so. A harsh word lands just as hard on a thirty-year-old as on a child. And notice that the judge on the children's show is not lying, and not lowering the bar. They are telling the truth in a way that protects the one thing that matters most: the will to keep going.
+
+So be generous with encouraging words at any age. Be specific about what is wrong, "this figure is missing its units, add them here", and just as specific about what is right, and say the good part first so the person is steady enough to hear the rest. Praise real progress out loud, in front of the people who matter, and put their name on the work.
+
+## Turn the mountain into a staircase
+
+A lot of what looks like a confidence problem is really a size problem. A whole task can feel impossible, and impossible makes people panic. The same task, cut into small and clear steps, becomes a simple to-do list. You have done this kind of work before, so you can see the steps that they cannot see yet. Lay them out, and make the first step something they can finish quickly, because nothing builds belief like a real, early win.
+
+Give them the map. Much of a junior's stress is not the work itself, it is not knowing where it is going or how far away the finish is. Tell them why the task matters, how their part fits, and what the path ahead looks like. Once they can see the whole thing, it stops being so scary.
+
+Then let them climb, and let them struggle a bit along the way, because belief does not come from removing every obstacle, it comes from getting past one. The key word is safely. Agree on a rope in advance, something like "if you are stuck for more than a day, come and find me", so a healthy struggle never turns into the kind of failure that makes someone want to quit. Let them stumble, but be there before they fall.
+
+## In the end, make yourself unnecessary
+
+All of this points to one thing: the day they no longer need you. The goal was never "they did what I told them". It is "they can do it on their own now, and they know it". I truly believe that the best moment in advising someone is when they outgrow your help and get good enough to teach you something back. If you brought them hope and stayed with them until they got there, then you did the job well.

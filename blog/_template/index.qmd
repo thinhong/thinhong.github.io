@@ -1,0 +1,50 @@
+---
+# Copy this whole folder to blog/your-post-slug/ to start a new post.
+# The leading underscore makes Quarto skip this template when rendering, so it never shows up on the site or in the listing.
+# Keep draft: true while you write. You will still see the post in `quarto preview` with a "Draft" banner. Set draft: false and render when it is ready, and it goes live.
+title: "Your post title"
+description: "One sentence that makes someone want to read it"
+date: 2026-01-01              # publication date, format YYYY-MM-DD
+categories: [leadership]      # one of: modelling, code, academia, productivity, reflections, leadership
+author:
+  - name: Thinh Ong
+    url: https://thinhong.github.io
+    orcid: 0000-0001-6772-9291
+# image: share-card.jpg       # optional 1200x630 social card; drop the file in this folder
+# image-alt: "Describe the share card for screen readers"
+# title-block-banner: "url(/img/blog-art/banner-your-post.svg)"   # optional custom hero banner
+# title-block-banner-color: white
+citation:
+  url: https://drthinhong.com/blog/your-post-slug/
+draft: true
+---
+
+Open with the one idea a reader should not forget. Keep each paragraph on a single line, and let the voice be warm.
+
+## The short version
+
+::: {.callout-note appearance="simple" icon=false}
+
+1. First point
+
+2. Second point
+
+3. Third point
+
+:::
+
+## 1. First point
+
+Write the section here. One paragraph per line, short and plain.
+
+## 2. Second point
+
+...
+
+## 3. Third point
+
+...
+
+## Acknowledgments
+
+Thank the people who shaped these ideas.

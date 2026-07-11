@@ -120,6 +120,30 @@ Key behaviour, do not change without updating both pages:
    the tokens above**, not raw numbers.
 6. Add the page to the navbar in `_quarto.yml` if it should be linked.
 
+## Blog drafting workflow
+
+Blog posts live in `blog/`, one folder per post (`blog/my-post/index.qmd`), and
+the home listing picks them up automatically. To write a post before it is
+public, use Quarto's `draft` flag, not any custom setup.
+
+1. **Write with `draft: true`** in the post front matter. In `quarto preview` the
+   post renders in full with a "Draft" banner and appears in your local mosaic, so
+   you see it exactly as it will look. A published build (`quarto render`) drops
+   it automatically: no page, and nothing in the listing, navbar, search, sitemap,
+   or feed. The custom listing template never receives it, so nothing else needs
+   to change.
+2. **Publish** by setting `draft: false` and rendering. That is the only switch.
+3. **Start from `blog/_template/`.** Copy that folder to `blog/your-slug/`; it
+   already has `draft: true` and the standard front matter.
+4. **Use `blog/_drafts/` as a holding pen** for raw ideas you do not want rendered
+   even in preview. Anything inside a folder that starts with `_` is ignored by
+   Quarto, the same rule that makes `_page-template.qmd` and `_quarto.yml` special.
+   Move a folder up to `blog/` and set `draft: true` when you want to see it
+   locally.
+
+One caveat: `quarto preview` always shows drafts. To preview the site exactly as
+visitors will see it, run `quarto render` and open the `docs/` output.
+
 ## Rules
 
 - Never hard-code a spacing, size, radius or timing value that a token exists for.
@@ -150,6 +174,8 @@ Key behaviour, do not change without updating both pages:
 | `software/index.qmd` | Software page; pulls data and calls the generator |
 | `code/software.R` | Generates the Software markup using `.pg-*` shell + `.sw-*` rows |
 | `design-mockups/system-preview.html` | Standalone proof that the heroes align |
+| `blog/_template/` | Copy-paste scaffold for a new blog post (`draft: true` preset) |
+| `blog/_drafts/` | Holding pen for ideas not ready to preview (ignored by Quarto) |
 
 Reference pages: Teaching and Software are the two worked examples. When in
 doubt, match what they do.

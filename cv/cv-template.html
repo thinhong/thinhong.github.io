@@ -69,6 +69,11 @@
   .cv-table .cv-meta{color:var(--muted)}
   .cv-table a{color:var(--link); text-decoration:none}
   .cv-table a:hover{text-decoration:underline}
+  /* inline emphasis produced by md_inline() in free-text cells: EB Garamond only
+     loads up to 600, so pin the weight and italic explicitly instead of leaving
+     <strong>/<em> to each engine's font fallback */
+  .cv-table strong, .cv-pubs strong{font-weight:600; color:var(--ink)}
+  .cv-table em, .cv-pubs em{font-style:italic}
   .cv-table .cv-subgroup td{padding:13px 0 3px; font-style:italic; font-weight:600;
     color:#46403a; font-size:1rem}
 
@@ -105,6 +110,8 @@
     .cv-table tr{break-inside:avoid}
     .cv-pubs li{break-inside:avoid}
     .cv-h{break-after:avoid}
+    /* on paper there is no hover, so make links recognisable by more than colour */
+    .cv-table a, .cv-pubs a{text-decoration:underline}
     @page{size:A4; margin:19mm}
   }
 </style>
