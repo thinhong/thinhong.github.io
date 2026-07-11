@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Writing on infectious disease modelling, R, and the craft of research.">
 
-<title>Blog - Thinh Ong</title>
+<title>build-cv-review</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,13 +66,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../logo-icon.svg" rel="icon" type="image/svg+xml">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
@@ -71,35 +104,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-postlist .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-project','listing-website','listing-format','listing-language','listing-comments','listing-reading-time','listing-title','listing-description','listing-date','listing-categories','listing-author','listing-image','listing-image-alt','listing-title-block-banner','listing-title-block-banner-color','listing-citation','listing-aliases','listing-draft','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-word-count-sort'] }],
-      
-      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-comments","listing-reading-time","listing-title","listing-description","listing-date","listing-categories","listing-author","listing-image","listing-image-alt","listing-title-block-banner","listing-title-block-banner-color","listing-citation","listing-aliases","listing-draft","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-word-count"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-postlist'] = new List('listing-postlist', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-RVRBE7Y1R2"></script>
 
 <script type="text/javascript">
@@ -137,48 +141,10 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta property="og:title" content="Blog - Thinh Ong">
-<meta property="og:description" content="Writing on infectious disease modelling, R, and the craft of research.">
-<meta property="og:image" content="https://drthinhong.com/img/blog-art/cover-leadership-1.svg">
-<meta property="og:image:alt" content="">
-<meta name="twitter:title" content="Blog - Thinh Ong">
-<meta name="twitter:description" content="Writing on infectious disease modelling, R, and the craft of research.">
-<meta name="twitter:image" content="https://drthinhong.com/img/blog-art/cover-leadership-1.svg">
-<meta name="twitter:image:alt" content="">
-<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -213,7 +179,7 @@ window.Quarto = {
 <span class="menu-text">Software</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../blog/index.html" aria-current="page"> 
+    <a class="nav-link" href="../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -236,108 +202,173 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
-<section class="pg">
-  <!-- blog index: hero, topic dropdown, listing -->
-  <div class="pg-hero">
-    <div class="pg-hero__head">
-      <span class="pg-eyebrow">Writing</span>
-      <h1 class="pg-title">Blog <span class="pg-title-thin">&amp; Notes</span></h1>
-    </div>
-    <div class="pg-hero__aside">
-      <p class="pg-lead">A place to think out loud about disease modelling, code, and the work of science.</p>
-    </div>
-  </div>
-
-  <div class="blg-filter" id="blg-filter">
-    <button class="blg-fbtn" id="blg-fbtn" type="button" aria-haspopup="listbox" aria-expanded="false">
-      <span class="blg-fdot" id="blg-fdot" hidden=""></span>
-      <span class="blg-flabel" id="blg-flabel">All posts</span>
-      <svg class="blg-fchev" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
-    </button>
-    <div class="blg-fmenu" id="blg-fmenu" role="listbox" aria-label="Filter by topic"></div>
-  </div>
-<div id="listing-postlist" class="quarto-listing quarto-listing-container-custom">
-<div id="blg-grid" class="blg-grid">
-<p><a class="blg-card blg-leadership blg-feat" href="../blog/supervise-a-junior/index.html" data-topic="leadership"> <span class="blg-img"><img class="blg-art" src="../img/blog-art/cover-leadership-1.svg" alt="" loading="lazy"></span> <span class="blg-metatop"><span class="blg-cat">Leadership</span><span class="blg-date">Jul 11, 2026 · 4 min</span></span> <span class="blg-cardname">How to supervise and advise someone more junior</span> </a></p>
-<p><a class="blg-card blg-leadership" href="../blog/chair-a-conference-session/index.html" data-topic="leadership"> <span class="blg-img"><img class="blg-art" src="../img/blog-art/cover-leadership-2.svg" alt="" loading="lazy"></span> <span class="blg-metatop"><span class="blg-cat">Leadership</span><span class="blg-date">Jun 23, 2026 · 6 min</span></span> <span class="blg-cardname">How to chair a conference session</span> </a></p>
-<p><a class="blg-card blg-leadership" href="../blog/chair-a-meeting/index.html" data-topic="leadership"> <span class="blg-img"><img class="blg-art" src="../img/blog-art/cover-leadership-3.svg" alt="" loading="lazy"></span> <span class="blg-metatop"><span class="blg-cat">Leadership</span><span class="blg-date">Aug 26, 2023 · 6 min</span></span> <span class="blg-cardname">10 simple tips to chair a meeting</span> </a></p>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
+<section id="build-cv.r-review-and-how-to-fix-the-cv" class="level1">
+<h1>build-cv.R review, and how to fix the CV</h1>
+<p>A critical read of <code>cv/build-cv.R</code> plus <code>cv/cv-template.html</code>, focused on your three questions (inline links/bold, the DOI, the citation style) and then a full review.</p>
+<section id="tldr" class="level2">
+<h2 class="anchored" data-anchor-id="tldr">TL;DR</h2>
+<ol type="1">
+<li><strong>Inline links and bold already work in the code, but not in your live CV yet.</strong> The script already has a small <code>md_inline()</code> helper that turns <code>[label](url)</code> into a link and <code>**text**</code> into bold. Your published <code>cv.html</code> still shows the raw <code>[**top ten...**](...)</code> text because that file was built on 9 July, <em>before</em> the helper was added. You just need to rebuild (<code>Rscript cv/build-cv.R</code>).</li>
+<li><strong>I added the one missing piece:</strong> CSS so the bold and italic that <code>md_inline()</code> emits are pinned to the CV’s exact weight, plus underlined links when printed. Without it the weight is left to each engine’s font fallback rather than being explicit.</li>
+<li><strong>The DOI change is correct.</strong> <code>doi:10.xxxx</code> with the identifier linked is proper AMA style.</li>
+<li><strong>Your citation style is a legitimate, reputable format</strong> (essentially AMA / JAMA style). A few small, optional tweaks below.</li>
+</ol>
+<p>One thing to keep in mind throughout: R is not available in this environment, so I could not run the script. I verified the logic by reading it and the rendered output. Your rebuild on your own machine is the real test.</p>
+<hr>
 </section>
+<section id="inline-links-and-bold-the-generalisable-solution" class="level2">
+<h2 class="anchored" data-anchor-id="inline-links-and-bold-the-generalisable-solution">1. Inline links and bold (the generalisable solution)</h2>
+<section id="what-is-already-there-and-why-it-is-the-right-approach" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-already-there-and-why-it-is-the-right-approach">What is already there and why it is the right approach</h3>
+<p>The blocker was <code>esc()</code>. Every free-text value is HTML-escaped before it goes into the page, which is correct for safety but also turns any markup you type into literal characters. So raw markdown in a sheet cell shows up verbatim.</p>
+<p>The clean, generalisable fix is a tiny “inline markdown” pass that runs on the free-text fields. That is exactly what <code>md_inline()</code> does (lines 191-197):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>md_inline <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">esc</span>(x)                                            <span class="co"># 1. neutralise real HTML first</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">[([^</span><span class="sc">\\</span><span class="st">]]+)</span><span class="sc">\\</span><span class="st">]</span><span class="sc">\\</span><span class="st">((https?://[^) ]+|mailto:[^) ]+)</span><span class="sc">\\</span><span class="st">)"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>            <span class="st">'&lt;a href="</span><span class="sc">\\</span><span class="st">2"&gt;</span><span class="sc">\\</span><span class="st">1&lt;/a&gt;'</span>, x, <span class="at">perl =</span> <span class="cn">TRUE</span>)     <span class="co"># 2. [label](url)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">*</span><span class="sc">\\</span><span class="st">*([^*]+)</span><span class="sc">\\</span><span class="st">*</span><span class="sc">\\</span><span class="st">*"</span>, <span class="st">"&lt;strong&gt;</span><span class="sc">\\</span><span class="st">1&lt;/strong&gt;"</span>, x, <span class="at">perl =</span> <span class="cn">TRUE</span>) <span class="co"># 3. **bold**</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">*([^*]+)</span><span class="sc">\\</span><span class="st">*"</span>, <span class="st">"&lt;em&gt;</span><span class="sc">\\</span><span class="st">1&lt;/em&gt;"</span>, x, <span class="at">perl =</span> <span class="cn">TRUE</span>)  <span class="co"># 4. *italic*</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This is a good design, and I would keep it. The reasons it is the right generalisable choice:</p>
+<ul>
+<li><strong>You write normal markdown in the sheet.</strong> No new syntax to remember. <code>[label](url)</code>, <code>**bold**</code>, <code>*italic*</code>.</li>
+<li><strong>It escapes first, then adds markup.</strong> So real HTML in a cell can never inject anything, but your intended link and bold still come through.</li>
+<li><strong>It only allows <code>http</code>, <code>https</code>, and <code>mailto</code> links.</strong> A cell can never smuggle in a <code>javascript:</code> link. This is a genuinely thoughtful safety detail, keep it.</li>
+<li><strong>It is vectorised</strong>, so it runs on a whole column at once, same as <code>esc()</code>.</li>
+</ul>
+<p>It is already wired into every free-text field: policy <code>project</code>, grant <code>title</code> and <code>sponsor</code>, award <code>description</code> (via <code>lead_bold</code>), teaching <code>note</code> and <code>venue</code>, software <code>summary</code>, and team <code>next_dest</code>. So your measles example will render correctly on the next build.</p>
+</section>
+<section id="how-to-use-it-in-the-sheet" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-use-it-in-the-sheet">How to use it in the sheet</h3>
+<p>Write plain markdown in the cell. Your real example works as-is:</p>
+<pre><code>Modelled measles seroprevalence and immunity gaps ... Recognised as one of the
+city's [**top ten medical achievements of 2024**](https://medinet.hochiminhcity.gov.vn/...aspx).</code></pre>
+<ul>
+<li>Link: <code>[visible text](https://...)</code></li>
+<li>Bold: <code>**text**</code></li>
+<li>Italic: <code>*text*</code></li>
+<li>Bold link (your case): put the bold inside the label, <code>[**text**](https://...)</code>.</li>
+</ul>
+</section>
+<section id="the-one-thing-that-was-missing-now-fixed" class="level3">
+<h3 class="anchored" data-anchor-id="the-one-thing-that-was-missing-now-fixed">The one thing that was missing (now fixed)</h3>
+<p>Your fonts only load EB Garamond weights 400, 500, and 600. A bare <code>&lt;strong&gt;</code> asks for 700, which is not loaded, so the result depends on each engine’s font-fallback rule (Chrome, which prints your PDF, drops to the nearest available 600; other viewers may synthesize a slightly different weight). Rather than rely on that, I pinned it. Two CSS rules in <code>cv-template.html</code> make <code>md_inline()</code> output match the design exactly:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.cv-table</span> strong<span class="op">,</span> <span class="fu">.cv-pubs</span> strong{<span class="kw">font-weight</span><span class="ch">:</span><span class="dv">600</span><span class="op">;</span> <span class="kw">color</span><span class="ch">:</span><span class="fu">var(</span><span class="va">--ink</span><span class="fu">)</span>}</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.cv-table</span> em<span class="op">,</span> <span class="fu">.cv-pubs</span> em{<span class="kw">font-style</span><span class="ch">:</span><span class="dv">italic</span>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>I also added, inside the print block, <code>.cv-table a, .cv-pubs a{text-decoration:underline}</code> so links are recognisable on paper (there is no hover on a printed page, and colour alone is weak, especially in black and white). If you dislike underlined links in the PDF, delete that one line.</p>
+</section>
+<section id="limitations-to-be-aware-of-by-design-low-impact" class="level3">
+<h3 class="anchored" data-anchor-id="limitations-to-be-aware-of-by-design-low-impact">Limitations to be aware of (by design, low impact)</h3>
+<ul>
+<li><strong>A URL cannot contain a space or a <code>)</code>.</strong> This keeps the parser simple and unambiguous. If you ever need a link whose URL has a <code>)</code> (some Wikipedia URLs), replace it with <code>%29</code>. For example <code>Measles_(disease)</code> becomes <code>Measles_%28disease%29</code>.</li>
+<li><strong>A lone pair of single <code>*</code> in ordinary prose becomes italic.</strong> Rare in a CV. If you literally need an asterisk, it is fine as long as there is not a second one in the same cell.</li>
+<li><strong>In <code>lead_bold</code> fields (awards, experience), a link should not straddle the first comma</strong>, because those fields are split on the first comma before formatting. Policy, grants, teaching, and software have no such limit.</li>
+</ul>
+<p>None of these affect your current content.</p>
+<hr>
+</section>
+</section>
+<section id="the-doi-and-the-citation-style" class="level2">
+<h2 class="anchored" data-anchor-id="the-doi-and-the-citation-style">2. The DOI and the citation style</h2>
+<section id="the-doi-change-is-correct" class="level3">
+<h3 class="anchored" data-anchor-id="the-doi-change-is-correct">The DOI change is correct</h3>
+<p>Old output was the literal word “doi” linked. The current code (lines 344-345) produces:</p>
+<pre><code>doi:10.3201/eid3110.250234        (with the identifier itself linked to https://doi.org/...)</code></pre>
+<p>That is the modern AMA convention: <code>doi:</code> prefix, no space, the DOI shown in full and clickable, no trailing period. Good.</p>
+</section>
+<section id="is-the-citation-style-correct-reputable-yes" class="level3">
+<h3 class="anchored" data-anchor-id="is-the-citation-style-correct-reputable-yes">Is the citation style “correct” / reputable? Yes</h3>
+<p>Reconstructing the full format the script emits:</p>
+<pre><code>Ong TP, Nguyen VA, Smith J. Article title here. Emerg Infect Dis. 2025;31(10):250234. doi:10.3201/eid3110.250234</code></pre>
+<p>with the journal in italics and your own name in bold. This is <strong>AMA style (the style JAMA and many biomedical journals use)</strong>, which is one of the most reputable citation formats in medicine and epidemiology. Point by point:</p>
+<ul>
+<li>Authors as <code>Surname Initials</code>, comma-separated, no “and”, no periods in initials. Correct.</li>
+<li>Article title in sentence case, ending in a period. Correct (this depends on how the title is stored in Zotero, see below).</li>
+<li>Journal abbreviated and <em>italicised</em>. This is the AMA choice. (Pure Vancouver / ICMJE is identical except it does <strong>not</strong> italicise the journal, so your italics make it AMA-flavoured rather than Vancouver. Both are reputable; just pick one and be consistent.)</li>
+<li><code>Year;Volume(Issue):Pages.</code> Correct AMA punctuation.</li>
+<li><code>doi:...</code> at the end. Correct.</li>
+</ul>
+<p>So you can describe it honestly as “AMA style” on your CV, and it will read as a professional, journal-grade reference list.</p>
+</section>
+<section id="small-optional-refinements" class="level3">
+<h3 class="anchored" data-anchor-id="small-optional-refinements">Small, optional refinements</h3>
+<ul>
+<li><strong>Author truncation.</strong> Strict AMA lists the first 3 (older editions: 6) authors then “et al.” Your script lists <strong>all</strong> authors. On a CV that is usually the better choice, since it shows your exact authorship position, so I would keep listing all. Just know it is a deliberate, defensible deviation, not an error.</li>
+<li><strong>Title case.</strong> The script uses the title exactly as Zotero stores it. AMA wants sentence case (“Measles resurgence in…” not “Measles Resurgence In…”). If your Zotero entries are in Title Case, the CV will be too. Fixing this at the source (Zotero) is cleaner than forcing it in code.</li>
+<li><strong>Journal abbreviation quality.</strong> <code>journalAbbreviation</code> from Zotero is used, falling back to the full title. Consistency depends on your Zotero data having proper NLM abbreviations. Worth a spot-check.</li>
+<li><strong>Missing-metadata edge cases.</strong> If an article ever has no journal, no year, or no authors, the fixed template <code>%s. %s. &lt;i&gt;%s&lt;/i&gt;. %s%s</code> can leave a doubled period or a dangling <code>;</code>. It will not happen for normal journal articles, but there is a two-line guard in the patches section if you want to be safe.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="full-critical-review" class="level2">
+<h2 class="anchored" data-anchor-id="full-critical-review">3. Full critical review</h2>
+<section id="what-is-genuinely-good" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-genuinely-good">What is genuinely good</h3>
+<ul>
+<li><strong>Single source of truth.</strong> Everything comes from the Google Sheet and Zotero; the CV is a pure projection of that data. No hand-maintained duplicates to drift.</li>
+<li><strong>Atomic write.</strong> <code>cv.html</code> is written to a temp file then copied over (lines 380-383), so a crash mid-build never leaves a half-written file.</li>
+<li><strong>Honest PDF verification.</strong> After printing, it checks the PDF’s modification time actually advanced, and <em>stops loudly</em> otherwise (lines 400-405). This is the right instinct: it refuses to silently ship a stale or missing PDF.</li>
+<li><strong>Resilient fetching.</strong> 24-hour cache, <code>gs4_deauth()</code> first with an auth fallback, Zotero pagination for more than 100 items, and a clear “USING STALE CACHED DATA” warning if the network fails but a cache exists.</li>
+<li><strong>Safety.</strong> <code>esc()</code> on all data, and <code>md_inline()</code> restricting link schemes. Good defensive posture for content that comes from a spreadsheet.</li>
+<li><strong>Graceful degradation.</strong> <code>arr_desc()</code> and <code>ensure_cols()</code> mean a missing column downgrades a section rather than crashing the whole build. The <code>edu</code> tab even has a positional fallback.</li>
+<li><strong>The build is now decoupled from rendering</strong> (the earlier <code>CV_BUILD</code> gate), so this heavy script no longer runs on every page edit.</li>
+</ul>
+</section>
+<section id="what-is-weak-or-risky-roughly-in-priority-order" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-weak-or-risky-roughly-in-priority-order">What is weak or risky (roughly in priority order)</h3>
+<ol type="1">
+<li><strong>Your name is hard-coded as a fragile regex.</strong> <code>bold_name &lt;- function(x) gsub("\\bOng T([A-Z]*)", ...)</code> (line 208). If Zotero ever formats your name differently (a middle initial, a period, “Ong Phuc Thinh”), the bolding silently stops. It can also accidentally bold a different author whose name starts “Ong T”. Better: derive it from one configurable variable. Patch below.</li>
+<li><strong>Citation dangling punctuation on incomplete metadata</strong> (see section 2). Low probability, easy guard.</li>
+<li><strong>String-sorted dates can misorder.</strong> <code>arr_desc()</code> sorts numerically if the whole column is numeric, else as text. For a <code>date</code> column like <code>2024-10</code> vs <code>2024-9</code>, text sorting puts <code>2024-10</code> before <code>2024-9</code>. Full ISO dates (<code>2024-10-01</code>) sort fine; bare years sort fine; mixed or single-digit months do not. Consider parsing to a real date before sorting the policy and awards tabs.</li>
+<li><strong>No central schema check.</strong> Each <code>build_*</code> function assumes specific column names (for example grants needs <code>budget_total_usd</code>, <code>my_role</code>, <code>outcome</code>, <code>period</code>, <code>title</code>, <code>sponsor</code>). Some are guarded, some are not; a renamed column can fail deep in a function with a cryptic error. A short “these columns must exist per tab” check up front would turn a confusing failure into a clear message.</li>
+<li><strong>Eight separate <code>read_sheet()</code> calls.</strong> One network round-trip per tab (line 93). It is fine because of the cache, but it is the main reason a cold build is slow. Not worth changing unless cold builds bother you.</li>
+<li><strong>Tag inconsistency.</strong> <code>md_inline()</code> emits semantic <code>&lt;strong&gt;</code> / <code>&lt;em&gt;</code>, while the publications use presentational <code>&lt;b&gt;</code> / <code>&lt;i&gt;</code>. Both look right now that the CSS covers all four, but for tidiness you could standardise on <code>&lt;strong&gt;</code>/<code>&lt;em&gt;</code> everywhere. Cosmetic.</li>
+<li><strong>Only <code>journalArticle</code> items appear</strong> (line 325). Preprints, chapters, and conference papers are silently excluded. This is commented as intentional; just flagging it in case you later want a “Preprints” subsection.</li>
+<li><strong><code>tail</code> shadows <code>base::tail</code>.</strong> Harmless, but a slightly confusing variable name (line 342).</li>
+</ol>
+</section>
+<section id="overall" class="level3">
+<h3 class="anchored" data-anchor-id="overall">Overall</h3>
+<p>This is a solid, careful script. The architecture (data to HTML template to Chrome-printed PDF) is sound, the safety and resilience details are better than most hand-rolled CV generators, and the two things you asked about are already essentially handled. The remaining items are refinements, not bugs, with the single exception that you must rebuild for any of it to appear.</p>
+<hr>
+</section>
+</section>
+<section id="optional-copy-paste-patches" class="level2">
+<h2 class="anchored" data-anchor-id="optional-copy-paste-patches">4. Optional copy-paste patches</h2>
+<p>Only if you want them. The CSS one is already applied.</p>
+<p><strong>a) Make your name configurable (replaces line 208).</strong> Put your surname + initials once, near the config block:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>own_name <span class="ot">&lt;-</span> <span class="st">"Ong T"</span>   <span class="co"># your surname + leading initials, near the other config</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>bold_name <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">gsub</span>(<span class="fu">paste0</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">b"</span>, own_name, <span class="st">"([A-Z]*)"</span>),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">paste0</span>(<span class="st">"&lt;b&gt;"</span>, own_name, <span class="st">"</span><span class="sc">\\</span><span class="st">1&lt;/b&gt;"</span>), x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>b) Guard citation punctuation (drop into <code>build_publications</code>, before <code>items &lt;-</code>).</strong> Collapses any accidental <code>. .</code> or <code>;</code> gaps left by missing metadata:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ref <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">s*</span><span class="sc">\\</span><span class="st">."</span>, <span class="st">"."</span>, ref)      <span class="co"># ". ." -&gt; "."</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ref <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"&lt;i&gt;</span><span class="sc">\\</span><span class="st">s*&lt;/i&gt;</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">s*"</span>, <span class="st">""</span>, ref) <span class="co"># empty journal -&gt; drop it</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>c) Sort policy and awards by real dates.</strong> Add a date-parsing sort helper and use it instead of <code>arr_desc(d, "date")</code> where the column holds calendar dates rather than plain years.</p>
+<hr>
+</section>
+<section id="what-to-do-next" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-do-next">What to do next</h2>
+<ol type="1">
+<li>On your machine, from the project root, run <code>Rscript cv/build-cv.R</code>.</li>
+<li>Open <code>cv/cv.html</code>, confirm the policy line now shows a bold link and the DOIs read <code>doi:10.xxxx</code>.</li>
+<li>Save to PDF (or let the script’s <code>chrome_print</code> do it) and check the printed links are underlined.</li>
+</ol>
+<p>If it looks right, publish with <code>CV_BUILD=1 quarto publish gh-pages</code>.</p>
 
-<script>
-(function () {
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var grid = document.getElementById('blg-grid');
-  if (!grid) return;
-  var cards = Array.prototype.slice.call(grid.querySelectorAll('.blg-card'));
 
-  // entrance reveal (opacity + transform only)
-  if (!reduce && 'IntersectionObserver' in window) {
-    grid.classList.add('anim');
-    var rev = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); rev.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    cards.forEach(function (t) { rev.observe(t); });
-  }
-
-  // topic dropdown, built from the topics that actually have posts
-  var wrap = document.getElementById('blg-filter');
-  var btn = document.getElementById('blg-fbtn');
-  var menu = document.getElementById('blg-fmenu');
-  var flabel = document.getElementById('blg-flabel');
-  var fdot = document.getElementById('blg-fdot');
-  if (!wrap || !btn || !menu) return;
-
-  var META = {
-    modelling: ['Modelling', '#3a6fd6'], code: ['R & code', '#2a9490'],
-    academia: ['Academia', '#5a62d4'], productivity: ['Productivity', '#2f9a72'],
-    reflections: ['Reflections', '#9466a0'], leadership: ['Leadership', '#5c7aa0']
-  };
-  var used = [];
-  cards.forEach(function (c) { var t = c.getAttribute('data-topic'); if (t && used.indexOf(t) < 0) used.push(t); });
-  var opts = [{ f: 'all', label: 'All posts', color: '' }].concat(used.map(function (t) {
-    var m = META[t] || [t.charAt(0).toUpperCase() + t.slice(1), '#8a929b'];
-    return { f: t, label: m[0], color: m[1] };
-  }));
-  menu.innerHTML = opts.map(function (o) {
-    return '<button type="button" class="blg-fopt' + (o.f === 'all' ? ' active' : '') + '" data-filter="' + o.f + '">' +
-      (o.color ? '<span class="blg-fopt-dot" style="background:' + o.color + '"></span>' : '<span class="blg-fopt-dot blg-fopt-all"></span>') +
-      o.label + '</button>';
-  }).join('');
-
-  function closeMenu() { wrap.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
-  function openMenu() { wrap.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
-  btn.addEventListener('click', function (e) { e.stopPropagation(); wrap.classList.contains('open') ? closeMenu() : openMenu(); });
-  menu.addEventListener('click', function (e) {
-    var b = e.target.closest ? e.target.closest('.blg-fopt') : null;
-    if (!b) return;
-    var f = b.getAttribute('data-filter');
-    menu.querySelectorAll('.blg-fopt').forEach(function (x) { x.classList.toggle('active', x === b); });
-    flabel.textContent = b.textContent.trim();
-    var o = opts.filter(function (x) { return x.f === f; })[0];
-    if (o && o.color) { fdot.style.background = o.color; fdot.hidden = false; } else { fdot.hidden = true; }
-    cards.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-topic') === f); });
-    closeMenu();
-  });
-  document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) closeMenu(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
-})();
-</script>
-
-
-
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script>
@@ -582,6 +613,13 @@ window.Quarto = {
 
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -973,6 +1011,35 @@ window.Quarto = {
     }
   });
   </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "thinhong/thinhong.github.io";
+    script.dataset.repoId = "R_kgDOKL9B-g";
+    script.dataset.category = "General";
+    script.dataset.categoryId = "DIC_kwDOKL9B-s4CY4zC";
+    script.dataset.mapping = "title";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "top";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "en";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script>
 </div> <!-- /content -->
 
 

@@ -110,13 +110,9 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 <meta property="og:title" content="Teaching - Thinh Ong">
 <meta property="og:description" content="Short courses, workshops and talks on infectious disease modelling, statistics, R, and the craft of research.">
 <meta property="og:image" content="https://drthinhong.com/img/og-default.png">
-<meta property="og:image:height" content="630">
-<meta property="og:image:width" content="1200">
 <meta name="twitter:title" content="Teaching - Thinh Ong">
 <meta name="twitter:description" content="Short courses, workshops and talks on infectious disease modelling, statistics, R, and the craft of research.">
 <meta name="twitter:image" content="https://drthinhong.com/img/og-default.png">
-<meta name="twitter:image-height" content="630">
-<meta name="twitter:image-width" content="1200">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -275,6 +271,32 @@ html[data-theme="dark"] .tq-img{ background:color-mix(in srgb, var(--hue) 26%, v
 .tq.anim .tq-duo.in .tq-col:nth-child(1) .tq-card{ transition-delay:.06s; }
 .tq.anim .tq-duo.in .tq-col:nth-child(2) .tq-card{ transition-delay:.14s; }
 
+/* ===== Draw: each card symbol draws / assembles itself as its block reveals =====
+   Same "Draw" language as the Research page. Strokes carry pathLength="100" so a
+   short code line and a long curve draw at the same speed. Only opacity, transform
+   and stroke-dashoffset move. Every hidden start state is gated behind .tq.anim, so
+   if the script never runs the art is fully visible. --d staggers per card,
+   --dl adds an optional per-element offset. */
+@keyframes tqDraw{ to{ stroke-dashoffset:0; } }
+@keyframes tqFade{ to{ opacity:1; } }
+@keyframes tqPop{ to{ opacity:1; transform:scale(1); } }
+@keyframes tqFill{ to{ transform:scaleY(1); } }
+
+/* hidden start states (only while animating) */
+.tq.anim .d-line, .tq.anim .d-grid{ stroke-dasharray:101; stroke-dashoffset:101; }
+.tq.anim .d-area{ opacity:0; }
+.tq.anim .d-orb{ opacity:0; transform-box:fill-box; transform-origin:center; transform:scale(.5); }
+.tq.anim .d-bar1, .tq.anim .d-bar2, .tq.anim .d-bar3{ transform-box:fill-box; transform-origin:50% 100%; transform:scaleY(0); }
+
+/* run them once the card's block is on screen */
+.tq.anim .tq-block.in .tq-card .d-line{ animation:tqDraw 1s var(--e) calc(var(--d,0s) + var(--dl,0s)) forwards; }
+.tq.anim .tq-block.in .tq-card .d-grid{ animation:tqDraw .9s var(--e) calc(var(--d,0s) + .2s + var(--dl,0s)) forwards; }
+.tq.anim .tq-block.in .tq-card .d-area{ animation:tqFade .9s var(--e) calc(var(--d,0s) + .25s + var(--dl,0s)) forwards; }
+.tq.anim .tq-block.in .tq-card .d-orb{ animation:tqPop .55s var(--e) calc(var(--d,0s) + .1s + var(--dl,0s)) forwards; }
+.tq.anim .tq-block.in .tq-card .d-bar1{ animation:tqFill .75s var(--e) calc(var(--d,0s) + .12s) forwards; }
+.tq.anim .tq-block.in .tq-card .d-bar2{ animation:tqFill .75s var(--e) calc(var(--d,0s) + .24s) forwards; }
+.tq.anim .tq-block.in .tq-card .d-bar3{ animation:tqFill .75s var(--e) calc(var(--d,0s) + .36s) forwards; }
+
 /* ===== modal ===== */
 .tqm{ position:fixed; inset:0; z-index:3000; display:none; }
 .tqm.open{ display:block; }
@@ -321,6 +343,13 @@ html[data-theme="dark"] .tqm-dialog{ background:#0e1530; }
 @media (prefers-reduced-motion:reduce){
   .tq.anim .tq-block, .tq.anim .tq-block .tq-card{ opacity:1 !important; }
   .tq-img, .tq-art, .tqm-dialog, .tqm-scrim{ transition:none !important; }
+  .tq.anim .d-line, .tq.anim .d-grid{ stroke-dashoffset:0 !important; }
+  .tq.anim .d-area, .tq.anim .d-orb{ opacity:1 !important; transform:none !important; }
+  .tq.anim .d-bar1, .tq.anim .d-bar2, .tq.anim .d-bar3{ transform:scaleY(1) !important; }
+  .tq.anim .tq-block.in .tq-card .d-line, .tq.anim .tq-block.in .tq-card .d-grid,
+  .tq.anim .tq-block.in .tq-card .d-area, .tq.anim .tq-block.in .tq-card .d-orb,
+  .tq.anim .tq-block.in .tq-card .d-bar1, .tq.anim .tq-block.in .tq-card .d-bar2,
+  .tq.anim .tq-block.in .tq-card .d-bar3{ animation:none !important; }
 }
 </style>
 
@@ -351,14 +380,14 @@ html[data-theme="dark"] .tqm-dialog{ background:#0e1530; }
         </div>
         <div class="tq-row multi">
           <a class="tq-card" data-id="idm-intro" href="modelling/idm-intro/">
-            <div class="tq-img" style="--hue:#7d92d6">
+            <div class="tq-img" style="--hue:#7d92d6; --d:0s">
               <svg class="tq-art" viewbox="0 0 120 120">
                 <defs><clippath id="tqc-sir"><circle cx="38" cy="44" r="15"></circle><circle cx="82" cy="44" r="15"></circle><circle cx="60" cy="88" r="15"></circle></clippath></defs>
-                <line x1="53" y1="44" x2="67" y2="44" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;opacity:.55"></line>
-                <line x1="76" y1="56" x2="66" y2="76" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;opacity:.55"></line>
-                <circle cx="38" cy="44" r="15" style="fill:var(--lite)"></circle>
-                <circle cx="82" cy="44" r="15" style="fill:var(--mid)"></circle>
-                <circle cx="60" cy="88" r="15" style="fill:var(--deep)"></circle>
+                <line class="d-line" pathlength="100" x1="53" y1="44" x2="67" y2="44" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;opacity:.55;--dl:.45s"></line>
+                <line class="d-line" pathlength="100" x1="76" y1="56" x2="66" y2="76" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;opacity:.55;--dl:.55s"></line>
+                <circle class="d-orb" cx="38" cy="44" r="15" style="fill:var(--lite)"></circle>
+                <circle class="d-orb" cx="82" cy="44" r="15" style="fill:var(--mid);--dl:.12s"></circle>
+                <circle class="d-orb" cx="60" cy="88" r="15" style="fill:var(--deep);--dl:.24s"></circle>
                 <g clip-path="url(#tqc-sir)" style="mix-blend-mode:soft-light;opacity:.55"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
               </svg>
             </div>
@@ -369,13 +398,13 @@ html[data-theme="dark"] .tqm-dialog{ background:#0e1530; }
             </div>
           </a>
           <a class="tq-card" data-id="idm4b" href="modelling/idm4b/">
-            <div class="tq-img" style="--hue:#5fa6c6">
+            <div class="tq-img" style="--hue:#5fa6c6; --d:.09s">
               <svg class="tq-art" viewbox="0 0 120 120">
                 <defs><clippath id="tqc-curve"><path d="M16 96 C 44 96 46 44 60 44 C 74 44 76 96 104 96 Z"></path></clippath></defs>
                 <line x1="14" y1="96" x2="106" y2="96" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;opacity:.35"></line>
-                <path d="M16 96 C 44 96 46 44 60 44 C 74 44 76 96 104 96 Z" style="fill:var(--mid)"></path>
-                <path d="M16 96 C 44 96 46 44 60 44 C 74 44 76 96 104 96" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;stroke-linejoin:round"></path>
-                <circle cx="60" cy="44" r="4.5" style="fill:var(--deep)"></circle>
+                <path class="d-area" d="M16 96 C 44 96 46 44 60 44 C 74 44 76 96 104 96 Z" style="fill:var(--mid)"></path>
+                <path class="d-line" pathlength="100" d="M16 96 C 44 96 46 44 60 44 C 74 44 76 96 104 96" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;stroke-linejoin:round"></path>
+                <circle class="d-orb" cx="60" cy="44" r="4.5" style="fill:var(--deep);--dl:.8s"></circle>
                 <g clip-path="url(#tqc-curve)" style="mix-blend-mode:soft-light;opacity:.55"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
               </svg>
             </div>
@@ -386,13 +415,13 @@ html[data-theme="dark"] .tqm-dialog{ background:#0e1530; }
             </div>
           </a>
           <a class="tq-card" data-id="s4bvn" href="https://drthinhong.com/s4bvn/" target="_blank" rel="noopener">
-            <div class="tq-img" style="--hue:#9485cf">
+            <div class="tq-img" style="--hue:#9485cf; --d:.18s">
               <svg class="tq-art" viewbox="0 0 120 120">
                 <defs><clippath id="tqc-stats"><path d="M20 96 C 40 96 48 52 60 52 C 72 52 80 96 100 96 Z"></path></clippath></defs>
                 <line x1="14" y1="96" x2="106" y2="96" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;opacity:.35"></line>
-                <path d="M20 96 C 40 96 48 52 60 52 C 72 52 80 96 100 96 Z" style="fill:var(--mid)"></path>
-                <path d="M20 96 C 40 96 48 52 60 52 C 72 52 80 96 100 96" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;stroke-linejoin:round"></path>
-                <line x1="60" y1="54" x2="60" y2="96" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round"></line>
+                <path class="d-area" d="M20 96 C 40 96 48 52 60 52 C 72 52 80 96 100 96 Z" style="fill:var(--mid)"></path>
+                <path class="d-line" pathlength="100" d="M20 96 C 40 96 48 52 60 52 C 72 52 80 96 100 96" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;stroke-linejoin:round"></path>
+                <line class="d-grid" pathlength="100" x1="60" y1="54" x2="60" y2="96" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;--dl:.7s"></line>
                 <g clip-path="url(#tqc-stats)" style="mix-blend-mode:soft-light;opacity:.55"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
               </svg>
             </div>
@@ -417,15 +446,15 @@ html[data-theme="dark"] .tqm-dialog{ background:#0e1530; }
         </div>
         <div class="tq-row multi">
           <a class="tq-card" data-id="r4babies" href="others/r4babies/">
-            <div class="tq-img" style="--hue:#c8a86a">
+            <div class="tq-img" style="--hue:#c8a86a; --d:0s">
               <svg class="tq-art" viewbox="0 0 120 120">
                 <defs><clippath id="tqc-data"><rect x="32" y="70" width="14" height="26" rx="3"></rect><rect x="53" y="56" width="14" height="40" rx="3"></rect><rect x="74" y="42" width="14" height="54" rx="3"></rect></clippath></defs>
                 <line x1="24" y1="96" x2="96" y2="96" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;opacity:.35"></line>
-                <rect x="32" y="70" width="14" height="26" rx="3" style="fill:var(--lite)"></rect>
-                <rect x="53" y="56" width="14" height="40" rx="3" style="fill:var(--mid)"></rect>
-                <rect x="74" y="42" width="14" height="54" rx="3" style="fill:var(--deep)"></rect>
-                <polyline points="39,66 60,52 81,38" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;opacity:.7"></polyline>
-                <circle cx="81" cy="38" r="4" style="fill:var(--deep)"></circle>
+                <rect class="d-bar1" x="32" y="70" width="14" height="26" rx="3" style="fill:var(--lite)"></rect>
+                <rect class="d-bar2" x="53" y="56" width="14" height="40" rx="3" style="fill:var(--mid)"></rect>
+                <rect class="d-bar3" x="74" y="42" width="14" height="54" rx="3" style="fill:var(--deep)"></rect>
+                <polyline class="d-line" pathlength="100" points="39,66 60,52 81,38" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;opacity:.7;--dl:.5s"></polyline>
+                <circle class="d-orb" cx="81" cy="38" r="4" style="fill:var(--deep);--dl:.7s"></circle>
                 <g clip-path="url(#tqc-data)" style="mix-blend-mode:soft-light;opacity:.55"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
               </svg>
             </div>
@@ -436,18 +465,18 @@ html[data-theme="dark"] .tqm-dialog{ background:#0e1530; }
             </div>
           </a>
           <a class="tq-card" data-id="r-training" href="https://oucru-modelling.github.io/R-training-2025/" target="_blank" rel="noopener">
-            <div class="tq-img" style="--hue:#8aa86a">
+            <div class="tq-img" style="--hue:#8aa86a; --d:.09s">
               <svg class="tq-art" viewbox="0 0 120 120">
                 <defs><clippath id="tqc-code"><rect x="26" y="32" width="68" height="56" rx="8"></rect></clippath></defs>
-                <rect x="26" y="32" width="68" height="56" rx="8" style="fill:var(--lite)"></rect>
-                <circle cx="35" cy="40" r="2.4" style="fill:var(--deep);opacity:.55"></circle>
-                <circle cx="43" cy="40" r="2.4" style="fill:var(--deep);opacity:.55"></circle>
-                <circle cx="51" cy="40" r="2.4" style="fill:var(--deep);opacity:.55"></circle>
-                <line x1="26" y1="47" x2="94" y2="47" style="fill:none;stroke:var(--deep);stroke-width:1.6;opacity:.3"></line>
-                <line x1="35" y1="60" x2="57" y2="60" style="fill:none;stroke:var(--mid);stroke-width:3.2;stroke-linecap:round"></line>
-                <line x1="61" y1="60" x2="79" y2="60" style="fill:none;stroke:var(--deep);stroke-width:3.2;stroke-linecap:round"></line>
-                <line x1="42" y1="69" x2="74" y2="69" style="fill:none;stroke:var(--deep);stroke-width:3.2;stroke-linecap:round;opacity:.7"></line>
-                <line x1="42" y1="78" x2="60" y2="78" style="fill:none;stroke:var(--deep);stroke-width:3.2;stroke-linecap:round;opacity:.7"></line>
+                <rect class="d-area" x="26" y="32" width="68" height="56" rx="8" style="fill:var(--lite)"></rect>
+                <circle class="d-orb" cx="35" cy="40" r="2.4" style="fill:var(--deep);opacity:.55;--dl:.25s"></circle>
+                <circle class="d-orb" cx="43" cy="40" r="2.4" style="fill:var(--deep);opacity:.55;--dl:.32s"></circle>
+                <circle class="d-orb" cx="51" cy="40" r="2.4" style="fill:var(--deep);opacity:.55;--dl:.39s"></circle>
+                <line class="d-grid" pathlength="100" x1="26" y1="47" x2="94" y2="47" style="fill:none;stroke:var(--deep);stroke-width:1.6;opacity:.3;--dl:.2s"></line>
+                <line class="d-line" pathlength="100" x1="35" y1="60" x2="57" y2="60" style="fill:none;stroke:var(--mid);stroke-width:3.2;stroke-linecap:round;--dl:.45s"></line>
+                <line class="d-line" pathlength="100" x1="61" y1="60" x2="79" y2="60" style="fill:none;stroke:var(--deep);stroke-width:3.2;stroke-linecap:round;--dl:.57s"></line>
+                <line class="d-line" pathlength="100" x1="42" y1="69" x2="74" y2="69" style="fill:none;stroke:var(--deep);stroke-width:3.2;stroke-linecap:round;opacity:.7;--dl:.69s"></line>
+                <line class="d-line" pathlength="100" x1="42" y1="78" x2="60" y2="78" style="fill:none;stroke:var(--deep);stroke-width:3.2;stroke-linecap:round;opacity:.7;--dl:.81s"></line>
                 <g clip-path="url(#tqc-code)" style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
               </svg>
             </div>
@@ -458,14 +487,16 @@ html[data-theme="dark"] .tqm-dialog{ background:#0e1530; }
             </div>
           </a>
           <a class="tq-card" data-id="r-cafe" href="https://oucru-modelling.github.io/R-cafe-materials/" target="_blank" rel="noopener">
-            <div class="tq-img" style="--hue:#a8845e">
+            <div class="tq-img" style="--hue:#a8845e; --d:.18s">
               <svg class="tq-art" viewbox="0 0 120 120">
                 <defs><clippath id="tqc-cafe"><path d="M40 50 H80 L75 84 Q73 89 60 89 Q47 89 45 84 Z"></path></clippath></defs>
-                <ellipse cx="60" cy="93" rx="27" ry="4" style="fill:var(--lite)"></ellipse>
-                <path d="M40 50 H80 L75 84 Q73 89 60 89 Q47 89 45 84 Z" style="fill:var(--mid)"></path>
-                <path d="M80 56 Q93 57 93 67 Q93 77 80 77" style="fill:none;stroke:var(--deep);stroke-width:5;stroke-linecap:round"></path>
-                <ellipse cx="60" cy="50" rx="20" ry="4.5" style="fill:var(--deep);opacity:.7"></ellipse>
-                <path d="M53 30 q-5 6 0 12 M61 27 q-5 6 0 12 M69 30 q-5 6 0 12" style="fill:none;stroke:var(--deep);stroke-width:2.6;stroke-linecap:round;opacity:.4"></path>
+                <ellipse class="d-area" cx="60" cy="93" rx="27" ry="4" style="fill:var(--lite)"></ellipse>
+                <path class="d-area" d="M40 50 H80 L75 84 Q73 89 60 89 Q47 89 45 84 Z" style="fill:var(--mid)"></path>
+                <path class="d-line" pathlength="100" d="M80 56 Q93 57 93 67 Q93 77 80 77" style="fill:none;stroke:var(--deep);stroke-width:5;stroke-linecap:round;--dl:.35s"></path>
+                <ellipse class="d-orb" cx="60" cy="50" rx="20" ry="4.5" style="fill:var(--deep);opacity:.7;--dl:.3s"></ellipse>
+                <path class="d-line" pathlength="100" d="M53 30 q-5 6 0 12" style="fill:none;stroke:var(--deep);stroke-width:2.6;stroke-linecap:round;opacity:.4;--dl:.6s"></path>
+                <path class="d-line" pathlength="100" d="M61 27 q-5 6 0 12" style="fill:none;stroke:var(--deep);stroke-width:2.6;stroke-linecap:round;opacity:.4;--dl:.72s"></path>
+                <path class="d-line" pathlength="100" d="M69 30 q-5 6 0 12" style="fill:none;stroke:var(--deep);stroke-width:2.6;stroke-linecap:round;opacity:.4;--dl:.84s"></path>
                 <g clip-path="url(#tqc-cafe)" style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
               </svg>
             </div>
@@ -489,15 +520,15 @@ html[data-theme="dark"] .tqm-dialog{ background:#0e1530; }
             </div>
           </div>
           <a class="tq-card" data-id="aw4b" href="others/aw4b/">
-            <div class="tq-img" style="--hue:#c187a8">
+            <div class="tq-img" style="--hue:#c187a8; --d:0s">
               <svg class="tq-art" viewbox="0 0 120 120">
                 <defs><clippath id="tqc-doc"><rect x="34" y="26" width="52" height="68" rx="7"></rect><circle cx="82" cy="82" r="13"></circle></clippath></defs>
-                <rect x="34" y="26" width="52" height="68" rx="7" style="fill:var(--lite)"></rect>
-                <line x1="44" y1="44" x2="76" y2="44" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5"></line>
-                <line x1="44" y1="56" x2="76" y2="56" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5"></line>
-                <line x1="44" y1="68" x2="64" y2="68" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5"></line>
-                <circle cx="82" cy="82" r="13" style="fill:var(--deep)"></circle>
-                <path d="M76 82 l4 4 l9 -11" style="fill:none;stroke:var(--lite);stroke-width:3;stroke-linecap:round;stroke-linejoin:round"></path>
+                <rect class="d-area" x="34" y="26" width="52" height="68" rx="7" style="fill:var(--lite)"></rect>
+                <line class="d-line" pathlength="100" x1="44" y1="44" x2="76" y2="44" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5;--dl:.3s"></line>
+                <line class="d-line" pathlength="100" x1="44" y1="56" x2="76" y2="56" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5;--dl:.42s"></line>
+                <line class="d-line" pathlength="100" x1="44" y1="68" x2="64" y2="68" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5;--dl:.54s"></line>
+                <circle class="d-orb" cx="82" cy="82" r="13" style="fill:var(--deep);--dl:.5s"></circle>
+                <path class="d-line" pathlength="100" d="M76 82 l4 4 l9 -11" style="fill:none;stroke:var(--lite);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;--dl:.8s"></path>
                 <g clip-path="url(#tqc-doc)" style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
               </svg>
             </div>
@@ -518,16 +549,16 @@ html[data-theme="dark"] .tqm-dialog{ background:#0e1530; }
             </div>
           </div>
           <a class="tq-card" data-id="isgj" href="seminars/is-this-a-good-journal/">
-            <div class="tq-img" style="--hue:#6fae9a">
+            <div class="tq-img" style="--hue:#6fae9a; --d:.09s">
               <svg class="tq-art" viewbox="0 0 120 120">
                 <defs><clippath id="tqc-lens"><rect x="28" y="30" width="44" height="42" rx="5"></rect><circle cx="70" cy="66" r="19"></circle></clippath></defs>
-                <rect x="28" y="30" width="44" height="42" rx="5" style="fill:var(--lite)"></rect>
-                <line x1="36" y1="44" x2="62" y2="44" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5"></line>
-                <line x1="36" y1="55" x2="56" y2="55" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5"></line>
-                <line x1="82" y1="80" x2="95" y2="93" style="fill:none;stroke:var(--deep);stroke-width:5;stroke-linecap:round"></line>
-                <circle cx="70" cy="66" r="19" style="fill:var(--mid)"></circle>
-                <circle cx="70" cy="66" r="19" style="fill:none;stroke:var(--deep);stroke-width:3"></circle>
-                <circle cx="64" cy="60" r="6" style="fill:var(--soft);opacity:.6"></circle>
+                <rect class="d-area" x="28" y="30" width="44" height="42" rx="5" style="fill:var(--lite)"></rect>
+                <line class="d-line" pathlength="100" x1="36" y1="44" x2="62" y2="44" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5;--dl:.3s"></line>
+                <line class="d-line" pathlength="100" x1="36" y1="55" x2="56" y2="55" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5;--dl:.42s"></line>
+                <line class="d-line" pathlength="100" x1="82" y1="80" x2="95" y2="93" style="fill:none;stroke:var(--deep);stroke-width:5;stroke-linecap:round;--dl:.75s"></line>
+                <circle class="d-orb" cx="70" cy="66" r="19" style="fill:var(--mid);--dl:.4s"></circle>
+                <circle class="d-line" pathlength="100" cx="70" cy="66" r="19" style="fill:none;stroke:var(--deep);stroke-width:3;--dl:.55s"></circle>
+                <circle class="d-orb" cx="64" cy="60" r="6" style="fill:var(--soft);opacity:.6;--dl:.6s"></circle>
                 <g clip-path="url(#tqc-lens)" style="mix-blend-mode:soft-light;opacity:.55"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
               </svg>
             </div>
@@ -566,12 +597,27 @@ html[data-theme="dark"] .tqm-dialog{ background:#0e1530; }
   if(!root) return;
   var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // Reveal a block (and let its symbols draw) once it is on screen. This also
+  // acts as a failsafe: if IntersectionObserver callbacks are deferred on a
+  // background-tab or bfcache restore, the block would otherwise stay hidden.
+  // Called on load, on pageshow, and from the scroll handler below.
+  function revealInView(){
+    var bs = root.querySelectorAll(".tq-block:not(.in)");
+    for(var i=0;i<bs.length;i++){
+      var r = bs[i].getBoundingClientRect();
+      if(r.top < window.innerHeight * 0.92 && r.bottom > 0){ bs[i].classList.add("in"); }
+    }
+  }
+
   if(!reduce && "IntersectionObserver" in window){
     root.classList.add("anim");
     var reveal = new IntersectionObserver(function(es){
       es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); reveal.unobserve(e.target); } });
     }, { threshold:.08 });
     root.querySelectorAll(".tq-block").forEach(function(b){ reveal.observe(b); });
+    revealInView();
+    requestAnimationFrame(revealInView);
+    window.addEventListener("pageshow", function(e){ if(e.persisted){ revealInView(); } });
   }
 
   // contents nav: one active group at a time (Disease Modelling, R Programming, or the duo)
@@ -599,7 +645,7 @@ html[data-theme="dark"] .tqm-dialog{ background:#0e1530; }
     setActive(cur.ids);
   }
   var ticking=false;
-  window.addEventListener("scroll", function(){ if(!ticking){ ticking=true; requestAnimationFrame(function(){ spyScroll(); ticking=false; }); } }, {passive:true});
+  window.addEventListener("scroll", function(){ if(!ticking){ ticking=true; requestAnimationFrame(function(){ revealInView(); spyScroll(); ticking=false; }); } }, {passive:true});
   window.addEventListener("resize", spyScroll, {passive:true});
   spyScroll();
 

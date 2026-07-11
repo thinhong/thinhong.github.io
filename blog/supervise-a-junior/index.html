@@ -6,9 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Writing on infectious disease modelling, R, and the craft of research.">
+<meta name="author" content="Thinh Ong">
+<meta name="dcterms.date" content="2026-07-11">
+<meta name="description" content="The real job is not the task. It is helping someone believe they can do the thing they cannot do yet.">
 
-<title>Blog - Thinh Ong</title>
+<title>How to supervise and advise someone more junior</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,26 +26,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../logo-icon.svg" rel="icon" type="image/svg+xml">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e8c613d3a37813f8030c7f7660089231.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../logo-icon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-e8c613d3a37813f8030c7f7660089231.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,35 +72,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-postlist .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-project','listing-website','listing-format','listing-language','listing-comments','listing-reading-time','listing-title','listing-description','listing-date','listing-categories','listing-author','listing-image','listing-image-alt','listing-title-block-banner','listing-title-block-banner-color','listing-citation','listing-aliases','listing-draft','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-word-count-sort'] }],
-      
-      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-comments","listing-reading-time","listing-title","listing-description","listing-date","listing-categories","listing-author","listing-image","listing-image-alt","listing-title-block-banner","listing-title-block-banner-color","listing-citation","listing-aliases","listing-draft","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-word-count"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-postlist'] = new List('listing-postlist', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-RVRBE7Y1R2"></script>
 
 <script type="text/javascript">
@@ -109,6 +81,23 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 </script>
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: white;
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: white;
+background: url(../../img/blog-art/banner-supervise.svg);
+      }
+</style>
 <script>
 
 // Applied in <head> before paint so there is no flash of the wrong theme.
@@ -137,57 +126,26 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta property="og:title" content="Blog - Thinh Ong">
-<meta property="og:description" content="Writing on infectious disease modelling, R, and the craft of research.">
-<meta property="og:image" content="https://drthinhong.com/img/blog-art/cover-leadership-1.svg">
-<meta property="og:image:alt" content="">
-<meta name="twitter:title" content="Blog - Thinh Ong">
-<meta name="twitter:description" content="Writing on infectious disease modelling, R, and the craft of research.">
-<meta name="twitter:image" content="https://drthinhong.com/img/blog-art/cover-leadership-1.svg">
-<meta name="twitter:image:alt" content="">
+<meta property="og:title" content="How to supervise and advise someone more junior">
+<meta property="og:description" content="The real job is not the task. It is helping someone believe they can do the thing they cannot do yet.">
+<meta property="og:image" content="https://drthinhong.com/blog/supervise-a-junior/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
+<meta name="twitter:title" content="How to supervise and advise someone more junior">
+<meta name="twitter:description" content="The real job is not the task. It is helping someone believe they can do the thing they cannot do yet.">
+<meta name="twitter:image" content="https://drthinhong.com/blog/supervise-a-junior/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../logo-icon.svg" alt="" class="navbar-logo light-content">
-    <img src="../logo-icon.svg" alt="" class="navbar-logo dark-content">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../logo-icon.svg" alt="" class="navbar-logo light-content">
+    <img src="../../logo-icon.svg" alt="" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -197,23 +155,23 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../about/index.html"> 
+    <a class="nav-link" href="../../about/index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../research/index.html"> 
+    <a class="nav-link" href="../../research/index.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching/index.html"> 
+    <a class="nav-link" href="../../teaching/index.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../software/index.html"> 
+    <a class="nav-link" href="../../software/index.html"> 
 <span class="menu-text">Software</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../blog/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -236,110 +194,121 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">How to supervise and advise someone more junior</h1>
+                  <div>
+        <div class="description">
+          The real job is not the task. It is helping someone believe they can do the thing they cannot do yet.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">leadership</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://thinhong.github.io">Thinh Ong</a> <a href="https://orcid.org/0000-0001-6772-9291" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 11, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#bring-hope" id="toc-bring-hope" class="nav-link active" data-scroll-target="#bring-hope">Bring hope</a></li>
+  <li><a href="#aim-at-their-goal-not-yours" id="toc-aim-at-their-goal-not-yours" class="nav-link" data-scroll-target="#aim-at-their-goal-not-yours">Aim at their goal, not yours</a></li>
+  <li><a href="#be-a-judge-on-a-childrens-show" id="toc-be-a-judge-on-a-childrens-show" class="nav-link" data-scroll-target="#be-a-judge-on-a-childrens-show">Be a judge on a children’s show</a></li>
+  <li><a href="#turn-the-mountain-into-a-staircase" id="toc-turn-the-mountain-into-a-staircase" class="nav-link" data-scroll-target="#turn-the-mountain-into-a-staircase">Turn the mountain into a staircase</a></li>
+  <li><a href="#in-the-end-make-yourself-unnecessary" id="toc-in-the-end-make-yourself-unnecessary" class="nav-link" data-scroll-target="#in-the-end-make-yourself-unnecessary">In the end, make yourself unnecessary</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<section class="pg">
-  <!-- blog index: hero, topic dropdown, listing -->
-  <div class="pg-hero">
-    <div class="pg-hero__head">
-      <span class="pg-eyebrow">Writing</span>
-      <h1 class="pg-title">Blog <span class="pg-title-thin">&amp; Notes</span></h1>
-    </div>
-    <div class="pg-hero__aside">
-      <p class="pg-lead">A place to think out loud about disease modelling, code, and the work of science.</p>
-    </div>
-  </div>
 
-  <div class="blg-filter" id="blg-filter">
-    <button class="blg-fbtn" id="blg-fbtn" type="button" aria-haspopup="listbox" aria-expanded="false">
-      <span class="blg-fdot" id="blg-fdot" hidden=""></span>
-      <span class="blg-flabel" id="blg-flabel">All posts</span>
-      <svg class="blg-fchev" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
-    </button>
-    <div class="blg-fmenu" id="blg-fmenu" role="listbox" aria-label="Filter by topic"></div>
-  </div>
-<div id="listing-postlist" class="quarto-listing quarto-listing-container-custom">
-<div id="blg-grid" class="blg-grid">
-<p><a class="blg-card blg-leadership blg-feat" href="../blog/supervise-a-junior/index.html" data-topic="leadership"> <span class="blg-img"><img class="blg-art" src="../img/blog-art/cover-leadership-1.svg" alt="" loading="lazy"></span> <span class="blg-metatop"><span class="blg-cat">Leadership</span><span class="blg-date">Jul 11, 2026 · 4 min</span></span> <span class="blg-cardname">How to supervise and advise someone more junior</span> </a></p>
-<p><a class="blg-card blg-leadership" href="../blog/chair-a-conference-session/index.html" data-topic="leadership"> <span class="blg-img"><img class="blg-art" src="../img/blog-art/cover-leadership-2.svg" alt="" loading="lazy"></span> <span class="blg-metatop"><span class="blg-cat">Leadership</span><span class="blg-date">Jun 23, 2026 · 6 min</span></span> <span class="blg-cardname">How to chair a conference session</span> </a></p>
-<p><a class="blg-card blg-leadership" href="../blog/chair-a-meeting/index.html" data-topic="leadership"> <span class="blg-img"><img class="blg-art" src="../img/blog-art/cover-leadership-3.svg" alt="" loading="lazy"></span> <span class="blg-metatop"><span class="blg-cat">Leadership</span><span class="blg-date">Aug 26, 2023 · 6 min</span></span> <span class="blg-cardname">10 simple tips to chair a meeting</span> </a></p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<div class="listing-no-matching d-none">No matching items</div>
+<div class="callout-body-container">
+<ol type="1">
+<li><p>Bring hope: your real job is to help them believe they can do it, under your guidance</p></li>
+<li><p>Aim at their goal, not yours</p></li>
+<li><p>Encourage like a judge on a children’s show: honest, but never harsh</p></li>
+<li><p>Turn the mountain into a staircase</p></li>
+<li><p>Make yourself unnecessary in the end</p></li>
+</ol>
 </div>
+</div>
+</div>
+<section id="bring-hope" class="level2">
+<h2 class="anchored" data-anchor-id="bring-hope">Bring hope</h2>
+<p>When you supervise or advise someone, the most important thing is also the easiest to forget: your job is to bring them hope, not to leave them disappointed or ready to give up.</p>
+<p>People come to you because they were handed a task, or chose one, that they cannot do yet. Everything else you do sits on top of a single job: helping them believe that they can do it, with your guidance. Once someone believes they can, they will find the energy to learn all the rest. Once they stop believing, they will quietly give up. I think the main business of a supervisor is building belief.</p>
+</section>
+<section id="aim-at-their-goal-not-yours" class="level2">
+<h2 class="anchored" data-anchor-id="aim-at-their-goal-not-yours">Aim at their goal, not yours</h2>
+<p>Before planning any of the work, find out what the person actually wants from it. A student might be after their first paper, or a method they can carry into the next project, or simply the proof to themselves that they can finish a hard thing. A young colleague might want a promotion, a new skill, or just to stop feeling lost. You cannot guess them, so just ask and be straightforward.</p>
+<p>Once you know their aim, you can tailor the task to it, and a task that serves someone’s own goal barely needs pushing. If you only ever steer people toward your goals, the best you get is compliance. Lead them toward theirs and you get their self-motivation, because now the work is theirs.</p>
+</section>
+<section id="be-a-judge-on-a-childrens-show" class="level2">
+<h2 class="anchored" data-anchor-id="be-a-judge-on-a-childrens-show">Be a judge on a children’s show</h2>
+<p>Watch a children’s talent show and notice how the judges speak. A kid forgets the words halfway through, and the judge still finds something true and kind to say, something that makes the child want to sing again. Now watch the adult version of the same show, where the judges are extremely brutal. Somewhere along the way we seem to have decided that an adult does not need kindness. Does an adult really deserve that treatment?</p>
+<p>I do not think so. A harsh word lands just as hard on a thirty-year-old as on a child. And notice that the judge on the children’s show is not lying, and not lowering the bar. They are telling the truth in a way that protects the one thing that matters most: the will to keep going.</p>
+<p>So be generous with encouraging words at any age. Be specific about what is wrong, “this figure is missing its units, add them here”, and just as specific about what is right, and say the good part first so the person is steady enough to hear the rest. Praise real progress out loud, in front of the people who matter, and put their name on the work.</p>
+</section>
+<section id="turn-the-mountain-into-a-staircase" class="level2">
+<h2 class="anchored" data-anchor-id="turn-the-mountain-into-a-staircase">Turn the mountain into a staircase</h2>
+<p>A lot of what looks like a confidence problem is really a size problem. A whole task can feel impossible, and impossible makes people panic. The same task, cut into small and clear steps, becomes a simple to-do list. You have done this kind of work before, so you can see the steps that they cannot see yet. Lay them out, and make the first step something they can finish quickly, because nothing builds belief like a real, early win.</p>
+<p>Give them the map. Much of a junior’s stress is not the work itself, it is not knowing where it is going or how far away the finish is. Tell them why the task matters, how their part fits, and what the path ahead looks like. Once they can see the whole thing, it stops being so scary.</p>
+<p>Then let them climb, and let them struggle a bit along the way, because belief does not come from removing every obstacle, it comes from getting past one. The key word is safely. Agree on a rope in advance, something like “if you are stuck for more than a day, come and find me”, so a healthy struggle never turns into the kind of failure that makes someone want to quit. Let them stumble, but be there before they fall.</p>
+</section>
+<section id="in-the-end-make-yourself-unnecessary" class="level2">
+<h2 class="anchored" data-anchor-id="in-the-end-make-yourself-unnecessary">In the end, make yourself unnecessary</h2>
+<p>All of this points to one thing: the day they no longer need you. The goal was never “they did what I told them”. It is “they can do it on their own now, and they know it”. I truly believe that the best moment in advising someone is when they outgrow your help and get good enough to teach you something back. If you brought them hope and stayed with them until they got there, then you did the job well.</p>
+
+
 </section>
 
-<script>
-(function () {
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var grid = document.getElementById('blg-grid');
-  if (!grid) return;
-  var cards = Array.prototype.slice.call(grid.querySelectorAll('.blg-card'));
-
-  // entrance reveal (opacity + transform only)
-  if (!reduce && 'IntersectionObserver' in window) {
-    grid.classList.add('anim');
-    var rev = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); rev.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    cards.forEach(function (t) { rev.observe(t); });
-  }
-
-  // topic dropdown, built from the topics that actually have posts
-  var wrap = document.getElementById('blg-filter');
-  var btn = document.getElementById('blg-fbtn');
-  var menu = document.getElementById('blg-fmenu');
-  var flabel = document.getElementById('blg-flabel');
-  var fdot = document.getElementById('blg-fdot');
-  if (!wrap || !btn || !menu) return;
-
-  var META = {
-    modelling: ['Modelling', '#3a6fd6'], code: ['R & code', '#2a9490'],
-    academia: ['Academia', '#5a62d4'], productivity: ['Productivity', '#2f9a72'],
-    reflections: ['Reflections', '#9466a0'], leadership: ['Leadership', '#5c7aa0']
-  };
-  var used = [];
-  cards.forEach(function (c) { var t = c.getAttribute('data-topic'); if (t && used.indexOf(t) < 0) used.push(t); });
-  var opts = [{ f: 'all', label: 'All posts', color: '' }].concat(used.map(function (t) {
-    var m = META[t] || [t.charAt(0).toUpperCase() + t.slice(1), '#8a929b'];
-    return { f: t, label: m[0], color: m[1] };
-  }));
-  menu.innerHTML = opts.map(function (o) {
-    return '<button type="button" class="blg-fopt' + (o.f === 'all' ? ' active' : '') + '" data-filter="' + o.f + '">' +
-      (o.color ? '<span class="blg-fopt-dot" style="background:' + o.color + '"></span>' : '<span class="blg-fopt-dot blg-fopt-all"></span>') +
-      o.label + '</button>';
-  }).join('');
-
-  function closeMenu() { wrap.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
-  function openMenu() { wrap.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
-  btn.addEventListener('click', function (e) { e.stopPropagation(); wrap.classList.contains('open') ? closeMenu() : openMenu(); });
-  menu.addEventListener('click', function (e) {
-    var b = e.target.closest ? e.target.closest('.blg-fopt') : null;
-    if (!b) return;
-    var f = b.getAttribute('data-filter');
-    menu.querySelectorAll('.blg-fopt').forEach(function (x) { x.classList.toggle('active', x === b); });
-    flabel.textContent = b.textContent.trim();
-    var o = opts.filter(function (x) { return x.f === f; })[0];
-    if (o && o.color) { fdot.style.background = o.color; fdot.hidden = false; } else { fdot.hidden = true; }
-    cards.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-topic') === f); });
-    closeMenu();
-  });
-  document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) closeMenu(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
-})();
-</script>
-
-
-
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ong2026,
+  author = {Ong, Thinh},
+  title = {How to Supervise and Advise Someone More Junior},
+  date = {2026-07-11},
+  url = {https://drthinhong.com/blog/supervise-a-junior/},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ong2026" class="csl-entry quarto-appendix-citeas" role="listitem">
+Ong, Thinh. 2026. <span>“How to Supervise and Advise Someone More
+Junior.”</span> July 11, 2026. <a href="https://drthinhong.com/blog/supervise-a-junior/">https://drthinhong.com/blog/supervise-a-junior/</a>.
+</div></div></section></div></main> <!-- /main -->
 <script>
 
 // Site-wide floating light/dark toggle. Remembers the visitor's choice.
@@ -582,6 +551,13 @@ window.Quarto = {
 
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -973,6 +949,35 @@ window.Quarto = {
     }
   });
   </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "thinhong/thinhong.github.io";
+    script.dataset.repoId = "R_kgDOKL9B-g";
+    script.dataset.category = "General";
+    script.dataset.categoryId = "DIC_kwDOKL9B-s4CY4zC";
+    script.dataset.mapping = "title";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "top";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "en";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script>
 </div> <!-- /content -->
 
 

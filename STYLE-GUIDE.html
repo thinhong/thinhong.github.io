@@ -376,6 +376,17 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 <li>Add the page to the navbar in <code>_quarto.yml</code> if it should be linked.</li>
 </ol>
 </section>
+<section id="blog-drafting-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="blog-drafting-workflow">Blog drafting workflow</h2>
+<p>Blog posts live in <code>blog/</code>, one folder per post (<code>blog/my-post/index.qmd</code>), and the home listing picks them up automatically. To write a post before it is public, use Quarto’s <code>draft</code> flag, not any custom setup.</p>
+<ol type="1">
+<li><strong>Write with <code>draft: true</code></strong> in the post front matter. In <code>quarto preview</code> the post renders in full with a “Draft” banner and appears in your local mosaic, so you see it exactly as it will look. A published build (<code>quarto render</code>) drops it automatically: no page, and nothing in the listing, navbar, search, sitemap, or feed. The custom listing template never receives it, so nothing else needs to change.</li>
+<li><strong>Publish</strong> by setting <code>draft: false</code> and rendering. That is the only switch.</li>
+<li><strong>Start from <code>blog/_template/</code>.</strong> Copy that folder to <code>blog/your-slug/</code>; it already has <code>draft: true</code> and the standard front matter.</li>
+<li><strong>Use <code>blog/_drafts/</code> as a holding pen</strong> for raw ideas you do not want rendered even in preview. Anything inside a folder that starts with <code>_</code> is ignored by Quarto, the same rule that makes <code>_page-template.qmd</code> and <code>_quarto.yml</code> special. Move a folder up to <code>blog/</code> and set <code>draft: true</code> when you want to see it locally.</li>
+</ol>
+<p>One caveat: <code>quarto preview</code> always shows drafts. To preview the site exactly as visitors will see it, run <code>quarto render</code> and open the <code>docs/</code> output.</p>
+</section>
 <section id="rules" class="level2">
 <h2 class="anchored" data-anchor-id="rules">Rules</h2>
 <ul>
@@ -425,6 +436,14 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 <tr class="even">
 <td><code>design-mockups/system-preview.html</code></td>
 <td>Standalone proof that the heroes align</td>
+</tr>
+<tr class="odd">
+<td><code>blog/_template/</code></td>
+<td>Copy-paste scaffold for a new blog post (<code>draft: true</code> preset)</td>
+</tr>
+<tr class="even">
+<td><code>blog/_drafts/</code></td>
+<td>Holding pen for ideas not ready to preview (ignored by Quarto)</td>
 </tr>
 </tbody>
 </table>
