@@ -22,8 +22,8 @@ cat('<script type="application/json" id="travel-data">', trv, '</script>\n\n', s
 ```{=html}
 <style>
 /* ===== About page: page-specific pieces (.ab-*), built on .pg-* tokens ===== */
-.pg{ --map-land:#dde3f0; --map-line:rgba(16,27,53,.10); }
-html[data-theme="dark"] .pg{ --map-land:#1b2540; --map-line:rgba(255,255,255,.07); }
+.pg{ --map-land:#dde3f0; --map-line:rgba(16,27,53,.10); --home:#0f9d8a; }
+html[data-theme="dark"] .pg{ --map-land:#1b2540; --map-line:rgba(255,255,255,.07); --home:#2ec4a6; }
 
 /* soft decorative pattern blended into each panel's top-right corner */
 .pg-panel{ position:relative; overflow:hidden; }
@@ -87,10 +87,13 @@ html[data-theme="dark"] .ab-region{ background:rgba(255,255,255,.05); }
 .ab-country{ fill:var(--map-land); stroke:var(--map-line); stroke-width:.5; vector-effect:non-scaling-stroke; }
 .ab-country.visited{ fill:var(--brand); stroke:color-mix(in srgb,var(--brand) 55%, #000); cursor:pointer; filter:drop-shadow(0 0 2.5px color-mix(in srgb, var(--brand) 60%, transparent)); transition:fill .2s var(--ease); }
 @media (hover:hover){ .ab-country.visited:hover{ fill:var(--brand-soft); } }
+/* home country: its own colour, so it reads as home rather than just another visit */
+.ab-country.home{ fill:var(--home); stroke:color-mix(in srgb,var(--home) 55%, #000); cursor:pointer; filter:drop-shadow(0 0 3px color-mix(in srgb, var(--home) 65%, transparent)); transition:fill .2s var(--ease); }
+@media (hover:hover){ .ab-country.home:hover{ fill:color-mix(in srgb,var(--home) 74%, #fff); } }
 .ab-dot{ fill:#fff; stroke:var(--brand); stroke-width:2; vector-effect:non-scaling-stroke; pointer-events:none; }
-.ab-dot.home{ fill:var(--brand); stroke:#fff; }
+.ab-dot.home{ fill:var(--home); stroke:#fff; }
 .ab-hit{ fill:transparent; pointer-events:all; cursor:pointer; }
-.ab-halo{ fill:var(--brand); opacity:.4; pointer-events:none; transform-box:fill-box; transform-origin:center; animation:ab-halo 2.6s var(--ease) infinite; }
+.ab-halo{ fill:var(--home); opacity:.4; pointer-events:none; transform-box:fill-box; transform-origin:center; animation:ab-halo 2.6s var(--ease) infinite; }
 @keyframes ab-halo{ 0%{ transform:scale(.7); opacity:.45 } 70%{ opacity:0 } 100%{ transform:scale(2.3); opacity:0 } }
 .ab-mapctrl{ position:absolute; top:12px; right:12px; display:flex; flex-direction:column; gap:6px; }
 .ab-mapctrl button{ width:38px; height:38px; border-radius:10px; border:1px solid var(--border); background:var(--surface); color:var(--heading); font-size:1.15rem; line-height:1; cursor:pointer; box-shadow:var(--card-shadow); display:grid; place-items:center; transition:color .2s var(--ease), transform .2s var(--ease); }
@@ -279,6 +282,7 @@ html[data-theme="dark"] .ab-info{ background:#0e1530; }
     c.coords = best.coords;
   });
   var VISITED = {}; Object.keys(COUNTRIES).forEach(function (k) { VISITED[k] = true; });
+  var HOME_ISO = TRAVEL.home.iso3;
 
   // drop Antarctica so the map frames only the inhabited world (no empty band)
   var landFeatures = GEO.features.filter(function (d) { return d.properties.ISO3 !== 'ATA'; });
@@ -294,10 +298,14 @@ html[data-theme="dark"] .ab-info{ background:#0e1530; }
 
   var featByIso = {};
   var countrySel = g.append('g').selectAll('path').data(landFeatures).join('path')
-    .attr('class', function (d) { return VISITED[d.properties.ISO3] ? 'ab-country visited' : 'ab-country'; })
-    .each(function (d) { if (VISITED[d.properties.ISO3]) featByIso[d.properties.ISO3] = d; })
-    .on('click', function (e, d) { if (VISITED[d.properties.ISO3]) { e.stopPropagation(); selectCountry(COUNTRIES[d.properties.ISO3]); } })
-    .on('pointerenter', function (e, d) { if (VISITED[d.properties.ISO3] && e.pointerType === 'mouse') { clearTimeout(hideT); showInfo(COUNTRIES[d.properties.ISO3]); } })
+    .attr('class', function (d) { var i = d.properties.ISO3; return i === HOME_ISO ? 'ab-country home' : (VISITED[i] ? 'ab-country visited' : 'ab-country'); })
+    .each(function (d) { var i = d.properties.ISO3; if (VISITED[i] || i === HOME_ISO) featByIso[i] = d; })
+    .on('click', function (e, d) { var i = d.properties.ISO3;
+      if (i === HOME_ISO) { e.stopPropagation(); selectHome(); }
+      else if (VISITED[i]) { e.stopPropagation(); selectCountry(COUNTRIES[i]); } })
+    .on('pointerenter', function (e, d) { var i = d.properties.ISO3; if (e.pointerType !== 'mouse') return;
+      if (i === HOME_ISO) { clearTimeout(hideT); showHome(); }
+      else if (VISITED[i]) { clearTimeout(hideT); showInfo(COUNTRIES[i]); } })
     .on('pointerleave', function (e) { if (e.pointerType === 'mouse') scheduleRestore(); });
 
   // markers: home first, then each visited country
@@ -309,7 +317,7 @@ html[data-theme="dark"] .ab-info{ background:#0e1530; }
     .attr('class', function (d) { return d.home ? 'ab-dot home' : 'ab-dot'; });
   // invisible, generous hit targets on top (so tiny countries like Singapore are easy to hover/tap)
   var hitSel = hitG.selectAll('circle').data(markers).join('circle').attr('class', 'ab-hit')
-    .on('click', function (e, d) { e.stopPropagation(); if (d.home) { selected = 'home'; clearTimeout(hideT); showHome(); zoomToCoord(TRAVEL.home.coords, 4); } else { selectCountry(COUNTRIES[d.iso]); } })
+    .on('click', function (e, d) { e.stopPropagation(); if (d.home) { selectHome(); } else { selectCountry(COUNTRIES[d.iso]); } })
     .on('pointerenter', function (e, d) { if (e.pointerType === 'mouse') { clearTimeout(hideT); if (d.home) showHome(); else showInfo(COUNTRIES[d.iso]); } })
     .on('pointerleave', function (e) { if (e.pointerType === 'mouse') scheduleRestore(); });
 
@@ -374,6 +382,7 @@ html[data-theme="dark"] .ab-info{ background:#0e1530; }
   }
   function resetZoom() { svg.transition().duration(700).call(zoom.transform, d3.zoomIdentity); selected = null; clearTimeout(hideT); hideInfo(); setRegion('world'); }
   function selectCountry(c) { if (!c) return; selected = c; clearTimeout(hideT); showInfo(c); var f = featByIso[c.iso3]; if (f) zoomToFeature(f); else zoomToCoord(c.coords, 5); }
+  function selectHome() { selected = 'home'; clearTimeout(hideT); showHome(); var f = featByIso[HOME_ISO]; if (f) zoomToFeature(f); else zoomToCoord(TRAVEL.home.coords, 4); }
   function showInfo(c) { info.innerHTML = '<h4>' + c.country + '</h4>' + c.trips.map(function (t) { return '<div class="r"><b>' + t.year + '</b> &middot; ' + t.city + ', ' + t.event + '</div>'; }).join(''); info.classList.add('show'); }
   function showHome() { info.innerHTML = '<h4>' + TRAVEL.home.country + '</h4><div class="r"><b>Home</b> &middot; ' + TRAVEL.home.city + ', ' + TRAVEL.home.note + '</div>'; info.classList.add('show'); }
   function hideInfo() { info.classList.remove('show'); }
@@ -395,7 +404,7 @@ html[data-theme="dark"] .ab-info{ background:#0e1530; }
       setRegion(rg.id);
       if (rg.id === 'world') { resetZoom(); }
       else if (rg.bbox) { selected = null; clearTimeout(hideT); zoomToBBox(rg.bbox); hideInfo(); }
-      else if (rg.coords) { selected = 'home'; clearTimeout(hideT); showHome(); zoomToCoord(rg.coords, rg.k); }
+      else if (rg.coords) { selectHome(); }
     });
     regWrap.appendChild(b);
   });

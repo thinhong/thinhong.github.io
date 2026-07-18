@@ -90,8 +90,8 @@
     {
       "country": "United Kingdom",
       "iso3": "GBR",
-      "city": "London",
-      "coords": [51.5074, -0.1278],
+      "city": "Cambridge",
+      "coords": [52.2053, 0.1218],
       "year": 2022,
       "event": "Vaccine Impact Modelling Consortium workshop"
     },
