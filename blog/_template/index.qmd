@@ -10,9 +10,9 @@ author:
   - name: Thinh Ong
     url: https://thinhong.github.io
     orcid: 0000-0001-6772-9291
-# image: share-card.jpg       # optional 1200x630 social card; drop the file in this folder
-# image-alt: "Describe the share card for screen readers"
-# title-block-banner: "url(/img/blog-art/banner-your-post.svg)"   # optional custom hero banner
+# image: /img/blog-art/cover-your-post.svg   # PINS the listing card art; make it match your banner motif. Omit to use the topic default cover.
+# image-alt: "Describe the card art for screen readers"
+# title-block-banner: "url(/img/blog-art/leadership.svg)"   # hero banner: point at your topic's shared banner, or at a custom banner-your-post.svg
 # title-block-banner-color: white
 citation:
   url: https://drthinhong.com/blog/your-post-slug/

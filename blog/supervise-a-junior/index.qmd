@@ -7,8 +7,8 @@ author:
   - name: Thinh Ong
     url: https://thinhong.github.io
     orcid: 0000-0001-6772-9291
-# image: share-card.jpg        # add a 1200x630 social card here before publishing
-# image-alt: "Two rings and an upward arrow on a deep blue matte banner"
+image: /img/blog-art/cover-supervise.svg
+image-alt: "Two rings on a rising arrow in matte blues, matching this post's banner"
 title-block-banner: "url(/img/blog-art/banner-supervise.svg)"
 title-block-banner-color: white
 citation:

@@ -7,8 +7,8 @@ author:
   - name: Thinh Ong
     url: https://thinhong.github.io
     orcid: 0000-0001-6772-9291
-image: share-card.jpg
-image-alt: "Matte strata banner in deep blues for the post 10 simple tips to chair a meeting"
+image: /img/blog-art/cover-leadership-2.svg
+image-alt: "Giant clock face in matte blues, matching this post's banner"
 title-block-banner: "url(/img/blog-art/banner-chair-meeting.svg)"
 title-block-banner-color: white
 citation:

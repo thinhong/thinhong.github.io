@@ -7,8 +7,8 @@ author:
   - name: Thinh Ong
     url: https://thinhong.github.io
     orcid: 0000-0001-6772-9291
-image: share-card.jpg
-image-alt: "Matte strata banner in deep blues for the post How to chair a conference session"
+image: /img/blog-art/cover-leadership-1.svg
+image-alt: "Giant lectern with a microphone in matte blues, matching this post's banner"
 title-block-banner: "url(/img/blog-art/banner-chair-conf.svg)"
 title-block-banner-color: white
 citation:
