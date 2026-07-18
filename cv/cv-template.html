@@ -14,13 +14,14 @@
     --year:#4c6a97;        /* soft blue: the date / year column */
     --link:#3a5a86;
     --serif:'EB Garamond', Georgia, 'Times New Roman', serif;
-    --when-w:96px;
+    --when-w:96px;         /* col 1: dates, every table */
+    --col2-w:3.4em;        /* col 2: role / head-count, every table */
   }
   *{box-sizing:border-box}
   html,body{margin:0}
   body{
     background:#ecebe5; color:var(--ink);
-    font-family:var(--serif); font-size:16px; line-height:1.5;
+    font-family:var(--serif); font-size:16px; line-height:1.32;
     -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     font-variant-numeric:oldstyle-nums proportional-nums;
     font-feature-settings:"onum" 1,"pnum" 1,"liga" 1,"kern" 1;
@@ -31,63 +32,93 @@
     width:100%; max-width:820px; margin:0 auto;
     background:var(--paper);
     box-shadow:0 18px 50px rgba(40,34,22,.16), 0 2px 9px rgba(40,34,22,.07);
-    padding:54px 60px;
+    padding:44px 52px;
   }
 
   /* ---------- header ---------- */
   .cv-head{display:flex; justify-content:space-between; align-items:flex-end; gap:26px}
-  .cv-name{font-size:42px; font-weight:500; line-height:1.08; margin:0; color:var(--ink)}
-  .cv-role{margin:7px 0 0; font-style:italic; font-size:1rem; color:var(--muted)}
+  .cv-name{font-size:36px; font-weight:500; line-height:1.08; margin:0; color:var(--ink)}
+  .cv-role{margin:5px 0 0; font-style:italic; font-size:1rem; color:var(--muted)}
   .cv-contact{list-style:none; padding:0; margin:0; text-align:right; font-size:.86rem;
     color:var(--muted); line-height:1.55; white-space:nowrap}
   .cv-contact li{display:block}
   .cv-contact a{color:var(--muted); text-decoration:none}
   .cv-contact a:hover{text-decoration:underline}
-  .cv-rule{border-top:2px solid var(--accent); margin:22px 0 28px}
-  .cv-intro{margin:0; color:var(--ink); line-height:1.5; max-width:72ch; text-wrap:pretty}
+  .cv-rule{border-top:2px solid var(--accent); margin:15px 0 19px}
+  /* the intro runs the full measure, so it keeps looser leading than the short table rows */
+  .cv-intro{margin:0; color:var(--ink); line-height:1.42; max-width:72ch; text-wrap:pretty}
 
   /* ---------- sections ---------- */
-  .cv-sec{margin-top:26px}
+  .cv-sec{margin-top:17px}
   .cv-h{
     font-family:var(--serif); font-size:.82rem; font-weight:600;
     letter-spacing:.2em; text-transform:uppercase; color:var(--accent);
-    margin:0 0 14px; break-after:avoid; text-align:left;
+    margin:0 0 9px; break-after:avoid; text-align:left;
   }
-  .cv-lead{margin:0 0 10px; color:var(--muted); font-style:italic; line-height:1.5}
+  .cv-lead{margin:0 0 7px; color:var(--muted); font-style:italic; line-height:1.4}
+  /* a link inside a lead line (the Google Scholar one) sits in muted italic text,
+     so it takes the surrounding colour and is marked by a hairline underline
+     rather than a blue that fights the rest of the page */
+  .cv-lead a{color:inherit; text-decoration:underline; text-decoration-thickness:.5px;
+    text-underline-offset:2px}
 
-  .cv-table{width:100%; border-collapse:collapse}
-  .cv-table td, .cv-table th{padding:5px 0; vertical-align:baseline; text-align:left; font-weight:400}
+  /* fixed layout makes the column widths below authoritative. With the default
+     auto layout a table with more columns quietly compresses them, so the same
+     class came out at different widths in Grants, Research team and Teaching. */
+  .cv-table{width:100%; border-collapse:collapse; table-layout:fixed}
+  .cv-table td, .cv-table th{padding:3px 0; vertical-align:baseline; text-align:left; font-weight:400}
   .cv-table thead th{font-style:italic; letter-spacing:0; color:var(--muted); font-size:.9rem;
-    border-bottom:1px solid var(--rule); padding-bottom:6px}
-  .cv-table .c-when{width:var(--when-w); color:var(--year); font-size:.92rem; white-space:nowrap; padding-right:22px}
-  .cv-table .c-role{width:3.4em; font-style:italic; color:var(--muted)}
-  .cv-table .c-amt{width:6.4em; text-align:right; padding-right:20px; color:var(--ink); white-space:nowrap}
-  .cv-table .c-num{width:5em; text-align:right; padding-right:20px; color:var(--year)}
-  .cv-table .c-role-s{width:4em; color:var(--muted)}
-  .cv-table .c-name{width:13em}
+    border-bottom:1px solid var(--rule); padding-bottom:4px}
+  /* ONE shared column scale. Widths are declared on <colgroup> (emitted by
+     build-cv.R) rather than on the cells, because with table-layout:fixed the
+     engine otherwise takes widths from the first row, and in the grouped tables
+     that row is a colspan subheading which carries no per-column information.
+     Result: col 1 (date) and col 2 (role / head-count) are the same width in
+     every section. The .c-* classes below carry appearance only:
+     blue = time, ink = figures and content, muted = aside. */
+  .cv-table col.w-when{width:var(--when-w)}
+  .cv-table col.w-col2{width:var(--col2-w)}
+  .cv-table col.w-amt {width:5.6em}
+  .cv-table col.w-name{width:11.5em}
+  .cv-table .c-when{color:var(--year); font-size:.92rem; white-space:nowrap; padding-right:20px}
+  .cv-table .c-role{font-style:italic; color:var(--muted)}
+  .cv-table .c-num{text-align:right; padding-right:20px; color:var(--ink)}
+  .cv-table .c-amt{text-align:right; padding-right:20px; color:var(--ink); white-space:nowrap}
+  .cv-table .c-name{padding-right:16px}
   .cv-table .t{font-weight:600; color:var(--ink)}
+  /* .t bold title, .cv-meta muted aside, .cv-meta-i italic aside */
   .cv-table .cv-meta{color:var(--muted)}
-  .cv-table a{color:var(--link); text-decoration:none}
+  .cv-table .cv-meta-i{color:var(--muted); font-style:italic}
+  /* nowrap so a two-word link label like "Course page" never breaks across lines */
+  .cv-table a{color:var(--link); text-decoration:none; white-space:nowrap}
   .cv-table a:hover{text-decoration:underline}
   /* inline emphasis produced by md_inline() in free-text cells: EB Garamond only
      loads up to 600, so pin the weight and italic explicitly instead of leaving
      <strong>/<em> to each engine's font fallback */
   .cv-table strong, .cv-pubs strong{font-weight:600; color:var(--ink)}
   .cv-table em, .cv-pubs em{font-style:italic}
-  .cv-table .cv-subgroup td{padding:13px 0 3px; font-style:italic; font-weight:600;
+  /* a bold label inside a link keeps the link colour rather than the ink colour,
+     which matters for [**bold text**](url) written in a Sheet cell */
+  .cv-table a strong, .cv-pubs a strong{color:inherit}
+  .cv-table .cv-subgroup td{padding:9px 0 2px; font-style:italic; font-weight:600;
     color:#46403a; font-size:1rem}
 
-  .cv-pubs{margin:2px 0 0; padding-left:1.6em}
-  .cv-pubs li{margin-bottom:8px; padding-left:.2em; line-height:1.45}
+  /* Numbered DOWN from the newest paper. The marker is a CSS counter (seeded by
+     counter-reset on the <ol> in build-cv.R) rather than the native list marker,
+     because the `reversed` attribute is not honoured by every PDF engine.
+     Absolute + right-aligned so 27. and 9. end on the same edge. */
+  .cv-pubs{list-style:none; margin:2px 0 0; padding-left:2.4em}
+  /* references wrap across the full measure, so they keep a little more leading than table rows */
+  .cv-pubs li{position:relative; margin-bottom:5px; line-height:1.4; counter-increment:pub -1}
+  .cv-pubs li::before{content:counter(pub) "."; position:absolute; left:-2.4em;
+    width:2em; text-align:right; color:var(--muted)}
   .cv-pubs b{font-weight:600; color:var(--ink)}
   .cv-pubs i{font-style:italic}
   .cv-pubs a{color:var(--link); text-decoration:none; font-size:.9em}
   .cv-pubs a:hover{text-decoration:underline}
 
-  .cv-foot{margin-top:30px; padding-top:10px; border-top:.75px solid var(--rule);
-    font-size:.82rem; font-style:italic; color:var(--muted)}
-  .cv-foot td{padding:0}
-  .cv-foot .r{text-align:right; font-style:normal}
+  /* The updated date is not in the document body at all: it lives in the running
+     footer that Chrome draws on every page (footerTemplate in build-cv.R). */
 
   /* ---------- screen-only actions bar ---------- */
   .cv-bar{max-width:820px; margin:0 auto 12px; text-align:right;
@@ -112,7 +143,8 @@
     .cv-h{break-after:avoid}
     /* on paper there is no hover, so make links recognisable by more than colour */
     .cv-table a, .cv-pubs a{text-decoration:underline}
-    @page{size:A4; margin:19mm}
+    /* bottom margin is the deepest: it has to hold the running page-number footer */
+    @page{size:A4; margin:14mm 17mm 16mm}
   }
 </style>
 </head>
@@ -141,11 +173,6 @@
     <p class="cv-intro">I model the spread of vaccine-preventable diseases in Vietnam, and help Ho Chi Minh City CDC build the surveillance and modelling capacity behind its outbreak response.</p>
 
     {{SECTIONS}}
-
-    <table class="cv-foot" style="width:100%"><tbody><tr>
-      <td>Thinh Ong, curriculum vitae</td>
-      <td class="r">Updated {{UPDATED}}</td>
-    </tr></tbody></table>
 
   </article>
 </body>

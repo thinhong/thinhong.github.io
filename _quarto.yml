@@ -1,13 +1,15 @@
 project:
   type: website
-  pre-render: cv/build-cv.R
+  # NO pre-render hook on purpose. The CV is built by running cv/build-cv.R by
+  # hand, so rendering or previewing a page can never trigger a Google Sheets +
+  # Zotero refetch and a Chrome PDF print. cv/cv.html and cv/cv.pdf below are
+  # still copied into the site as resources; they are just not regenerated here.
   resources:
     - CNAME
     - img/blog-art
     - img/og-default.png
     - cv/cv.html
     - cv/cv.pdf
-    - about/cv.html
   output-dir: docs
 
 website:

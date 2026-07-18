@@ -58,8 +58,8 @@ html[data-theme="dark"] .ab-btn{ background:rgba(255,255,255,.05); }
 .ab-tl-role{ margin:0 0 3px; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size:1rem; font-weight:600; letter-spacing:0; color:var(--heading); }
 .ab-tl-org{ margin:0; font-size:.9rem; color:var(--text-muted); }
 .ab-tl-note{ margin:5px 0 0; font-size:.84rem; color:var(--text-faint); }
-.ab-tl-org a{ color:var(--brand); text-decoration:none; }
-@media (hover:hover){ .ab-tl-org a:hover{ text-decoration:underline; } }
+.ab-tl-org a, .ab-tl-note a{ color:var(--brand); text-decoration:none; }
+@media (hover:hover){ .ab-tl-org a:hover, .ab-tl-note a:hover{ text-decoration:underline; } }
 
 /* honours list */
 .ab-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; }
@@ -126,7 +126,7 @@ html[data-theme="dark"] .ab-info{ background:#0e1530; }
       <h1 class="pg-title">A modeller's <span class="pg-title-thin">journey</span></h1>
     </div>
     <div class="pg-hero__aside">
-      <p class="pg-lead">I build mathematical models of how infectious diseases spread. I'm a DPhil researcher at the University of Oxford and a medical doctor by training from Ho Chi Minh City. This is the short version of how I got here, and the places the work has taken me.</p>
+      <p class="pg-lead">I model the spread of vaccine-preventable diseases in Vietnam, and help Ho Chi Minh City CDC build the surveillance and modelling capacity behind its outbreak response. I'm a DPhil researcher at the University of Oxford and a medical doctor by training. This is the short version, and the places the work has taken me.</p>
       <div class="ab-cta">
         <a class="ab-btn ab-btn--primary" href="../cv/cv.html" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 1.9 H4.4 a1.4 1.4 0 0 0 -1.4 1.4 v9.4 a1.4 1.4 0 0 0 1.4 1.4 h7.2 a1.4 1.4 0 0 0 1.4 -1.4 V6 Z"/><path d="M8.9 1.9 V6 h4.1"/><path d="M5.8 9 h4.4 M5.8 11.3 h3"/></svg> View my CV</a>
       </div>
@@ -135,44 +135,65 @@ html[data-theme="dark"] .ab-info{ background:#0e1530; }
 
   <div class="pg-body">
     <main class="pg-main">
-      <section class="pg-panel" id="sec-edu" style="--hue:#5e6fe0">
+      <section class="pg-panel" id="sec-edu" style="--hue:#5b6ee1">
         <div class="pg-sechead"><div><span class="pg-num">[01]</span><h2 class="pg-sectitle">Education</h2></div></div>
         <div class="ab-tl">
-          <div class="ab-tl-item"><div class="ab-tl-year">2022-2026</div><div><h3 class="ab-tl-role">Doctor of Philosophy, Clinical Medicine</h3><p class="ab-tl-org">University of Oxford, United Kingdom</p><p class="ab-tl-note">Infectious disease modelling. Graduation expected 2026.</p></div></div>
-          <div class="ab-tl-item"><div class="ab-tl-year">2012-2018</div><div><h3 class="ab-tl-role">Doctor of Medicine, Preventive Medicine</h3><p class="ab-tl-org">University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam</p></div></div>
+          <div class="ab-tl-item"><div class="ab-tl-year">2022-2026</div><div><h3 class="ab-tl-role">Doctor of Philosophy</h3><p class="ab-tl-org">University of Oxford, United Kingdom</p><p class="ab-tl-note">Infectious disease modelling. Expected 2026.</p></div></div>
+          <div class="ab-tl-item"><div class="ab-tl-year">2012-2018</div><div><h3 class="ab-tl-role">Doctor of Medicine</h3><p class="ab-tl-org">University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam</p></div></div>
         </div>
       </section>
 
-      <section class="pg-panel" id="sec-exp" style="--hue:#3f86d6">
+      <section class="pg-panel" id="sec-exp" style="--hue:#1fa389">
         <div class="pg-sechead"><div><span class="pg-num">[02]</span><h2 class="pg-sectitle">Experience</h2></div></div>
         <div class="ab-tl">
-          <div class="ab-tl-item"><div class="ab-tl-year">2021-2022</div><div><h3 class="ab-tl-role">Research Assistant</h3><p class="ab-tl-org">Oxford University Clinical Research Unit, Vietnam</p></div></div>
-          <div class="ab-tl-item"><div class="ab-tl-year">2020</div><div><h3 class="ab-tl-role">Research Assistant</h3><p class="ab-tl-org">Hanoi University of Public Health, Vietnam</p></div></div>
-          <div class="ab-tl-item"><div class="ab-tl-year">2019-2020</div><div><h3 class="ab-tl-role">Research Intern</h3><p class="ab-tl-org">Garvan Institute of Medical Research, Australia (remote)</p></div></div>
-          <div class="ab-tl-item"><div class="ab-tl-year">2018-2023</div><div><h3 class="ab-tl-role">Statistical Consultant</h3><p class="ab-tl-org">Tu Du Hospital, Vietnam (freelance)</p></div></div>
+          <div class="ab-tl-item"><div class="ab-tl-year">2021-2022</div><div><h3 class="ab-tl-role">Research Assistant</h3><p class="ab-tl-org">Mathematical Modelling Group, Oxford University Clinical Research Unit, Vietnam</p></div></div>
+          <div class="ab-tl-item"><div class="ab-tl-year">2020-2021</div><div><h3 class="ab-tl-role">Editorial Assistant</h3><p class="ab-tl-org">MedPharmRes, University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam</p></div></div>
+          <div class="ab-tl-item"><div class="ab-tl-year">2019-2020</div><div><h3 class="ab-tl-role">Research Intern</h3><p class="ab-tl-org">Cancer Epigenetics Lab, Garvan Institute of Medical Research, Australia</p></div></div>
+          <div class="ab-tl-item"><div class="ab-tl-year">2018-2023</div><div><h3 class="ab-tl-role">Biostatistical Consultant</h3><p class="ab-tl-org">Infertility Department, Tu Du Hospital, Vietnam</p></div></div>
         </div>
       </section>
 
-      <section class="pg-panel" id="sec-hon" style="--hue:#8a6fd0">
-        <div class="pg-sechead"><div><span class="pg-num">[03]</span><h2 class="pg-sectitle">Honours</h2></div></div>
+      <section class="pg-panel" id="sec-impact" style="--hue:#c0789b">
+        <div class="pg-sechead"><div><span class="pg-num">[03]</span><h2 class="pg-sectitle">Impact</h2></div></div>
+        <div class="ab-tl">
+          <div class="ab-tl-item"><div class="ab-tl-year">2026</div><div><h3 class="ab-tl-role">Technical advisor to Ho Chi Minh City CDC</h3><p class="ab-tl-org">On the city's Infectious Disease Early Warning and Response System</p></div></div>
+          <div class="ab-tl-item"><div class="ab-tl-year">2024-2026</div><div><h3 class="ab-tl-role">Built an in-house modelling team</h3><p class="ab-tl-org">Trained a team at Ho Chi Minh City CDC that now runs research and routine outbreak analyses independently</p></div></div>
+          <div class="ab-tl-item"><div class="ab-tl-year">2024</div><div><h3 class="ab-tl-role">Measles immunity gaps, and the response they shaped</h3><p class="ab-tl-org">Seroprevalence modelling informed the Department of Health's decision to declare a measles outbreak and design the reactive vaccination campaign</p><p class="ab-tl-note">Recognised as one of <a href="https://medinet.hochiminhcity.gov.vn/dinh-huong-phat-trien-nganh/so-y-te-tp-ho-chi-minh-10-su-kien-noi-bat-cua-nganh-y-te-thanh-pho-trong-nam-20-cmobile1299-72446.aspx" target="_blank" rel="noopener">Ho Chi Minh City's ten medical achievements of 2024 &#8599;</a></p></div></div>
+        </div>
+      </section>
+
+      <section class="pg-panel" id="sec-fund" style="--hue:#2f97c9">
+        <div class="pg-sechead">
+          <div><span class="pg-num">[04]</span><h2 class="pg-sectitle">Research funding</h2></div>
+          <span class="pg-count">$237,930 since 2022</span>
+        </div>
+        <div class="ab-tl">
+          <div class="ab-tl-item"><div class="ab-tl-year">2025-2026</div><div><h3 class="ab-tl-role">Understanding how immunisation inequities drive measles outbreaks</h3><p class="ab-tl-org">Principal investigator &middot; $55,456 &middot; University of Oxford</p></div></div>
+          <div class="ab-tl-item"><div class="ab-tl-year">2024-2025</div><div><h3 class="ab-tl-role">Research cultures in Southeast Asia</h3><p class="ab-tl-org">Co-investigator &middot; $104,382 &middot; Wellcome</p></div></div>
+          <div class="ab-tl-item"><div class="ab-tl-year">2024-2025</div><div><h3 class="ab-tl-role">Modelling measles and hand-foot-mouth disease transmission in Ho Chi Minh City</h3><p class="ab-tl-org">Principal investigator &middot; $27,694 &middot; OUCRU</p></div></div>
+        </div>
+      </section>
+
+      <section class="pg-panel" id="sec-hon" style="--hue:#8b62d0">
+        <div class="pg-sechead"><div><span class="pg-num">[05]</span><h2 class="pg-sectitle">Honours</h2></div></div>
         <ul class="ab-list">
-          <li><span class="yr">2022</span><span class="it"><b>Full DPhil studentship</b>, Oxford University Clinical Research Unit and University of Oxford</span></li>
-          <li><span class="yr">2018</span><span class="it"><b>Academic Distinction Award (Valedictorian)</b>, University of Medicine and Pharmacy at Ho Chi Minh City</span></li>
-          <li><span class="yr">2018</span><span class="it"><b>Dissertation Distinction Award</b>, University of Medicine and Pharmacy at Ho Chi Minh City</span></li>
-          <li><span class="yr">2014, 2016, 2017</span><span class="it"><b>Student with the highest GPA</b>, University of Medicine and Pharmacy at Ho Chi Minh City</span></li>
+          <li><span class="yr">2022-2026</span><span class="it"><b>PhD Studentship</b>, OUCRU and NDM Tropical Network Fund, University of Oxford</span></li>
+          <li><span class="yr">2019</span><span class="it"><b>Outstanding Presentation</b>, 36th Science and Technology Conference, Ho Chi Minh City</span></li>
+          <li><span class="yr">2018</span><span class="it"><b>Highest GPA in the six-year medical doctor programme</b>, the highest in the school's history</span></li>
+          <li><span class="yr">2018</span><span class="it"><b>Highest dissertation score</b>, University of Medicine and Pharmacy at Ho Chi Minh City</span></li>
         </ul>
       </section>
 
-      <section class="pg-panel" id="sec-mem" style="--hue:#2fa790">
-        <div class="pg-sechead"><div><span class="pg-num">[04]</span><h2 class="pg-sectitle">Memberships</h2></div></div>
+      <section class="pg-panel" id="sec-net" style="--hue:#6f9e63">
+        <div class="pg-sechead"><div><span class="pg-num">[06]</span><h2 class="pg-sectitle">Networks</h2></div></div>
         <div class="ab-tl">
-          <div class="ab-tl-item"><div class="ab-tl-year">Member</div><div><h3 class="ab-tl-role">Modelling Infectious Diseases in South East Asia</h3><p class="ab-tl-org"><a href="https://midsea.network/" target="_blank" rel="noopener">midsea.network &#8599;</a></p></div></div>
-          <div class="ab-tl-item"><div class="ab-tl-year">Affiliate</div><div><h3 class="ab-tl-role">Vaccine Impact Modelling Consortium</h3><p class="ab-tl-org"><a href="https://www.vaccineimpact.org/" target="_blank" rel="noopener">vaccineimpact.org &#8599;</a></p></div></div>
+          <div class="ab-tl-item"><div class="ab-tl-year">2024-now</div><div><h3 class="ab-tl-role">Founder, MIDVIE</h3><p class="ab-tl-org"><a href="https://midvie.github.io" target="_blank" rel="noopener">Modelling Infectious Diseases in Vietnam &#8599;</a></p></div></div>
+          <div class="ab-tl-item"><div class="ab-tl-year">2023-now</div><div><h3 class="ab-tl-role">Co-founder, MIDSEA early-career community</h3><p class="ab-tl-org"><a href="https://midsea.network/" target="_blank" rel="noopener">Modelling Infectious Diseases in South East Asia &#8599;</a></p></div></div>
         </div>
       </section>
 
-      <section class="pg-panel" id="sec-adv" style="--hue:#4170dc">
-        <div class="pg-sechead"><div><span class="pg-num">[05]</span><h2 class="pg-sectitle">Adventures</h2></div></div>
+      <section class="pg-panel" id="sec-adv" style="--hue:#3f7ad6">
+        <div class="pg-sechead"><div><span class="pg-num">[07]</span><h2 class="pg-sectitle">Adventures</h2></div></div>
         <p class="ab-intro">I'm a regular guy from a developing country, where going abroad once felt like a dream. Research changed that. Every highlighted country is a conference, workshop, or collaboration the work has taken me to. Jump to a region below, or tap a marker to zoom in (tap the sea to zoom back out).</p>
         <div class="ab-regions" id="ab-regions"></div>
         <div class="ab-map" id="ab-map">
@@ -187,9 +208,11 @@ html[data-theme="dark"] .ab-info{ background:#0e1530; }
       <p class="pg-toc-h">On this page</p>
       <a href="#sec-edu" class="active"><span class="tn">01</span><span class="tt">Education</span></a>
       <a href="#sec-exp"><span class="tn">02</span><span class="tt">Experience</span></a>
-      <a href="#sec-hon"><span class="tn">03</span><span class="tt">Honours</span></a>
-      <a href="#sec-mem"><span class="tn">04</span><span class="tt">Memberships</span></a>
-      <a href="#sec-adv"><span class="tn">05</span><span class="tt">Adventures</span></a>
+      <a href="#sec-impact"><span class="tn">03</span><span class="tt">Impact</span></a>
+      <a href="#sec-fund"><span class="tn">04</span><span class="tt">Funding</span></a>
+      <a href="#sec-hon"><span class="tn">05</span><span class="tt">Honours</span></a>
+      <a href="#sec-net"><span class="tn">06</span><span class="tt">Networks</span></a>
+      <a href="#sec-adv"><span class="tn">07</span><span class="tt">Adventures</span></a>
     </nav>
   </div>
 </section>
@@ -246,7 +269,15 @@ html[data-theme="dark"] .ab-info{ background:#0e1530; }
     if (!COUNTRIES[t.iso3]) COUNTRIES[t.iso3] = { country: t.country, iso3: t.iso3, coords: t.coords, trips: [] };
     COUNTRIES[t.iso3].trips.push(t);
   });
-  Object.keys(COUNTRIES).forEach(function (k) { COUNTRIES[k].trips.sort(function (a, b) { return b.year - a.year; }); });
+  Object.keys(COUNTRIES).forEach(function (k) {
+    var c = COUNTRIES[k];
+    c.trips.sort(function (a, b) { return b.year - a.year; });
+    // pin the country's marker at the city visited most often (ties go to the most recent)
+    var tally = {}, best = null;
+    c.trips.forEach(function (t) { tally[t.city] = (tally[t.city] || 0) + 1; });
+    c.trips.forEach(function (t) { if (!best || tally[t.city] > tally[best.city]) best = t; });
+    c.coords = best.coords;
+  });
   var VISITED = {}; Object.keys(COUNTRIES).forEach(function (k) { VISITED[k] = true; });
 
   // drop Antarctica so the map frames only the inhabited world (no empty band)

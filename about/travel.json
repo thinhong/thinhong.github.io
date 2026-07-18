@@ -8,12 +8,52 @@
   },
   "trips": [
     {
+      "country": "Indonesia",
+      "iso3": "IDN",
+      "city": "Jakarta",
+      "coords": [-6.2088, 106.8456],
+      "year": 2026,
+      "event": "Measles Analytics Hub Annual Meeting"
+    },
+    {
+      "country": "Singapore",
+      "iso3": "SGP",
+      "city": "Singapore",
+      "coords": [1.3521, 103.8198],
+      "year": 2026,
+      "event": "Policy-driven Infectious Diseases Modelling Workshop"
+    },
+    {
+      "country": "Thailand",
+      "iso3": "THA",
+      "city": "Krabi",
+      "coords": [8.0863, 98.9063],
+      "year": 2026,
+      "event": "Modelling for Infectious Disease in Southeast Asia FIESTA workshop"
+    },
+    {
+      "country": "France",
+      "iso3": "FRA",
+      "city": "Marseille",
+      "coords": [43.2965, 5.3698],
+      "year": 2025,
+      "event": "Analysis and modelling for the design of future epidemic surveillance systems"
+    },
+    {
       "country": "Thailand",
       "iso3": "THA",
       "city": "Bangkok",
       "coords": [13.7563, 100.5018],
       "year": 2024,
       "event": "Oxford Tropical Network Meeting"
+    },
+    {
+      "country": "Thailand",
+      "iso3": "THA",
+      "city": "Bangkok",
+      "coords": [13.7563, 100.5018],
+      "year": 2024,
+      "event": "Infectious Disease Modelling Conference"
     },
     {
       "country": "United States",
@@ -34,10 +74,10 @@
     {
       "country": "Thailand",
       "iso3": "THA",
-      "city": "Bangkok",
-      "coords": [13.7563, 100.5018],
+      "city": "Koh Samui",
+      "coords": [9.512, 100.0136],
       "year": 2023,
-      "event": "Modelling Infectious Diseases in South East Asia workshop"
+      "event": "MIDSEA Modelling During a Public Health Emergency workshop"
     },
     {
       "country": "Singapore",

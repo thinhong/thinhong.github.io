@@ -8,6 +8,7 @@ A critical read of `cv/build-cv.R` plus `cv/cv-template.html`, focused on your t
 2. **I added the one missing piece:** CSS so the bold and italic that `md_inline()` emits are pinned to the CV's exact weight, plus underlined links when printed. Without it the weight is left to each engine's font fallback rather than being explicit.
 3. **The DOI change is correct.** `doi:10.xxxx` with the identifier linked is proper AMA style.
 4. **Your citation style is a legitimate, reputable format** (essentially AMA / JAMA style). A few small, optional tweaks below.
+5. **All refinements are now applied**, along with page numbers, reverse publication numbering, the Scholar link, and a retuned spacing scale. See section 4.
 
 One thing to keep in mind throughout: R is not available in this environment, so I could not run the script. I verified the logic by reading it and the rendered output. Your rebuild on your own machine is the real test.
 
@@ -143,33 +144,53 @@ This is a solid, careful script. The architecture (data to HTML template to Chro
 
 ---
 
-## 4. Optional copy-paste patches
+## 4. What changed (all applied)
 
-Only if you want them. The CSS one is already applied.
+Everything in section 3 has been implemented, plus the four things you asked for afterwards.
 
-**a) Make your name configurable (replaces line 208).** Put your surname + initials once, near the config block:
+**In `cv/build-cv.R`**
 
-```r
-own_name <- "Ong T"   # your surname + leading initials, near the other config
-bold_name <- function(x) gsub(paste0("\\b", own_name, "([A-Z]*)"),
-                              paste0("<b>", own_name, "\\1</b>"), x)
-```
+- `own_name <- "Ong T"` is now a config value, and `bold_name()` is built from it. Changing how Zotero stores your name is now a one-line edit.
+- Citation punctuation guard in `build_publications()`: an empty journal slot is dropped, and `. .`, `. ;` and a leading `.` from a missing field are collapsed.
+- `sort_by_when()`, a numeric year*12+month sort, replaces the text sort for the policy tab. It reads Date columns, `2024-10-05`, `2024-10`, `2024`, and ranges like `2022-2026`, so `2024-9` can no longer sort above `2024-10`.
+- `required_cols` + `check_columns()` validate every tab up front. A renamed Sheet column now fails immediately with a message naming the tab and the missing columns, instead of erroring deep inside a build function.
+- Publications are numbered **downwards from 27 to 1**, newest first. The number comes from a CSS counter seeded at `nrow(p) + 1`, not from the `reversed` attribute, because `reversed` is honoured by browsers but not by every PDF engine (verified: it silently fell back to 1, 2, 3 in testing).
+- A Google Scholar lead line sits under the Publications heading, with the article count.
+- The PDF now carries a **running footer on every page**: your name and the updated date on the left, `Page X of Y` on the right. This comes from Chrome's own `footerTemplate`, because Chrome does not implement CSS `@page` margin boxes (`@bottom-center`), which is the usual way to do this.
 
-**b) Guard citation punctuation (drop into `build_publications`, before `items <-`).** Collapses any accidental `. .` or `;` gaps left by missing metadata:
+**In `cv/cv-template.html`**
 
-```r
-ref <- gsub("\\.\\s*\\.", ".", ref)      # ". ." -> "."
-ref <- gsub("<i>\\s*</i>\\.\\s*", "", ref) # empty journal -> drop it
-```
+- Spacing retuned (see below).
+- `strong` / `em` rules so `md_inline()` output matches the design, with `a strong{color:inherit}` so a bold link keeps the link colour.
+- Links underlined in print, since there is no hover on paper.
+- The on-page footer is hidden in print, because the running footer replaces it.
+- Publication markers are right-aligned so `27.` and `9.` end on the same edge.
 
-**c) Sort policy and awards by real dates.** Add a date-parsing sort helper and use it instead of `arr_desc(d, "date")` where the column holds calendar dates rather than plain years.
+### The spacing, measured
+
+Your two reference points, from the PDFs themselves:
+
+| | old (attached) | current | **new** |
+|---|---|---|---|
+| body size | 12pt | 12pt | 12pt (unchanged) |
+| line-height | 1.14 (cramped) | 1.50 (airy) | **1.32** rows, 1.40 references |
+| space above a heading | n/a | 27.7pt | **17.5pt** |
+| space below a heading | n/a | 18.5pt | **11.3pt** |
+| page margins T/B | 12.3 / 7.3mm | 19 / 19mm | **14 / 16mm** |
+
+The type size is untouched, because both your versions already agreed on 12pt and shrinking it is the wrong lever. The density comes from leading, row padding and margins instead. Two deliberate choices:
+
+- Short table rows get tighter leading (1.32) than the long wrapped references and the intro (1.40 to 1.42), because a long line needs more leading to track back to the next line. Uniform leading is the usual mistake here.
+- The gap above a heading stays about 1.55x the gap below it, so each heading still visually belongs to the section beneath it. Old was 1.50, so the hierarchy is preserved, just at a smaller scale.
+
+Measured effect, rendering identical content through the same engine: **+17% more content per page** and one page saved.
 
 ---
 
 ## What to do next
 
-1. On your machine, from the project root, run `Rscript cv/build-cv.R`.
-2. Open `cv/cv.html`, confirm the policy line now shows a bold link and the DOIs read `doi:10.xxxx`.
-3. Save to PDF (or let the script's `chrome_print` do it) and check the printed links are underlined.
+1. From the project root, run `Rscript cv/build-cv.R`.
+2. Open `cv/cv.html` and check: the policy line shows a bold link, publications count 27 down to 1, the Scholar line is under the Publications heading, and DOIs read `doi:10.xxxx`.
+3. Open `cv/cv.pdf` and check the page-number footer. This is the one item that could not be tested here, because it depends on Chrome and there is no Chrome in this environment. If the footer is missing or clipped, increase the bottom margin in the `@page` rule (currently 16mm); Chrome draws the footer inside that margin.
 
 If it looks right, publish with `CV_BUILD=1 quarto publish gh-pages`.

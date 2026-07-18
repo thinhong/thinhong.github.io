@@ -54,11 +54,13 @@ no matter what), `CV_SKIP_PDF=1` (HTML only).
 ## Publish
 
 ```
+Rscript cv/build-cv.R
 quarto publish gh-pages
 ```
 
-That is all: the pre-render step rebuilds the CV, then Quarto copies
-`cv/cv.html` and `cv/cv.pdf` (listed under `resources` in `_quarto.yml`) into
-the site. The CV buttons on the home, About, and Research pages point to
-`cv/cv.html`, live at https://drthinhong.com/cv/cv.html. The old
-`/about/cv.html` URL redirects there.
+Two commands, on purpose. There is no `pre-render` hook in `_quarto.yml`, so
+rendering or previewing a page can never start a CV build; you rebuild only when
+you actually want fresh data. Quarto then copies `cv/cv.html` and `cv/cv.pdf`
+(listed under `resources` in `_quarto.yml`) into the site. The CV buttons on the
+home, About, and Research pages point to `cv/cv.html`, live at
+https://drthinhong.com/cv/cv.html.
