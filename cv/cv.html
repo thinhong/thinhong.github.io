@@ -45,8 +45,12 @@
   .cv-contact a{color:var(--muted); text-decoration:none}
   .cv-contact a:hover{text-decoration:underline}
   .cv-rule{border-top:2px solid var(--accent); margin:15px 0 19px}
-  /* the intro runs the full measure, so it keeps looser leading than the short table rows */
-  .cv-intro{margin:0; color:var(--ink); line-height:1.42; max-width:72ch; text-wrap:pretty}
+  /* Full column width, flush with the rule above and every table below. A narrow
+     book measure (~66ch) was tried and read as a mistake here: this is a short block
+     that is scanned once, not long-form reading, so matching the page grid matters
+     more than line-length comfort. Leading stays loose because the lines are long,
+     and text-wrap:pretty stops Chrome leaving a one-word last line. */
+  .cv-intro{margin:0; color:var(--ink); line-height:1.42; text-wrap:pretty}
 
   /* ---------- sections ---------- */
   .cv-sec{margin-top:17px}
@@ -158,7 +162,7 @@
     <header class="cv-head">
       <div class="cv-id">
         <h1 class="cv-name">Thinh Ong</h1>
-        <p class="cv-role">Infectious disease modelling and vaccine epidemiology</p>
+        <p class="cv-role">Infectious disease modeller</p>
       </div>
       <ul class="cv-contact">
         <li><a href="mailto:ongphucthinh@gmail.com">ongphucthinh@gmail.com</a></li>
@@ -170,7 +174,7 @@
     <div class="cv-rule"></div>
 
     <h2 class="cv-h">Research interests</h2>
-    <p class="cv-intro">I model the spread of vaccine-preventable diseases in Vietnam, and help Ho Chi Minh City CDC build the surveillance and modelling capacity behind its outbreak response.</p>
+    <p class="cv-intro">My research focuses on quantifying population immunity and understanding how immunity and transmission shape outbreak risk. In parallel, I advise policymakers in Ho Chi Minh City, Vietnam on designing resilient and sustainable surveillance systems, and train an in-house modelling team for the government to strengthen decision-making and outbreak response.</p>
 
     <section class="cv-sec">
   <h2 class="cv-h">Education</h2>
