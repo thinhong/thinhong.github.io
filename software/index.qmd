@@ -12,11 +12,13 @@ execute:
 ---
 
 ```{r}
-library(googlesheets4)
 source("../code/software.R")
 
-gs4_auth("ongphucthinh@gmail.com")
-cv_sheet <- read_sheet(ss = "https://docs.google.com/spreadsheets/d/1ecqMkclPn-lhzgGHw2UTueiKkjTxuoAvJjpFKs3Jtm4/edit?usp=sharing", sheet = "software")
+# Read the package table with a 24h on-disk cache (get_software_sheet lives in
+# code/software.R). A fresh cache means no Google auth and no network call
+# during a render; a failed fetch falls back to the last cached copy so the
+# build never breaks. The cache refreshes on its own once it passes 24h.
+cv_sheet <- get_software_sheet(cache = ".software-cache.rds")
 
 cv_sheet$logo <- paste0("../img/software/", cv_sheet$logo)
 

@@ -119,6 +119,58 @@
   )
 }
 
+# --- data ------------------------------------------------------------------
+
+# Read the software table from Google Sheets, with a 24h on-disk cache so a
+# render never has to authenticate or hit the network when the cache is fresh.
+# Mirrors the Scholar cache in code/scholar.R:
+#   * a fresh cache (< max_age_hours) is used directly, no gs4_auth, no fetch,
+#   * a failed or blocked fetch falls back to the last cached copy,
+# so the build stays fast and never breaks on a Google outage or an expired
+# token. The cache refreshes automatically once it passes max_age_hours.
+# Returns the sheet as a data frame.
+get_software_sheet <- function(cache = ".software-cache.rds",
+                               max_age_hours = 24,
+                               email = "ongphucthinh@gmail.com",
+                               ss = "https://docs.google.com/spreadsheets/d/1ecqMkclPn-lhzgGHw2UTueiKkjTxuoAvJjpFKs3Jtm4/edit?usp=sharing",
+                               sheet = "software") {
+
+  .fresh <- function() {
+    if (!file.exists(cache)) return(FALSE)
+    age <- as.numeric(difftime(Sys.time(), file.info(cache)$mtime, units = "hours"))
+    is.finite(age) && age < max_age_hours
+  }
+  .read_cache <- function() {
+    if (!file.exists(cache)) return(NULL)
+    out <- tryCatch(readRDS(cache), error = function(e) NULL)
+    if (is.data.frame(out) && nrow(out) > 0) out else NULL
+  }
+
+  # 1) a fresh cache wins: no gs4_auth, no network (keeps render + preview fast)
+  if (.fresh()) {
+    cached <- .read_cache()
+    if (!is.null(cached)) return(cached)
+  }
+
+  # 2) try Google Sheets
+  fetched <- tryCatch({
+    if (!requireNamespace("googlesheets4", quietly = TRUE)) stop("googlesheets4 missing")
+    googlesheets4::gs4_auth(email = email)
+    googlesheets4::read_sheet(ss = ss, sheet = sheet)
+  }, error = function(e) NULL)
+
+  if (is.data.frame(fetched) && nrow(fetched) > 0) {
+    tryCatch(saveRDS(fetched, cache), error = function(e) NULL)
+    return(fetched)
+  }
+
+  # 3) stale cache as a last resort, so a failed fetch never breaks the build
+  stale <- .read_cache()
+  if (!is.null(stale)) return(stale)
+
+  stop("software sheet: no data fetched and no cache available")
+}
+
 # --- main ------------------------------------------------------------------
 
 gen_software_table <- function(cv_sheet) {
