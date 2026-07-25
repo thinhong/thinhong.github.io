@@ -72,6 +72,13 @@ $link-decoration:   none !important;
   --logo-chip-shadow-hi: 0 12px 28px rgba(16, 27, 53, 0.13);
   --acc-panel:       #121a30;
   --acc-panel-open:  #1a2440;
+  /* Depth A "Layered light": atmosphere pools, photo plate, elevation */
+  --atmo-1:          rgba(32, 80, 191, 0.10);
+  --atmo-2:          rgba(32, 80, 191, 0.07);
+  --atmo-3:          rgba(32, 80, 191, 0.055);
+  --plate-grad:      linear-gradient(200deg, rgba(32, 80, 191, 0.15), rgba(32, 80, 191, 0.03));
+  --shadow-rest:     0 1px 2px rgba(16, 27, 53, 0.04), 0 14px 34px rgba(16, 27, 53, 0.06);
+  --shadow-photo:    0 1px 2px rgba(16, 27, 53, 0.10), 0 14px 30px rgba(16, 27, 53, 0.12), 0 40px 90px rgba(16, 27, 53, 0.16);
 
   /* ---- Design tokens: layout, spacing, type, motion ---- */
   /* Single source of truth so editorial pages cannot drift apart.   */
@@ -149,6 +156,12 @@ html[data-theme="dark"] {
   --acc-panel:       #141b2c;
   --acc-panel-open:  #1c2540;
   --panel-bg:        rgba(255, 255, 255, 0.04);
+  --atmo-1:          rgba(61, 123, 255, 0.17);
+  --atmo-2:          rgba(61, 123, 255, 0.10);
+  --atmo-3:          rgba(61, 123, 255, 0.08);
+  --plate-grad:      linear-gradient(200deg, rgba(61, 123, 255, 0.26), rgba(61, 123, 255, 0.05));
+  --shadow-rest:     0 1px 2px rgba(0, 0, 0, 0.3), 0 18px 44px rgba(0, 0, 0, 0.42);
+  --shadow-photo:    0 1px 2px rgba(0, 0, 0, 0.4), 0 18px 40px rgba(0, 0, 0, 0.5), 0 46px 100px rgba(0, 0, 0, 0.55);
 }
 
 // ---------- Base ----------
@@ -301,6 +314,10 @@ main:has(.home-hero) { margin-top: 0; padding-top: 0; }
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+// Affiliation logos stay FULL COLOUR (user's call; the mono wall was reverted)
+// hairline wings around the AFFILIATIONS caption
+.home-hero .affil-cap { display: inline-flex; align-items: center; gap: 0.9rem; }
+.home-hero .affil-cap::before, .home-hero .affil-cap::after { content: ""; width: 34px; height: 1px; background: var(--border); }
 
 // Smooth in-page scrolling + a "Selected work" scroll cue under the affiliations
 html { scroll-behavior: smooth; }
@@ -322,6 +339,16 @@ html { scroll-behavior: smooth; }
 }
 .home-hero .scroll-cue:hover { color: var(--brand); }
 @keyframes cueBob { 0%, 100% { transform: translateY(-2px); opacity: 0.5; } 50% { transform: translateY(4px); opacity: 1; } }
+
+// Depth A: one soft light field flowing down the page (bright pool behind
+// the photo, a fainter pool in the hero's lower-left corner, an echo behind
+// Selected work). Pure background layers: no layout impact, no motion.
+.home-hero .atmo { position: absolute; pointer-events: none; z-index: 0; }
+.home-hero .atmo.a1 { top: -14%; left: 50%; transform: translateX(-50%); width: min(1100px, 110vw); height: 78%; background: radial-gradient(50% 52% at 50% 42%, var(--atmo-1), transparent 72%); }
+.home-hero .atmo.a2 { bottom: 4%; left: -16%; width: min(720px, 70vw); height: 56%; background: radial-gradient(closest-side, var(--atmo-2), transparent 74%); }
+.home-hero > *:not(.atmo) { position: relative; z-index: 1; }
+@media (max-width: 991.98px) { .home-hero .atmo.a2 { display: none; } }
+.section-work::before { content: ""; position: absolute; top: -2%; left: 50%; transform: translateX(-50%); width: min(980px, 100vw); height: 380px; pointer-events: none; z-index: -1; background: radial-gradient(50% 50% at 50% 40%, var(--atmo-3), transparent 74%); }
 
 // Hero responsive: stack on small screens, photo on top, centered
 @media (max-width: 820px) {
@@ -352,6 +379,12 @@ html { scroll-behavior: smooth; }
   margin-bottom: 1.4rem;
 }
 .section-work .sec-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--brand); display: inline-block; flex: none; }
+// Depth A: the heading carries a hairline rule out to the right
+// (and drops Quarto's default h2 underline, which would double the line)
+.section-work .sec-title { border-bottom: 0; padding-bottom: 0; }
+.section-work .sec-head { display: flex; align-items: center; gap: 1.1rem; margin-bottom: 1.4rem; }
+.section-work .sec-head .sec-title { margin-bottom: 0; flex: none; }
+.section-work .sec-rule { flex: 1; height: 1px; background: var(--border); }
 
 // ---------- Floating theme toggle (site-wide) ----------
 .theme-toggle {
@@ -635,38 +668,46 @@ html[data-theme="dark"] .hero-bg::before {
   white-space: nowrap;
 }
 .folio-hero .fh-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--brand); flex: none; }
-.folio-hero .fh-below { position: absolute; top: calc(100% + 0.9rem); right: 0; text-align: right; width: max-content; max-width: 17rem; }
+.folio-hero .fh-below { position: absolute; top: calc(100% + 0.9rem); right: 0; text-align: right; width: max-content; max-width: 17.5rem; }
 .folio-hero .fh-tag { font-size: clamp(0.85rem, 1.1vw, 1rem); line-height: 1.5; color: var(--text-muted); margin: 0; }
 .folio-hero .fh-links { display: flex; gap: 0.32rem; justify-content: flex-end; margin-top: 1rem; flex-wrap: nowrap; }
-.folio-hero .fh-links a { display: inline-flex; align-items: center; gap: 0.28rem; padding: 0.32rem 0.62rem; border-radius: 999px; font-size: 0.72rem; font-weight: 600; white-space: nowrap; border: 1px solid var(--border); color: var(--heading); transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+.folio-hero .fh-links a { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.38rem 0.7rem; border-radius: 999px; font-size: 0.73rem; font-weight: 600; white-space: nowrap; border: 1px solid var(--border); color: var(--heading); background: var(--surface); box-shadow: 0 1px 2px rgba(16, 27, 53, 0.04); transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
 .folio-hero .fh-links a i { font-size: 0.78rem; color: var(--brand); transition: color 0.25s ease; }
 .folio-hero .fh-links a:hover { transform: translateY(-2px); border-color: var(--brand); color: var(--brand); box-shadow: 0 8px 20px rgba(32, 80, 191, 0.14); }
-.folio-hero .fh-links a:first-child { background: var(--brand); border-color: var(--brand); color: #fff; }
+.folio-hero .fh-links a:first-child { background: var(--brand); border-color: var(--brand); color: #fff; box-shadow: 0 10px 22px rgba(32, 80, 191, 0.22); }
 .folio-hero .fh-links a:first-child i { color: #fff; }
 .folio-hero .fh-links a:first-child:hover { background: var(--brand-strong); color: #fff; }
 .folio-hero .fh-photo { position: relative; justify-self: center; width: clamp(215px, min(25vw, 39vh), 310px); margin: 0; }
 .folio-hero .fh-photo img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 26px;
   display: block;
-  box-shadow: 0 30px 70px rgba(16, 27, 53, 0.16);
+  box-shadow: var(--shadow-photo);
 }
+// Depth A: rotated under-card behind the portrait (stacked-photos plate)
+.folio-hero .fh-plate { position: absolute; inset: 0; border-radius: 28px; background: var(--plate-grad); transform: rotate(5.5deg); pointer-events: none; }
+.folio-hero.k .fh-plate { opacity: 0; transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.folio-hero.k.play .fh-plate { opacity: 1; transition-delay: 0.15s; }
 .folio-hero .fh-hi {
   position: absolute;
-  left: -34px; bottom: -26px;
-  width: clamp(84px, 8vw, 108px);
-  height: clamp(84px, 8vw, 108px);
+  z-index: 2;
+  left: -18px; bottom: -14px;
+  width: clamp(66px, 6.6vw, 88px);
+  height: clamp(66px, 6.6vw, 88px);
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--brand), var(--brand-azure));
+  background: var(--brand);
   color: #fff;
+  border: 4px solid var(--bg);
   display: flex; align-items: center; justify-content: center;
   font-weight: 500;
-  font-size: clamp(1.3rem, 1.7vw, 1.8rem);
-  box-shadow: 0 14px 34px rgba(32, 80, 191, 0.28);
+  font-size: clamp(1.05rem, 1.5vw, 1.45rem);
+  box-shadow: 0 12px 28px rgba(32, 80, 191, 0.30);
   cursor: pointer;
-  transition: opacity 0.6s ease, box-shadow 0.35s ease;
+  transition: opacity 0.6s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 .folio-hero .fh-hi:hover { box-shadow: 0 18px 46px rgba(32, 80, 191, 0.44); }
 /* speech bubble that pops up from the Hi circle (pure CSS, never touches the affiliations row) */
@@ -696,7 +737,7 @@ html[data-theme="dark"] .hero-bg::before {
 .folio-hero .fh-hi:hover::after { opacity: 1; transform: translate(-50%, 0) scale(1); }
 .folio-hero .fh-hi:hover::before { opacity: 1; transform: translate(-50%, 0) rotate(45deg) scale(1); }
 @media (max-width: 991.98px) {
-  .home-hero .folio-hero { grid-template-columns: 1fr; justify-items: center; }
+  .home-hero .folio-hero { grid-template-columns: 1fr; justify-items: center; row-gap: 1rem; }
   .folio-hero .fh-photo { order: 2; width: clamp(118px, min(40vw, 15vh), 172px); }
   .folio-hero .fh-left { order: 1; }
   .folio-hero .fh-right { order: 3; }
@@ -707,7 +748,8 @@ html[data-theme="dark"] .hero-bg::before {
   .folio-hero .fh-below { position: static; width: auto; text-align: center; margin: 0.3rem auto 0; max-width: min(22rem, 86vw); }
   .folio-hero .fh-tag { font-size: 0.82rem; line-height: 1.4; }
   .folio-hero .fh-links { justify-content: center; }
-  .folio-hero .fh-hi { left: -8px; right: auto; bottom: -8px; width: 38%; height: auto; aspect-ratio: 1; font-size: clamp(0.75rem, 2.6vw, 0.95rem); }
+  .folio-hero .fh-hi { left: -8px; right: auto; bottom: -8px; width: 38%; height: auto; aspect-ratio: 1; font-size: clamp(0.75rem, 2.6vw, 0.95rem); border-width: 3px; }
+  .folio-hero .fh-plate { border-radius: 20px; transform: rotate(5deg); }
 }
 
 // Desktop: pull the left-side words in toward the portrait so both sides hug the photo
@@ -793,7 +835,7 @@ body.tab-hidden .lm-track { animation-play-state: paused; }
 
 @media (prefers-reduced-motion: reduce) {
   .folio-hero .fh-name, .folio-hero .fw-fill, .folio-hero .fw-thin,
-  .folio-hero .fh-photo img, .folio-hero .fh-hi, .folio-hero .fh-below {
+  .folio-hero .fh-photo img, .folio-hero .fh-hi, .folio-hero .fh-below, .folio-hero .fh-plate {
     opacity: 1 !important; transform: none !important; clip-path: none !important; transition: none !important; animation: none !important;
   }
   .folio-hero .fh-name { letter-spacing: 0.14em !important; }
@@ -813,13 +855,13 @@ body.scrolled .navbar { background: transparent !important; backdrop-filter: non
   background: var(--surface-2, #fff) !important;
   border: 1px solid var(--border) !important;
   border-radius: 999px !important;
-  box-shadow: 0 10px 34px rgba(16, 27, 53, 0.12) !important;
+  box-shadow: 0 1px 2px rgba(16, 27, 53, 0.05), 0 12px 36px rgba(16, 27, 53, 0.09) !important;
   padding: 0.38rem 0.5rem 0.38rem 1.05rem !important;
   display: flex !important;
   align-items: center !important;
   gap: 0.7rem !important;
 }
-html[data-theme="dark"] .navbar-container { background: #11151f !important; border-color: rgba(255,255,255,0.12) !important; box-shadow: 0 10px 34px rgba(0,0,0,0.5) !important; }
+html[data-theme="dark"] .navbar-container { background: #11151f !important; border-color: rgba(255,255,255,0.12) !important; box-shadow: 0 1px 2px rgba(0,0,0,0.4), 0 14px 40px rgba(0,0,0,0.55) !important; }
 .navbar-brand-container { order: 0 !important; margin: 0 !important; }
 .navbar-brand { margin: 0 !important; padding: 0 !important; }
 .navbar-brand img { max-height: 30px !important; }
@@ -954,6 +996,7 @@ html[data-theme="dark"] #quarto-back-to-top {
   border-radius: 20px; padding: 1.5rem; overflow: hidden;
   display: flex; flex-direction: column; text-decoration: none; color: inherit; min-width: 0;
   opacity: 0;
+  box-shadow: var(--shadow-rest);
   transition: opacity 0.55s ease, transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
 }
 .section-work .tile.in { opacity: 1; }
@@ -966,7 +1009,7 @@ html[data-theme="dark"] #quarto-back-to-top {
 .section-work .tk i { font-size: 0.85rem; }
 .section-work .tname { font-size: 1.05rem; font-weight: 600; line-height: 1.32; margin: 0.7rem 0 0; color: var(--heading); overflow-wrap: break-word; }
 .section-work .tdesc { font-size: 0.88rem; line-height: 1.55; color: var(--text-muted); margin: 0.4rem 0 0; }
-.section-work .tgo { margin-top: auto; padding-top: 0.9rem; font-size: 0.8rem; font-weight: 600; color: var(--brand); display: inline-flex; align-items: center; gap: 0.4rem; }
+.section-work .tgo { position: relative; z-index: 1; margin-top: auto; padding-top: 0.9rem; font-size: 0.8rem; font-weight: 600; color: var(--brand); display: inline-flex; align-items: center; gap: 0.4rem; }
 .section-work .tgo i { transition: transform 0.25s ease; }
 
 .section-work .t-stats { grid-column: span 2; }
@@ -976,21 +1019,20 @@ html[data-theme="dark"] #quarto-back-to-top {
 .section-work .stat-foot { margin-top: 1rem; font-size: 0.84rem; color: var(--text-muted); line-height: 1.5; }
 .section-work .stat-foot b { color: var(--heading); font-weight: 600; }
 
-// light feature tile with a colourful drawn epidemic curve
-.section-work .t-feature { grid-column: span 2; grid-row: span 2; min-height: 300px; }
-.section-work .t-feature .tk { color: #4a5da8; }
+// Depth A: blue-washed feature tile; curve pinned bottom-right, clear of text
+.section-work .t-feature { grid-column: span 2; grid-row: span 2; min-height: 300px; background: var(--feature-bg); }
+.section-work .t-feature::before { content: ""; position: absolute; right: -18%; bottom: -22%; width: 78%; height: 68%; pointer-events: none; background: radial-gradient(closest-side, color-mix(in srgb, var(--brand) 14%, transparent), transparent 72%); }
 .section-work .t-feature .tname { font-size: 1.5rem; line-height: 1.2; max-width: 18ch; }
-.section-work .feat-art { position: absolute; right: -20px; bottom: -20px; width: 280px; height: 180px; pointer-events: none; background: radial-gradient(circle at 68% 72%, color-mix(in srgb, #7d92d6 38%, transparent), transparent 62%); }
-.section-work .feat-art path { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 300; stroke-dashoffset: 300; }
+.section-work .t-feature .tdesc { max-width: 30ch; }
+.section-work .feat-art { position: absolute; left: 37%; right: -1%; bottom: -2px; width: auto; height: auto; pointer-events: none; }
+.section-work .feat-art .grid line { stroke: var(--border); stroke-width: 1; }
+.section-work .feat-art path { fill: none; stroke-width: 3.2; stroke-linecap: round; stroke-dasharray: 300; stroke-dashoffset: 300; }
 .section-work .t-feature.in .feat-art path { animation: workDraw 1.4s ease 0.3s forwards; }
 @keyframes workDraw { to { stroke-dashoffset: 0; } }
 
 .section-work .ti { width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; background: color-mix(in srgb, var(--brand) 12%, transparent); color: var(--brand); margin-bottom: 0.2rem; }
 .section-work .ti i { font-size: 1.15rem; }
-.section-work .t-denim .ti { background: color-mix(in srgb, #9485cf 16%, transparent); color: #6f5fb0; }
-.section-work .t-denim .tk, .section-work .t-denim .tgo { color: #6f5fb0; }
-.section-work .t-hcdc .ti { background: color-mix(in srgb, #6fae9a 18%, transparent); color: #3f8e75; }
-.section-work .t-hcdc .tk, .section-work .t-hcdc .tgo { color: #3f8e75; }
+// Depth A: one blue family across the bento (violet/teal/amber accents retired)
 
 .section-work .t-nav { flex-direction: row; align-items: center; gap: 0.8rem; padding: 1.15rem 1.4rem; min-width: 0; }
 .section-work .t-nav.wide { grid-column: span 2; }
@@ -998,23 +1040,17 @@ html[data-theme="dark"] #quarto-back-to-top {
 .section-work .t-nav .tname { margin: 0; font-size: 1rem; min-width: 0; overflow-wrap: normal; }
 .section-work .t-nav .arr { margin-left: auto; color: var(--text-faint); font-size: 1rem; flex: none; transition: transform 0.25s ease, color 0.25s ease; }
 @media (hover: hover) { .section-work .t-nav:hover .arr { transform: translateX(4px); color: var(--brand); } }
-.section-work .t-nav.c1 .ti { background: color-mix(in srgb, #5fa6c6 16%, transparent); color: #3a86a6; }
-.section-work .t-nav.c2 .ti { background: color-mix(in srgb, #d49a63 18%, transparent); color: #b87636; }
-.section-work .t-nav.c3 .ti { background: color-mix(in srgb, #2050bf 12%, transparent); color: var(--brand); }
-
-// dark mode: lift the accent hues for contrast on the dark surface
-html[data-theme="dark"] .section-work .t-feature .tk { color: #9fb0e8; }
-html[data-theme="dark"] .section-work .t-denim .ti { background: color-mix(in srgb, #9485cf 24%, transparent); color: #c0b4ef; }
-html[data-theme="dark"] .section-work .t-denim .tk, html[data-theme="dark"] .section-work .t-denim .tgo { color: #c0b4ef; }
-html[data-theme="dark"] .section-work .t-hcdc .ti { background: color-mix(in srgb, #6fae9a 26%, transparent); color: #74ccb0; }
-html[data-theme="dark"] .section-work .t-hcdc .tk, html[data-theme="dark"] .section-work .t-hcdc .tgo { color: #74ccb0; }
-html[data-theme="dark"] .section-work .t-nav.c1 .ti { color: #82c4df; }
-html[data-theme="dark"] .section-work .t-nav.c2 .ti { color: #e3b585; }
+// dark mode: brand tokens already flip; icon chips get a touch more fill
+html[data-theme="dark"] .section-work .ti { background: color-mix(in srgb, var(--brand) 18%, transparent); }
 
 @media (max-width: 760px) {
   .section-work .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .section-work .t-stats, .section-work .t-feature, .section-work .t-nav { grid-column: span 2; }
-  .section-work .t-feature { grid-row: auto; min-height: 240px; }
+  .section-work .t-feature { grid-row: auto; min-height: 0; }
+  .section-work .t-feature .tname, .section-work .t-feature .tdesc { max-width: none; }
+  // the curve flows below the text on mobile so it can never cross it
+  .section-work .feat-art { position: static; width: 100%; height: auto; margin-top: 0.9rem; order: 5; }
+  .section-work .t-feature .tgo { order: 4; }
 }
 @media (max-width: 460px) {
   .section-work .bento { grid-template-columns: minmax(0, 1fr); }
