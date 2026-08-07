@@ -60,8 +60,8 @@ suppressPackageStartupMessages({
 
 ## ---------------- config ----------------
 cv_url     <- "https://docs.google.com/spreadsheets/d/1ecqMkclPn-lhzgGHw2UTueiKkjTxuoAvJjpFKs3Jtm4/edit?usp=sharing"
-tab_names  <- c("edu", "employ", "grants", "awards", "team", "policy", "teaching",
-                "talks", "service", "software")
+tab_names  <- c("edu", "employ", "grants", "awards", "team", "policy", "engagement",
+                "teaching", "talks", "service", "software")
 template   <- "cv/cv-template.html"
 out_html   <- "cv/cv.html"
 out_pdf    <- "cv/cv.pdf"
@@ -79,18 +79,20 @@ required_cols <- list(
   grants   = c("period", "my_role", "budget_total_usd", "title", "sponsor", "outcome"),
   awards   = c("date", "description"),
   team     = c("period", "role", "name", "next_dest", "year"),
-  policy   = c("date", "project"),
-  teaching = c("date", "attd", "name", "note", "venue", "website", "type"),
+  policy     = c("date", "project"),
+  engagement = c("period", "title", "detail"),
+  teaching   = c("date", "attd", "name", "note", "venue", "website", "type"),
   talks    = c("date", "type", "title", "event"),
   service  = c("period", "category", "role", "name"),
   software = c("year", "name", "summary", "url_github")
 )
 # optional columns: filled in with NA if the Sheet does not have them yet
 # `link_text` overrides the wording of a row's link ("News article", "Recording", ...)
-optional_cols <- list(talks    = c("location", "url", "link_text"),
-                      service  = c("location", "url", "link_text"),
-                      teaching = "link_text",
-                      software = "link_text")
+optional_cols <- list(talks      = c("location", "url", "link_text"),
+                      service    = c("location", "url", "link_text"),
+                      engagement = c("url", "link_text"),
+                      teaching   = "link_text",
+                      software   = "link_text")
 
 if (!file.exists("_quarto.yml") || !file.exists(template))
   stop("Run this from the project root, e.g.  Rscript cv/build-cv.R")
@@ -425,6 +427,20 @@ build_policy <- function(d) {
   section("Policy and public health impact", table_plain(rows))
 }
 
+build_engagement <- function(d) {
+  d <- ensure_cols(d, optional_cols$engagement)
+  d <- sort_by_when(d, "period")
+  url  <- ifelse(is.na(d$url), "", d$url)
+  link <- ifelse(nzchar(url),
+                 sprintf(' <a href="%s">%s</a>', esc(url),
+                         esc(link_label(url, "Project page", d$link_text))), "")
+  # bold title, then the detail sentence which carries the scale and impact; the
+  # detail may hold its own **bold** / [links](url), so it runs through md_inline
+  rows <- sprintf('<tr><td class="c-when">%s</td><td><span class="t">%s</span> <span class="cv-meta">%s</span>%s</td></tr>',
+                  esc(d$period), esc(end_dot(d$title)), md_inline(end_dot(d$detail)), link)
+  section("Public engagement", table_plain(rows))
+}
+
 build_teaching <- function(d) {
   d <- ensure_cols(d, optional_cols$teaching)
   d <- d |> mutate(website = ifelse(is.na(website), "", website))
@@ -587,6 +603,7 @@ sections <- paste(
   build_experience(dat$tabs$employ),
   build_grants(dat$tabs$grants),                 # independence and impact
   build_policy(dat$tabs$policy),
+  build_engagement(dat$tabs$engagement),
   build_service(dat$tabs$service),
   build_team(dat$tabs$team),
   build_awards(dat$tabs$awards),
