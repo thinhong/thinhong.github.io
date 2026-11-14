@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7ce3a0cc7cfb425529e8d90f652646d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-976f792e4d444bb38f952e8db4a4e2c2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,23 +102,35 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 
 </script>
 
+<noscript><style>
+
+/* Without JavaScript the "see more" button cannot work, so show every row. */
+
+.more__rows[hidden] { display: flex !important; }
+
+.more__btn { display: none !important; }
+
+</style></noscript>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
 
 
 <meta property="og:title" content="Software - Thinh Ong">
 <meta property="og:description" content="Open-source R packages and tools by Thinh Ong for infectious disease modelling, biostatistics, and bioinformatics.">
-<meta property="og:image" content="https://drthinhong.com/img/software/denim.svg">
-<meta property="og:image:alt" content="denim logo">
+<meta property="og:image" content="https://drthinhong.com/img/og-default.png">
+<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="1200">
 <meta name="twitter:title" content="Software - Thinh Ong">
 <meta name="twitter:description" content="Open-source R packages and tools by Thinh Ong for infectious disease modelling, biostatistics, and bioinformatics.">
-<meta name="twitter:image" content="https://drthinhong.com/img/software/denim.svg">
-<meta name="twitter:image:alt" content="denim logo">
+<meta name="twitter:image" content="https://drthinhong.com/img/og-default.png">
+<meta name="twitter:image-height" content="630">
+<meta name="twitter:image-width" content="1200">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed hue-cy quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -126,8 +138,11 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../logo-icon.svg" alt="" class="navbar-logo light-content">
-    <img src="../logo-icon.svg" alt="" class="navbar-logo dark-content">
+    <img src="../logo-icon.svg" alt="Thinh Ong logo" class="navbar-logo light-content">
+    <img src="../logo-icon.svg" alt="Thinh Ong logo" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Thinh Ong</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -135,7 +150,7 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../about/index.html"> 
 <span class="menu-text">About</span></a>
@@ -156,17 +171,9 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
     <a class="nav-link" href="../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/thinhong"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/thinh-ong"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:ongphucthinh@gmail.com"> 
+<span class="menu-text">Contact</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -186,255 +193,33 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 
 
 
-<section class="pg">
-<div class="pg-hero">
-<div class="pg-hero__head">
-<span class="pg-eyebrow">Programming</span>
-<h1 class="pg-title">
-Software <span class="pg-title-thin">&amp; Packages</span>
-</h1>
+<div class="pg">
+<header class="pg-head"><div class="pg-head__main"><p class="pg-eyebrow rise">Programming</p><h1 class="pg-title rise d1">Software &amp; packages</h1><div class="pg-stats"><div class="pg-stat"><span class="pg-stat-label">Open-source tools</span><span class="pg-stat-num">6</span></div><div class="pg-stat"><span class="pg-stat-label">Research areas</span><span class="pg-stat-num">3</span></div></div></div><div class="pg-head__aside rise d2"><p class="pg-lead">Open-source R packages and tools for infectious disease modelling, biostatistics, and bioinformatics.</p><div class="pg-links"><a class="tl" href="https://github.com/thinhong" target="_blank" rel="noopener">GitHub profile<svg viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a></div></div></header>
+<nav class="pg-toc" aria-label="On this page"><span class="pg-toc-h">On this page</span><a class="hue-cy" href="#cat-infectious-disease-modelling">Infectious disease modelling</a><a class="hue-in" href="#cat-biostatistics">Biostatistics</a><a class="hue-te" href="#cat-bioinformatics">Bioinformatics</a></nav>
+<section class="pg-part hue-cy" id="cat-infectious-disease-modelling"><div class="pg-part__head"><div class="pg-part__line"><div class="pg-part__name"><span class="pg-num">01</span><h2 class="pg-sectitle">Infectious disease modelling</h2></div><span class="pg-secsub">2 tools</span></div></div>
+<div class="pg-rows">
+<article class="sw-row"><div class="sw-logo"><img src="../img/software/thumbs/denim.png" alt="denim logo" width="76" height="76" loading="lazy" decoding="async"></div><div class="sw-main"><div class="sw-name-row"><h3 class="sw-name">denim</h3><span class="sw-langs"><span class="sw-lang">R</span><span class="sw-lang">C++</span></span><a class="sw-cov" href="https://codecov.io/github/thinhong/denim" target="_blank" rel="noopener" aria-label="Code coverage"><img src="https://codecov.io/github/thinhong/denim/graph/badge.svg?token=DQ9CKZGDB1" alt="code coverage" loading="lazy"></a></div><p class="sw-summary">Construct and simulate deterministic discrete-time compartmental models with customisable dwell time distributions</p><p class="sw-authors"><strong>Ong T</strong>, Phan TQA, Ha ML, Choisy M</p></div><div class="sw-actions"><a class="tl" href="https://thinhong.github.io/denim" target="_blank" rel="noopener">Website</a><a class="tl" href="https://doi.org/10.32614/CRAN.package.denim" target="_blank" rel="noopener">CRAN</a><a class="tl" href="https://doi.org/10.1111/2041-210x.70256" target="_blank" rel="noopener">Paper</a></div></article>
+<article class="sw-row"><div class="sw-logo"><img src="../img/software/thumbs/serosv.png" alt="serosv logo" width="76" height="76" loading="lazy" decoding="async"></div><div class="sw-main"><div class="sw-name-row"><h3 class="sw-name">serosv</h3><span class="sw-langs"><span class="sw-lang">R</span></span><a class="sw-cov" href="https://codecov.io/gh/OUCRU-Modelling/serosv" target="_blank" rel="noopener" aria-label="Code coverage"><img src="https://codecov.io/gh/OUCRU-Modelling/serosv/graph/badge.svg?token=6EG9U3UBOQ" alt="code coverage" loading="lazy"></a></div><p class="sw-summary">Analyse serological data and estimate infectious diseases parameters</p><p class="sw-authors">Phan TQA, Pham NTN, Bui TL, Huynh NT, Choisy M, <strong>Ong T</strong></p></div><div class="sw-actions"><a class="tl" href="https://oucru-modelling.github.io/serosv" target="_blank" rel="noopener">Website</a><a class="tl" href="https://doi.org/10.32614/CRAN.package.serosv" target="_blank" rel="noopener">CRAN</a></div></article>
+</div></section>
+<section class="pg-part hue-in" id="cat-biostatistics"><div class="pg-part__head"><div class="pg-part__line"><div class="pg-part__name"><span class="pg-num">02</span><h2 class="pg-sectitle">Biostatistics</h2></div><span class="pg-secsub">2 tools</span></div></div>
+<div class="pg-rows">
+<article class="sw-row"><div class="sw-logo"><img src="../img/software/thumbs/tvmedg.png" alt="tvmedg logo" width="76" height="76" loading="lazy" decoding="async"></div><div class="sw-main"><div class="sw-name-row"><h3 class="sw-name">tvmedg</h3><span class="sw-langs"><span class="sw-lang">R</span></span></div><p class="sw-summary">Causal mediation analysis using g-computation</p><p class="sw-authors">Khuong QL, Pham NTN, <strong>Ong T</strong>, Getz K</p></div><div class="sw-actions"><a class="tl" href="https://causalepi.github.io/tvmedg/" target="_blank" rel="noopener">Website</a></div></article>
+<article class="sw-row"><div class="sw-logo"><img src="../img/software/thumbs/hss.png" alt="hss logo" width="76" height="76" loading="lazy" decoding="async"></div><div class="sw-main"><div class="sw-name-row"><h3 class="sw-name">hss</h3><span class="sw-langs"><span class="sw-lang">R</span></span></div><p class="sw-summary">Estimate sample size for health study designs</p><p class="sw-authors">Khuong QL, <strong>Ong T</strong>, Hoang VM</p></div><div class="sw-actions"><a class="tl" href="https://thinhong.shinyapps.io/samplesize" target="_blank" rel="noopener">Open app</a></div></article>
+</div></section>
+<section class="pg-part hue-te" id="cat-bioinformatics"><div class="pg-part__head"><div class="pg-part__line"><div class="pg-part__name"><span class="pg-num">03</span><h2 class="pg-sectitle">Bioinformatics</h2></div><span class="pg-secsub">2 tools</span></div></div>
+<div class="pg-rows">
+<article class="sw-row"><div class="sw-logo"><img src="../img/software/thumbs/lifted.png" alt="Lifted logo" width="76" height="76" loading="lazy" decoding="async"></div><div class="sw-main"><div class="sw-name-row"><h3 class="sw-name">Lifted</h3><span class="sw-langs"><span class="sw-lang">R</span><span class="sw-lang">bash</span></span></div><p class="sw-summary">Enhance genome conversion robustness during reference assembly updates</p><p class="sw-authors">Luu PL, <strong>Ong T</strong>, Dinh TP, Clark SJ</p></div><div class="sw-actions"><a class="tl" href="https://github.com/thinhong/Lifted" target="_blank" rel="noopener">GitHub</a><a class="tl" href="https://doi.org/10.1093/nargab/lqaa054" target="_blank" rel="noopener">Paper</a></div></article>
+<article class="sw-row"><div class="sw-logo"><img src="../img/software/thumbs/methpanel.png" alt="MethPanel logo" width="76" height="76" loading="lazy" decoding="async"></div><div class="sw-main"><div class="sw-name-row"><h3 class="sw-name">MethPanel</h3><span class="sw-langs"><span class="sw-lang">R</span><span class="sw-lang">bash</span></span></div><p class="sw-summary">Analyse multiplex bisulphite PCR sequencing to assess DNA methylation biomarker panels for disease detection</p><p class="sw-authors">Luu PL, <strong>Ong T</strong>, Loc TTH, Lam D, Pidsley R, Stirzaker C, Clark SJ</p></div><div class="sw-actions"><a class="tl" href="https://github.com/thinhong/MethPanel" target="_blank" rel="noopener">GitHub</a><a class="tl" href="https://doi.org/10.1093/bioinformatics/btaa1060" target="_blank" rel="noopener">Paper</a></div></article>
+</div></section>
+<nav class="pg-next hue-ma" aria-label="Next page"><a href="../blog/index.html"><span class="nx-main"><span class="nx-label">Next page</span><span class="nx-title">Blog</span></span><span class="nx-text">A place to think out loud about disease modelling, code and the work of science.</span><svg viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a></nav>
 </div>
-<div class="pg-hero__aside">
-<p class="pg-lead">
-Open-source R packages and tools for infectious disease modelling, biostatistics, and bioinformatics.
-</p>
-<div class="pg-stats">
-<div class="pg-stat">
-<span class="pg-stat-num" data-to="6">6</span><span class="pg-stat-label">Open-source tools</span>
-</div>
-<span class="pg-sep"></span>
-<div class="pg-stat">
-<span class="pg-stat-num" data-to="3">3</span><span class="pg-stat-label">Research areas</span>
-</div>
-</div>
-</div>
-</div>
-<div class="pg-body">
-<main class="pg-main">
-<section class="pg-panel" id="cat-infectious-disease-modelling">
-<div class="pg-sechead">
-<div>
-<span class="pg-num">[01]</span>
-<h2 class="pg-sectitle">
-Infectious Disease Modelling
-</h2>
-</div>
-<span class="pg-count">2 tools</span>
-</div>
-<div class="sw-rows">
-<article class="sw-row">
-<div class="sw-logo">
-<img src="../img/software/denim.svg" alt="denim logo" loading="lazy" decoding="async">
-</div>
-<div class="sw-main">
-<div class="sw-name-row">
-<span class="sw-name">denim</span><span class="sw-langs"><span class="sw-lang sw-lang--r">R</span><span class="sw-lang sw-lang--cpp">C++</span></span><a class="sw-cov" href="https://codecov.io/github/thinhong/denim" target="_blank" rel="noopener" aria-label="Code coverage"><img src="https://codecov.io/github/thinhong/denim/graph/badge.svg?token=DQ9CKZGDB1" alt="code coverage" loading="lazy"></a>
-</div>
-<p class="sw-summary">
-Construct and simulate deterministic discrete-time compartmental models with customisable dwell time distributions
-</p>
-<p class="sw-authors">
-Authors: <strong>Ong T</strong>, Phan TQA, Ha ML, Choisy M
-</p>
-</div>
-<div class="sw-actions">
-<a class="sw-lnk sw-lnk--primary" href="https://thinhong.github.io/denim" target="_blank" rel="noopener"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"></path></svg><span>Website</span></a><a class="sw-lnk" href="https://doi.org/10.32614/CRAN.package.denim" target="_blank" rel="noopener"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"></path><path d="M3.3 7.5L12 12l8.7-4.5M12 12v9"></path></svg><span>CRAN</span></a><a class="sw-lnk" href="https://doi.org/10.1111/2041-210x.70256" target="_blank" rel="noopener"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"></path><path d="M14 2v6h6M9 13h6M9 17h6"></path></svg><span>Paper</span></a>
-</div>
-</article>
-<article class="sw-row">
-<div class="sw-logo">
-<img src="../img/software/serosv.svg" alt="serosv logo" loading="lazy" decoding="async">
-</div>
-<div class="sw-main">
-<div class="sw-name-row">
-<span class="sw-name">serosv</span><span class="sw-langs"><span class="sw-lang sw-lang--r">R</span></span><a class="sw-cov" href="https://codecov.io/gh/OUCRU-Modelling/serosv" target="_blank" rel="noopener" aria-label="Code coverage"><img src="https://codecov.io/gh/OUCRU-Modelling/serosv/graph/badge.svg?token=6EG9U3UBOQ" alt="code coverage" loading="lazy"></a>
-</div>
-<p class="sw-summary">
-Analyse serological data and estimate infectious diseases parameters
-</p>
-<p class="sw-authors">
-Authors: Phan TQA, Pham NTN, Bui TL, Huynh NT, Choisy M, <strong>Ong T</strong>
-</p>
-</div>
-<div class="sw-actions">
-<a class="sw-lnk sw-lnk--primary" href="https://oucru-modelling.github.io/serosv" target="_blank" rel="noopener"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"></path></svg><span>Website</span></a><a class="sw-lnk" href="https://doi.org/10.32614/CRAN.package.serosv" target="_blank" rel="noopener"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"></path><path d="M3.3 7.5L12 12l8.7-4.5M12 12v9"></path></svg><span>CRAN</span></a>
-</div>
-</article>
-</div>
-</section>
-<section class="pg-panel" id="cat-biostatistics">
-<div class="pg-sechead">
-<div>
-<span class="pg-num">[02]</span>
-<h2 class="pg-sectitle">
-Biostatistics
-</h2>
-</div>
-<span class="pg-count">2 tools</span>
-</div>
-<div class="sw-rows">
-<article class="sw-row">
-<div class="sw-logo">
-<img src="../img/software/tvmedg.png" alt="tvmedg logo" loading="lazy" decoding="async">
-</div>
-<div class="sw-main">
-<div class="sw-name-row">
-<span class="sw-name">tvmedg</span><span class="sw-langs"><span class="sw-lang sw-lang--r">R</span></span>
-</div>
-<p class="sw-summary">
-Causal mediation analysis using g-computation
-</p>
-<p class="sw-authors">
-Authors: Khuong QL, Pham NTN, <strong>Ong T</strong>, Getz K
-</p>
-</div>
-<div class="sw-actions">
-<a class="sw-lnk sw-lnk--primary" href="https://causalepi.github.io/tvmedg/" target="_blank" rel="noopener"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"></path></svg><span>Website</span></a>
-</div>
-</article>
-<article class="sw-row">
-<div class="sw-logo">
-<img src="../img/software/hss.svg" alt="hss logo" loading="lazy" decoding="async">
-</div>
-<div class="sw-main">
-<div class="sw-name-row">
-<span class="sw-name">hss</span><span class="sw-langs"><span class="sw-lang sw-lang--r">R</span></span>
-</div>
-<p class="sw-summary">
-Estimate sample size for health study designs
-</p>
-<p class="sw-authors">
-Authors: Khuong QL, <strong>Ong T</strong>, Hoang VM
-</p>
-</div>
-<div class="sw-actions">
-<a class="sw-lnk sw-lnk--primary" href="https://thinhong.shinyapps.io/samplesize" target="_blank" rel="noopener"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 9h18M8 14l2 2 4-4"></path></svg><span>Open app</span></a>
-</div>
-</article>
-</div>
-</section>
-<section class="pg-panel" id="cat-bioinformatics">
-<div class="pg-sechead">
-<div>
-<span class="pg-num">[03]</span>
-<h2 class="pg-sectitle">
-Bioinformatics
-</h2>
-</div>
-<span class="pg-count">2 tools</span>
-</div>
-<div class="sw-rows">
-<article class="sw-row">
-<div class="sw-logo">
-<img src="../img/software/lifted.svg" alt="Lifted logo" loading="lazy" decoding="async">
-</div>
-<div class="sw-main">
-<div class="sw-name-row">
-<span class="sw-name">Lifted</span><span class="sw-langs"><span class="sw-lang sw-lang--r">R</span><span class="sw-lang sw-lang--bash">bash</span></span>
-</div>
-<p class="sw-summary">
-Enhance genome conversion robustness during reference assembly updates
-</p>
-<p class="sw-authors">
-Authors: Luu PL, <strong>Ong T</strong>, Dinh TP, Clark SJ
-</p>
-</div>
-<div class="sw-actions">
-<a class="sw-lnk sw-lnk--primary" href="https://github.com/thinhong/Lifted" target="_blank" rel="noopener"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4 1.5-4-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6 0C6.3 2.3 5.3 2.6 5.3 2.6a4.3 4.3 0 0 0-.1 3.2A4.6 4.6 0 0 0 3.9 9c0 4.6 2.7 5.7 5.5 6-.4.4-.5.9-.5 1.7V21"></path></svg><span>GitHub</span></a><a class="sw-lnk" href="https://doi.org/10.1093/nargab/lqaa054" target="_blank" rel="noopener"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"></path><path d="M14 2v6h6M9 13h6M9 17h6"></path></svg><span>Paper</span></a>
-</div>
-</article>
-<article class="sw-row">
-<div class="sw-logo">
-<img src="../img/software/methpanel.svg" alt="MethPanel logo" loading="lazy" decoding="async">
-</div>
-<div class="sw-main">
-<div class="sw-name-row">
-<span class="sw-name">MethPanel</span><span class="sw-langs"><span class="sw-lang sw-lang--r">R</span><span class="sw-lang sw-lang--bash">bash</span></span>
-</div>
-<p class="sw-summary">
-Analyse multiplex bisulphite PCR sequencing to assess DNA methylation biomarker panels for disease detection
-</p>
-<p class="sw-authors">
-Authors: Luu PL, <strong>Ong T</strong>, Loc TTH, Lam D, Pidsley R, Stirzaker C, Clark SJ
-</p>
-</div>
-<div class="sw-actions">
-<a class="sw-lnk sw-lnk--primary" href="https://github.com/thinhong/MethPanel" target="_blank" rel="noopener"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4 1.5-4-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6 0C6.3 2.3 5.3 2.6 5.3 2.6a4.3 4.3 0 0 0-.1 3.2A4.6 4.6 0 0 0 3.9 9c0 4.6 2.7 5.7 5.5 6-.4.4-.5.9-.5 1.7V21"></path></svg><span>GitHub</span></a><a class="sw-lnk" href="https://doi.org/10.1093/bioinformatics/btaa1060" target="_blank" rel="noopener"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"></path><path d="M14 2v6h6M9 13h6M9 17h6"></path></svg><span>Paper</span></a>
-</div>
-</article>
-</div>
-</section>
-</main>
-<nav class="pg-toc" aria-label="Categories on this page">
-<p class="pg-toc-h">
-On this page
-</p>
-<a href="#cat-infectious-disease-modelling" class="active"><span class="tn">01</span><span class="tt">Infectious Disease Modelling</span></a><a href="#cat-biostatistics"><span class="tn">02</span><span class="tt">Biostatistics</span></a><a href="#cat-bioinformatics"><span class="tn">03</span><span class="tt">Bioinformatics</span></a>
-</nav>
-</div>
-</section>
-<script>
-(function () {
-  var root = document.querySelector('.pg');
-  if (!root) return;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // Count-up for the hero stat numbers
-  root.querySelectorAll('.pg-stat-num').forEach(function (el) {
-    var to = parseInt(el.getAttribute('data-to'), 10) || 0;
-    if (reduce) { el.textContent = to; return; }
-    var n = 0, step = Math.max(1, Math.round(to / 16));
-    el.textContent = '0';
-    var t = setInterval(function () { n += step; if (n >= to) { n = to; clearInterval(t); } el.textContent = n; }, 55);
-  });
-
-  // Entrance: reveal panels (rows stagger via CSS)
-  if (!reduce && 'IntersectionObserver' in window) {
-    root.classList.add('anim');
-    var reveal = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); reveal.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    root.querySelectorAll('.pg-panel').forEach(function (p) { reveal.observe(p); });
-  }
-
-  // Contents-nav: keep exactly one item highlighted for the section you are in
-  var links = root.querySelectorAll('.pg-toc a');
-  var panels = Array.prototype.slice.call(root.querySelectorAll('.pg-panel[id]'));
-  function linkFor(id) { for (var i = 0; i < links.length; i++) { if (links[i].hash === '#' + id) return links[i]; } return null; }
-  function setActive(link) { links.forEach(function (l) { l.classList.toggle('active', l === link); }); }
-
-  var navLock = false, lockT, ticking = false;
-  function syncActive() {
-    ticking = false;
-    if (navLock || !panels.length) return;
-    var line = window.innerHeight * 0.28, current = panels[0];
-    panels.forEach(function (p) { if (p.getBoundingClientRect().top <= line) current = p; });
-    setActive(linkFor(current.id));
-  }
-  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(syncActive); } }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll, { passive: true });
-  syncActive();
-
-  // Click highlights immediately; the native anchor jump scrolls the page
-  // (it respects each panel's scroll-margin-top). navLock keeps the spy from
-  // fighting the highlight until the jump settles.
-  links.forEach(function (a) {
-    a.addEventListener('click', function () {
-      navLock = true; setActive(a);
-      clearTimeout(lockT);
-      lockT = setTimeout(function () { navLock = false; syncActive(); }, reduce ? 0 : 700);
-    });
-  });
-})();
-</script>
 
 
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script>
 
-// Site-wide floating light/dark toggle. Remembers the visitor's choice.
+// Light / dark button. It sits in the navbar and remembers the visitor's choice.
 
 (function () {
 
@@ -466,15 +251,15 @@ On this page
 
   btn.type = 'button';
 
-  btn.setAttribute('aria-label', 'Toggle light and dark theme');
+  btn.setAttribute('aria-label', 'Switch between light and dark theme');
 
-  btn.setAttribute('title', 'Toggle light and dark');
+  btn.setAttribute('title', 'Light or dark');
 
   btn.innerHTML =
 
-    '<svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>' +
+    '<svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>' +
 
-    '<svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>';
+    '<svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>';
 
 
 
@@ -496,17 +281,29 @@ On this page
 
 
 
-  function init() { apply(cur()); document.body.appendChild(btn); sync(); }
+  function init() {
+
+    apply(cur());
+
+    // Preferred place: the navbar tools area, which stays visible on phones.
+
+    // Fallback: a fixed button in the corner if the navbar is missing.
+
+    var tools = document.querySelector('#quarto-header .quarto-navbar-tools');
+
+    (tools || document.body).appendChild(btn);
+
+    sync();
+
+  }
 
   if (document.readyState !== 'loading') { init(); } else { document.addEventListener('DOMContentLoaded', init); }
 
-  // Default theme is light; it only changes when the visitor clicks the toggle.
 
 
+  // Add a hairline under the navbar once the page is scrolled.
 
-  // Frost the navbar once the page is scrolled, so content does not show through the transparent bar.
-
-  var onScroll = function () { document.body.classList.toggle('scrolled', window.scrollY > 8); };
+  var onScroll = function () { if (document.body) document.body.classList.toggle('scrolled', window.scrollY > 8); };
 
   window.addEventListener('scroll', onScroll, { passive: true });
 
@@ -518,155 +315,45 @@ On this page
 
 <script>
 
-(function(){
+// Small behaviours shared by every page. Loaded after the body by _quarto.yml.
 
-  function add(){
+(function () {
 
-    var nc = document.querySelector('.navbar-container');
+  // "See more" lists (.more in _theme/theme.scss). The button shows or hides the
 
-    if (nc && !document.getElementById('navContact')) {
+  // extra rows named in its aria-controls. When the rows close, the page is
 
-      var wrap = document.createElement('div');
+  // scrolled by the same amount, so the button stays under the finger or pointer.
 
-      wrap.id = 'navContact';
+  document.querySelectorAll('.more__btn').forEach(function (btn) {
 
-      wrap.className = 'nav-contact';
+    var rows  = document.getElementById(btn.getAttribute('aria-controls'));
 
-      wrap.setAttribute('role', 'button');
+    var label = btn.querySelector('.more__label');
 
-      wrap.setAttribute('tabindex', '0');
+    var note  = btn.querySelector('.more__note');
 
-      wrap.setAttribute('aria-label', 'Contact via LinkedIn or Email');
+    if (!rows || !label) return;
 
-      wrap.innerHTML =
+    btn.addEventListener('click', function () {
 
-        '<span class="nc-extra">' +
+      var open = btn.getAttribute('aria-expanded') !== 'true';
 
-          '<a class="nc-ico" href="https://www.linkedin.com/in/thinh-ong/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>' +
+      var top  = btn.getBoundingClientRect().top;
 
-          '<a class="nc-ico" href="mailto:ongphucthinh@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>' +
+      rows.hidden = !open;
 
-        '</span>' +
+      btn.setAttribute('aria-expanded', String(open));
 
-        '<span class="nc-label">Contact</span>';
+      label.textContent = open ? btn.dataset.close : btn.dataset.open;
 
-      nc.appendChild(wrap);
+      if (note) note.hidden = open;
 
-      wrap.addEventListener('click', function (e) {
+      if (!open) window.scrollBy({ top: btn.getBoundingClientRect().top - top, behavior: 'instant' });
 
-        if (e.target.closest('a.nc-ico')) return;
+    });
 
-        e.preventDefault();
-
-        wrap.classList.toggle('open');
-
-      });
-
-      wrap.addEventListener('keydown', function (e) {
-
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); wrap.classList.toggle('open'); }
-
-      });
-
-      document.addEventListener('click', function (e) {
-
-        if (!wrap.contains(e.target)) wrap.classList.remove('open');
-
-      });
-
-    }
-
-  }
-
-  if (document.readyState !== 'loading') add();
-
-  else document.addEventListener('DOMContentLoaded', add);
-
-})();
-
-
-
-// Sliding pill that glides between navbar links and rests on the current page
-
-(function(){
-
-  var nav, links, pill;
-
-  function activeLink(){ return nav.querySelector('.nav-link.active') || nav.querySelector('.nav-link[aria-current="page"]'); }
-
-  function place(link, animate){
-
-    if (!link) return;
-
-    if (!animate) pill.style.transition = 'none';
-
-    pill.style.opacity = '1';
-
-    pill.style.width = link.offsetWidth + 'px';
-
-    pill.style.height = link.offsetHeight + 'px';
-
-    pill.style.transform = 'translate(' + link.offsetLeft + 'px,' + link.offsetTop + 'px)';
-
-    links.forEach(function (l) { l.classList.toggle('lit', l === link); });
-
-    if (!animate) { void pill.offsetWidth; pill.style.transition = ''; }
-
-  }
-
-  function rest(){
-
-    var a = activeLink();
-
-    if (a) { place(a, true); }
-
-    else { pill.style.opacity = '0'; links.forEach(function (l) { l.classList.remove('lit'); }); }
-
-  }
-
-  function reposition(){
-
-    var cur = nav.querySelector('.nav-link.lit') || activeLink();
-
-    if (cur) place(cur, false); else pill.style.opacity = '0';
-
-  }
-
-  function init(){
-
-    nav = document.querySelector('#navbarCollapse .navbar-nav');
-
-    if (!nav) return;
-
-    links = [].slice.call(nav.querySelectorAll('.nav-link'));
-
-    if (!links.length || nav.querySelector('.nav-pill')) return;
-
-    nav.style.position = 'relative';
-
-    pill = document.createElement('span');
-
-    pill.className = 'nav-pill';
-
-    nav.insertBefore(pill, nav.firstChild);
-
-    links.forEach(function (l) { l.addEventListener('mouseenter', function () { place(l, true); }); });
-
-    nav.addEventListener('mouseleave', rest);
-
-    reposition();
-
-    setTimeout(reposition, 300);
-
-    window.addEventListener('load', reposition);
-
-    var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(reposition, 120); });
-
-  }
-
-  if (document.readyState !== 'loading') init();
-
-  else document.addEventListener('DOMContentLoaded', init);
+  });
 
 })();
 
@@ -1066,6 +753,19 @@ On this page
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Thinh Ong</p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="mailto:ongphucthinh@gmail.com">ongphucthinh@gmail.com</a></p>
+</div>
+    <div class="nav-footer-right">
+<p><a href="https://github.com/thinhong">GitHub</a> <a href="https://www.linkedin.com/in/thinh-ong">LinkedIn</a></p>
+</div>
+  </div>
+</footer>
 
 
 

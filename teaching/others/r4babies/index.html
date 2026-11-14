@@ -6,11 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Thinh Ong">
-<meta name="dcterms.date" content="2023-08-18">
 <meta name="description" content="Basic R programming for data science">
 
-<title>R for babies</title>
+<title>R for Babies - Thinh Ong</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -39,17 +37,11 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-7ce3a0cc7cfb425529e8d90f652646d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
-<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-976f792e4d444bb38f952e8db4a4e2c2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -110,25 +102,33 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 
 </script>
 
+<noscript><style>
+
+/* Without JavaScript the "see more" button cannot work, so show every row. */
+
+.more__rows[hidden] { display: flex !important; }
+
+.more__btn { display: none !important; }
+
+</style></noscript>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
 
 
-<meta property="og:title" content="R for babies">
+<meta property="og:title" content="R for Babies - Thinh Ong">
 <meta property="og:description" content="Basic R programming for data science">
-<meta property="og:image" content="https://drthinhong.com/teaching/others/r4babies/preview.png">
-<meta property="og:image:height" content="720">
-<meta property="og:image:width" content="1280">
-<meta name="twitter:title" content="R for babies">
+<meta property="og:image" content="https://drthinhong.com/teaching/others/r4babies/img/hcdc1.jpg">
+<meta property="og:image:alt" content="Participants and instructors standing in front of a screen that shows an R programming slide">
+<meta name="twitter:title" content="R for Babies - Thinh Ong">
 <meta name="twitter:description" content="Basic R programming for data science">
-<meta name="twitter:image" content="https://drthinhong.com/teaching/others/r4babies/preview.png">
-<meta name="twitter:image-height" content="720">
-<meta name="twitter:image-width" content="1280">
+<meta name="twitter:image" content="https://drthinhong.com/teaching/others/r4babies/img/hcdc1.jpg">
+<meta name="twitter:image:alt" content="Participants and instructors standing in front of a screen that shows an R programming slide">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed hue-te quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -136,8 +136,11 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../logo-icon.svg" alt="" class="navbar-logo light-content">
-    <img src="../../../logo-icon.svg" alt="" class="navbar-logo dark-content">
+    <img src="../../../logo-icon.svg" alt="Thinh Ong logo" class="navbar-logo light-content">
+    <img src="../../../logo-icon.svg" alt="Thinh Ong logo" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Thinh Ong</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -145,7 +148,7 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../../about/index.html"> 
 <span class="menu-text">About</span></a>
@@ -166,17 +169,9 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
     <a class="nav-link" href="../../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/thinhong"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/thinh-ong"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:ongphucthinh@gmail.com"> 
+<span class="menu-text">Contact</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -186,63 +181,88 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">R for babies</h1>
-</div>
-
-<div>
-  <div class="description">
-    Basic R programming for data science
-  </div>
-</div>
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p><a href="https://drthinhong.com">Thinh Ong</a> <a href="https://orcid.org/0000-0001-6772-9291" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">August 18, 2023</p>
+
+<div class="pg">
+  <a class="back" href="../../index.html"><svg viewbox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>Teaching</a>
+
+  <header class="pg-head pg-head--pic">
+    <div class="pg-head__main">
+      <p class="pg-metaline rise"><span class="pill hue-ma">R programming</span><span>Short course</span><span>August 2023</span></p>
+      <h1 class="pg-title rise d1">R for Babies</h1>
+      <p class="pg-lead rise d2">A gentle, beginner-first path into R for data science. Taught for staff at the HCMC Centre for Disease Control, with live coding, real datasets, and plenty of small wins along the way.</p>
+      <div class="pg-links"><a class="tl" href="https://drthinhong.com/r4babies/" target="_blank" rel="noopener">Course homepage<svg viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a></div>
     </div>
-  </div>
-  
-    
-  </div>
-  
+    <div class="pg-head__pic hue-ma rise d2"><span class="plate"><svg class="ic" viewbox="0 0 120 80" aria-hidden="true"><rect class="l3" x="16" y="48" width="16" height="18" rx="2"></rect><rect class="l2" x="40" y="38" width="16" height="28" rx="2"></rect><rect class="l1" x="64" y="28" width="16" height="38" rx="2"></rect><rect class="l" x="88" y="16" width="16" height="50" rx="2"></rect><path class="fs" stroke-width="2" d="M18 38L48 28L72 18L100 6"></path><path class="fs" stroke-width="1.6" d="M10 66h100"></path></svg></span></div>
+  </header>
 
-
-</header>
-
-
-<p><a href="https://drthinhong.com/r4babies/" class="btn btn-outline-secondary" role="button"><i class="fa-solid fa-link" aria-label="link"></i> Course homepage</a></p>
-<p>This course has been taught for staff members of Ho Chi Minh city’s Centre for Diseases Control.</p>
-<div class="quarto-layout-panel" data-layout="[1, 1]">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="img/hcdc1.jpg" class="lightbox" data-gallery="my-gallery"><img src="img/hcdc1.jpg" class="img-fluid"></a></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="img/hcdc2.jpg" class="lightbox" data-gallery="my-gallery"><img src="img/hcdc2.jpg" class="img-fluid"></a></p>
-</div>
-</div>
-</div>
-<div class="credit">
-<p>Preview image by <a href="https://www.freepik.com/free-vector/flat-design-stages-baby-boy_14410275.htm">Freepik</a></p>
+  <section class="facts" aria-label="Course details">
+    <div class="fact"><span>When</span><span>August 2023</span></div>
+    <div class="fact"><span>Where</span><span>HCMC Centre for Disease Control</span></div>
+    <div class="fact"><span>With</span><span>Thinh Ong</span></div>
+    <div class="fact"><span>Format</span><span>Short course, in person</span></div>
+    <div class="fact"><span>Topics</span><span>R, data science, beginners</span></div>
+  </section>
+  <section class="pg-part hue-ma pg-part--plain">
+    <div class="pg-part__head">
+      <div class="pg-part__line">
+        <div class="pg-part__name"><h2 class="pg-sectitle">From the classroom</h2></div>
+        <span class="pg-secsub">2 photos</span>
+      </div>
+    </div>
+    <div class="frames">
+      <figure class="frame figure">
+        <span class="mat"><img src="img/hcdc1.jpg" alt="Participants and instructors standing in front of a screen that shows an R programming slide" width="1400" height="1050" loading="lazy" decoding="async" class="figure-img"></span>
+        <figcaption>Live coding at HCMC CDC</figcaption>
+      </figure>
+      <figure class="frame figure">
+        <span class="mat"><img src="img/hcdc2.jpg" alt="Participants with laptops around a long table during a hands-on session" width="1400" height="1050" loading="lazy" decoding="async" class="figure-img"></span>
+        <figcaption>Hands-on session with participants</figcaption>
+      </figure>
+    </div>
+  </section>
+  <section class="pg-part hue-ma pg-part--plain">
+    <div class="pg-part__head">
+      <div class="pg-part__line">
+        <div class="pg-part__name"><h2 class="pg-sectitle">More in R programming</h2></div>
+        <span class="pg-secsub">2 courses</span>
+      </div>
+    </div>
+    <div class="cards">
+      <a class="card-g crs" href="https://oucru-modelling.github.io/R-training-2025/" target="_blank" rel="noopener">
+        <span class="plate"><svg class="ic" viewbox="0 0 120 80" aria-hidden="true"><rect class="l3" x="14" y="8" width="92" height="64" rx="7"></rect><circle class="f" cx="25" cy="19" r="2.8"></circle><circle class="f" cx="34" cy="19" r="2.8" opacity=".6"></circle><circle class="f" cx="43" cy="19" r="2.8" opacity=".35"></circle><path class="s" stroke-width="3.2" d="M25 34h30M25 44h50M33 54h36M25 64h22"></path></svg></span>
+        <span class="txt">
+          <span class="meta"><b>Short course</b><span>2025</span></span>
+          <span class="nm">OUCRU R Training</span>
+          <span class="tags">R, Data viz, Quarto</span>
+        </span>
+      </a>
+      <a class="card-g crs" href="https://oucru-modelling.github.io/R-cafe-materials/" target="_blank" rel="noopener">
+        <span class="plate"><svg class="ic" viewbox="0 0 120 80" aria-hidden="true"><path class="l" d="M34 34h44v14a22 22 0 0 1-44 0z"></path><path class="s" stroke-width="3.2" d="M78 38h5a8 8 0 0 1 0 16h-7"></path><path class="fs" stroke-width="2" d="M26 74h60"></path><path class="fs" stroke-width="2" d="M46 26c-3-4 3-6 0-10M56 26c-3-4 3-6 0-10M66 26c-3-4 3-6 0-10"></path></svg></span>
+        <span class="txt">
+          <span class="meta"><b>Short course</b><span>2025</span></span>
+          <span class="nm">R Café</span>
+          <span class="tags">R, tidyverse, Quarto</span>
+        </span>
+      </a>
+      <span aria-hidden="true"></span>
+    </div>
+  </section>
+  <nav class="pg-next hue-te" aria-label="Back to">
+    <a href="../../index.html">
+      <span class="nx-main"><span class="nx-label">Back to</span><span class="nx-title">Teaching</span></span>
+      <span class="nx-text">All courses and talks.</span>
+      <svg viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg>
+    </a>
+  </nav>
 </div>
 
 
@@ -250,7 +270,7 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script>
 
-// Site-wide floating light/dark toggle. Remembers the visitor's choice.
+// Light / dark button. It sits in the navbar and remembers the visitor's choice.
 
 (function () {
 
@@ -282,15 +302,15 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 
   btn.type = 'button';
 
-  btn.setAttribute('aria-label', 'Toggle light and dark theme');
+  btn.setAttribute('aria-label', 'Switch between light and dark theme');
 
-  btn.setAttribute('title', 'Toggle light and dark');
+  btn.setAttribute('title', 'Light or dark');
 
   btn.innerHTML =
 
-    '<svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>' +
+    '<svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>' +
 
-    '<svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>';
+    '<svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>';
 
 
 
@@ -312,17 +332,29 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 
 
 
-  function init() { apply(cur()); document.body.appendChild(btn); sync(); }
+  function init() {
+
+    apply(cur());
+
+    // Preferred place: the navbar tools area, which stays visible on phones.
+
+    // Fallback: a fixed button in the corner if the navbar is missing.
+
+    var tools = document.querySelector('#quarto-header .quarto-navbar-tools');
+
+    (tools || document.body).appendChild(btn);
+
+    sync();
+
+  }
 
   if (document.readyState !== 'loading') { init(); } else { document.addEventListener('DOMContentLoaded', init); }
 
-  // Default theme is light; it only changes when the visitor clicks the toggle.
 
 
+  // Add a hairline under the navbar once the page is scrolled.
 
-  // Frost the navbar once the page is scrolled, so content does not show through the transparent bar.
-
-  var onScroll = function () { document.body.classList.toggle('scrolled', window.scrollY > 8); };
+  var onScroll = function () { if (document.body) document.body.classList.toggle('scrolled', window.scrollY > 8); };
 
   window.addEventListener('scroll', onScroll, { passive: true });
 
@@ -334,155 +366,45 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 
 <script>
 
-(function(){
+// Small behaviours shared by every page. Loaded after the body by _quarto.yml.
 
-  function add(){
+(function () {
 
-    var nc = document.querySelector('.navbar-container');
+  // "See more" lists (.more in _theme/theme.scss). The button shows or hides the
 
-    if (nc && !document.getElementById('navContact')) {
+  // extra rows named in its aria-controls. When the rows close, the page is
 
-      var wrap = document.createElement('div');
+  // scrolled by the same amount, so the button stays under the finger or pointer.
 
-      wrap.id = 'navContact';
+  document.querySelectorAll('.more__btn').forEach(function (btn) {
 
-      wrap.className = 'nav-contact';
+    var rows  = document.getElementById(btn.getAttribute('aria-controls'));
 
-      wrap.setAttribute('role', 'button');
+    var label = btn.querySelector('.more__label');
 
-      wrap.setAttribute('tabindex', '0');
+    var note  = btn.querySelector('.more__note');
 
-      wrap.setAttribute('aria-label', 'Contact via LinkedIn or Email');
+    if (!rows || !label) return;
 
-      wrap.innerHTML =
+    btn.addEventListener('click', function () {
 
-        '<span class="nc-extra">' +
+      var open = btn.getAttribute('aria-expanded') !== 'true';
 
-          '<a class="nc-ico" href="https://www.linkedin.com/in/thinh-ong/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>' +
+      var top  = btn.getBoundingClientRect().top;
 
-          '<a class="nc-ico" href="mailto:ongphucthinh@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>' +
+      rows.hidden = !open;
 
-        '</span>' +
+      btn.setAttribute('aria-expanded', String(open));
 
-        '<span class="nc-label">Contact</span>';
+      label.textContent = open ? btn.dataset.close : btn.dataset.open;
 
-      nc.appendChild(wrap);
+      if (note) note.hidden = open;
 
-      wrap.addEventListener('click', function (e) {
+      if (!open) window.scrollBy({ top: btn.getBoundingClientRect().top - top, behavior: 'instant' });
 
-        if (e.target.closest('a.nc-ico')) return;
+    });
 
-        e.preventDefault();
-
-        wrap.classList.toggle('open');
-
-      });
-
-      wrap.addEventListener('keydown', function (e) {
-
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); wrap.classList.toggle('open'); }
-
-      });
-
-      document.addEventListener('click', function (e) {
-
-        if (!wrap.contains(e.target)) wrap.classList.remove('open');
-
-      });
-
-    }
-
-  }
-
-  if (document.readyState !== 'loading') add();
-
-  else document.addEventListener('DOMContentLoaded', add);
-
-})();
-
-
-
-// Sliding pill that glides between navbar links and rests on the current page
-
-(function(){
-
-  var nav, links, pill;
-
-  function activeLink(){ return nav.querySelector('.nav-link.active') || nav.querySelector('.nav-link[aria-current="page"]'); }
-
-  function place(link, animate){
-
-    if (!link) return;
-
-    if (!animate) pill.style.transition = 'none';
-
-    pill.style.opacity = '1';
-
-    pill.style.width = link.offsetWidth + 'px';
-
-    pill.style.height = link.offsetHeight + 'px';
-
-    pill.style.transform = 'translate(' + link.offsetLeft + 'px,' + link.offsetTop + 'px)';
-
-    links.forEach(function (l) { l.classList.toggle('lit', l === link); });
-
-    if (!animate) { void pill.offsetWidth; pill.style.transition = ''; }
-
-  }
-
-  function rest(){
-
-    var a = activeLink();
-
-    if (a) { place(a, true); }
-
-    else { pill.style.opacity = '0'; links.forEach(function (l) { l.classList.remove('lit'); }); }
-
-  }
-
-  function reposition(){
-
-    var cur = nav.querySelector('.nav-link.lit') || activeLink();
-
-    if (cur) place(cur, false); else pill.style.opacity = '0';
-
-  }
-
-  function init(){
-
-    nav = document.querySelector('#navbarCollapse .navbar-nav');
-
-    if (!nav) return;
-
-    links = [].slice.call(nav.querySelectorAll('.nav-link'));
-
-    if (!links.length || nav.querySelector('.nav-pill')) return;
-
-    nav.style.position = 'relative';
-
-    pill = document.createElement('span');
-
-    pill.className = 'nav-pill';
-
-    nav.insertBefore(pill, nav.firstChild);
-
-    links.forEach(function (l) { l.addEventListener('mouseenter', function () { place(l, true); }); });
-
-    nav.addEventListener('mouseleave', rest);
-
-    reposition();
-
-    setTimeout(reposition, 300);
-
-    window.addEventListener('load', reposition);
-
-    var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(reposition, 120); });
-
-  }
-
-  if (document.readyState !== 'loading') init();
-
-  else document.addEventListener('DOMContentLoaded', init);
+  });
 
 })();
 
@@ -490,13 +412,6 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -888,68 +803,20 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
     }
   });
   </script>
-<input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark">
-<script>
-  function loadGiscus() {
-    // Function to get the theme based on body class
-    const getTheme = () => {
-      let baseTheme = document.getElementById('giscus-base-theme').value;
-      let altTheme = document.getElementById('giscus-alt-theme').value;
-      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
-    };
-    const script = document.createElement("script");
-    script.src = "https://giscus.app/client.js";
-    script.async = true;
-    script.dataset.repo = "thinhong/thinhong.github.io";
-    script.dataset.repoId = "R_kgDOKL9B-g";
-    script.dataset.category = "General";
-    script.dataset.categoryId = "DIC_kwDOKL9B-s4CY4zC";
-    script.dataset.mapping = "title";
-    script.dataset.reactionsEnabled = "1";
-    script.dataset.emitMetadata = "0";
-    script.dataset.inputPosition = "top";
-    script.dataset.theme = getTheme();
-    script.dataset.lang = "en";
-    script.crossOrigin = "anonymous";
-    // Append the script to the desired div instead of at the end of the body
-    document.getElementById("quarto-content").appendChild(script);
-  }
-  loadGiscus();
-</script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Thinh Ong</p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="mailto:ongphucthinh@gmail.com">ongphucthinh@gmail.com</a></p>
+</div>
+    <div class="nav-footer-right">
+<p><a href="https://github.com/thinhong">GitHub</a> <a href="https://www.linkedin.com/in/thinh-ong">LinkedIn</a></p>
+</div>
+  </div>
+</footer>
 
 
 

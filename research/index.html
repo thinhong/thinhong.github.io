@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Thinh Ong’s research on vaccination and population immunity, infectious disease modelling, and outbreak response.">
+<meta name="description" content="Vaccination and population immunity, capacity building with Ho Chi Minh City CDC, methods and earlier work.">
 
 <title>Research - Thinh Ong</title>
 <style>
@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7ce3a0cc7cfb425529e8d90f652646d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-976f792e4d444bb38f952e8db4a4e2c2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,21 +102,37 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 
 </script>
 
+<noscript><style>
+
+/* Without JavaScript the "see more" button cannot work, so show every row. */
+
+.more__rows[hidden] { display: flex !important; }
+
+.more__btn { display: none !important; }
+
+</style></noscript>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
 
 
 <meta property="og:title" content="Research - Thinh Ong">
-<meta property="og:description" content="Thinh Ong’s research on vaccination and population immunity, infectious disease modelling, and outbreak response.">
+<meta property="og:description" content="Vaccination and population immunity, capacity building with Ho Chi Minh City CDC, methods and earlier work.">
 <meta property="og:image" content="https://drthinhong.com/img/og-default.png">
+<meta property="og:image:alt" content="Thinh Ong, medical doctor and mathematical modeller. I model how infections spread, so that public health can act earlier.">
+<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="1200">
 <meta name="twitter:title" content="Research - Thinh Ong">
-<meta name="twitter:description" content="Thinh Ong’s research on vaccination and population immunity, infectious disease modelling, and outbreak response.">
+<meta name="twitter:description" content="Vaccination and population immunity, capacity building with Ho Chi Minh City CDC, methods and earlier work.">
 <meta name="twitter:image" content="https://drthinhong.com/img/og-default.png">
+<meta name="twitter:image:alt" content="Thinh Ong, medical doctor and mathematical modeller. I model how infections spread, so that public health can act earlier.">
+<meta name="twitter:image-height" content="630">
+<meta name="twitter:image-width" content="1200">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed hue-in quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -124,8 +140,11 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../logo-icon.svg" alt="" class="navbar-logo light-content">
-    <img src="../logo-icon.svg" alt="" class="navbar-logo dark-content">
+    <img src="../logo-icon.svg" alt="Thinh Ong logo" class="navbar-logo light-content">
+    <img src="../logo-icon.svg" alt="Thinh Ong logo" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Thinh Ong</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -133,7 +152,7 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../about/index.html"> 
 <span class="menu-text">About</span></a>
@@ -154,17 +173,9 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
     <a class="nav-link" href="../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/thinhong"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/thinh-ong"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:ongphucthinh@gmail.com"> 
+<span class="menu-text">Contact</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -184,360 +195,138 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 
 
 
-<script>window.SCHOLAR={citations:325,hindex:8};</script>
-<style>
-/* Research page. The shell (hero, panels, contents nav) is the shared .pg-*
-   system in theme.scss; everything here is the page's own matte layer,
-   namespaced .rx-*, using the shared tokens. No gloss: flat hue tiles with a
-   real grain. Motion is the "Draw" style, each symbol draws/assembles itself
-   as it scrolls in. Opacity/transform/stroke only. */
-
-/* hero: Scholar + CV up top, then two auto-updating stats */
-.rx-actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
-.rx-cta{ display:inline-flex; align-items:center; gap:.5rem; font-size:.84rem; font-weight:600; padding:9px 15px; border-radius:999px; border:1px solid var(--border); background:var(--surface); color:var(--heading); transition:border-color .2s var(--e),color .2s var(--e),transform .2s var(--e); }
-.rx-cta svg{ width:15px; height:15px; stroke:currentColor; fill:none; stroke-width:1.8; }
-.rx-cta--p{ background:var(--brand); border-color:var(--brand); color:#fff; }
-.rx-cta:active{ transform:scale(.97); }
-.rx-stats{ display:inline-flex; align-items:center; gap:1.4rem; margin-top:18px; }
-.rx-stat{ display:flex; flex-direction:column; line-height:1; }
-.rx-stat b{ font-family:"Bebas Neue",sans-serif; font-weight:400; font-size:2.4rem; line-height:1; color:var(--brand); }
-.rx-stat span{ margin-top:.4rem; font-size:.72rem; letter-spacing:.06em; color:var(--text-faint); }
-.rx-sep{ width:1px; height:34px; background:var(--border); }
-
-/* matte tile recipe (matches the Teaching cards) */
-.rx-img{ position:relative; overflow:hidden; border-radius:14px; display:grid; place-items:center;
-  --deep:color-mix(in srgb,var(--hue) 55%,#0b1228); --mid:var(--hue);
-  --lite:color-mix(in srgb,var(--hue) 58%,#ffffff); --soft:color-mix(in srgb,var(--hue) 80%,#ffffff);
-  background:color-mix(in srgb,var(--hue) 26%,#ffffff); }
-html[data-theme="dark"] .rx-img{ background:color-mix(in srgb,var(--hue) 26%,var(--bg-2)); }
-.rx-art{ width:66%; height:66%; display:block; transition:transform .4s var(--e); }
-
-/* labels used inside features */
-.rx-kicker{ display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--brand); }
-.rx-role{ display:inline-flex; align-items:center; gap:8px; font-size:.68rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--brand); }
-.rx-role svg{ width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:1.8; }
-
-/* feature block (research focus, and HCDC) */
-.rx-feature{ display:grid; grid-template-columns:150px 1fr; gap:clamp(16px,2.4vw,26px); align-items:center; background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:clamp(16px,2vw,22px); margin-bottom:clamp(14px,1.8vw,18px); }
-html[data-theme="dark"] .rx-feature{ background:rgba(255,255,255,.05); }
-.rx-feature .rx-img{ aspect-ratio:1; width:100%; }
-.rx-feature h3{ margin:.5rem 0 0; font-size:1.12rem; font-weight:600; color:var(--heading); line-height:1.3; }
-.rx-feature p{ margin:.45rem 0 0; color:var(--text-muted); font-size:.92rem; line-height:1.6; max-width:56ch; }
-.rx-vision{ margin:.7rem 0 0; padding-left:14px; border-left:2px solid color-mix(in srgb,var(--brand) 45%,var(--border)); color:var(--text); font-size:.9rem; line-height:1.6; max-width:56ch; }
-.rx-pill{ display:inline-block; margin-top:12px; font-size:.72rem; font-weight:600; color:var(--brand); background:color-mix(in srgb,var(--brand) 12%,transparent); border-radius:999px; padding:5px 12px; }
-
-/* work cards (Teaching-style) */
-.rx-cards{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
-.rx-card{ display:block; }
-.rx-card .rx-img{ aspect-ratio:5/4; transition:transform .4s var(--e),box-shadow .4s var(--e); }
-.rx-card:active .rx-img{ transform:translateY(-2px) scale(.99); }
-.rx-meta{ margin:9px 2px 0; display:flex; align-items:center; gap:8px; }
-.rx-tag{ font-size:.62rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--brand-soft); }
-.rx-yr{ margin-left:auto; font-size:.72rem; color:var(--text-faint); font-variant-numeric:tabular-nums; }
-.rx-name{ margin:5px 2px 0; font-size:.92rem; font-weight:500; line-height:1.32; color:var(--heading); transition:color .25s var(--e); }
-
-/* methods chips */
-.rx-caps{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-.rx-cap{ display:flex; gap:12px; align-items:flex-start; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 16px; transition:transform .3s var(--e),border-color .3s var(--e); }
-html[data-theme="dark"] .rx-cap{ background:rgba(255,255,255,.05); }
-.rx-cap .ic{ flex:none; width:32px; height:32px; border-radius:9px; display:grid; place-items:center; color:var(--brand); background:color-mix(in srgb,var(--brand) 10%,transparent); }
-.rx-cap .ic svg{ width:17px; height:17px; stroke:currentColor; fill:none; stroke-width:1.7; }
-.rx-cap b{ font-size:.92rem; font-weight:600; color:var(--heading); }
-.rx-cap span{ display:block; margin-top:2px; font-size:.8rem; color:var(--text-muted); line-height:1.45; }
-
-/* foundations pills */
-.rx-found{ display:flex; flex-wrap:wrap; gap:9px; }
-.rx-fpill{ font-size:.84rem; font-weight:500; color:var(--text-muted); background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:8px 14px; transition:transform .2s var(--e),border-color .2s var(--e); }
-html[data-theme="dark"] .rx-fpill{ background:rgba(255,255,255,.04); }
-.rx-found-note{ margin:14px 2px 0; font-size:.82rem; color:var(--text-faint); }
-
-/* entrance: rise + fade (panels fade via the shared .pg system); --d staggers */
-.pg.anim .rise{ opacity:0; transform:translateY(16px); transition:opacity .6s var(--e) var(--d,0s),transform .6s var(--e) var(--d,0s); }
-.pg.anim .rise.in{ opacity:1; transform:none; }
-
-/* Draw: each matte symbol draws / assembles itself when its card reveals */
-@keyframes rxDraw{ to{ stroke-dashoffset:0; } }
-@keyframes rxFade{ to{ opacity:1; } }
-@keyframes rxPop{ to{ opacity:1; transform:scale(1); } }
-@keyframes rxFill{ to{ transform:scaleY(1); } }
-.pg.anim .d-line{ stroke-dasharray:320; stroke-dashoffset:320; }
-.pg.anim .d-grid{ stroke-dasharray:170; stroke-dashoffset:170; }
-.pg.anim .d-area{ opacity:0; }
-.pg.anim .d-face,.pg.anim .d-orb{ opacity:0; transform-box:fill-box; transform-origin:center; transform:scale(.5); }
-.pg.anim .d-liquid{ transform-box:fill-box; transform-origin:50% 100%; transform:scaleY(0); }
-.pg.anim .rx-card.in .d-line,.pg.anim .rx-feature.in .d-line{ animation:rxDraw 1.1s var(--e) var(--d,0s) forwards; }
-.pg.anim .rx-card.in .d-grid,.pg.anim .rx-feature.in .d-grid{ animation:rxDraw 1s var(--e) calc(var(--d,0s) + .25s) forwards; }
-.pg.anim .rx-card.in .d-area,.pg.anim .rx-feature.in .d-area{ animation:rxFade .9s var(--e) calc(var(--d,0s) + .3s) forwards; }
-.pg.anim .rx-card.in .d-orb,.pg.anim .rx-feature.in .d-orb{ animation:rxPop .6s var(--e) calc(var(--d,0s) + .05s) forwards; }
-.pg.anim .rx-card.in .d-f1{ animation:rxPop .5s var(--e) calc(var(--d,0s) + .05s) forwards; }
-.pg.anim .rx-card.in .d-f2{ animation:rxPop .5s var(--e) calc(var(--d,0s) + .17s) forwards; }
-.pg.anim .rx-card.in .d-f3{ animation:rxPop .5s var(--e) calc(var(--d,0s) + .29s) forwards; }
-.pg.anim .rx-card.in .d-liquid{ animation:rxFill .9s var(--e) calc(var(--d,0s) + .2s) forwards; }
-
-@media (hover:hover){
-  .rx-card:hover .rx-img{ transform:translateY(-5px); box-shadow:var(--card-shadow); }
-  .rx-card:hover .rx-art{ transform:scale(1.05); }
-  .rx-card:hover .rx-name{ color:var(--brand); }
-  .rx-cta:hover{ border-color:var(--brand); color:var(--brand); }
-  .rx-cta--p:hover{ color:#fff; background:var(--brand-soft); border-color:var(--brand-soft); }
-  .rx-cap:hover{ transform:translateY(-3px); border-color:color-mix(in srgb,var(--brand) 24%,var(--border)); }
-  .rx-fpill:hover{ transform:translateY(-2px); border-color:var(--brand-soft); }
-}
-@media (max-width:680px){
-  .rx-cards{ grid-template-columns:repeat(2,1fr); }
-  .rx-feature{ grid-template-columns:1fr; }
-  .rx-feature .rx-img{ max-width:150px; }
-  .rx-caps{ grid-template-columns:1fr; }
-}
-@media (prefers-reduced-motion:reduce){
-  .pg.anim .rise, .pg.anim .rise.in{ opacity:1 !important; transform:none !important; transition:none !important; }
-  .pg.anim .d-line, .pg.anim .d-grid{ stroke-dashoffset:0 !important; }
-  .pg.anim .d-area, .pg.anim .d-orb, .pg.anim .d-face{ opacity:1 !important; transform:none !important; }
-  .pg.anim .d-liquid{ transform:scaleY(1) !important; }
-  .pg.anim .rx-card.in .d-line, .pg.anim .rx-feature.in .d-line, .pg.anim .rx-card.in .d-grid, .pg.anim .rx-feature.in .d-grid, .pg.anim .rx-card.in .d-area, .pg.anim .rx-feature.in .d-area, .pg.anim .rx-card.in .d-orb, .pg.anim .rx-feature.in .d-orb, .pg.anim .rx-card.in .d-f1, .pg.anim .rx-card.in .d-f2, .pg.anim .rx-card.in .d-f3, .pg.anim .rx-card.in .d-liquid{ animation:none !important; }
-  .rx-img, .rx-art, .rx-cta, .rx-cap, .rx-fpill{ transition:none !important; }
-}
-</style>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <filter id="rx-grain"><feturbulence type="fractalNoise" basefrequency="0.9" numoctaves="2" stitchtiles="stitch"></feturbulence><fecolormatrix type="saturate" values="0"></fecolormatrix><fecomponenttransfer><fefunca type="linear" slope="0.55"></fefunca></fecomponenttransfer></filter>
-</svg>
-
-<section class="pg">
-
-  <!-- HERO -->
-  <div class="pg-hero">
-    <div class="pg-hero__head">
-      <span class="pg-eyebrow">Infectious disease modelling</span>
-      <h1 class="pg-title">Research <span class="pg-title-thin">&amp; Advisory</span></h1>
+<div class="pg">
+  <header class="pg-head">
+    <div class="pg-head__main">
+      <p class="pg-eyebrow rise">Infectious disease modelling</p>
+      <h1 class="pg-title rise d1">Research &amp; advisory</h1>
+<div class="pg-stats"><div class="pg-stat"><span class="pg-stat-label">Citations</span><span class="pg-stat-num">350</span></div><div class="pg-stat"><span class="pg-stat-label">h-index</span><span class="pg-stat-num">8</span></div></div>
     </div>
-    <div class="pg-hero__aside">
-      <p class="pg-lead">I work on vaccination and population immunity, turning routine data into models of outbreak risk, and I bring those methods to research across clinical and basic science.</p>
-      <div class="rx-actions">
-        <a class="rx-cta rx-cta--p" href="https://scholar.google.com/citations?user=PkfvVs0AAAAJ" target="_blank" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 14 4 9l8-5 8 5z"></path><path d="M4 9v6l8 5 8-5V9"></path></svg>Google Scholar</a>
-        <a class="rx-cta" href="../cv/cv.html" target="_blank" rel="noopener"><svg viewbox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"></path><path d="M14 2v6h6M9 13h6M9 17h6"></path></svg>Full CV</a>
-      </div>
-      <div class="rx-stats">
-        <div class="rx-stat"><b class="ct" data-key="citations" data-fallback="313">0</b><span>Citations</span></div>
-        <span class="rx-sep"></span>
-        <div class="rx-stat"><b class="ct" data-key="hindex" data-fallback="8">0</b><span>h-index</span></div>
+    <div class="pg-head__aside rise d2">
+        <p class="pg-lead">I work on vaccination and population immunity, turning routine data into models of outbreak risk, and I bring those methods to research across clinical and basic science.</p>
+        <div class="pg-links"><a class="tl" href="https://scholar.google.com/citations?user=PkfvVs0AAAAJ" target="_blank" rel="noopener">Google Scholar<svg viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a><a class="tl" href="../cv/cv.html" target="_blank" rel="noopener">Full CV<svg viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a></div>
+    </div>
+  </header>
+  <nav class="pg-toc" aria-label="On this page">
+    <span class="pg-toc-h">On this page</span>
+    <a class="hue-in" href="#vaccination">Vaccination</a>
+    <a class="hue-te" href="#advisory">Advisory</a>
+    <a class="hue-ma" href="#methods">Methods</a>
+    <a class="hue-cy" href="#foundations">Foundations</a>
+  </nav>
+  <section class="pg-part hue-in" id="vaccination">
+    <div class="pg-part__head">
+      <div class="pg-part__line">
+        <div class="pg-part__name"><span class="pg-num">01</span><h2 class="pg-sectitle">Vaccination &amp; immunity</h2></div>
+        <span class="pg-secsub">What I'm working on now</span>
       </div>
     </div>
-  </div>
-
-  <div class="pg-body">
-    <main class="pg-main">
-
-      <!-- [01] OWN RESEARCH: vaccination & population immunity -->
-      <section class="pg-panel" id="focus">
-        <div class="pg-sechead">
-          <div><span class="pg-num">[01]</span><h2 class="pg-sectitle">Vaccination &amp; immunity</h2><p class="pg-secsub">What I'm working on now.</p></div>
-          <span class="pg-count">Current</span>
-        </div>
-
-        <article class="rx-feature rise" style="--d:0s">
-          <div class="rx-img" style="--hue:#7d92d6">
-            <svg class="rx-art" viewbox="0 0 120 120">
-              <defs><clippath id="cpShield"><path d="M60,16 L98,30 L98,62 C98,86 81,101 60,107 C39,101 22,86 22,62 L22,30 Z"></path></clippath></defs>
-              <path class="d-orb" d="M60,16 L98,30 L98,62 C98,86 81,101 60,107 C39,101 22,86 22,62 L22,30 Z" fill="var(--mid)"></path>
-              <g fill="none" stroke="var(--lite)" stroke-width="4" stroke-linecap="round"><path class="d-grid" d="M50,60 a14,14 0 0 1 20,0" opacity=".9"></path><path class="d-grid" d="M44,52 a23,23 0 0 1 32,0" opacity=".6"></path></g>
-              <circle cx="60" cy="66" r="5" fill="var(--lite)"></circle>
-              <g clip-path="url(#cpShield)" style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#rx-grain)"></rect></g>
-            </svg>
-          </div>
-          <div>
-            <span class="rx-kicker">Research focus</span>
-            <h3>Quantifying population immunity</h3>
-            <p>Measuring population immunity remains a persistent challenge. My research integrates routine data streams to quantify it, and to understand how immunity and transmission together shape outbreak risk.</p>
-            <p class="rx-vision">The long-term goal: build sustainable surveillance that stays low cost but effective, so public health can move from monitoring the past to forecasting future immunity and guiding proactive response.</p>
-          </div>
-        </article>
-
-        <div class="rx-cards">
-          <a class="rx-card rise" style="--hue:#7d92d6; --d:.05s" href="https://doi.org/10.3201/eid3110.250234" target="_blank" rel="noopener">
-            <div class="rx-img">
-              <svg class="rx-art" viewbox="0 0 120 120">
-                <defs><clippath id="cpCurve"><path d="M14,98 C36,94 48,86 60,58 C68,40 74,28 86,28 C98,28 104,66 110,78 L110,98 Z"></path></clippath></defs>
-                <path class="d-area" d="M14,98 C36,94 48,86 60,58 C68,40 74,28 86,28 C98,28 104,66 110,78 L110,98 Z" fill="var(--mid)"></path>
-                <path class="d-line" d="M14,96 C36,92 48,84 60,56 C68,38 74,26 86,26 C98,26 104,64 110,76" fill="none" stroke="var(--deep)" stroke-width="5" stroke-linecap="round"></path>
-                <g clip-path="url(#cpCurve)" style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#rx-grain)"></rect></g>
-              </svg>
-            </div>
-            <div class="rx-meta"><span class="rx-tag">First author</span><span class="rx-yr">2025</span></div>
-            <p class="rx-name">Measles immunity gap, caught before the outbreak</p>
-          </a>
-
-          <a class="rx-card rise" style="--hue:#9485cf; --d:.18s" href="https://doi.org/10.1111/2041-210X.70256" target="_blank" rel="noopener">
-            <div class="rx-img">
-              <svg class="rx-art" viewbox="0 0 120 120">
-                <defs><clippath id="cpCube"><polygon points="60,26 86,41 86,77 60,92 34,77 34,41"></polygon></clippath></defs>
-                <polygon class="d-face d-f1" points="60,26 86,41 60,56 34,41" fill="var(--lite)"></polygon>
-                <polygon class="d-face d-f2" points="34,41 60,56 60,92 34,77" fill="var(--deep)"></polygon>
-                <polygon class="d-face d-f3" points="86,41 60,56 60,92 86,77" fill="var(--mid)"></polygon>
-                <g clip-path="url(#cpCube)" style="mix-blend-mode:soft-light;opacity:.45"><rect x="0" y="0" width="120" height="120" filter="url(#rx-grain)"></rect></g>
-              </svg>
-            </div>
-            <div class="rx-meta"><span class="rx-tag">First author</span><span class="rx-yr">2026</span></div>
-            <p class="rx-name">denim: the compartmental modelling engine</p>
-          </a>
-
-          <a class="rx-card rise" style="--hue:#6fae9a; --d:.31s" href="https://doi.org/10.1136/bmjgh-2025-019111" target="_blank" rel="noopener">
-            <div class="rx-img">
-              <svg class="rx-art" viewbox="0 0 120 120">
-                <defs><clippath id="cpGlobe"><circle cx="60" cy="59" r="33"></circle></clippath></defs>
-                <circle class="d-orb" cx="60" cy="59" r="33" fill="var(--mid)"></circle>
-                <g clip-path="url(#cpGlobe)" fill="none" stroke="var(--deep)" stroke-width="3" opacity=".7"><ellipse class="d-grid" cx="60" cy="59" rx="13" ry="33"></ellipse><line class="d-grid" x1="27" y1="49" x2="93" y2="49"></line><line class="d-grid" x1="27" y1="69" x2="93" y2="69"></line></g>
-                <g clip-path="url(#cpGlobe)" style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#rx-grain)"></rect></g>
-              </svg>
-            </div>
-            <div class="rx-meta"><span class="rx-tag">Co-author</span><span class="rx-yr">2025</span></div>
-            <p class="rx-name">Modelling capacity for the global south</p>
-          </a>
-
-          <a class="rx-card rise" style="--hue:#5fa6c6; --d:.44s" href="https://doi.org/10.1016/j.vaccine.2026.128375" target="_blank" rel="noopener">
-            <div class="rx-img">
-              <svg class="rx-art" viewbox="0 0 120 120">
-                <defs><clippath id="cpVial"><rect x="47" y="22" width="26" height="72" rx="9"></rect></clippath></defs>
-                <rect x="47" y="22" width="26" height="72" rx="9" fill="var(--lite)"></rect>
-                <g clip-path="url(#cpVial)"><rect class="d-liquid" x="47" y="50" width="26" height="44" fill="var(--mid)"></rect></g>
-                <rect x="43" y="16" width="34" height="13" rx="5" fill="var(--deep)"></rect>
-                <g clip-path="url(#cpVial)" style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#rx-grain)"></rect></g>
-              </svg>
-            </div>
-            <div class="rx-meta"><span class="rx-tag">Co-author</span><span class="rx-yr">2026</span></div>
-            <p class="rx-name">Infants under six months, most at risk</p>
-          </a>
-        </div>
-      </section>
-
-      <!-- [02] ADVISORY: capacity building with HCDC -->
-      <section class="pg-panel" id="advisory">
-        <div class="pg-sechead">
-          <div><span class="pg-num">[02]</span><h2 class="pg-sectitle">Capacity building</h2><p class="pg-secsub">Advising Ho Chi Minh City CDC.</p></div>
-          <span class="pg-count">Advisory</span>
-        </div>
-
-        <article class="rx-feature rise" style="--d:0s">
-          <div class="rx-img" style="--hue:#6fae9a">
-            <svg class="rx-art" viewbox="0 0 120 120">
-              <defs><clippath id="cpNet"><circle cx="60" cy="60" r="47"></circle></clippath></defs>
-              <g clip-path="url(#cpNet)">
-                <g stroke="var(--deep)" stroke-width="3" opacity=".55"><line class="d-grid" x1="60" y1="60" x2="60" y2="28"></line><line class="d-grid" x1="60" y1="60" x2="92" y2="60"></line><line class="d-grid" x1="60" y1="60" x2="60" y2="92"></line><line class="d-grid" x1="60" y1="60" x2="28" y2="60"></line></g>
-                <circle class="d-orb" cx="60" cy="28" r="8" fill="var(--lite)"></circle><circle class="d-orb" cx="92" cy="60" r="8" fill="var(--deep)"></circle><circle class="d-orb" cx="60" cy="92" r="8" fill="var(--lite)"></circle><circle class="d-orb" cx="28" cy="60" r="8" fill="var(--deep)"></circle>
-                <circle class="d-orb" cx="60" cy="60" r="12" fill="var(--mid)"></circle>
-                <g style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#rx-grain)"></rect></g>
-              </g>
-            </svg>
-          </div>
-          <div>
-            <span class="rx-role"><svg viewbox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6z"></path><path d="m9 12 2 2 4-4"></path></svg>Advisor &amp; research supervisor</span>
-            <h3>Capacity building with Ho Chi Minh City CDC</h3>
-            <p>I train HCDC's in-house modelling team and advise their research, building the local capacity to model outbreaks and turn analysis into action.</p>
-            <span class="rx-pill">Training the in-house modelling team · research supervision</span>
-          </div>
-        </article>
-      </section>
-
-      <!-- [03] METHODS & COLLABORATION -->
-      <section class="pg-panel" id="methods">
-        <div class="pg-sechead">
-          <div><span class="pg-num">[03]</span><h2 class="pg-sectitle">Methods &amp; collaboration</h2><p class="pg-secsub">How I help other teams' studies.</p></div>
-          <span class="pg-count">Support</span>
-        </div>
-        <div class="rx-caps">
-          <div class="rx-cap rise" style="--d:0s"><span class="ic"><svg viewbox="0 0 24 24"><path d="M3 3v18h18"></path><path d="M7 15c2-6 4-8 6-8s2 4 4 4 2-3 3-4"></path></svg></span><div><b>Bayesian &amp; multilevel modelling</b><span>Hierarchical models for clustered cohort and survey data.</span></div></div>
-          <div class="rx-cap rise" style="--d:.07s"><span class="ic"><svg viewbox="0 0 24 24"><path d="M9 3h6M10 3v5l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"></path></svg></span><div><b>Trials &amp; study design</b><span>Randomised trials, sample size, prognostic models.</span></div></div>
-          <div class="rx-cap rise" style="--d:.14s"><span class="ic"><svg viewbox="0 0 24 24"><path d="M4 5h16M4 12h10M4 19h7"></path><circle cx="18" cy="16" r="3"></circle></svg></span><div><b>Survey development &amp; validation</b><span>Cross-cultural adaptation, reliability and validity.</span></div></div>
-          <div class="rx-cap rise" style="--d:.21s"><span class="ic"><svg viewbox="0 0 24 24"><path d="M6 3v6a6 6 0 0 0 12 0V3"></path><path d="M6 21v-6a6 6 0 0 1 12 0v6"></path><path d="M6 12h12"></path></svg></span><div><b>Genomics &amp; biomarker pipelines</b><span>Reproducible tools for sequencing and methylation panels.</span></div></div>
-        </div>
-      </section>
-
-      <!-- [04] FOUNDATIONS -->
-      <section class="pg-panel" id="foundations">
-        <div class="pg-sechead">
-          <div><span class="pg-num">[04]</span><h2 class="pg-sectitle">Foundations</h2><p class="pg-secsub">The range I came through.</p></div>
-          <span class="pg-count">Earlier work</span>
-        </div>
-        <div class="rx-found">
-          <span class="rx-fpill">Neonatal trials</span><span class="rx-fpill">Reproductive medicine</span><span class="rx-fpill">HLA genetics</span><span class="rx-fpill">Transplantation</span><span class="rx-fpill">Epigenomics</span><span class="rx-fpill">Bioinformatics</span><span class="rx-fpill">Clinical biomarkers</span>
-        </div>
-        <p class="rx-found-note">The full record, with every paper and venue, lives in the CV.</p>
-      </section>
-
-    </main>
-
-    <nav class="pg-toc" aria-label="Sections on this page">
-      <p class="pg-toc-h">On this page</p>
-      <a href="#focus" class="active"><span class="tn">01</span><span class="tt">Vaccination</span></a>
-      <a href="#advisory"><span class="tn">02</span><span class="tt">Advisory</span></a>
-      <a href="#methods"><span class="tn">03</span><span class="tt">Methods</span></a>
-      <a href="#foundations"><span class="tn">04</span><span class="tt">Foundations</span></a>
-    </nav>
-  </div>
-</section>
-
-<script>
-(function(){
-  var root = document.querySelector(".pg");
-  if(!root) return;
-  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  // count-up, values come from window.SCHOLAR (build-time Scholar fetch)
-  function countUp(el){
-    var key = el.getAttribute("data-key");
-    var S = window.SCHOLAR || {};
-    var to = (S && typeof S[key] === "number") ? S[key] : (parseInt(el.getAttribute("data-fallback"),10) || 0);
-    if(reduce){ el.textContent = to; return; }
-    var n = 0, step = Math.max(1, Math.round(to/28));
-    var t = setInterval(function(){ n += step; if(n >= to){ n = to; clearInterval(t); } el.textContent = n; }, 40);
-  }
-
-  if("IntersectionObserver" in window){
-    root.classList.add("anim");
-    var pan = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); pan.unobserve(e.target); } }); }, { threshold:0.12 });
-    root.querySelectorAll(".pg-panel").forEach(function(p){ pan.observe(p); });
-    var rev = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); rev.unobserve(e.target); } }); }, { threshold:0.2 });
-    root.querySelectorAll(".rise").forEach(function(el){ rev.observe(el); });
-    var ctO = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ countUp(e.target); ctO.unobserve(e.target); } }); }, { threshold:0.6 });
-    root.querySelectorAll(".ct").forEach(function(el){ ctO.observe(el); });
-  } else {
-    root.querySelectorAll(".rise").forEach(function(el){ el.classList.add("in"); });
-    root.querySelectorAll(".ct").forEach(countUp);
-  }
-
-  // contents-nav scrollspy (matches the shared .pg pages)
-  var links = root.querySelectorAll(".pg-toc a");
-  var panels = Array.prototype.slice.call(root.querySelectorAll(".pg-panel[id]"));
-  function linkFor(id){ for(var i=0;i<links.length;i++){ if(links[i].hash === "#"+id) return links[i]; } return null; }
-  function setActive(link){ links.forEach(function(l){ l.classList.toggle("active", l === link); }); }
-  var navLock = false, lockT, ticking = false;
-  function syncActive(){
-    ticking = false;
-    if(navLock || !panels.length) return;
-    var line = window.innerHeight * 0.28, current = panels[0];
-    panels.forEach(function(p){ if(p.getBoundingClientRect().top <= line) current = p; });
-    setActive(linkFor(current.id));
-  }
-  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(syncActive); } }
-  window.addEventListener("scroll", onScroll, { passive:true });
-  window.addEventListener("resize", onScroll, { passive:true });
-  syncActive();
-  links.forEach(function(a){
-    a.addEventListener("click", function(){
-      navLock = true; setActive(a);
-      clearTimeout(lockT);
-      lockT = setTimeout(function(){ navLock = false; syncActive(); }, reduce ? 0 : 700);
-    });
-  });
-})();
-</script>
+    <div class="panel panel--tint">
+      <span class="panel__label">Research focus</span>
+      <div class="panel__body">
+        <p class="panel__lead">Quantifying population immunity</p>
+        <p class="panel__text">Measuring population immunity remains a persistent challenge. My research integrates routine data streams to quantify it, and to understand how immunity and transmission together shape outbreak risk.</p>
+        <p class="panel__text">The long-term goal: build sustainable surveillance that stays low cost but effective, so public health can move from monitoring the past to forecasting future immunity and guiding proactive response.</p>
+      </div>
+    </div>
+    <div class="pg-rows">
+      <a class="pg-row" href="https://doi.org/10.3201/eid3110.250234" target="_blank" rel="noopener">
+        <span class="r-n">01</span>
+        <span class="r-title r-title--lg">Measles immunity gap, caught before the outbreak</span>
+        <span class="r-pill" style="flex-basis: 152px"><span class="pill hue-in">First author</span></span>
+        <span class="r-meta" style="flex-basis: 250px">Emerging Infectious Diseases</span>
+        <span class="r-year" style="flex-basis: 52px">2025</span>
+        <svg class="r-arrow" viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg>
+      </a>
+      <a class="pg-row" href="https://doi.org/10.1111/2041-210X.70256" target="_blank" rel="noopener">
+        <span class="r-n">02</span>
+        <span class="r-title r-title--lg">denim: the compartmental modelling engine</span>
+        <span class="r-pill" style="flex-basis: 152px"><span class="pill hue-in">First author</span></span>
+        <span class="r-meta" style="flex-basis: 250px">Methods in Ecology and Evolution</span>
+        <span class="r-year" style="flex-basis: 52px">2026</span>
+        <svg class="r-arrow" viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg>
+      </a>
+      <a class="pg-row" href="https://doi.org/10.1136/bmjgh-2025-019111" target="_blank" rel="noopener">
+        <span class="r-n">03</span>
+        <span class="r-title r-title--lg">Modelling capacity for the global south</span>
+        <span class="r-pill" style="flex-basis: 152px"><span class="pill hue-ne">Co-author</span></span>
+        <span class="r-meta" style="flex-basis: 250px">BMJ Global Health</span>
+        <span class="r-year" style="flex-basis: 52px">2025</span>
+        <svg class="r-arrow" viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg>
+      </a>
+      <a class="pg-row" href="https://doi.org/10.1016/j.vaccine.2026.128375" target="_blank" rel="noopener">
+        <span class="r-n">04</span>
+        <span class="r-title r-title--lg">Infants under six months, most at risk</span>
+        <span class="r-pill" style="flex-basis: 152px"><span class="pill hue-in">Joint first author</span></span>
+        <span class="r-meta" style="flex-basis: 250px">Vaccine</span>
+        <span class="r-year" style="flex-basis: 52px">2026</span>
+        <svg class="r-arrow" viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg>
+      </a>
+      <a class="pg-row" href="https://doi.org/10.1186/s12879-024-09816-w" target="_blank" rel="noopener">
+        <span class="r-n">05</span>
+        <span class="r-title r-title--lg">Hospital-acquired infections in the 2017-2019 measles outbreak</span>
+        <span class="r-pill" style="flex-basis: 152px"><span class="pill hue-in">Joint first author</span></span>
+        <span class="r-meta" style="flex-basis: 250px">BMC Infectious Diseases</span>
+        <span class="r-year" style="flex-basis: 52px">2024</span>
+        <svg class="r-arrow" viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg>
+      </a>
+    </div>
+  </section>
+  <section class="pg-part hue-te" id="advisory">
+    <div class="pg-part__head">
+      <div class="pg-part__line">
+        <div class="pg-part__name"><span class="pg-num">02</span><h2 class="pg-sectitle">Capacity building</h2></div>
+        <span class="pg-secsub">Advising Ho Chi Minh City CDC</span>
+      </div>
+    </div>
+    <div class="panel">
+      <span class="panel__label">Advisor &amp; research supervisor</span>
+      <div class="panel__body">
+        <p class="panel__lead">Capacity building with Ho Chi Minh City CDC</p>
+        <p class="panel__text">I train HCDC's in-house modelling team and advise their research, building the local capacity to model outbreaks and turn analysis into action.</p>
+        <div class="pills"><span class="pill">Training the in-house modelling team</span><span class="pill">Research supervision</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="pg-part hue-ma" id="methods">
+    <div class="pg-part__head">
+      <div class="pg-part__line">
+        <div class="pg-part__name"><span class="pg-num">03</span><h2 class="pg-sectitle">Methods &amp; collaboration</h2></div>
+        <span class="pg-secsub">How I help other teams' studies</span>
+      </div>
+    </div>
+    <div class="methods">
+      <div class="method"><h3>Bayesian &amp; multilevel modelling</h3><p>Hierarchical models for clustered cohort and survey data.</p></div>
+      <div class="method"><h3>Trials &amp; study design</h3><p>Randomised trials, sample size, prognostic models.</p></div>
+      <div class="method"><h3>Survey development &amp; validation</h3><p>Cross-cultural adaptation, reliability and validity.</p></div>
+      <div class="method"><h3>Genomics &amp; biomarker pipelines</h3><p>Reproducible tools for sequencing and methylation panels.</p></div>
+    </div>
+  </section>
+  <section class="pg-part hue-cy" id="foundations">
+    <div class="pg-part__head">
+      <div class="pg-part__line">
+        <div class="pg-part__name"><span class="pg-num">04</span><h2 class="pg-sectitle">Foundations</h2></div>
+        <span class="pg-secsub">The range I came through</span>
+      </div>
+    </div>
+    <div class="pills"><span class="pill">Neonatal trials</span><span class="pill">Reproductive medicine</span><span class="pill">HLA genetics</span><span class="pill">Transplantation</span><span class="pill">Epigenomics</span><span class="pill">Bioinformatics</span><span class="pill">Clinical biomarkers</span></div>
+    <p class="panel__text">The full record, with every paper and venue, lives in the <a class="il" href="../cv/cv.html" target="_blank" rel="noopener">CV</a>.</p>
+  </section>
+  <nav class="pg-next hue-te" aria-label="Next page">
+    <a href="../teaching/index.html">
+      <span class="nx-main"><span class="nx-label">Next page</span><span class="nx-title">Teaching</span></span>
+      <span class="nx-text">Short courses, workshops and talks on disease modelling, statistics and R.</span>
+      <svg viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg>
+    </a>
+  </nav>
+</div>
 
 
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script>
 
-// Site-wide floating light/dark toggle. Remembers the visitor's choice.
+// Light / dark button. It sits in the navbar and remembers the visitor's choice.
 
 (function () {
 
@@ -569,15 +358,15 @@ html[data-theme="dark"] .rx-fpill{ background:rgba(255,255,255,.04); }
 
   btn.type = 'button';
 
-  btn.setAttribute('aria-label', 'Toggle light and dark theme');
+  btn.setAttribute('aria-label', 'Switch between light and dark theme');
 
-  btn.setAttribute('title', 'Toggle light and dark');
+  btn.setAttribute('title', 'Light or dark');
 
   btn.innerHTML =
 
-    '<svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>' +
+    '<svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>' +
 
-    '<svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>';
+    '<svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>';
 
 
 
@@ -599,17 +388,29 @@ html[data-theme="dark"] .rx-fpill{ background:rgba(255,255,255,.04); }
 
 
 
-  function init() { apply(cur()); document.body.appendChild(btn); sync(); }
+  function init() {
+
+    apply(cur());
+
+    // Preferred place: the navbar tools area, which stays visible on phones.
+
+    // Fallback: a fixed button in the corner if the navbar is missing.
+
+    var tools = document.querySelector('#quarto-header .quarto-navbar-tools');
+
+    (tools || document.body).appendChild(btn);
+
+    sync();
+
+  }
 
   if (document.readyState !== 'loading') { init(); } else { document.addEventListener('DOMContentLoaded', init); }
 
-  // Default theme is light; it only changes when the visitor clicks the toggle.
 
 
+  // Add a hairline under the navbar once the page is scrolled.
 
-  // Frost the navbar once the page is scrolled, so content does not show through the transparent bar.
-
-  var onScroll = function () { document.body.classList.toggle('scrolled', window.scrollY > 8); };
+  var onScroll = function () { if (document.body) document.body.classList.toggle('scrolled', window.scrollY > 8); };
 
   window.addEventListener('scroll', onScroll, { passive: true });
 
@@ -621,155 +422,45 @@ html[data-theme="dark"] .rx-fpill{ background:rgba(255,255,255,.04); }
 
 <script>
 
-(function(){
+// Small behaviours shared by every page. Loaded after the body by _quarto.yml.
 
-  function add(){
+(function () {
 
-    var nc = document.querySelector('.navbar-container');
+  // "See more" lists (.more in _theme/theme.scss). The button shows or hides the
 
-    if (nc && !document.getElementById('navContact')) {
+  // extra rows named in its aria-controls. When the rows close, the page is
 
-      var wrap = document.createElement('div');
+  // scrolled by the same amount, so the button stays under the finger or pointer.
 
-      wrap.id = 'navContact';
+  document.querySelectorAll('.more__btn').forEach(function (btn) {
 
-      wrap.className = 'nav-contact';
+    var rows  = document.getElementById(btn.getAttribute('aria-controls'));
 
-      wrap.setAttribute('role', 'button');
+    var label = btn.querySelector('.more__label');
 
-      wrap.setAttribute('tabindex', '0');
+    var note  = btn.querySelector('.more__note');
 
-      wrap.setAttribute('aria-label', 'Contact via LinkedIn or Email');
+    if (!rows || !label) return;
 
-      wrap.innerHTML =
+    btn.addEventListener('click', function () {
 
-        '<span class="nc-extra">' +
+      var open = btn.getAttribute('aria-expanded') !== 'true';
 
-          '<a class="nc-ico" href="https://www.linkedin.com/in/thinh-ong/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>' +
+      var top  = btn.getBoundingClientRect().top;
 
-          '<a class="nc-ico" href="mailto:ongphucthinh@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>' +
+      rows.hidden = !open;
 
-        '</span>' +
+      btn.setAttribute('aria-expanded', String(open));
 
-        '<span class="nc-label">Contact</span>';
+      label.textContent = open ? btn.dataset.close : btn.dataset.open;
 
-      nc.appendChild(wrap);
+      if (note) note.hidden = open;
 
-      wrap.addEventListener('click', function (e) {
+      if (!open) window.scrollBy({ top: btn.getBoundingClientRect().top - top, behavior: 'instant' });
 
-        if (e.target.closest('a.nc-ico')) return;
+    });
 
-        e.preventDefault();
-
-        wrap.classList.toggle('open');
-
-      });
-
-      wrap.addEventListener('keydown', function (e) {
-
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); wrap.classList.toggle('open'); }
-
-      });
-
-      document.addEventListener('click', function (e) {
-
-        if (!wrap.contains(e.target)) wrap.classList.remove('open');
-
-      });
-
-    }
-
-  }
-
-  if (document.readyState !== 'loading') add();
-
-  else document.addEventListener('DOMContentLoaded', add);
-
-})();
-
-
-
-// Sliding pill that glides between navbar links and rests on the current page
-
-(function(){
-
-  var nav, links, pill;
-
-  function activeLink(){ return nav.querySelector('.nav-link.active') || nav.querySelector('.nav-link[aria-current="page"]'); }
-
-  function place(link, animate){
-
-    if (!link) return;
-
-    if (!animate) pill.style.transition = 'none';
-
-    pill.style.opacity = '1';
-
-    pill.style.width = link.offsetWidth + 'px';
-
-    pill.style.height = link.offsetHeight + 'px';
-
-    pill.style.transform = 'translate(' + link.offsetLeft + 'px,' + link.offsetTop + 'px)';
-
-    links.forEach(function (l) { l.classList.toggle('lit', l === link); });
-
-    if (!animate) { void pill.offsetWidth; pill.style.transition = ''; }
-
-  }
-
-  function rest(){
-
-    var a = activeLink();
-
-    if (a) { place(a, true); }
-
-    else { pill.style.opacity = '0'; links.forEach(function (l) { l.classList.remove('lit'); }); }
-
-  }
-
-  function reposition(){
-
-    var cur = nav.querySelector('.nav-link.lit') || activeLink();
-
-    if (cur) place(cur, false); else pill.style.opacity = '0';
-
-  }
-
-  function init(){
-
-    nav = document.querySelector('#navbarCollapse .navbar-nav');
-
-    if (!nav) return;
-
-    links = [].slice.call(nav.querySelectorAll('.nav-link'));
-
-    if (!links.length || nav.querySelector('.nav-pill')) return;
-
-    nav.style.position = 'relative';
-
-    pill = document.createElement('span');
-
-    pill.className = 'nav-pill';
-
-    nav.insertBefore(pill, nav.firstChild);
-
-    links.forEach(function (l) { l.addEventListener('mouseenter', function () { place(l, true); }); });
-
-    nav.addEventListener('mouseleave', rest);
-
-    reposition();
-
-    setTimeout(reposition, 300);
-
-    window.addEventListener('load', reposition);
-
-    var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(reposition, 120); });
-
-  }
-
-  if (document.readyState !== 'loading') init();
-
-  else document.addEventListener('DOMContentLoaded', init);
+  });
 
 })();
 
@@ -1169,6 +860,19 @@ html[data-theme="dark"] .rx-fpill{ background:rgba(255,255,255,.04); }
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Thinh Ong</p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="mailto:ongphucthinh@gmail.com">ongphucthinh@gmail.com</a></p>
+</div>
+    <div class="nav-footer-right">
+<p><a href="https://github.com/thinhong">GitHub</a> <a href="https://www.linkedin.com/in/thinh-ong">LinkedIn</a></p>
+</div>
+  </div>
+</footer>
 
 
 

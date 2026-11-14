@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7ce3a0cc7cfb425529e8d90f652646d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-976f792e4d444bb38f952e8db4a4e2c2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,21 +102,37 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 
 </script>
 
+<noscript><style>
+
+/* Without JavaScript the "see more" button cannot work, so show every row. */
+
+.more__rows[hidden] { display: flex !important; }
+
+.more__btn { display: none !important; }
+
+</style></noscript>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet">
 
 
 <meta property="og:title" content="Teaching - Thinh Ong">
 <meta property="og:description" content="Short courses, workshops and talks on infectious disease modelling, statistics, R, and the craft of research.">
 <meta property="og:image" content="https://drthinhong.com/img/og-default.png">
+<meta property="og:image:alt" content="Thinh Ong, medical doctor and mathematical modeller. I model how infections spread, so that public health can act earlier.">
+<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="1200">
 <meta name="twitter:title" content="Teaching - Thinh Ong">
 <meta name="twitter:description" content="Short courses, workshops and talks on infectious disease modelling, statistics, R, and the craft of research.">
 <meta name="twitter:image" content="https://drthinhong.com/img/og-default.png">
+<meta name="twitter:image:alt" content="Thinh Ong, medical doctor and mathematical modeller. I model how infections spread, so that public health can act earlier.">
+<meta name="twitter:image-height" content="630">
+<meta name="twitter:image-width" content="1200">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed hue-te quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -124,8 +140,11 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../logo-icon.svg" alt="" class="navbar-logo light-content">
-    <img src="../logo-icon.svg" alt="" class="navbar-logo dark-content">
+    <img src="../logo-icon.svg" alt="Thinh Ong logo" class="navbar-logo light-content">
+    <img src="../logo-icon.svg" alt="Thinh Ong logo" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Thinh Ong</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -133,7 +152,7 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../about/index.html"> 
 <span class="menu-text">About</span></a>
@@ -154,17 +173,9 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
     <a class="nav-link" href="../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/thinhong"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/thinh-ong"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:ongphucthinh@gmail.com"> 
+<span class="menu-text">Contact</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -184,522 +195,140 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
 
 
 
-<style>
-/* ===================== Teaching page (bento panels + contents nav + modal) ===================== */
-.tq{ --e:cubic-bezier(.22,.61,.36,1); --tq-panel:#f3f5fb; max-width:1200px; margin:0 auto; padding:0 clamp(18px,4vw,46px) 46px; }
-html[data-theme="dark"] .tq{ --tq-panel:rgba(255,255,255,.045); }
-
-/* compact two-column hero */
-.tq-hero{ display:grid; grid-template-columns:1.5fr 1fr; align-items:end; gap:clamp(20px,4vw,56px); padding:clamp(8px,1.8vw,16px) 0 clamp(18px,2.4vw,26px); }
-.tq-eyebrow{ display:inline-flex; align-items:center; gap:9px; font-size:.74rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--brand-soft); }
-.tq-eyebrow::before{ content:""; width:22px; height:2px; border-radius:2px; background:var(--brand-soft); }
-.tq-h1{ margin:.1em 0 0; font-family:"Bebas Neue",sans-serif; font-weight:400; line-height:.9; letter-spacing:.5px; text-transform:uppercase; font-size:clamp(2.3rem,5vw,4rem); color:var(--heading); border-bottom:0 !important; padding-bottom:0 !important; }
-.tq-h1 .tq-thin{ color:color-mix(in srgb, var(--heading) 42%, var(--bg)); }
-.tq-lead{ margin:0 0 .35em; color:var(--text-muted); font-size:clamp(.88rem,1vw,.98rem); line-height:1.55; }
-
-/* body: content + sticky contents nav */
-.tq-body{ display:grid; grid-template-columns:1fr 196px; gap:clamp(26px,3.4vw,48px); align-items:start; }
-.tq-main{ min-width:0; display:flex; flex-direction:column; gap:clamp(16px,2vw,24px); }
-
-/* soft panels separate sections instead of lines */
-.tq-block{ background:var(--tq-panel); border-radius:18px; padding:clamp(18px,2.3vw,30px); scroll-margin-top:96px; }
-/* neutralise the theme's :target::before offset hack (it breaks the subgrid columns); scroll-margin-top handles the offset */
-.tq-block:target::before, .tq-col:target::before{ content:none !important; display:none !important; }
-
-/* contents nav */
-.tq-toc{ position:sticky; top:92px; align-self:start; display:flex; flex-direction:column; gap:2px; }
-.tq-toc-h{ font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; color:var(--text-faint); margin:0 0 6px 14px; }
-.tq-toc a{ display:flex; align-items:baseline; gap:10px; padding:8px 13px; color:var(--text-muted); text-decoration:none; line-height:1.2;
-  border-left:2px solid transparent; border-radius:0 8px 8px 0; transition:background .2s var(--e), color .2s var(--e), border-color .2s var(--e); }
-.tq-toc a:hover{ color:var(--heading); background:color-mix(in srgb,var(--brand) 7%, transparent); }
-.tq-toc a.active{ color:var(--brand); border-left-color:var(--brand); background:color-mix(in srgb,var(--brand) 9%, transparent); }
-.tq-toc .tn{ font-size:.66rem; color:var(--brand-soft); font-variant-numeric:tabular-nums; }
-.tq-toc .tt{ font-size:.9rem; font-weight:500; }
-
-/* section heads */
-.tq-sechead{ display:flex; align-items:flex-end; justify-content:space-between; gap:14px; margin-bottom:clamp(12px,1.6vw,16px); }
-.tq-num{ display:block; font-size:.7rem; letter-spacing:.2em; color:var(--brand-soft); font-variant-numeric:tabular-nums; margin-bottom:7px; }
-.tq-sectitle{ margin:0; font-family:"Bebas Neue",sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:.5px; line-height:1.02; font-size:clamp(1.4rem,2.2vw,1.9rem); color:var(--heading); border-bottom:0 !important; padding-bottom:0 !important; }
-.tq-secsub{ margin:8px 0 0; font-size:.83rem; color:var(--text-muted); line-height:1.5; max-width:52ch; }
-.tq-count{ flex:none; font-size:.74rem; color:var(--text-faint); white-space:nowrap; }
-
-/* cards */
-.tq-row{ display:grid; gap:clamp(14px,1.6vw,22px); }
-.tq-row.multi{ grid-template-columns:repeat(3,1fr); }
-.tq-card{ display:block; text-decoration:none; color:inherit; cursor:pointer; }
-.tq-img{ position:relative; aspect-ratio:3/2; border-radius:12px; overflow:hidden; display:grid; place-items:center;
-  --deep:color-mix(in srgb, var(--hue) 55%, #0b1228);
-  --mid:var(--hue);
-  --lite:color-mix(in srgb, var(--hue) 58%, #ffffff);
-  --soft:color-mix(in srgb, var(--hue) 80%, #ffffff);
-  background:color-mix(in srgb, var(--hue) 26%, #ffffff);
-  transition:transform .4s var(--e), box-shadow .4s var(--e); will-change:transform; }
-html[data-theme="dark"] .tq-img{ background:color-mix(in srgb, var(--hue) 26%, var(--bg-2)); }
-.tq-art{ width:64%; height:64%; display:block; transition:transform .5s var(--e); }
-.tq-meta{ margin-top:11px; }
-.tq-meta-top{ display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
-.tq-format{ font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-faint); }
-.tq-date{ font-size:.76rem; color:var(--text-muted); font-variant-numeric:tabular-nums; }
-.tq-cardname{ margin:6px 0 0; font-size:.95rem; font-weight:500; line-height:1.32; color:var(--heading); transition:color .25s var(--e); }
-.tq-tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
-.tq-tag{ font-size:.66rem; color:var(--text-muted); border:1px solid var(--border); border-radius:999px; padding:3px 9px; white-space:nowrap; }
-
-/* duo of single-course topics, aligned with subgrid */
-.tq-duo{ display:grid; grid-template-columns:repeat(2,1fr); column-gap:clamp(16px,2vw,26px); row-gap:14px; }
-.tq-col{ display:flex; flex-direction:column; gap:14px; min-width:0; scroll-margin-top:96px; }
-@supports (grid-template-rows:subgrid){
-  .tq-duo{ grid-template-rows:auto auto; }
-  .tq-duo .tq-col{ display:grid; grid-row:span 2; grid-template-rows:subgrid; }
-}
-
-/* hover + tap */
-@media (hover:hover){
-  .tq-card:hover .tq-img{ transform:translateY(-5px); box-shadow:var(--card-shadow); }
-  .tq-card:hover .tq-art{ transform:scale(1.05); }
-  .tq-card:hover .tq-cardname{ color:var(--brand); }
-}
-.tq-card:active .tq-img{ transform:translateY(-2px) scale(.99); }
-
-/* entrance (opacity only, so transforms never fight the subgrid) */
-.tq.anim .tq-block{ opacity:0; transition:opacity .6s var(--e); }
-.tq.anim .tq-block.in{ opacity:1; }
-.tq.anim .tq-block .tq-card{ opacity:0; }
-.tq.anim .tq-block.in .tq-card{ opacity:1; transition:opacity .5s var(--e); }
-.tq.anim .tq-block.in .tq-row.multi .tq-card:nth-child(1){ transition-delay:.06s; }
-.tq.anim .tq-block.in .tq-row.multi .tq-card:nth-child(2){ transition-delay:.14s; }
-.tq.anim .tq-block.in .tq-row.multi .tq-card:nth-child(3){ transition-delay:.22s; }
-.tq.anim .tq-duo.in .tq-col:nth-child(1) .tq-card{ transition-delay:.06s; }
-.tq.anim .tq-duo.in .tq-col:nth-child(2) .tq-card{ transition-delay:.14s; }
-
-/* ===== Draw: each card symbol draws / assembles itself as its block reveals =====
-   Same "Draw" language as the Research page. Strokes carry pathLength="100" so a
-   short code line and a long curve draw at the same speed. Only opacity, transform
-   and stroke-dashoffset move. Every hidden start state is gated behind .tq.anim, so
-   if the script never runs the art is fully visible. --d staggers per card,
-   --dl adds an optional per-element offset. */
-@keyframes tqDraw{ to{ stroke-dashoffset:0; } }
-@keyframes tqFade{ to{ opacity:1; } }
-@keyframes tqPop{ to{ opacity:1; transform:scale(1); } }
-@keyframes tqFill{ to{ transform:scaleY(1); } }
-
-/* hidden start states (only while animating) */
-.tq.anim .d-line, .tq.anim .d-grid{ stroke-dasharray:101; stroke-dashoffset:101; }
-.tq.anim .d-area{ opacity:0; }
-.tq.anim .d-orb{ opacity:0; transform-box:fill-box; transform-origin:center; transform:scale(.5); }
-.tq.anim .d-bar1, .tq.anim .d-bar2, .tq.anim .d-bar3{ transform-box:fill-box; transform-origin:50% 100%; transform:scaleY(0); }
-
-/* run them once the card's block is on screen */
-.tq.anim .tq-block.in .tq-card .d-line{ animation:tqDraw 1s var(--e) calc(var(--d,0s) + var(--dl,0s)) forwards; }
-.tq.anim .tq-block.in .tq-card .d-grid{ animation:tqDraw .9s var(--e) calc(var(--d,0s) + .2s + var(--dl,0s)) forwards; }
-.tq.anim .tq-block.in .tq-card .d-area{ animation:tqFade .9s var(--e) calc(var(--d,0s) + .25s + var(--dl,0s)) forwards; }
-.tq.anim .tq-block.in .tq-card .d-orb{ animation:tqPop .55s var(--e) calc(var(--d,0s) + .1s + var(--dl,0s)) forwards; }
-.tq.anim .tq-block.in .tq-card .d-bar1{ animation:tqFill .75s var(--e) calc(var(--d,0s) + .12s) forwards; }
-.tq.anim .tq-block.in .tq-card .d-bar2{ animation:tqFill .75s var(--e) calc(var(--d,0s) + .24s) forwards; }
-.tq.anim .tq-block.in .tq-card .d-bar3{ animation:tqFill .75s var(--e) calc(var(--d,0s) + .36s) forwards; }
-
-/* ===== modal ===== */
-.tqm{ position:fixed; inset:0; z-index:3000; display:none; }
-.tqm.open{ display:block; }
-.tqm-scrim{ position:absolute; inset:0; background:rgba(10,16,36,.5); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); opacity:0; transition:opacity .3s var(--e); }
-.tqm.open .tqm-scrim{ opacity:1; }
-.tqm-dialog{ position:absolute; left:50%; top:50%; transform:translate(-50%,-46%); width:min(660px,94vw); max-height:88vh; display:flex; flex-direction:column; overflow:hidden;
-  background:var(--surface,#fff); border-radius:18px; box-shadow:0 30px 80px rgba(16,27,53,.32); opacity:0; transition:opacity .3s var(--e), transform .38s var(--e); }
-html[data-theme="dark"] .tqm-dialog{ background:#0e1530; }
-.tqm.open .tqm-dialog{ opacity:1; transform:translate(-50%,-50%); }
-.tqm-accent{ height:5px; flex:none; }
-.tqm-x{ position:absolute; top:13px; right:13px; z-index:3; width:34px; height:34px; border-radius:50%; cursor:pointer; border:1px solid var(--border); background:var(--bg); color:var(--heading); font-size:.95rem; display:grid; place-items:center; transition:transform .25s var(--e), color .2s var(--e); }
-.tqm-x:hover{ transform:rotate(90deg); color:var(--brand); }
-.tqm-body{ overflow-y:auto; padding:clamp(20px,3vw,30px); }
-.tqm-eyebrow{ font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--brand-soft); }
-.tqm-title{ margin:6px 0 0; font-family:"Bebas Neue",sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:.5px; line-height:1; font-size:clamp(1.7rem,3.4vw,2.4rem); color:var(--heading); border-bottom:0 !important; padding-bottom:0 !important; }
-.tqm-gal{ display:flex; gap:10px; overflow-x:auto; margin:16px 0 4px; scroll-snap-type:x mandatory; scrollbar-width:thin; }
-.tqm-gal figure{ margin:0; flex:0 0 auto; width:min(76%,300px); scroll-snap-align:center; }
-.tqm-gal img{ width:100%; aspect-ratio:3/2; object-fit:cover; border-radius:12px; display:block; }
-.tqm-gal figcaption{ font-size:.74rem; color:var(--text-muted); margin-top:6px; }
-.tqm-meta{ display:grid; grid-template-columns:1fr 1fr; gap:12px 18px; padding:15px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); margin:16px 0; }
-.tqm-meta .k{ font-size:.63rem; text-transform:uppercase; letter-spacing:.1em; color:var(--text-faint); }
-.tqm-meta .v{ font-size:.9rem; color:var(--heading); font-weight:500; margin-top:3px; }
-.tqm-long{ color:var(--text); line-height:1.62; font-size:.95rem; margin:0; }
-.tqm-tags{ display:flex; flex-wrap:wrap; gap:7px; margin-top:14px; }
-.tqm-tag{ font-size:.7rem; color:var(--text-muted); border:1px solid var(--border); border-radius:999px; padding:4px 11px; }
-.tqm-btns{ display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
-.tqm-btn{ display:inline-flex; align-items:center; gap:7px; font-weight:600; font-size:.9rem; padding:11px 18px; border-radius:11px; text-decoration:none; background:var(--brand); color:#fff; transition:background .2s var(--e), transform .2s var(--e); }
-.tqm-btn:hover{ background:var(--brand-strong); color:#fff; transform:translateY(-1px); }
-
-/* responsive */
-@media (max-width:860px){ .tq-body{ grid-template-columns:1fr; } .tq-toc{ display:none; } }
-@media (max-width:680px){
-  .tq-hero{ grid-template-columns:1fr; align-items:start; gap:12px; }
-  .tq-row.multi{ grid-template-columns:repeat(2,1fr); }
-  .tq-duo{ grid-template-columns:1fr; row-gap:0; }
-  .tq-duo .tq-col + .tq-col{ margin-top:18px; }
-  .tq-duo .tq-card{ display:grid; grid-template-columns:96px 1fr; gap:14px; align-items:center; }
-  .tq-duo .tq-img{ aspect-ratio:1/1; }
-  .tq-duo .tq-meta{ margin-top:0; }
-  .tq-duo .tq-art{ width:62%; height:62%; }
-  .tqm-dialog{ top:auto; bottom:0; transform:translate(-50%,100%); width:100vw; max-height:92vh; border-radius:18px 18px 0 0; }
-  .tqm.open .tqm-dialog{ transform:translate(-50%,0); }
-}
-@media (prefers-reduced-motion:reduce){
-  .tq.anim .tq-block, .tq.anim .tq-block .tq-card{ opacity:1 !important; }
-  .tq-img, .tq-art, .tqm-dialog, .tqm-scrim{ transition:none !important; }
-  .tq.anim .d-line, .tq.anim .d-grid{ stroke-dashoffset:0 !important; }
-  .tq.anim .d-area, .tq.anim .d-orb{ opacity:1 !important; transform:none !important; }
-  .tq.anim .d-bar1, .tq.anim .d-bar2, .tq.anim .d-bar3{ transform:scaleY(1) !important; }
-  .tq.anim .tq-block.in .tq-card .d-line, .tq.anim .tq-block.in .tq-card .d-grid,
-  .tq.anim .tq-block.in .tq-card .d-area, .tq.anim .tq-block.in .tq-card .d-orb,
-  .tq.anim .tq-block.in .tq-card .d-bar1, .tq.anim .tq-block.in .tq-card .d-bar2,
-  .tq.anim .tq-block.in .tq-card .d-bar3{ animation:none !important; }
-}
-</style>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <filter id="tq-grain"><feturbulence type="fractalNoise" basefrequency="0.9" numoctaves="2" stitchtiles="stitch"></feturbulence><fecolormatrix type="saturate" values="0"></fecolormatrix><fecomponenttransfer><fefunca type="linear" slope="0.55"></fefunca></fecomponenttransfer></filter>
-</svg>
-
-<section class="tq">
-  <div class="tq-hero">
-    <div>
-      <span class="tq-eyebrow">Courses &amp; talks</span>
-      <h1 class="tq-h1">Teaching <span class="tq-thin">&amp; Training</span></h1>
+<div class="pg">
+  <header class="pg-head">
+    <div class="pg-head__main">
+      <p class="pg-eyebrow rise">Courses &amp; talks</p>
+      <h1 class="pg-title rise d1">Teaching &amp; training</h1>
     </div>
-    <p class="tq-lead">Short courses, workshops and talks on infectious disease modelling, statistics, R, and the craft of research.</p>
-  </div>
-
-  <div class="tq-body">
-    <main class="tq-main">
-      <!-- 01 -->
-      <section class="tq-block" id="sec-modelling">
-        <div class="tq-sechead">
-          <div>
-            <span class="tq-num">[01]</span>
-            <h2 class="tq-sectitle">Disease Modelling</h2>
-            <p class="tq-secsub">Compartmental models, statistics, and the maths of outbreaks.</p>
-          </div>
-          <span class="tq-count">3 courses</span>
-        </div>
-        <div class="tq-row multi">
-          <a class="tq-card" data-id="idm-intro" href="modelling/idm-intro/">
-            <div class="tq-img" style="--hue:#7d92d6; --d:0s">
-              <svg class="tq-art" viewbox="0 0 120 120">
-                <defs><clippath id="tqc-sir"><circle cx="38" cy="44" r="15"></circle><circle cx="82" cy="44" r="15"></circle><circle cx="60" cy="88" r="15"></circle></clippath></defs>
-                <line class="d-line" pathlength="100" x1="53" y1="44" x2="67" y2="44" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;opacity:.55;--dl:.45s"></line>
-                <line class="d-line" pathlength="100" x1="76" y1="56" x2="66" y2="76" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;opacity:.55;--dl:.55s"></line>
-                <circle class="d-orb" cx="38" cy="44" r="15" style="fill:var(--lite)"></circle>
-                <circle class="d-orb" cx="82" cy="44" r="15" style="fill:var(--mid);--dl:.12s"></circle>
-                <circle class="d-orb" cx="60" cy="88" r="15" style="fill:var(--deep);--dl:.24s"></circle>
-                <g clip-path="url(#tqc-sir)" style="mix-blend-mode:soft-light;opacity:.55"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
-              </svg>
-            </div>
-            <div class="tq-meta">
-              <div class="tq-meta-top"><span class="tq-format">Short course</span><span class="tq-date">Mar 2023</span></div>
-              <p class="tq-cardname">Introduction to Infectious Disease Modelling</p>
-              <div class="tq-tags"><span class="tq-tag">SIR</span><span class="tq-tag">Compartmental</span><span class="tq-tag">R</span></div>
-            </div>
-          </a>
-          <a class="tq-card" data-id="idm4b" href="modelling/idm4b/">
-            <div class="tq-img" style="--hue:#5fa6c6; --d:.09s">
-              <svg class="tq-art" viewbox="0 0 120 120">
-                <defs><clippath id="tqc-curve"><path d="M16 96 C 44 96 46 44 60 44 C 74 44 76 96 104 96 Z"></path></clippath></defs>
-                <line x1="14" y1="96" x2="106" y2="96" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;opacity:.35"></line>
-                <path class="d-area" d="M16 96 C 44 96 46 44 60 44 C 74 44 76 96 104 96 Z" style="fill:var(--mid)"></path>
-                <path class="d-line" pathlength="100" d="M16 96 C 44 96 46 44 60 44 C 74 44 76 96 104 96" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;stroke-linejoin:round"></path>
-                <circle class="d-orb" cx="60" cy="44" r="4.5" style="fill:var(--deep);--dl:.8s"></circle>
-                <g clip-path="url(#tqc-curve)" style="mix-blend-mode:soft-light;opacity:.55"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
-              </svg>
-            </div>
-            <div class="tq-meta">
-              <div class="tq-meta-top"><span class="tq-format">Lecture series</span><span class="tq-date">May 2024</span></div>
-              <p class="tq-cardname">Infectious Disease Modelling for Babies</p>
-              <div class="tq-tags"><span class="tq-tag">SIR</span><span class="tq-tag">Beginners</span><span class="tq-tag">Intuition</span></div>
-            </div>
-          </a>
-          <a class="tq-card" data-id="s4bvn" href="https://drthinhong.com/s4bvn/" target="_blank" rel="noopener">
-            <div class="tq-img" style="--hue:#9485cf; --d:.18s">
-              <svg class="tq-art" viewbox="0 0 120 120">
-                <defs><clippath id="tqc-stats"><path d="M20 96 C 40 96 48 52 60 52 C 72 52 80 96 100 96 Z"></path></clippath></defs>
-                <line x1="14" y1="96" x2="106" y2="96" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;opacity:.35"></line>
-                <path class="d-area" d="M20 96 C 40 96 48 52 60 52 C 72 52 80 96 100 96 Z" style="fill:var(--mid)"></path>
-                <path class="d-line" pathlength="100" d="M20 96 C 40 96 48 52 60 52 C 72 52 80 96 100 96" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;stroke-linejoin:round"></path>
-                <line class="d-grid" pathlength="100" x1="60" y1="54" x2="60" y2="96" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;--dl:.7s"></line>
-                <g clip-path="url(#tqc-stats)" style="mix-blend-mode:soft-light;opacity:.55"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
-              </svg>
-            </div>
-            <div class="tq-meta">
-              <div class="tq-meta-top"><span class="tq-format">Lecture series</span><span class="tq-date">Dec 2025</span></div>
-              <p class="tq-cardname">Statistics for Babies</p>
-              <div class="tq-tags"><span class="tq-tag">Probability</span><span class="tq-tag">Bayesian</span><span class="tq-tag">MCMC</span></div>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- 02 -->
-      <section class="tq-block" id="sec-r">
-        <div class="tq-sechead">
-          <div>
-            <span class="tq-num">[02]</span>
-            <h2 class="tq-sectitle">R Programming</h2>
-            <p class="tq-secsub">R for data science, from your first script onward.</p>
-          </div>
-          <span class="tq-count">3 courses</span>
-        </div>
-        <div class="tq-row multi">
-          <a class="tq-card" data-id="r4babies" href="others/r4babies/">
-            <div class="tq-img" style="--hue:#c8a86a; --d:0s">
-              <svg class="tq-art" viewbox="0 0 120 120">
-                <defs><clippath id="tqc-data"><rect x="32" y="70" width="14" height="26" rx="3"></rect><rect x="53" y="56" width="14" height="40" rx="3"></rect><rect x="74" y="42" width="14" height="54" rx="3"></rect></clippath></defs>
-                <line x1="24" y1="96" x2="96" y2="96" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;opacity:.35"></line>
-                <rect class="d-bar1" x="32" y="70" width="14" height="26" rx="3" style="fill:var(--lite)"></rect>
-                <rect class="d-bar2" x="53" y="56" width="14" height="40" rx="3" style="fill:var(--mid)"></rect>
-                <rect class="d-bar3" x="74" y="42" width="14" height="54" rx="3" style="fill:var(--deep)"></rect>
-                <polyline class="d-line" pathlength="100" points="39,66 60,52 81,38" style="fill:none;stroke:var(--deep);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;opacity:.7;--dl:.5s"></polyline>
-                <circle class="d-orb" cx="81" cy="38" r="4" style="fill:var(--deep);--dl:.7s"></circle>
-                <g clip-path="url(#tqc-data)" style="mix-blend-mode:soft-light;opacity:.55"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
-              </svg>
-            </div>
-            <div class="tq-meta">
-              <div class="tq-meta-top"><span class="tq-format">Short course</span><span class="tq-date">Aug 2023</span></div>
-              <p class="tq-cardname">R for Babies</p>
-              <div class="tq-tags"><span class="tq-tag">R</span><span class="tq-tag">Data science</span><span class="tq-tag">Beginners</span></div>
-            </div>
-          </a>
-          <a class="tq-card" data-id="r-training" href="https://oucru-modelling.github.io/R-training-2025/" target="_blank" rel="noopener">
-            <div class="tq-img" style="--hue:#8aa86a; --d:.09s">
-              <svg class="tq-art" viewbox="0 0 120 120">
-                <defs><clippath id="tqc-code"><rect x="26" y="32" width="68" height="56" rx="8"></rect></clippath></defs>
-                <rect class="d-area" x="26" y="32" width="68" height="56" rx="8" style="fill:var(--lite)"></rect>
-                <circle class="d-orb" cx="35" cy="40" r="2.4" style="fill:var(--deep);opacity:.55;--dl:.25s"></circle>
-                <circle class="d-orb" cx="43" cy="40" r="2.4" style="fill:var(--deep);opacity:.55;--dl:.32s"></circle>
-                <circle class="d-orb" cx="51" cy="40" r="2.4" style="fill:var(--deep);opacity:.55;--dl:.39s"></circle>
-                <line class="d-grid" pathlength="100" x1="26" y1="47" x2="94" y2="47" style="fill:none;stroke:var(--deep);stroke-width:1.6;opacity:.3;--dl:.2s"></line>
-                <line class="d-line" pathlength="100" x1="35" y1="60" x2="57" y2="60" style="fill:none;stroke:var(--mid);stroke-width:3.2;stroke-linecap:round;--dl:.45s"></line>
-                <line class="d-line" pathlength="100" x1="61" y1="60" x2="79" y2="60" style="fill:none;stroke:var(--deep);stroke-width:3.2;stroke-linecap:round;--dl:.57s"></line>
-                <line class="d-line" pathlength="100" x1="42" y1="69" x2="74" y2="69" style="fill:none;stroke:var(--deep);stroke-width:3.2;stroke-linecap:round;opacity:.7;--dl:.69s"></line>
-                <line class="d-line" pathlength="100" x1="42" y1="78" x2="60" y2="78" style="fill:none;stroke:var(--deep);stroke-width:3.2;stroke-linecap:round;opacity:.7;--dl:.81s"></line>
-                <g clip-path="url(#tqc-code)" style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
-              </svg>
-            </div>
-            <div class="tq-meta">
-              <div class="tq-meta-top"><span class="tq-format">Short course</span><span class="tq-date">2025</span></div>
-              <p class="tq-cardname">OUCRU R Training</p>
-              <div class="tq-tags"><span class="tq-tag">R</span><span class="tq-tag">Data viz</span><span class="tq-tag">Quarto</span></div>
-            </div>
-          </a>
-          <a class="tq-card" data-id="r-cafe" href="https://oucru-modelling.github.io/R-cafe-materials/" target="_blank" rel="noopener">
-            <div class="tq-img" style="--hue:#a8845e; --d:.18s">
-              <svg class="tq-art" viewbox="0 0 120 120">
-                <defs><clippath id="tqc-cafe"><path d="M40 50 H80 L75 84 Q73 89 60 89 Q47 89 45 84 Z"></path></clippath></defs>
-                <ellipse class="d-area" cx="60" cy="93" rx="27" ry="4" style="fill:var(--lite)"></ellipse>
-                <path class="d-area" d="M40 50 H80 L75 84 Q73 89 60 89 Q47 89 45 84 Z" style="fill:var(--mid)"></path>
-                <path class="d-line" pathlength="100" d="M80 56 Q93 57 93 67 Q93 77 80 77" style="fill:none;stroke:var(--deep);stroke-width:5;stroke-linecap:round;--dl:.35s"></path>
-                <ellipse class="d-orb" cx="60" cy="50" rx="20" ry="4.5" style="fill:var(--deep);opacity:.7;--dl:.3s"></ellipse>
-                <path class="d-line" pathlength="100" d="M53 30 q-5 6 0 12" style="fill:none;stroke:var(--deep);stroke-width:2.6;stroke-linecap:round;opacity:.4;--dl:.6s"></path>
-                <path class="d-line" pathlength="100" d="M61 27 q-5 6 0 12" style="fill:none;stroke:var(--deep);stroke-width:2.6;stroke-linecap:round;opacity:.4;--dl:.72s"></path>
-                <path class="d-line" pathlength="100" d="M69 30 q-5 6 0 12" style="fill:none;stroke:var(--deep);stroke-width:2.6;stroke-linecap:round;opacity:.4;--dl:.84s"></path>
-                <g clip-path="url(#tqc-cafe)" style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
-              </svg>
-            </div>
-            <div class="tq-meta">
-              <div class="tq-meta-top"><span class="tq-format">Short course</span><span class="tq-date">2025</span></div>
-              <p class="tq-cardname">R Café</p>
-              <div class="tq-tags"><span class="tq-tag">R</span><span class="tq-tag">tidyverse</span><span class="tq-tag">Quarto</span></div>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- single-course topics, side by side -->
-      <div class="tq-block tq-duo">
-        <section class="tq-col" id="sec-skills">
-          <div class="tq-sechead">
-            <div>
-              <span class="tq-num">[03]</span>
-              <h2 class="tq-sectitle">Transferable Skills</h2>
-              <p class="tq-secsub">Writing, reviewing and the craft around research.</p>
-            </div>
-          </div>
-          <a class="tq-card" data-id="aw4b" href="others/aw4b/">
-            <div class="tq-img" style="--hue:#c187a8; --d:0s">
-              <svg class="tq-art" viewbox="0 0 120 120">
-                <defs><clippath id="tqc-doc"><rect x="34" y="26" width="52" height="68" rx="7"></rect><circle cx="82" cy="82" r="13"></circle></clippath></defs>
-                <rect class="d-area" x="34" y="26" width="52" height="68" rx="7" style="fill:var(--lite)"></rect>
-                <line class="d-line" pathlength="100" x1="44" y1="44" x2="76" y2="44" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5;--dl:.3s"></line>
-                <line class="d-line" pathlength="100" x1="44" y1="56" x2="76" y2="56" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5;--dl:.42s"></line>
-                <line class="d-line" pathlength="100" x1="44" y1="68" x2="64" y2="68" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5;--dl:.54s"></line>
-                <circle class="d-orb" cx="82" cy="82" r="13" style="fill:var(--deep);--dl:.5s"></circle>
-                <path class="d-line" pathlength="100" d="M76 82 l4 4 l9 -11" style="fill:none;stroke:var(--lite);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;--dl:.8s"></path>
-                <g clip-path="url(#tqc-doc)" style="mix-blend-mode:soft-light;opacity:.5"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
-              </svg>
-            </div>
-            <div class="tq-meta">
-              <div class="tq-meta-top"><span class="tq-format">Workshop</span><span class="tq-date">2024</span></div>
-              <p class="tq-cardname">Academic Writing</p>
-              <div class="tq-tags"><span class="tq-tag">Peer review</span><span class="tq-tag">Manuscripts</span><span class="tq-tag">Publishing</span></div>
-            </div>
-          </a>
-        </section>
-
-        <section class="tq-col" id="sec-seminars">
-          <div class="tq-sechead">
-            <div>
-              <span class="tq-num">[04]</span>
-              <h2 class="tq-sectitle">Seminars &amp; Talks</h2>
-              <p class="tq-secsub">Short talks on research life and tools.</p>
-            </div>
-          </div>
-          <a class="tq-card" data-id="isgj" href="seminars/is-this-a-good-journal/">
-            <div class="tq-img" style="--hue:#6fae9a; --d:.09s">
-              <svg class="tq-art" viewbox="0 0 120 120">
-                <defs><clippath id="tqc-lens"><rect x="28" y="30" width="44" height="42" rx="5"></rect><circle cx="70" cy="66" r="19"></circle></clippath></defs>
-                <rect class="d-area" x="28" y="30" width="44" height="42" rx="5" style="fill:var(--lite)"></rect>
-                <line class="d-line" pathlength="100" x1="36" y1="44" x2="62" y2="44" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5;--dl:.3s"></line>
-                <line class="d-line" pathlength="100" x1="36" y1="55" x2="56" y2="55" style="fill:none;stroke:var(--deep);stroke-width:3;stroke-linecap:round;opacity:.5;--dl:.42s"></line>
-                <line class="d-line" pathlength="100" x1="82" y1="80" x2="95" y2="93" style="fill:none;stroke:var(--deep);stroke-width:5;stroke-linecap:round;--dl:.75s"></line>
-                <circle class="d-orb" cx="70" cy="66" r="19" style="fill:var(--mid);--dl:.4s"></circle>
-                <circle class="d-line" pathlength="100" cx="70" cy="66" r="19" style="fill:none;stroke:var(--deep);stroke-width:3;--dl:.55s"></circle>
-                <circle class="d-orb" cx="64" cy="60" r="6" style="fill:var(--soft);opacity:.6;--dl:.6s"></circle>
-                <g clip-path="url(#tqc-lens)" style="mix-blend-mode:soft-light;opacity:.55"><rect x="0" y="0" width="120" height="120" filter="url(#tq-grain)"></rect></g>
-              </svg>
-            </div>
-            <div class="tq-meta">
-              <div class="tq-meta-top"><span class="tq-format">Seminar</span><span class="tq-date">Sep 2023</span></div>
-              <p class="tq-cardname">Is This a Good Journal?</p>
-              <div class="tq-tags"><span class="tq-tag">Publishing</span><span class="tq-tag">Peer review</span><span class="tq-tag">Talk</span></div>
-            </div>
-          </a>
-        </section>
+    <div class="pg-head__aside rise d2">
+        <p class="pg-lead">Short courses, workshops and talks on infectious disease modelling, statistics, R, and the craft of research.</p>
+    </div>
+  </header>
+  <nav class="pg-toc" aria-label="On this page">
+    <span class="pg-toc-h">On this page</span>
+    <a class="hue-te" href="#modelling">Disease modelling</a>
+    <a class="hue-ma" href="#r">R programming</a>
+    <a class="hue-cy" href="#skills">Transferable skills</a>
+    <a class="hue-in" href="#seminars">Seminars and talks</a>
+  </nav>
+  <section class="pg-part hue-te" id="modelling">
+    <div class="pg-part__head">
+      <div class="pg-part__line">
+        <div class="pg-part__name"><span class="pg-num">01</span><h2 class="pg-sectitle">Disease modelling</h2></div>
+        <span class="pg-secsub">3 courses</span>
       </div>
-    </main>
-
-    <nav class="tq-toc" aria-label="Topics on this page">
-      <p class="tq-toc-h">On this page</p>
-      <a href="#sec-modelling" class="active"><span class="tn">01</span><span class="tt">Disease Modelling</span></a>
-      <a href="#sec-r"><span class="tn">02</span><span class="tt">R Programming</span></a>
-      <a href="#sec-skills"><span class="tn">03</span><span class="tt">Transferable Skills</span></a>
-      <a href="#sec-seminars"><span class="tn">04</span><span class="tt">Seminars &amp; Talks</span></a>
-    </nav>
+    </div>
+    <div class="cards">
+      <a class="card-g crs" href="modelling/idm-intro/index.html">
+        <span class="plate"><svg class="ic" viewbox="0 0 120 80" aria-hidden="true"><circle class="l" cx="24" cy="40" r="14"></circle><circle class="l2" cx="60" cy="40" r="14"></circle><circle class="l3" cx="96" cy="40" r="14"></circle><path class="fs" stroke-width="2" d="M40.5 36l3.5 4-3.5 4M76.5 36l3.5 4-3.5 4"></path></svg></span>
+        <span class="txt">
+          <span class="meta"><b>Short course</b><span>Mar 2023</span></span>
+          <span class="nm">Introduction to Infectious Disease Modelling</span>
+          <span class="tags">SIR, Compartmental, R</span>
+        </span>
+      </a>
+      <a class="card-g crs" href="modelling/idm4b/index.html">
+        <span class="plate"><svg class="ic" viewbox="0 0 120 80" aria-hidden="true"><path class="l3" d="M10 66C30 66 36 14 50 14C70 14 80 66 110 66Z"></path><path class="s" stroke-width="2.6" d="M10 66C30 66 36 14 50 14C70 14 80 66 110 66"></path><path class="fs" stroke-width="1.6" d="M8 66h104"></path><circle class="f" cx="50" cy="14" r="4.2"></circle></svg></span>
+        <span class="txt">
+          <span class="meta"><b>Lecture series</b><span>May 2024</span></span>
+          <span class="nm">Infectious Disease Modelling for Babies</span>
+          <span class="tags">SIR, Beginners, Intuition</span>
+        </span>
+      </a>
+      <a class="card-g crs" href="https://drthinhong.com/s4bvn/" target="_blank" rel="noopener">
+        <span class="plate"><svg class="ic" viewbox="0 0 120 80" aria-hidden="true"><path class="l3" d="M10 64C40 64 44 16 60 16C76 16 80 64 110 64Z"></path><path class="s" stroke-width="2.6" d="M10 64C40 64 44 16 60 16C76 16 80 64 110 64"></path><path class="fs" stroke-width="1.6" stroke-dasharray="3 4" d="M60 8v60"></path><path class="fs" stroke-width="1.6" d="M8 64h104"></path></svg></span>
+        <span class="txt">
+          <span class="meta"><b>Lecture series</b><span>Dec 2025</span></span>
+          <span class="nm">Statistics for Babies</span>
+          <span class="tags">Probability, Bayesian, MCMC</span>
+        </span>
+      </a>
+    </div>
+  </section>
+  <section class="pg-part hue-ma" id="r">
+    <div class="pg-part__head">
+      <div class="pg-part__line">
+        <div class="pg-part__name"><span class="pg-num">02</span><h2 class="pg-sectitle">R programming</h2></div>
+        <span class="pg-secsub">3 courses</span>
+      </div>
+    </div>
+    <div class="cards">
+      <a class="card-g crs" href="others/r4babies/index.html">
+        <span class="plate"><svg class="ic" viewbox="0 0 120 80" aria-hidden="true"><rect class="l3" x="16" y="48" width="16" height="18" rx="2"></rect><rect class="l2" x="40" y="38" width="16" height="28" rx="2"></rect><rect class="l1" x="64" y="28" width="16" height="38" rx="2"></rect><rect class="l" x="88" y="16" width="16" height="50" rx="2"></rect><path class="fs" stroke-width="2" d="M18 38L48 28L72 18L100 6"></path><path class="fs" stroke-width="1.6" d="M10 66h100"></path></svg></span>
+        <span class="txt">
+          <span class="meta"><b>Short course</b><span>Aug 2023</span></span>
+          <span class="nm">R for Babies</span>
+          <span class="tags">R, Data science, Beginners</span>
+        </span>
+      </a>
+      <a class="card-g crs" href="https://oucru-modelling.github.io/R-training-2025/" target="_blank" rel="noopener">
+        <span class="plate"><svg class="ic" viewbox="0 0 120 80" aria-hidden="true"><rect class="l3" x="14" y="8" width="92" height="64" rx="7"></rect><circle class="f" cx="25" cy="19" r="2.8"></circle><circle class="f" cx="34" cy="19" r="2.8" opacity=".6"></circle><circle class="f" cx="43" cy="19" r="2.8" opacity=".35"></circle><path class="s" stroke-width="3.2" d="M25 34h30M25 44h50M33 54h36M25 64h22"></path></svg></span>
+        <span class="txt">
+          <span class="meta"><b>Short course</b><span>2025</span></span>
+          <span class="nm">OUCRU R Training</span>
+          <span class="tags">R, Data viz, Quarto</span>
+        </span>
+      </a>
+      <a class="card-g crs" href="https://oucru-modelling.github.io/R-cafe-materials/" target="_blank" rel="noopener">
+        <span class="plate"><svg class="ic" viewbox="0 0 120 80" aria-hidden="true"><path class="l" d="M34 34h44v14a22 22 0 0 1-44 0z"></path><path class="s" stroke-width="3.2" d="M78 38h5a8 8 0 0 1 0 16h-7"></path><path class="fs" stroke-width="2" d="M26 74h60"></path><path class="fs" stroke-width="2" d="M46 26c-3-4 3-6 0-10M56 26c-3-4 3-6 0-10M66 26c-3-4 3-6 0-10"></path></svg></span>
+        <span class="txt">
+          <span class="meta"><b>Short course</b><span>2025</span></span>
+          <span class="nm">R Café</span>
+          <span class="tags">R, tidyverse, Quarto</span>
+        </span>
+      </a>
+    </div>
+  </section>
+  <div class="pg-duo">
+  <section class="pg-part hue-cy" id="skills">
+    <div class="pg-part__head">
+      <div class="pg-part__line">
+        <div class="pg-part__name"><span class="pg-num">03</span><h2 class="pg-sectitle">Transferable skills</h2></div>
+        <span class="pg-secsub">1 course</span>
+      </div>
+    </div>
+    <a class="card-g crs card-g--wide" href="others/aw4b/index.html">
+        <span class="plate"><svg class="ic" viewbox="0 0 120 80" aria-hidden="true"><rect class="l3" x="30" y="8" width="48" height="64" rx="5"></rect><path class="s" stroke-width="3.2" d="M40 24h28M40 34h28M40 44h16"></path><circle class="l" cx="80" cy="56" r="13"></circle><path class="bs" stroke-width="2.6" d="M74 56l4.5 4.5L86.5 52"></path></svg></span>
+        <span class="txt">
+          <span class="meta"><b>Workshop</b><span>2024</span></span>
+          <span class="nm">Academic Writing</span>
+          <span class="tags">Peer review, Manuscripts, Publishing</span>
+        </span>
+      </a>
+  </section>
+  <section class="pg-part hue-in" id="seminars">
+    <div class="pg-part__head">
+      <div class="pg-part__line">
+        <div class="pg-part__name"><span class="pg-num">04</span><h2 class="pg-sectitle">Seminars &amp; talks</h2></div>
+        <span class="pg-secsub">1 talk</span>
+      </div>
+    </div>
+    <a class="card-g crs card-g--wide" href="seminars/is-this-a-good-journal/index.html">
+        <span class="plate"><svg class="ic" viewbox="0 0 120 80" aria-hidden="true"><rect class="l3" x="26" y="8" width="48" height="64" rx="5"></rect><path class="s" stroke-width="3.2" d="M36 24h28M36 34h28M36 44h14"></path><circle class="b" cx="76" cy="50" r="13"></circle><circle class="fs" stroke-width="3" cx="76" cy="50" r="13"></circle><path class="fs" stroke-width="4" d="M85.5 59.5l9 9"></path></svg></span>
+        <span class="txt">
+          <span class="meta"><b>Seminar</b><span>Sep 2023</span></span>
+          <span class="nm">Is This a Good Journal?</span>
+          <span class="tags">Publishing, Peer review, Talk</span>
+        </span>
+      </a>
+  </section>
   </div>
-</section>
-
-<div class="tqm" id="tqm" aria-hidden="true">
-  <div class="tqm-scrim" data-close=""></div>
-  <div class="tqm-dialog" role="dialog" aria-modal="true" aria-labelledby="tqm-title" tabindex="-1">
-    <div class="tqm-accent" id="tqm-accent"></div>
-    <button class="tqm-x" data-close="" aria-label="Close">✕</button>
-    <div class="tqm-body" id="tqm-body"></div>
-  </div>
+  <nav class="pg-next hue-cy" aria-label="Next page">
+    <a href="../software/index.html">
+      <span class="nx-main"><span class="nx-label">Next page</span><span class="nx-title">Software</span></span>
+      <span class="nx-text">Open-source R packages for modelling, biostatistics and bioinformatics.</span>
+      <svg viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg>
+    </a>
+  </nav>
 </div>
-
-<script>
-(function(){
-  var root = document.querySelector(".tq");
-  if(!root) return;
-  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  // Reveal a block (and let its symbols draw) once it is on screen. This also
-  // acts as a failsafe: if IntersectionObserver callbacks are deferred on a
-  // background-tab or bfcache restore, the block would otherwise stay hidden.
-  // Called on load, on pageshow, and from the scroll handler below.
-  function revealInView(){
-    var bs = root.querySelectorAll(".tq-block:not(.in)");
-    for(var i=0;i<bs.length;i++){
-      var r = bs[i].getBoundingClientRect();
-      if(r.top < window.innerHeight * 0.92 && r.bottom > 0){ bs[i].classList.add("in"); }
-    }
-  }
-
-  if(!reduce && "IntersectionObserver" in window){
-    root.classList.add("anim");
-    var reveal = new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); reveal.unobserve(e.target); } });
-    }, { threshold:.08 });
-    root.querySelectorAll(".tq-block").forEach(function(b){ reveal.observe(b); });
-    revealInView();
-    requestAnimationFrame(revealInView);
-    window.addEventListener("pageshow", function(e){ if(e.persisted){ revealInView(); } });
-  }
-
-  // contents nav: one active group at a time (Disease Modelling, R Programming, or the duo)
-  var links = root.querySelectorAll(".tq-toc a");
-  var groups = [];
-  var modSec = document.getElementById("sec-modelling");
-  var rSec = document.getElementById("sec-r");
-  var duoEl = root.querySelector(".tq-duo");
-  if(modSec) groups.push({ el:modSec, ids:["sec-modelling"] });
-  if(rSec) groups.push({ el:rSec, ids:["sec-r"] });
-  if(duoEl) groups.push({ el:duoEl, ids:["sec-skills","sec-seminars"] });
-  function setActive(ids){ links.forEach(function(l){ l.classList.toggle("active", ids.indexOf((l.hash||"").slice(1))>-1); }); }
-  var navLock = 0;
-  links.forEach(function(l){
-    l.addEventListener("click", function(){
-      var id=(l.hash||"").slice(1), g=null, i;
-      for(i=0;i<groups.length;i++){ if(groups[i].ids.indexOf(id)>-1){ g=groups[i]; break; } }
-      setActive(g?g.ids:[id]); navLock=Date.now();
-    });
-  });
-  function spyScroll(){
-    if(Date.now()-navLock < 1000 || !groups.length) return;
-    var line=150, cur=groups[0], i;
-    for(i=0;i<groups.length;i++){ if(groups[i].el.getBoundingClientRect().top <= line) cur=groups[i]; }
-    setActive(cur.ids);
-  }
-  var ticking=false;
-  window.addEventListener("scroll", function(){ if(!ticking){ ticking=true; requestAnimationFrame(function(){ revealInView(); spyScroll(); ticking=false; }); } }, {passive:true});
-  window.addEventListener("resize", spyScroll, {passive:true});
-  spyScroll();
-
-  // ---- course modal ----
-  var DATA = {
-    "idm-intro":{topic:"Disease Modelling",name:"Introduction to Infectious Disease Modelling",hue:"#7d92d6",level:"Short course",format:"In person",when:"March 2023",where:"HCMC Centre for Disease Control",withWho:"Phung Khanh Lam and Thinh Ong",long:"A hands-on first course in compartmental modelling. Participants build SIR-type models from first principles, fit them to outbreak data, and learn to read the results so they can support real public health decisions.",tags:["SIR","Compartmental models","R"],link:"https://lampk.github.io/IDMIntro/",linkLabel:"Course homepage",photos:[]},
-    "idm4b":{topic:"Disease Modelling",name:"Infectious Disease Modelling for Babies",hue:"#5fa6c6",level:"Lecture series",format:"In person",when:"May 2024",where:"HCMC Centre for Disease Control",withWho:"Thinh Ong",long:"A friendly lecture series on the basics of infectious disease modelling, taught in small, step-by-step sessions with plain language and approachable examples that make the maths feel within reach.",tags:["SIR","Beginners","Intuition"],link:"https://drthinhong.com/idm4b/",linkLabel:"Course homepage",photos:[]},
-    "s4bvn":{topic:"Disease Modelling",name:"Statistics for Babies",hue:"#9485cf",level:"Lecture series",format:"In person",when:"December 2025",where:"HCMC Centre for Disease Control",withWho:"Thinh Ong",long:"A gentle lecture series on the statistics behind modelling: probability, distributions, likelihood, Bayesian inference and MCMC. Built on STATS 210 (Auckland) and Bolker's Ecological Models and Data in R.",tags:["Probability","Bayesian","MCMC"],link:"https://drthinhong.com/s4bvn/",linkLabel:"Read the book",photos:[]},
-    "r4babies":{topic:"R Programming",name:"R for Babies",hue:"#c8a86a",level:"Short course",format:"In person",when:"August 2023",where:"HCMC Centre for Disease Control",withWho:"Thinh Ong",long:"A gentle, beginner-first path into R for data science. Taught for staff at the HCMC Centre for Disease Control, with live coding, real datasets, and plenty of small wins along the way.",tags:["R","Data science","Beginners"],link:"https://drthinhong.com/r4babies/",linkLabel:"Course homepage",photos:[{src:"others/r4babies/img/hcdc1.jpg",cap:"Live coding at HCMC CDC"},{src:"others/r4babies/img/hcdc2.jpg",cap:"Hands-on session with participants"}]},
-    "r-training":{topic:"R Programming",name:"OUCRU R Training",hue:"#8aa86a",level:"Short course",format:"In person and online",when:"2025",where:"OUCRU",withWho:"Ronald Geskus, Thinh Ong and the OUCRU Modelling team",long:"A five-day OUCRU course covering R from the ground up: handling and exploring data in RStudio, the grammar of graphics for visualisation, advanced topics like functions, piping and iteration, and reproducible research with Quarto.",tags:["R","Data viz","Quarto"],link:"https://oucru-modelling.github.io/R-training-2025/",linkLabel:"Course homepage",photos:[]},
-    "r-cafe":{topic:"R Programming",name:"R Café",hue:"#a8845e",level:"Short course",format:"In person and online",when:"2025",where:"OUCRU",withWho:"Thinh Ong and the OUCRU Modelling team",long:"A weekly, hands-on R cafe at OUCRU: three-hour face-to-face sessions with take-home exercises in between, covering R and Git, the tidyverse, data visualisation with ggplot2, and reproducible tables and reports with Quarto and gtsummary.",tags:["R","tidyverse","Quarto"],link:"https://oucru-modelling.github.io/R-cafe-materials/",linkLabel:"Course materials",photos:[]},
-    "aw4b":{topic:"Transferable Skills",name:"Academic Writing",hue:"#c187a8",level:"Workshop",format:"In person",when:"2024",where:"HCMC Centre for Disease Control",withWho:"Thinh Ong",long:"A practical guide to the academic publication process. Understand what reviewers look for, how editors decide, and how to write a manuscript and cover letter that pass the test the first time.",tags:["Peer review","Manuscripts","Publishing"],link:"",linkLabel:"",photos:[]},
-    "isgj":{topic:"Seminars & Talks",name:"Is This a Good Journal?",hue:"#6fae9a",level:"Seminar",format:"In person",when:"September 2023",where:"HCMC Centre for Disease Control",withWho:"Thinh Ong",long:"Learn how to tell trustworthy scientific journals from predatory ones, with simple checks you can run before you submit. A short, practical talk you can apply to your very next paper.",tags:["Publishing","Peer review","Talk"],link:"/slides/is-this-a-good-journal",linkLabel:"Presentation",photos:[{src:"seminars/is-this-a-good-journal/img/hcdc.jpg",cap:"Seminar with participants"}]}
-  };
-  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];}); }
-  var modal=document.getElementById("tqm"), mbody=document.getElementById("tqm-body"), accent=document.getElementById("tqm-accent"), lastFocus=null;
-  if(modal && modal.parentNode!==document.body){ document.body.appendChild(modal); }
-  function openModal(id){
-    var it=DATA[id]; if(!it) return;
-    accent.style.background="linear-gradient(90deg,"+it.hue+", color-mix(in srgb,"+it.hue+" 55%, #ffffff))";
-    var gal = (it.photos&&it.photos.length) ? '<div class="tqm-gal">'+it.photos.map(function(p){return '<figure><img loading="lazy" decoding="async" src="'+p.src+'" alt="'+esc(p.cap)+'"><figcaption>'+esc(p.cap)+'</figcaption></figure>';}).join("")+'</div>' : "";
-    var btn = it.link ? '<div class="tqm-btns"><a class="tqm-btn" href="'+it.link+'" target="_blank" rel="noopener">'+esc(it.linkLabel||"Visit")+' &#8599;</a></div>' : "";
-    mbody.innerHTML =
-      '<span class="tqm-eyebrow">'+esc(it.topic)+'</span>'+
-      '<h2 class="tqm-title" id="tqm-title">'+esc(it.name)+'</h2>'+
-      gal +
-      '<div class="tqm-meta">'+
-        '<div><div class="k">When</div><div class="v">'+esc(it.when)+'</div></div>'+
-        '<div><div class="k">Where</div><div class="v">'+esc(it.where)+'</div></div>'+
-        '<div><div class="k">With</div><div class="v">'+esc(it.withWho)+'</div></div>'+
-        '<div><div class="k">Format</div><div class="v">'+esc(it.level)+' &middot; '+esc(it.format)+'</div></div>'+
-      '</div>'+
-      '<p class="tqm-long">'+esc(it.long)+'</p>'+
-      '<div class="tqm-tags">'+it.tags.map(function(t){return '<span class="tqm-tag">'+esc(t)+'</span>';}).join("")+'</div>'+
-      btn;
-    modal.classList.add("open"); modal.setAttribute("aria-hidden","false");
-    document.documentElement.style.overflow="hidden"; lastFocus=document.activeElement;
-    modal.querySelector(".tqm-dialog").focus();
-  }
-  function closeModal(){ modal.classList.remove("open"); modal.setAttribute("aria-hidden","true"); document.documentElement.style.overflow=""; if(lastFocus) lastFocus.focus(); }
-  root.querySelectorAll(".tq-card").forEach(function(c){
-    c.addEventListener("click", function(e){ var id=c.getAttribute("data-id"); if(id&&DATA[id]){ e.preventDefault(); openModal(id); } });
-  });
-  modal.addEventListener("click", function(e){ if(e.target.hasAttribute("data-close")) closeModal(); });
-  document.addEventListener("keydown", function(e){ if(e.key==="Escape" && modal.classList.contains("open")) closeModal(); });
-})();
-</script>
 
 
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script>
 
-// Site-wide floating light/dark toggle. Remembers the visitor's choice.
+// Light / dark button. It sits in the navbar and remembers the visitor's choice.
 
 (function () {
 
@@ -731,15 +360,15 @@ html[data-theme="dark"] .tqm-dialog{ background:#0e1530; }
 
   btn.type = 'button';
 
-  btn.setAttribute('aria-label', 'Toggle light and dark theme');
+  btn.setAttribute('aria-label', 'Switch between light and dark theme');
 
-  btn.setAttribute('title', 'Toggle light and dark');
+  btn.setAttribute('title', 'Light or dark');
 
   btn.innerHTML =
 
-    '<svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>' +
+    '<svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>' +
 
-    '<svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>';
+    '<svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>';
 
 
 
@@ -761,17 +390,29 @@ html[data-theme="dark"] .tqm-dialog{ background:#0e1530; }
 
 
 
-  function init() { apply(cur()); document.body.appendChild(btn); sync(); }
+  function init() {
+
+    apply(cur());
+
+    // Preferred place: the navbar tools area, which stays visible on phones.
+
+    // Fallback: a fixed button in the corner if the navbar is missing.
+
+    var tools = document.querySelector('#quarto-header .quarto-navbar-tools');
+
+    (tools || document.body).appendChild(btn);
+
+    sync();
+
+  }
 
   if (document.readyState !== 'loading') { init(); } else { document.addEventListener('DOMContentLoaded', init); }
 
-  // Default theme is light; it only changes when the visitor clicks the toggle.
 
 
+  // Add a hairline under the navbar once the page is scrolled.
 
-  // Frost the navbar once the page is scrolled, so content does not show through the transparent bar.
-
-  var onScroll = function () { document.body.classList.toggle('scrolled', window.scrollY > 8); };
+  var onScroll = function () { if (document.body) document.body.classList.toggle('scrolled', window.scrollY > 8); };
 
   window.addEventListener('scroll', onScroll, { passive: true });
 
@@ -783,155 +424,45 @@ html[data-theme="dark"] .tqm-dialog{ background:#0e1530; }
 
 <script>
 
-(function(){
+// Small behaviours shared by every page. Loaded after the body by _quarto.yml.
 
-  function add(){
+(function () {
 
-    var nc = document.querySelector('.navbar-container');
+  // "See more" lists (.more in _theme/theme.scss). The button shows or hides the
 
-    if (nc && !document.getElementById('navContact')) {
+  // extra rows named in its aria-controls. When the rows close, the page is
 
-      var wrap = document.createElement('div');
+  // scrolled by the same amount, so the button stays under the finger or pointer.
 
-      wrap.id = 'navContact';
+  document.querySelectorAll('.more__btn').forEach(function (btn) {
 
-      wrap.className = 'nav-contact';
+    var rows  = document.getElementById(btn.getAttribute('aria-controls'));
 
-      wrap.setAttribute('role', 'button');
+    var label = btn.querySelector('.more__label');
 
-      wrap.setAttribute('tabindex', '0');
+    var note  = btn.querySelector('.more__note');
 
-      wrap.setAttribute('aria-label', 'Contact via LinkedIn or Email');
+    if (!rows || !label) return;
 
-      wrap.innerHTML =
+    btn.addEventListener('click', function () {
 
-        '<span class="nc-extra">' +
+      var open = btn.getAttribute('aria-expanded') !== 'true';
 
-          '<a class="nc-ico" href="https://www.linkedin.com/in/thinh-ong/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>' +
+      var top  = btn.getBoundingClientRect().top;
 
-          '<a class="nc-ico" href="mailto:ongphucthinh@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>' +
+      rows.hidden = !open;
 
-        '</span>' +
+      btn.setAttribute('aria-expanded', String(open));
 
-        '<span class="nc-label">Contact</span>';
+      label.textContent = open ? btn.dataset.close : btn.dataset.open;
 
-      nc.appendChild(wrap);
+      if (note) note.hidden = open;
 
-      wrap.addEventListener('click', function (e) {
+      if (!open) window.scrollBy({ top: btn.getBoundingClientRect().top - top, behavior: 'instant' });
 
-        if (e.target.closest('a.nc-ico')) return;
+    });
 
-        e.preventDefault();
-
-        wrap.classList.toggle('open');
-
-      });
-
-      wrap.addEventListener('keydown', function (e) {
-
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); wrap.classList.toggle('open'); }
-
-      });
-
-      document.addEventListener('click', function (e) {
-
-        if (!wrap.contains(e.target)) wrap.classList.remove('open');
-
-      });
-
-    }
-
-  }
-
-  if (document.readyState !== 'loading') add();
-
-  else document.addEventListener('DOMContentLoaded', add);
-
-})();
-
-
-
-// Sliding pill that glides between navbar links and rests on the current page
-
-(function(){
-
-  var nav, links, pill;
-
-  function activeLink(){ return nav.querySelector('.nav-link.active') || nav.querySelector('.nav-link[aria-current="page"]'); }
-
-  function place(link, animate){
-
-    if (!link) return;
-
-    if (!animate) pill.style.transition = 'none';
-
-    pill.style.opacity = '1';
-
-    pill.style.width = link.offsetWidth + 'px';
-
-    pill.style.height = link.offsetHeight + 'px';
-
-    pill.style.transform = 'translate(' + link.offsetLeft + 'px,' + link.offsetTop + 'px)';
-
-    links.forEach(function (l) { l.classList.toggle('lit', l === link); });
-
-    if (!animate) { void pill.offsetWidth; pill.style.transition = ''; }
-
-  }
-
-  function rest(){
-
-    var a = activeLink();
-
-    if (a) { place(a, true); }
-
-    else { pill.style.opacity = '0'; links.forEach(function (l) { l.classList.remove('lit'); }); }
-
-  }
-
-  function reposition(){
-
-    var cur = nav.querySelector('.nav-link.lit') || activeLink();
-
-    if (cur) place(cur, false); else pill.style.opacity = '0';
-
-  }
-
-  function init(){
-
-    nav = document.querySelector('#navbarCollapse .navbar-nav');
-
-    if (!nav) return;
-
-    links = [].slice.call(nav.querySelectorAll('.nav-link'));
-
-    if (!links.length || nav.querySelector('.nav-pill')) return;
-
-    nav.style.position = 'relative';
-
-    pill = document.createElement('span');
-
-    pill.className = 'nav-pill';
-
-    nav.insertBefore(pill, nav.firstChild);
-
-    links.forEach(function (l) { l.addEventListener('mouseenter', function () { place(l, true); }); });
-
-    nav.addEventListener('mouseleave', rest);
-
-    reposition();
-
-    setTimeout(reposition, 300);
-
-    window.addEventListener('load', reposition);
-
-    var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(reposition, 120); });
-
-  }
-
-  if (document.readyState !== 'loading') init();
-
-  else document.addEventListener('DOMContentLoaded', init);
+  });
 
 })();
 
@@ -1331,6 +862,19 @@ html[data-theme="dark"] .tqm-dialog{ background:#0e1530; }
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Thinh Ong</p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="mailto:ongphucthinh@gmail.com">ongphucthinh@gmail.com</a></p>
+</div>
+    <div class="nav-footer-right">
+<p><a href="https://github.com/thinhong">GitHub</a> <a href="https://www.linkedin.com/in/thinh-ong">LinkedIn</a></p>
+</div>
+  </div>
+</footer>
 
 
 
