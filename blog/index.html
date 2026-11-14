@@ -43,7 +43,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-976f792e4d444bb38f952e8db4a4e2c2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-a17c09f0eb200d935964b315b17a9469.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -81,9 +81,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-website','listing-format','listing-language','listing-comments','listing-reading-time','listing-title','listing-description','listing-date','listing-categories','listing-author','listing-image','listing-image-alt','listing-title-block-banner','listing-open-graph','listing-twitter-card','listing-citation','listing-aliases','listing-draft','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-word-count-sort'] }],
+      valueNames: ['listing-project','listing-website','listing-format','listing-language','listing-comments','listing-reading-time','listing-topics','listing-filters','listing-title','listing-description','listing-date','listing-categories','listing-author','listing-image','listing-image-alt','listing-title-block-banner','listing-open-graph','listing-twitter-card','listing-citation','listing-aliases','listing-draft','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-word-count','listing-resources','listing-execute','listing-reading-minutes',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-comments","listing-reading-time","listing-title","listing-description","listing-date","listing-categories","listing-author","listing-image","listing-image-alt","listing-title-block-banner","listing-open-graph","listing-twitter-card","listing-citation","listing-aliases","listing-draft","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-word-count"],
+      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-comments","listing-reading-time","listing-topics","listing-filters","listing-title","listing-description","listing-date","listing-categories","listing-author","listing-image","listing-image-alt","listing-title-block-banner","listing-open-graph","listing-twitter-card","listing-citation","listing-aliases","listing-draft","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-word-count","listing-resources","listing-execute","listing-reading-minutes"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -190,7 +190,7 @@ window.Quarto = {
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed hue-ma quarto-light">
+<body class="nav-fixed sec-blog hue-ma quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -264,15 +264,16 @@ window.Quarto = {
     </div>
   </header>
 
-  <div class="blg-filter" id="blg-filter" aria-label="Filter posts by topic">
-    <div class="blg-filter__opts" id="blg-fopts"><span class="blg-filter__h">Topic</span></div>
-    <span class="blg-count" id="blg-count"></span>
+  <div class="blg-filter" id="blg-filter" role="group" aria-label="Filter posts by tag">
+    <div class="blg-filter__opts" id="blg-fopts"><span class="blg-filter__h">Show</span></div>
+    <span class="blg-count" id="blg-count" aria-live="polite"></span>
   </div>
 <div id="listing-postlist" class="quarto-listing quarto-listing-container-custom">
 <div id="blg-grid" class="blg-grid">
-<p><a class="blg-card blg-lead" href="../blog/supervise-a-junior/index.html" data-topic="leadership"><span class="cover"><img src="../img/blog-art/cover-supervise.svg" alt="" width="640" height="400" loading="eager" decoding="async"></span><span class="blg-txt"><span class="blg-meta"><span class="pill hue-ma">Leadership</span><span>11 July 2026</span><span>4 min read</span></span><span class="blg-name">How to supervise and advise someone more junior</span><span class="blg-more">Read the post</span></span></a></p>
-<p><a class="blg-card" href="../blog/chair-a-conference-session/index.html" data-topic="leadership"><span class="cover"><img src="../img/blog-art/cover-chair-conference.svg" alt="" width="640" height="400" loading="lazy" decoding="async"></span><span class="blg-txt"><span class="blg-meta"><span class="pill hue-ma">Leadership</span><span>23 June 2026</span><span>6 min read</span></span><span class="blg-name">How to chair a conference session</span><span class="blg-more">Read the post</span></span></a></p>
-<p><a class="blg-card" href="../blog/chair-a-meeting/index.html" data-topic="leadership"><span class="cover"><img src="../img/blog-art/cover-chair-meeting.svg" alt="" width="640" height="400" loading="lazy" decoding="async"></span><span class="blg-txt"><span class="blg-meta"><span class="pill hue-ma">Leadership</span><span>26 August 2023</span><span>6 min read</span></span><span class="blg-name">10 simple tips to chair a meeting</span><span class="blg-more">Read the post</span></span></a></p>
+<p><a class="blg-card hue-in blg-lead" href="../blog/equation-discovery/index.html" data-topic="modelling" data-label="Modelling" data-hue="in" data-tags="modelling til"><span class="cover"><img src="../img/blog-art/cover-equation-discovery.svg" alt="" width="640" height="400" loading="eager" decoding="async"></span><span class="blg-txt"><span class="blg-meta"><span class="pill">Modelling</span><span class="pill pill--kind">Today I learned</span><span>12 November 2026</span><span>12 min read</span></span><span class="blg-name">Equation discovery: SINDy and global modelling</span><span class="blg-more">Read the post</span></span></a></p>
+<p><a class="blg-card hue-te" href="../blog/supervise-a-junior/index.html" data-topic="leadership" data-label="Leadership" data-hue="te" data-tags="leadership"><span class="cover"><img src="../img/blog-art/cover-supervise.svg" alt="" width="640" height="400" loading="lazy" decoding="async"></span><span class="blg-txt"><span class="blg-meta"><span class="pill">Leadership</span><span>11 July 2026</span><span>4 min read</span></span><span class="blg-name">How to supervise and advise someone more junior</span><span class="blg-more">Read the post</span></span></a></p>
+<p><a class="blg-card hue-te" href="../blog/chair-a-conference-session/index.html" data-topic="leadership" data-label="Leadership" data-hue="te" data-tags="leadership"><span class="cover"><img src="../img/blog-art/cover-chair-conference.svg" alt="" width="640" height="400" loading="lazy" decoding="async"></span><span class="blg-txt"><span class="blg-meta"><span class="pill">Leadership</span><span>23 June 2026</span><span>6 min read</span></span><span class="blg-name">How to chair a conference session</span><span class="blg-more">Read the post</span></span></a></p>
+<p><a class="blg-card hue-te" href="../blog/chair-a-meeting/index.html" data-topic="leadership" data-label="Leadership" data-hue="te" data-tags="leadership"><span class="cover"><img src="../img/blog-art/cover-chair-meeting.svg" alt="" width="640" height="400" loading="lazy" decoding="async"></span><span class="blg-txt"><span class="blg-meta"><span class="pill">Leadership</span><span>26 August 2023</span><span>6 min read</span></span><span class="blg-name">10 simple tips to chair a meeting</span><span class="blg-more">Read the post</span></span></a></p>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
@@ -286,32 +287,61 @@ window.Quarto = {
 </div>
 
 <script>
-// Topic filter, built from the topics that have posts. No library.
+// Tag filter, built from the tags that have posts. No library.
+// Each card carries its topic (data-topic, data-label, data-hue) and its tags (data-tags: the
+// topic, plus "til" for a Today I learned note). listing-mosaic.ejs writes them from the topic
+// list in blog/_metadata.yml, so the labels and colours live in one place. Each filter looks
+// like the tag it shows: a topic in its colour, Today I learned as an outline.
+// The address keeps the choice, so /blog/#til links to the TIL notes.
+// Quarto links the tags at the top of each post to /blog/#category=<tag>; that works too.
 (function () {
+  // The cards come from a custom template, so Quarto's own listing script never builds its
+  // list. Give it an empty one, so it does not throw an error when the address (#...) changes.
+  window['quarto-listings'] = window['quarto-listings'] || {};
   var grid = document.getElementById('blg-grid'), opts = document.getElementById('blg-fopts'), count = document.getElementById('blg-count');
   if (!grid || !opts) return;
   var cards = Array.prototype.slice.call(grid.querySelectorAll('.blg-card'));
-  var LABEL = { modelling: 'Modelling', code: 'R & code', academia: 'Academia', productivity: 'Productivity', reflections: 'Reflections', leadership: 'Leadership' };
-  var tally = {}, order = [];
-  cards.forEach(function (c) { var t = c.getAttribute('data-topic'); if (!tally[t]) { tally[t] = 0; order.push(t); } tally[t]++; });
+  function tagsOf(c) { return (c.getAttribute('data-tags') || '').split(' '); }
+  // the topics in order of their newest post, and how many posts each tag has
+  var tally = {}, topics = [];
+  cards.forEach(function (c) {
+    var t = c.getAttribute('data-topic');
+    if (t && !tally[t]) { tally[t] = 0; topics.push({ key: t, label: c.getAttribute('data-label'), hue: c.getAttribute('data-hue') }); }
+    if (t) tally[t]++;
+    if (tagsOf(c).indexOf('til') >= 0) tally.til = (tally.til || 0) + 1;
+  });
   function label(n) { return n + (n === 1 ? ' post' : ' posts') + ', newest first'; }
-  function add(key, text, n, on) {
-    var b = document.createElement('button');
-    b.type = 'button'; b.className = 'blg-fopt'; b.setAttribute('aria-pressed', on ? 'true' : 'false'); b.dataset.filter = key;
-    b.innerHTML = '<span>' + text + '<i>' + n + '</i></span>';
+  function add(key, text, n, cls) {
+    var b = document.createElement('button'), s = document.createElement('span'), i = document.createElement('i');
+    b.type = 'button'; b.className = 'blg-fopt' + (cls ? ' ' + cls : ''); b.setAttribute('aria-pressed', 'false'); b.dataset.filter = key;
+    s.textContent = text; i.textContent = n; s.appendChild(i); b.appendChild(s);
     opts.appendChild(b);
   }
-  add('all', 'All posts', cards.length, true);
-  order.forEach(function (t) { add(t, LABEL[t] || t, tally[t], false); });
-  count.textContent = label(cards.length);
+  // All posts, then Today I learned (a kind of post), then the topics
+  add('all', 'All posts', cards.length);
+  if (tally.til) add('til', 'Today I learned', tally.til, 'blg-fopt--kind');
+  topics.forEach(function (t) { add(t.key, t.label, tally[t.key], 'blg-fopt--topic hue-' + t.hue); });
+  function apply(f) {
+    if (f !== 'all' && !tally[f]) f = 'all';
+    var shown = 0;
+    opts.querySelectorAll('.blg-fopt').forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.filter === f ? 'true' : 'false'); });
+    cards.forEach(function (c) { var show = f === 'all' || tagsOf(c).indexOf(f) >= 0; c.hidden = !show; if (show) shown++; });
+    count.textContent = label(shown);
+    return f;
+  }
+  function fromHash() {
+    var h;
+    try { h = decodeURIComponent(location.hash.slice(1)).toLowerCase().replace(/^category=/, ''); } catch (e) { return 'all'; }
+    return h === 'today i learned' ? 'til' : (h || 'all');
+  }
+  apply(fromHash());
   opts.addEventListener('click', function (e) {
     var b = e.target.closest ? e.target.closest('.blg-fopt') : null;
     if (!b) return;
-    var f = b.dataset.filter, shown = 0;
-    opts.querySelectorAll('.blg-fopt').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-    cards.forEach(function (c) { var show = f === 'all' || c.getAttribute('data-topic') === f; c.hidden = !show; if (show) shown++; });
-    count.textContent = label(shown);
+    var f = apply(b.dataset.filter);
+    history.replaceState(null, '', f === 'all' ? location.pathname + location.search : '#' + f);
   });
+  window.addEventListener('hashchange', function () { apply(fromHash()); });
 })();
 </script>
 
