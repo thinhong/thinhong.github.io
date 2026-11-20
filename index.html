@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bfda7b955655d1c4c147908ec5fb2984.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ea849c07eac4cf7f71ecdb746dd96620.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -299,7 +299,7 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
       <div class="pg-row">
         <span class="r-years">2026</span>
         <span class="r-title">Certificate of Commendation</span>
-        <span class="r-detail">Ho Chi Minh City Department of Health<small>For outstanding contributions to the city's public health through infectious disease research</small></span>
+        <span class="r-detail">Ho Chi Minh City Department of Health<small>For outstanding contributions to the city's public health through infectious disease research</small><span class="pg-links"><a class="tl" href="img/awards/2026-commendation-certificate.jpg" target="_blank" rel="noopener" data-lb="2026-commendation" data-lb-title="Certificate of Commendation" data-lb-meta="Certificate, 2026" aria-label="Certificate: Certificate of Commendation, 2026">Certificate<svg viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a><a class="tl" href="img/awards/2026-commendation-photo.jpg" target="_blank" rel="noopener" data-lb="2026-commendation" data-lb-title="Certificate of Commendation" data-lb-meta="Photo, 2026" aria-label="Photo: Certificate of Commendation, 2026">Photo<svg viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a></span></span>
       </div>
       <div class="pg-row">
         <span class="r-years">2022-2026</span>
@@ -309,7 +309,7 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
       <div class="pg-row">
         <span class="r-years">2019</span>
         <span class="r-title">Outstanding Presentation</span>
-        <span class="r-detail">36th Science and Technology Conference<small>Ho Chi Minh City, Vietnam</small></span>
+        <span class="r-detail">36th Science and Technology Conference<small>Ho Chi Minh City, Vietnam</small><span class="pg-links"><a class="tl" href="img/awards/2019-outstanding-presentation-certificate.jpg" target="_blank" rel="noopener" data-lb="2019-outstanding-presentation" data-lb-title="Outstanding Presentation" data-lb-meta="Certificate, 2019" aria-label="Certificate: Outstanding Presentation, 2019">Certificate<svg viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a><a class="tl" href="img/awards/2019-outstanding-presentation-photo.jpg" target="_blank" rel="noopener" data-lb="2019-outstanding-presentation" data-lb-title="Outstanding Presentation" data-lb-meta="Photo, 2019" aria-label="Photo: Outstanding Presentation, 2019">Photo<svg viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a></span></span>
       </div>
     </div>
     <div class="pg-links"><a class="tl" href="about/index.html#honours">All 6 honours<svg viewbox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a></div>
@@ -525,6 +525,288 @@ gtag('config', 'G-RVRBE7Y1R2', { 'anonymize_ip': true});
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(markAll);
 
   }
+
+
+
+  // Picture viewer (.lb in _theme/theme.scss). A link with data-lb opens its picture in a card
+
+  // over the page, in place of a new tab. Links with the same data-lb value are one set: the
+
+  // reader moves through it with the arrow buttons, the arrow keys or a sideways swipe.
+
+  // data-lb-title and data-lb-meta give the two caption lines. The link stays a normal link, so
+
+  // Ctrl, Cmd, Shift or a middle click still opens the file in a new tab, and so does a browser
+
+  // with no <dialog>. The card is built on the first click, so a page pays nothing before that.
+
+  var pics = document.querySelectorAll('a[data-lb]');
+
+  if (pics.length && window.HTMLDialogElement) (function () {
+
+    var root = document.documentElement, calm = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    var dlg, img, note, ttl, meta, count, nav, full;
+
+    var set = [], at = 0, seq = 0, opener = null, wait = 0, closing = 0, downOut = false;
+
+    var icon = function (d) { return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="' + d + '"/></svg>'; };
+
+    var zoomed = function () { return !!window.visualViewport && window.visualViewport.scale > 1.02; };
+
+    var outside = function (e) {
+
+      var r = dlg.getBoundingClientRect();
+
+      return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
+
+    };
+
+    var say = function (text) { note.textContent = text; note.hidden = !text; };
+
+
+
+    // Show picture i of the set. dir: 1 = asked for the next one, -1 = the one before, 0 = just opened.
+
+    // The file loads in the background first, so the mat is never half drawn.
+
+    var show = function (i, dir) {
+
+      at = (i + set.length) % set.length;
+
+      var a = set[at], src = a.href, n = ++seq, pre = new Image();
+
+      ttl.textContent = a.getAttribute('data-lb-title') || a.textContent.trim();
+
+      meta.textContent = a.getAttribute('data-lb-meta') || '';
+
+      count.textContent = (at + 1) + ' / ' + set.length;
+
+      full.href = src;
+
+      img.className = 'lb__img';                                  // hidden until the file is here
+
+      img.alt = a.getAttribute('aria-label') || ttl.textContent;
+
+      say(''); clearTimeout(wait);
+
+      wait = setTimeout(function () { say('Loading the picture'); }, 500);   // said only on a slow connection
+
+      pre.onload = function () {
+
+        if (n !== seq) return;                                    // the reader has moved on
+
+        clearTimeout(wait); say('');
+
+        img.src = src;
+
+        void img.offsetWidth;                                     // lets the entrance start again
+
+        img.className = 'lb__img is-in' + (dir > 0 ? ' from-r' : dir < 0 ? ' from-l' : '');
+
+        if (set.length > 1) new Image().src = set[(at + 1) % set.length].href;   // the next one is ready before it is asked for
+
+      };
+
+      pre.onerror = function () {
+
+        if (n !== seq) return;
+
+        clearTimeout(wait); say('This picture did not load. The "Full size" link opens the file.');
+
+      };
+
+      pre.src = src;
+
+    };
+
+
+
+    var close = function () {
+
+      if (!dlg.open || closing) return;
+
+      if (calm.matches) { dlg.close(); return; }
+
+      dlg.classList.add('is-closing');                            // a short fade, then the real close
+
+      closing = setTimeout(function () { dlg.close(); }, 150);
+
+    };
+
+
+
+    var build = function () {
+
+      dlg = document.createElement('dialog');
+
+      dlg.className = 'lb';
+
+      dlg.setAttribute('aria-labelledby', 'lb-title');
+
+      dlg.innerHTML =
+
+        '<p class="lb__cap"><span class="lb__title" id="lb-title"></span><span class="lb__meta" aria-live="polite"></span></p>' +
+
+        '<a class="lb__full tl" target="_blank" rel="noopener">Full size' + icon('M7 17L17 7M8 7h9v9') + '</a>' +
+
+        '<button class="lb__btn lb__close" type="button" aria-label="Close" autofocus>' + icon('M6 6l12 12M18 6L6 18') + '</button>' +
+
+        '<div class="lb__stage"><img class="lb__img" alt="" draggable="false" decoding="async"><p class="lb__note" hidden></p></div>' +
+
+        '<div class="lb__nav"><button class="lb__btn" type="button" aria-label="Previous picture" data-step="-1">' + icon('M14.5 5.5L8 12l6.5 6.5') + '</button>' +
+
+        '<span class="lb__count"></span>' +
+
+        '<button class="lb__btn" type="button" aria-label="Next picture" data-step="1">' + icon('M9.5 5.5L16 12l-6.5 6.5') + '</button></div>';
+
+      document.body.appendChild(dlg);
+
+      var get = function (c) { return dlg.querySelector(c); }, stage = get('.lb__stage');
+
+      img = get('.lb__img'); note = get('.lb__note'); ttl = get('.lb__title'); meta = get('.lb__meta');
+
+      count = get('.lb__count'); nav = get('.lb__nav'); full = get('.lb__full');
+
+
+
+      dlg.addEventListener('pointerdown', function (e) { downOut = e.target === dlg && outside(e); });
+
+      dlg.addEventListener('click', function (e) {
+
+        var b = e.target.closest('button');
+
+        if (b && b.dataset.step) show(at + +b.dataset.step, +b.dataset.step);
+
+        else if (b || (e.target === dlg && downOut && outside(e))) close();   // the close button, or the dimmed page
+
+      });
+
+      dlg.addEventListener('keydown', function (e) {
+
+        if (set.length < 2 || e.altKey || e.ctrlKey || e.metaKey) return;
+
+        if (e.key === 'ArrowLeft') { e.preventDefault(); show(at - 1, -1); }
+
+        else if (e.key === 'ArrowRight') { e.preventDefault(); show(at + 1, 1); }
+
+      });
+
+      // Esc, and the Back button on Android, ask the dialog to close: give them the same short fade.
+
+      dlg.addEventListener('cancel', function (e) { if (e.cancelable && !calm.matches) { e.preventDefault(); close(); } });
+
+      dlg.addEventListener('close', function () {
+
+        clearTimeout(closing); clearTimeout(wait); closing = 0; seq++;
+
+        dlg.classList.remove('is-closing');
+
+        root.classList.remove('lb-open');
+
+        root.style.removeProperty('--lb-sb');
+
+        if (opener) opener.focus({ preventScroll: true });        // back to the link the reader came from
+
+      });
+
+
+
+      // A sideways swipe (finger, pen or mouse drag) changes the picture. While the page is zoomed
+
+      // in with two fingers, a swipe moves the zoomed view instead.
+
+      var sx = 0, sy = 0, down = false;
+
+      stage.addEventListener('pointerdown', function (e) {
+
+        down = e.isPrimary && !e.button; sx = e.clientX; sy = e.clientY;
+
+        if (down && e.pointerType === 'mouse') try { stage.setPointerCapture(e.pointerId); } catch (err) {}
+
+      });
+
+      stage.addEventListener('pointerup', function (e) {
+
+        if (!down) return;
+
+        down = false;
+
+        var dx = e.clientX - sx, dy = e.clientY - sy;
+
+        if (set.length > 1 && !zoomed() && Math.abs(dx) > 48 && Math.abs(dx) > 1.5 * Math.abs(dy)) show(at + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+
+      });
+
+      stage.addEventListener('pointercancel', function () { down = false; });
+
+      // Nothing scrolls while the card is open, so a move of one finger is never the browser's.
+
+      // Taking it here also keeps Chrome from starting a fling after a swipe, which would
+
+      // swallow a tap that follows at once. Two fingers and a zoomed view stay with the browser.
+
+      dlg.addEventListener('touchmove', function (e) {
+
+        if (e.touches.length === 1 && e.cancelable && !zoomed()) e.preventDefault();
+
+      }, { passive: false });
+
+      if (window.visualViewport) window.visualViewport.addEventListener('resize', function () {
+
+        if (dlg.open) dlg.classList.toggle('is-zoomed', zoomed());
+
+      });
+
+    };
+
+
+
+    var open = function (a) {
+
+      if (!dlg) build();
+
+      if (dlg.open) return;
+
+      var name = a.getAttribute('data-lb'), part = a.closest('[class*="hue-"]'), hue = part && part.className.match(/\bhue-[a-z]+\b/);
+
+      set = name ? Array.prototype.filter.call(document.querySelectorAll('a[data-lb]'), function (x) { return x.getAttribute('data-lb') === name; }) : [a];
+
+      opener = a;
+
+      dlg.className = 'lb' + (hue ? ' ' + hue[0] : '') + (zoomed() ? ' is-zoomed' : '');   // the card takes the colour of its part
+
+      nav.hidden = set.length < 2;
+
+      show(set.indexOf(a), 0);
+
+      // The room the scrollbar takes (0 on a phone and on most Macs), measured before the page is locked.
+
+      root.style.setProperty('--lb-sb', (zoomed() ? 0 : Math.max(0, window.innerWidth - root.clientWidth)) + 'px');
+
+      root.classList.add('lb-open');
+
+      dlg.showModal();
+
+    };
+
+
+
+    Array.prototype.forEach.call(pics, function (a) { a.setAttribute('aria-haspopup', 'dialog'); });
+
+    document.addEventListener('click', function (e) {
+
+      var a = e.target.closest ? e.target.closest('a[data-lb]') : null;
+
+      if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+      e.preventDefault();
+
+      open(a);
+
+    });
+
+  })();
 
 })();
 
