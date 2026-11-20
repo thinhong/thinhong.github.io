@@ -1,7 +1,7 @@
 // equation-discovery.js
 //
 // Small, dependency-free code behind the interactive figures in the post
-// "Equation discovery: SINDy and global modelling".
+// "Equation discovery" (SINDy and global modelling).
 //
 // The functions follow the R code from the talk
 // (https://github.com/quingzz/equation_discovery_ppt) and the GPoM package
