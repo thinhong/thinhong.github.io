@@ -6,6 +6,11 @@
     "coords": [10.8231, 106.6297],
     "note": "My hometown"
   },
+  "regions": [
+    { "name": "Southeast Asia", "countries": ["THA", "SGP", "IDN"] },
+    { "name": "Europe", "countries": ["GBR", "FRA", "ITA"] },
+    { "name": "North America", "countries": ["USA"] }
+  ],
   "trips": [
     {
       "country": "Indonesia",

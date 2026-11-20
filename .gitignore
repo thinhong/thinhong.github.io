@@ -9,10 +9,14 @@
 /.quarto/
 /design-mockups
 
-# generated CV artifacts (rebuilt by cv/build-cv.R on every full render)
+# generated CV files (built by cv/build-cv.R; deploy.sh rebuilds them when the data changed)
 /cv/cv.html
 /cv/cv.pdf
-/cv/.cv-cache.rds
+/cv/.cv-built
+
+# shared data cache (Google Sheet + Zotero + Scholar), written by R/site-data.R.
+# Not tracked: it holds the whole Sheet, including columns that are not published.
+/data/
 
 render.sh
 .positai

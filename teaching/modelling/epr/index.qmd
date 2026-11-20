@@ -1,0 +1,60 @@
+---
+pagetitle: "Epidemic Preparedness and Response - Thinh Ong"
+description: "This training helps staff at the HCMC Centre for Disease Control prepare for, detect and respond to outbreaks, with methods used by national public health agencies."
+page-layout: full
+toc: false
+comments: false
+anchor-sections: false
+body-classes: hue-te
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{=html}
+<div class="pg">
+  <a class="back" href="../../index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Teaching</a>
+
+  <header class="pg-head pg-head--pic">
+    <div class="pg-head__main">
+```
+
+```{r}
+#| output: asis
+# The line above the title, the facts under the head and the "More in ..."
+# cards come from the Sheet (R/teaching.R), the same rows as the CV. The text
+# of this page (title, lead, links, photos) stays here.
+source("../../../R/site-data.R")
+source("../../../R/teaching.R")
+tc <- teaching_courses()
+id <- "epr"
+cat(html_block(course_meta_html(tc, id)))
+```
+
+```{=html}
+      <h1 class="pg-title rise d1">Epidemic Preparedness and Response</h1>
+      <p class="pg-lead rise d2">This training helps staff at the HCMC Centre for Disease Control run their own analyses for epidemic preparedness and response on a routine basis. It teaches methods used by national agencies such as the UK Health Security Agency and the US CDC, so the team can prepare for, detect and respond to outbreaks.</p>
+      <div class="pg-links"><a class="tl" href="https://drthinhong.com/epr/" target="_blank" rel="noopener">Course homepage<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>
+    </div>
+    <div class="pg-head__pic hue-te rise d2"><span class="plate"><svg class="ic" viewBox="0 0 120 80" aria-hidden="true"><rect class="l3" x="16" y="54" width="7" height="12" rx="1.5"/><rect class="l3" x="26" y="50" width="7" height="16" rx="1.5"/><rect class="l3" x="36" y="56" width="7" height="10" rx="1.5"/><rect class="l3" x="46" y="48" width="7" height="18" rx="1.5"/><rect class="l3" x="56" y="52" width="7" height="14" rx="1.5"/><rect class="l" x="66" y="36" width="7" height="30" rx="1.5"/><rect class="l" x="76" y="22" width="7" height="44" rx="1.5"/><rect class="l" x="86" y="40" width="7" height="26" rx="1.5"/><rect class="l3" x="96" y="50" width="7" height="16" rx="1.5"/><path class="fs" stroke-width="1.6" stroke-dasharray="3 4" d="M8 44h104"/><path class="fs" stroke-width="1.6" d="M8 66h104"/><circle class="f" cx="79.5" cy="13" r="3.6"/></svg></span></div>
+  </header>
+
+```
+
+```{r}
+#| output: asis
+cat(html_block(course_facts_html(tc, id)))
+cat(html_block(course_more_html(tc, id)))
+```
+
+```{=html}
+  <nav class="pg-next hue-te" aria-label="Back to">
+    <a href="../../index.html">
+      <span class="nx-main"><span class="nx-label">Back to</span><span class="nx-title">Teaching</span></span>
+      <span class="nx-text">All courses and talks.</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+    </a>
+  </nav>
+</div>
+```

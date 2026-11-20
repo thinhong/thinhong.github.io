@@ -1,10 +1,12 @@
 ---
 pagetitle: "Blog - Thinh Ong"
 description: "Writing on infectious disease modelling, R, and the craft of research."
+image: /img/og-default.png   # link preview picture (the site default; without this line Quarto picks the first image on the page)
 page-layout: full
 toc: false
 comments: false
 anchor-sections: false
+body-classes: sec-blog hue-ma   # the blog page keeps the blog's own colour; each card takes its topic's
 listing:
   id: postlist
   template: listing-mosaic.ejs
@@ -16,25 +18,20 @@ listing:
 ---
 
 ```{=html}
-<section class="pg">
-  <!-- blog index: hero, topic dropdown, listing -->
-  <div class="pg-hero">
-    <div class="pg-hero__head">
-      <span class="pg-eyebrow">Writing</span>
-      <h1 class="pg-title">Blog <span class="pg-title-thin">&amp; Notes</span></h1>
+<div class="pg">
+  <header class="pg-head">
+    <div class="pg-head__main">
+      <p class="pg-eyebrow rise">Writing</p>
+      <h1 class="pg-title rise d1">Blog &amp; notes</h1>
     </div>
-    <div class="pg-hero__aside">
-      <p class="pg-lead">A place to think out loud about disease modelling, code, and the work of science.</p>
+    <div class="pg-head__aside rise d2">
+        <p class="pg-lead">A place to think out loud about disease modelling, code, and the work of science.</p>
     </div>
-  </div>
+  </header>
 
-  <div class="blg-filter" id="blg-filter">
-    <button class="blg-fbtn" id="blg-fbtn" type="button" aria-haspopup="listbox" aria-expanded="false">
-      <span class="blg-fdot" id="blg-fdot" hidden></span>
-      <span class="blg-flabel" id="blg-flabel">All posts</span>
-      <svg class="blg-fchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-    </button>
-    <div class="blg-fmenu" id="blg-fmenu" role="listbox" aria-label="Filter by topic"></div>
+  <div class="blg-filter" id="blg-filter" role="group" aria-label="Filter posts by tag">
+    <div class="blg-filter__opts scroll-x" id="blg-fopts"><span class="blg-filter__h">Show</span></div>
+    <span class="blg-count" id="blg-count" aria-live="polite"></span>
   </div>
 ```
 
@@ -42,65 +39,77 @@ listing:
 :::
 
 ```{=html}
-</section>
+  <nav class="pg-next hue-bl" aria-label="Next page">
+    <a href="../about/index.html">
+      <span class="nx-main"><span class="nx-label">Next page</span><span class="nx-title">About</span></span>
+      <span class="nx-text">Education, experience, impact, funding and the places research has taken me.</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+    </a>
+  </nav>
+</div>
 
 <script>
+// Tag filter, built from the tags that have posts. No library.
+// Each card carries its topic (data-topic, data-label, data-hue) and its tags (data-tags: the
+// topic, plus "til" for a Today I learned note). listing-mosaic.ejs writes them from the topic
+// list in blog/_metadata.yml, so the labels and colours live in one place. Each filter looks
+// like the tag it shows: a topic in its colour, Today I learned as an outline.
+// The address keeps the choice, so /blog/#til links to the TIL notes.
+// Quarto links the tags at the top of each post to /blog/#category=<tag>; that works too.
 (function () {
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var grid = document.getElementById('blg-grid');
-  if (!grid) return;
+  // The cards come from a custom template, so Quarto's own listing script never builds its
+  // list. Give it an empty one, so it does not throw an error when the address (#...) changes.
+  window['quarto-listings'] = window['quarto-listings'] || {};
+  var grid = document.getElementById('blg-grid'), opts = document.getElementById('blg-fopts'), count = document.getElementById('blg-count');
+  if (!grid || !opts) return;
   var cards = Array.prototype.slice.call(grid.querySelectorAll('.blg-card'));
-
-  // entrance reveal (opacity + transform only)
-  if (!reduce && 'IntersectionObserver' in window) {
-    grid.classList.add('anim');
-    var rev = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); rev.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    cards.forEach(function (t) { rev.observe(t); });
+  function tagsOf(c) { return (c.getAttribute('data-tags') || '').split(' '); }
+  // the topics in order of their newest post, and how many posts each tag has
+  var tally = {}, topics = [];
+  cards.forEach(function (c) {
+    var t = c.getAttribute('data-topic');
+    if (t && !tally[t]) { tally[t] = 0; topics.push({ key: t, label: c.getAttribute('data-label'), hue: c.getAttribute('data-hue') }); }
+    if (t) tally[t]++;
+    if (tagsOf(c).indexOf('til') >= 0) tally.til = (tally.til || 0) + 1;
+  });
+  function label(n) { return n + (n === 1 ? ' post' : ' posts') + ', newest first'; }
+  function add(key, text, n, cls) {
+    var b = document.createElement('button'), s = document.createElement('span'), i = document.createElement('i');
+    b.type = 'button'; b.className = 'blg-fopt' + (cls ? ' ' + cls : ''); b.setAttribute('aria-pressed', 'false'); b.dataset.filter = key;
+    s.textContent = text; i.textContent = n; s.appendChild(i); b.appendChild(s);
+    opts.appendChild(b);
   }
-
-  // topic dropdown, built from the topics that actually have posts
-  var wrap = document.getElementById('blg-filter');
-  var btn = document.getElementById('blg-fbtn');
-  var menu = document.getElementById('blg-fmenu');
-  var flabel = document.getElementById('blg-flabel');
-  var fdot = document.getElementById('blg-fdot');
-  if (!wrap || !btn || !menu) return;
-
-  var META = {
-    modelling: ['Modelling', '#3a6fd6'], code: ['R & code', '#2a9490'],
-    academia: ['Academia', '#5a62d4'], productivity: ['Productivity', '#2f9a72'],
-    reflections: ['Reflections', '#9466a0'], leadership: ['Leadership', '#5c7aa0']
-  };
-  var used = [];
-  cards.forEach(function (c) { var t = c.getAttribute('data-topic'); if (t && used.indexOf(t) < 0) used.push(t); });
-  var opts = [{ f: 'all', label: 'All posts', color: '' }].concat(used.map(function (t) {
-    var m = META[t] || [t.charAt(0).toUpperCase() + t.slice(1), '#8a929b'];
-    return { f: t, label: m[0], color: m[1] };
-  }));
-  menu.innerHTML = opts.map(function (o) {
-    return '<button type="button" class="blg-fopt' + (o.f === 'all' ? ' active' : '') + '" data-filter="' + o.f + '">' +
-      (o.color ? '<span class="blg-fopt-dot" style="background:' + o.color + '"></span>' : '<span class="blg-fopt-dot blg-fopt-all"></span>') +
-      o.label + '</button>';
-  }).join('');
-
-  function closeMenu() { wrap.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
-  function openMenu() { wrap.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
-  btn.addEventListener('click', function (e) { e.stopPropagation(); wrap.classList.contains('open') ? closeMenu() : openMenu(); });
-  menu.addEventListener('click', function (e) {
+  // All posts, then Today I learned (a kind of post), then the topics
+  add('all', 'All posts', cards.length);
+  if (tally.til) add('til', 'Today I learned', tally.til, 'blg-fopt--kind');
+  topics.forEach(function (t) { add(t.key, t.label, tally[t.key], 'blg-fopt--topic hue-' + t.hue); });
+  function apply(f) {
+    if (f !== 'all' && !tally[f]) f = 'all';
+    var shown = 0;
+    opts.querySelectorAll('.blg-fopt').forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.filter === f ? 'true' : 'false'); });
+    cards.forEach(function (c) { var show = f === 'all' || tagsOf(c).indexOf(f) >= 0; c.hidden = !show; if (show) shown++; });
+    count.textContent = label(shown);
+    // on a phone the options are one line that scrolls sideways: keep the chosen one in view
+    var on = opts.querySelector('.blg-fopt[aria-pressed="true"]');
+    if (on && opts.scrollWidth > opts.clientWidth) {
+      var o = opts.getBoundingClientRect(), r = on.getBoundingClientRect();
+      if (r.left < o.left + 6 || r.right > o.right - 36) opts.scrollLeft += r.left - o.left - 18;
+    }
+    return f;
+  }
+  function fromHash() {
+    var h;
+    try { h = decodeURIComponent(location.hash.slice(1)).toLowerCase().replace(/^category=/, ''); } catch (e) { return 'all'; }
+    return h === 'today i learned' ? 'til' : (h || 'all');
+  }
+  apply(fromHash());
+  opts.addEventListener('click', function (e) {
     var b = e.target.closest ? e.target.closest('.blg-fopt') : null;
     if (!b) return;
-    var f = b.getAttribute('data-filter');
-    menu.querySelectorAll('.blg-fopt').forEach(function (x) { x.classList.toggle('active', x === b); });
-    flabel.textContent = b.textContent.trim();
-    var o = opts.filter(function (x) { return x.f === f; })[0];
-    if (o && o.color) { fdot.style.background = o.color; fdot.hidden = false; } else { fdot.hidden = true; }
-    cards.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-topic') === f); });
-    closeMenu();
+    var f = apply(b.dataset.filter);
+    history.replaceState(null, '', f === 'all' ? location.pathname + location.search : '#' + f);
   });
-  document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) closeMenu(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+  window.addEventListener('hashchange', function () { apply(fromHash()); });
 })();
 </script>
 ```

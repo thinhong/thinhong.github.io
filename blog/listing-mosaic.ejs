@@ -1,32 +1,40 @@
 <%
-// Blog index listing: poster cards (soft tile + one huge cropped motif, title below) in a mosaic.
-// Cover art is PINNED per post via front matter `image:` pointing at a file in /img/blog-art/,
-// and each post should pin the cover that matches its banner motif. Posts without `image:` fall
-// back to the topic cover whose motif matches the shared topic banner, so the listing card and
-// the post hero always agree (position-based variant cycling caused mismatches and is gone).
-// Covers are baked SVG files (inline SVG would be escaped by the pandoc pass). Children are
-// spans to avoid block-in-anchor nesting.
-const known = ["modelling","code","academia","productivity","reflections","leadership"];
-const labels = { modelling:"Modelling", code:"R & code", academia:"Academia", productivity:"Productivity", reflections:"Reflections", leadership:"Leadership" };
-const bannerMatch = { modelling:1, code:1, academia:1, productivity:1, reflections:1, leadership:3 };
+// Blog index listing. The newest post is shown large; the rest sit in two columns.
+// Cover art is PINNED per post via front matter `image:` pointing at a file in /img/blog-art/.
+// The same file is used at the top of the post (see `title-block-banner` in the post).
+// Posts without `image:` fall back to their topic cover, cover-topic-<topic>.svg.
+// Covers are SVG files (inline SVG would be escaped by the pandoc pass, and a double hyphen
+// in a class name would be turned into a long dash). Children are spans to avoid
+// block-in-anchor nesting.
+// Colour means topic (STYLE-GUIDE.md, "Colour in the blog"). A post's topic is its first
+// category; `topics` in blog/_metadata.yml gives each topic its colour group and label, and
+// Quarto passes that list along with every post. The card takes the topic's hue class, so
+// its pill, hover colour and arrow follow it. A post that also has the category
+// "today I learned" is a TIL note: its card gets an outlined "kind" pill. The data-*
+// attributes feed the filter on the blog page (blog/index.qmd).
+const topics = (items.length && items[0].topics) || {};
 %>
 <div class="blg-grid" id="blg-grid">
 <% for (let i = 0; i < items.length; i++) {
      const item = items[i];
-     const cat = (item.categories && item.categories.length) ? String(item.categories[0]) : "";
-     const topic = (cat && known.indexOf(cat.toLowerCase()) >= 0) ? cat.toLowerCase() : "modelling";
-     const n = items.length;
-     const isLead = (i === 0);
-     const cls = isLead ? (n >= 3 ? " blg-feat" : (n === 2 ? " blg-wide" : " blg-solo")) : "";
+     const cats = (item.categories || []).map((c) => String(c));
+     const cat = cats.length ? cats[0] : "";
+     const topic = cat.toLowerCase();
+     const known = topics[topic];
+     const hue = known && known.hue ? String(known.hue) : "ne";
+     const label = known && known.label ? String(known.label) : (cat || "Notes");
+     const til = cats.some((c) => c.trim().toLowerCase() === "today i learned");
+     const tags = til ? topic + " til" : topic;
      let ds = "";
-     if (item.date) { const d = new Date(item.date); if (!isNaN(d.getTime())) ds = d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }); }
-     const rt = item["reading-time"] ? item["reading-time"] : "";
-     const cover = item.image ? item.image : "/img/blog-art/cover-" + topic + "-" + bannerMatch[topic] + ".svg";
+     if (item.date) { const d = new Date(item.date); if (!isNaN(d.getTime())) ds = d.toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" }); }
+     // reading-minutes: set by hand in posts whose hidden code would inflate Quarto's count
+     const rt = item["reading-minutes"] ? item["reading-minutes"] + " min read" : (item["reading-time"] ? item["reading-time"] + " read" : "");
+     const cover = item.image ? item.image : "/img/blog-art/cover-topic-" + (known ? topic : "modelling") + ".svg";
+     const lead = (i === 0) ? " blg-lead" : "";
+     const load = (i === 0) ? "eager" : "lazy";
+     // Keep each card on ONE line: the output passes through pandoc, and an indented
+     // line after a blank line would be turned into a code block.
 %>
-  <a class="blg-card blg-<%= topic %><%= cls %>" href="<%= item.path %>" data-topic="<%= topic %>">
-    <span class="blg-img"><img class="blg-art" src="<%= cover %>" alt="" loading="lazy"></span>
-    <span class="blg-metatop"><span class="blg-cat"><%= labels[topic] || (cat ? cat : "Notes") %></span><span class="blg-date"><%= ds %><%= (ds && rt) ? " · " : "" %><%= rt %></span></span>
-    <span class="blg-cardname"><%= item.title %></span>
-  </a>
+<a class="blg-card hue-<%= hue %><%= lead %>" href="<%= item.path %>" data-topic="<%= topic %>" data-label="<%= label %>" data-hue="<%= hue %>" data-tags="<%= tags %>"><span class="cover"><img src="<%= cover %>" alt="" width="640" height="400" loading="<%= load %>" decoding="async"></span><span class="blg-txt"><span class="blg-meta"><span class="blg-tags"><span class="pill"><%= label %></span><% if (til) { %><span class="pill pill--kind">Today I learned</span><% } %></span><span class="blg-when"><span><%= ds %></span><span><%= rt %></span></span></span><span class="blg-name"><%= item.title %></span><span class="blg-more">Read the post</span></span></a>
 <% } %>
 </div>

@@ -1,0 +1,40 @@
+---
+# A "Today I learned" note: a short write-up of one thing you learned.
+# Copy this whole folder to blog/your-note-slug/ to start one. The leading underscore keeps
+# this template off the site. Keep draft: true while you write; set draft: false to publish.
+title: "What you learned, in a few words"
+description: "One sentence on what the note shows"
+date: 2026-01-01              # publication date, format YYYY-MM-DD
+categories: [modelling, today I learned]   # the topic first (modelling, code, academia, productivity, reflections, leadership), then the tag
+author:
+  - name: Thinh Ong
+    url: https://thinhong.github.io
+    orcid: 0000-0001-6772-9291
+# A cover is optional for a note. Without image:, the blog page shows the topic cover.
+# To make one, see "Blog covers" in STYLE-GUIDE.md and copy the image lines from blog/_template/.
+# Interactive figures: see "Interactive figures" in STYLE-GUIDE.md, and blog/equation-discovery/
+# for a full example (it also needs  execute: echo: false  here, so the code stays hidden).
+citation:
+  url: https://drthinhong.com/blog/your-note-slug/
+draft: true
+---
+
+Today I learned about ... from ... ([link](https://example.com)). Say in one or two sentences what it is and why it is useful.
+
+## The idea
+
+Explain it plainly, with one small example.
+
+## Key things to remember
+
+- First thing
+
+- Second thing
+
+## References
+
+::: {.refs}
+
+- Author A, Author B (Year). Title. *Journal* volume(issue): pages. <https://doi.org/...>
+
+:::

@@ -5,15 +5,19 @@
 title: "Your post title"
 description: "One sentence that makes someone want to read it"
 date: 2026-01-01              # publication date, format YYYY-MM-DD
-categories: [leadership]      # one of: modelling, code, academia, productivity, reflections, leadership
+categories: [leadership]      # the topic, one of: modelling, code, academia, productivity, reflections, leadership. It sets the post's colour (topics in blog/_metadata.yml). A TIL note adds a second tag, "today I learned" (see blog/_template-til/).
 author:
   - name: Thinh Ong
     url: https://thinhong.github.io
     orcid: 0000-0001-6772-9291
-# image: /img/blog-art/cover-your-post.svg   # PINS the listing card art; make it match your banner motif. Omit to use the topic default cover.
-# image-alt: "Describe the card art for screen readers"
-# title-block-banner: "url(/img/blog-art/leadership.svg)"   # hero banner: point at your topic's shared banner, or at a custom banner-your-post.svg
-# title-block-banner-color: white
+# Cover (see "Blog covers" in STYLE-GUIDE.md). One SVG file per post, used in two places:
+# image: /img/blog-art/cover-your-post.svg                       # the cover on the blog page, in the topic's colour group. Omit to use the topic cover, cover-topic-<topic>.svg.
+# image-alt: "Describe the cover for screen readers"
+# title-block-banner: "url(/img/blog-art/cover-your-post.svg)"   # the same file, shown beside the title of the post. Omit for a title with no picture.
+# open-graph:                                                     # link previews cannot show an SVG: point them to a JPEG copy
+#   image: /img/blog-art/cover-your-post.jpg                     # of the cover (1200 x 630). Omit both blocks to use the site default picture.
+# twitter-card:
+#   image: /img/blog-art/cover-your-post.jpg
 citation:
   url: https://drthinhong.com/blog/your-post-slug/
 draft: true

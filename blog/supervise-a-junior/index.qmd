@@ -8,9 +8,13 @@ author:
     url: https://thinhong.github.io
     orcid: 0000-0001-6772-9291
 image: /img/blog-art/cover-supervise.svg
-image-alt: "Two rings on a rising arrow in matte blues, matching this post's banner"
-title-block-banner: "url(/img/blog-art/banner-supervise.svg)"
-title-block-banner-color: white
+image-alt: "A fine-line staircase with two small figures on the first steps, over pale colour washes"
+title-block-banner: "url(/img/blog-art/cover-supervise.svg)"   # same file as image: one cover per post
+# Link previews (LinkedIn, X, Messenger) cannot show an SVG, so they get a JPEG copy of the cover.
+open-graph:
+  image: /img/blog-art/cover-supervise.jpg
+twitter-card:
+  image: /img/blog-art/cover-supervise.jpg
 citation:
   url: https://drthinhong.com/blog/supervise-a-junior/
 draft: false

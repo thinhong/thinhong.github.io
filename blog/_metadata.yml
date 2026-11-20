@@ -1,6 +1,28 @@
 reading-time: true
+
+# Colour in the blog means topic (see "Colour in the blog" in STYLE-GUIDE.md).
+# A post's topic is its first category. Each topic belongs to one colour group:
+#   in (indigo, like Research)  methods: how the science is done
+#   te (teal, like Teaching)    practice: how the work is done, alone and with others
+#   ma (mauve, the blog's own)  reflections: personal writing
+# The blog cards, the filter and every post read this one list.
+# To move a topic to another group, change its hue here (and recolour its covers).
+topics:
+  modelling:    { hue: in, label: "Modelling" }
+  code:         { hue: in, label: "R & code" }
+  academia:     { hue: te, label: "Academia" }
+  productivity: { hue: te, label: "Productivity" }
+  leadership:   { hue: te, label: "Leadership" }
+  reflections:  { hue: ma, label: "Reflections" }
+
+# Sets each post's colour (hue-xx in body-classes) from its topic, using the list above.
+filters:
+  - ../_theme/topic-hue.lua
+
 format:
   html:
     toc: true
     toc-location: right
     toc-title: "On this page"
+    # sec-blog marks Blog in the menu; hue-ma is replaced by the topic's colour (topic-hue.lua)
+    body-classes: sec-blog hue-ma

@@ -1,0 +1,48 @@
+<script>
+// Light / dark button. It sits in the navbar and remembers the visitor's choice.
+(function () {
+  var root = document.documentElement;
+  function cur() { return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
+  function apply(mode) {
+    root.setAttribute('data-theme', mode);
+    root.setAttribute('data-bs-theme', mode);
+    if (document.body) {
+      document.body.classList.remove('quarto-light', 'quarto-dark');
+      document.body.classList.add(mode === 'dark' ? 'quarto-dark' : 'quarto-light');
+    }
+  }
+
+  var btn = document.createElement('button');
+  btn.className = 'theme-toggle';
+  btn.type = 'button';
+  btn.setAttribute('aria-label', 'Switch between light and dark theme');
+  btn.setAttribute('title', 'Light or dark');
+  btn.innerHTML =
+    '<svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>' +
+    '<svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>';
+
+  function sync() { btn.setAttribute('data-mode', cur()); }
+
+  btn.addEventListener('click', function () {
+    var next = cur() === 'dark' ? 'light' : 'dark';
+    apply(next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    sync();
+  });
+
+  function init() {
+    apply(cur());
+    // Preferred place: the navbar tools area, which stays visible on phones.
+    // Fallback: a fixed button in the corner if the navbar is missing.
+    var tools = document.querySelector('#quarto-header .quarto-navbar-tools');
+    (tools || document.body).appendChild(btn);
+    sync();
+  }
+  if (document.readyState !== 'loading') { init(); } else { document.addEventListener('DOMContentLoaded', init); }
+
+  // Add a hairline under the navbar once the page is scrolled.
+  var onScroll = function () { if (document.body) document.body.classList.toggle('scrolled', window.scrollY > 8); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>

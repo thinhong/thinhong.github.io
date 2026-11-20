@@ -1,0 +1,518 @@
+---
+pagetitle: "About - Thinh Ong"
+description: "Infectious disease modeller and medical doctor. Education, experience, and a map of where the research has taken me."
+page-layout: full
+toc: false
+comments: false
+anchor-sections: false
+body-classes: hue-bl
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| echo: false
+#| results: asis
+# Inject the country geometry and the travel data into the page as JSON so the
+# map (plain D3) can read them. Both stay in editable files: world.geojson and
+# travel.json. To add a trip, add one object to travel.json; nothing else changes.
+geo <- paste(readLines("world.geojson", encoding = "UTF-8"), collapse = "")
+trv <- paste(readLines("travel.json", encoding = "UTF-8"), collapse = "")
+cat('\n<script type="application/json" id="geo-data">', geo, '</script>\n', sep = "")
+cat('<script type="application/json" id="travel-data">', trv, '</script>\n\n', sep = "")
+```
+
+```{=html}
+<style>
+/* ===== About page: the travel map (.ab-*). Everything else uses the shared classes in _theme/theme.scss ===== */
+.ab-mapwrap{ display:flex; flex-direction:column; gap:6px; }
+.ab-top{ display:grid; grid-template-columns:minmax(0,1fr); align-items:center; gap:0 20px; }
+@media (min-width:700px){ .ab-top{ grid-template-columns:minmax(0,1fr) auto; } }
+.ab-regions{ gap:0 8px; }  /* one line that scrolls sideways on phones: the .scroll-x class in the markup */
+.ab-region{ min-height:32px; margin:6px 0; padding:0 13px; border:0; border-radius:999px; background:var(--ne-bg); color:var(--ne-fg); font:inherit; font-size:14px; font-weight:500; white-space:nowrap; cursor:pointer; }
+.ab-region{ position:relative; }
+.ab-region::after{ content:""; position:absolute; inset:-6px 0; }  /* 44px touch target */
+.ab-region:active{ opacity:.65; }
+.ab-region.active{ background:var(--ink); color:var(--bg); }
+.ab-legend{ display:flex; flex-wrap:wrap; align-items:center; gap:4px 18px; min-height:44px; font-size:13.5px; color:var(--muted); }
+.ab-legend span{ display:inline-flex; align-items:center; gap:7px; }
+.ab-legend i{ width:12px; height:12px; }
+.ab-legend .v{ background:var(--bl); } .ab-legend .h{ background:var(--te-fg); }
+
+.ab-map{ position:relative; overflow:hidden; border:1px solid var(--hair); background:var(--bg); }
+.ab-map svg{ display:block; width:100%; height:auto; touch-action:pan-y; }
+@media (hover:hover){ .ab-map svg{ cursor:grab; } .ab-map svg:active{ cursor:grabbing; } }
+.ab-map.is-full{ position:fixed; inset:0; z-index:1200; border:0; background:var(--bg); display:grid; place-items:center; }
+.ab-map.is-full svg{ touch-action:none; max-height:100dvh; }
+.ab-sphere{ fill:transparent; }
+.ab-grat{ fill:none; stroke:var(--hair); stroke-width:.4; opacity:.6; }
+.ab-country{ fill:var(--land); stroke:var(--bg); stroke-width:.5; vector-effect:non-scaling-stroke; }
+.ab-country.visited{ fill:var(--bl); cursor:pointer; transition:fill .2s var(--ease); }
+@media (hover:hover){ .ab-country.visited:hover{ fill:var(--in); } }
+.ab-country.home{ fill:var(--te-fg); cursor:pointer; transition:fill .2s var(--ease); }
+@media (hover:hover){ .ab-country.home:hover{ fill:var(--te); } }
+.ab-dot{ fill:var(--bg); stroke:var(--bl-fg); stroke-width:2; vector-effect:non-scaling-stroke; pointer-events:none; }
+.ab-dot.home{ fill:var(--bg); stroke:var(--te-fg); }
+.ab-hit{ fill:transparent; pointer-events:all; cursor:pointer; }
+.ab-halo{ fill:var(--te); opacity:.4; pointer-events:none; transform-box:fill-box; transform-origin:center; animation:ab-halo 2.6s var(--ease) infinite; }
+@keyframes ab-halo{ 0%{ transform:scale(.7); opacity:.45 } 70%{ opacity:0 } 100%{ transform:scale(2.3); opacity:0 } }
+.ab-hint{ position:absolute; left:14px; top:12px; font-size:12.5px; color:var(--muted); pointer-events:none; }
+.ab-mapctrl{ position:absolute; top:12px; right:12px; display:flex; flex-direction:column; gap:6px; }
+.ab-mapctrl button{ width:38px; height:38px; border:1px solid var(--hair); background:var(--bg); color:var(--ink); font-size:1.15rem; line-height:1; cursor:pointer; display:grid; place-items:center; }
+.ab-mapctrl button svg{ width:17px; height:17px; }
+.ab-info{ position:absolute; left:14px; bottom:14px; max-width:60%; background:var(--bg); border:1px solid var(--hair); padding:12px 15px; opacity:0; transform:translateY(8px); transition:opacity .25s var(--ease), transform .25s var(--ease); pointer-events:none; }
+.ab-info.show{ opacity:1; transform:none; }
+.ab-info h4{ margin:0 0 6px; font-size:16px; font-weight:600; color:var(--ink); }
+.ab-info .r{ font-size:13.5px; color:var(--muted); padding:2px 0; }
+.ab-info .r b{ color:var(--bl-fg); font-weight:600; }
+@media (max-width:680px){
+  /* small screens: the buttons sit in a row under the map, so they do not cover it */
+  .ab-mapctrl{ position:static; flex-direction:row; justify-content:flex-end; gap:8px; padding:8px; border-top:1px solid var(--hair); }
+  .ab-mapctrl button{ width:44px; height:44px; font-size:1rem; }
+  .ab-info{ left:8px; right:8px; bottom:68px; max-width:none; }
+  .ab-hint{ display:none; }
+  .ab-map.is-full .ab-mapctrl{ position:absolute; top:12px; right:12px; flex-direction:column; padding:0; border:0; }
+  .ab-map.is-full .ab-info{ bottom:8px; }
+}
+@media (prefers-reduced-motion:reduce){ .ab-halo{ animation:none; opacity:0; } }
+</style>
+
+<div class="pg">
+  <header class="pg-head">
+    <div class="pg-head__main">
+      <p class="pg-eyebrow rise">About</p>
+      <h1 class="pg-title rise d1">A modeller's journey</h1>
+    </div>
+    <div class="pg-head__aside rise d2">
+        <p class="pg-lead">I model the spread of vaccine-preventable diseases in Vietnam, and help Ho Chi Minh City CDC build the surveillance and modelling capacity behind its outbreak response. I'm a DPhil researcher at the University of Oxford and a medical doctor by training. This is the short version, and the places the work has taken me.</p>
+        <div class="pg-links"><a class="tl" href="../cv/cv.html" target="_blank" rel="noopener">View my CV<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>
+    </div>
+  </header>
+  <nav class="pg-toc" aria-label="On this page">
+    <span class="pg-toc-h">On this page</span>
+    <a class="hue-in" href="#education">Education</a>
+    <a class="hue-te" href="#experience">Experience</a>
+    <a class="hue-ma" href="#impact">Impact</a>
+    <a class="hue-cy" href="#funding">Funding</a>
+    <a class="hue-in" href="#honours">Honours</a>
+    <a class="hue-te" href="#networks">Networks</a>
+    <a class="hue-ma" href="#adventures">Adventures</a>
+  </nav>
+  <section class="pg-part hue-in pg-part--split" id="education">
+    <div class="pg-part__head">
+      <div class="pg-part__name"><span class="pg-num">01</span><h2 class="pg-sectitle">Education</h2></div>
+      <span class="pg-secsub">2 degrees</span>
+    </div>
+    <div class="pg-part__body">
+      <div class="pg-rows pg-rows--dated">
+        <div class="pg-row">
+          <span class="r-years">2022-2026</span>
+          <span class="r-title">Doctor of Philosophy</span>
+          <span class="r-detail">University of Oxford, United Kingdom<small>Infectious disease modelling. Expected 2026.</small></span>
+        </div>
+        <div class="pg-row">
+          <span class="r-years">2012-2018</span>
+          <span class="r-title">Doctor of Medicine</span>
+          <span class="r-detail">University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pg-part hue-te pg-part--split" id="experience">
+    <div class="pg-part__head">
+      <div class="pg-part__name"><span class="pg-num">02</span><h2 class="pg-sectitle">Experience</h2></div>
+      <span class="pg-secsub">4 roles</span>
+    </div>
+    <div class="pg-part__body">
+      <div class="pg-rows pg-rows--dated">
+        <div class="pg-row">
+          <span class="r-years">2021-2022</span>
+          <span class="r-title">Research Assistant</span>
+          <span class="r-detail">Mathematical Modelling Group, Oxford University Clinical Research Unit, Vietnam</span>
+        </div>
+        <div class="pg-row">
+          <span class="r-years">2020-2021</span>
+          <span class="r-title">Editorial Assistant</span>
+          <span class="r-detail">MedPharmRes, University of Medicine and Pharmacy at Ho Chi Minh City, Vietnam</span>
+        </div>
+        <div class="pg-row">
+          <span class="r-years">2019-2020</span>
+          <span class="r-title">Research Intern</span>
+          <span class="r-detail">Cancer Epigenetics Lab, Garvan Institute of Medical Research, Australia</span>
+        </div>
+        <div class="pg-row">
+          <span class="r-years">2018-2023</span>
+          <span class="r-title">Biostatistical Consultant</span>
+          <span class="r-detail">Infertility Department, Tu Du Hospital, Vietnam</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pg-part hue-ma pg-part--split" id="impact">
+    <div class="pg-part__head">
+      <div class="pg-part__name"><span class="pg-num">03</span><h2 class="pg-sectitle">Impact</h2></div>
+      <span class="pg-secsub">Public health, Ho Chi Minh City</span>
+    </div>
+    <div class="pg-part__body">
+      <div class="pg-rows pg-rows--dated">
+        <div class="pg-row">
+          <span class="r-years">2026</span>
+          <span class="r-title">Technical advisor to Ho Chi Minh City CDC</span>
+          <span class="r-detail">On the city's Infectious Disease Early Warning and Response System</span>
+        </div>
+        <div class="pg-row">
+          <span class="r-years">2024-2026</span>
+          <span class="r-title">Built an in-house modelling team</span>
+          <span class="r-detail">Trained a team at Ho Chi Minh City CDC that now runs research and routine outbreak analyses independently</span>
+        </div>
+        <div class="pg-row">
+          <span class="r-years">2024</span>
+          <span class="r-title">Measles immunity gaps, and the response they shaped</span>
+          <span class="r-detail">Seroprevalence modelling informed the Department of Health's decision to declare a measles outbreak and design the reactive vaccination campaign<small>Recognised as one of <a class="il" href="https://medinet.hochiminhcity.gov.vn/dinh-huong-phat-trien-nganh/so-y-te-tp-ho-chi-minh-10-su-kien-noi-bat-cua-nganh-y-te-thanh-pho-trong-nam-20-cmobile1299-72446.aspx" target="_blank" rel="noopener">Ho Chi Minh City's ten medical achievements of 2024</a></small></span>
+        </div>
+      </div>
+    </div>
+  </section>
+```
+
+```{r}
+#| echo: false
+#| output: asis
+# Research funding, straight from the `grants` tab of the Google Sheet through
+# the shared data layer (R/site-data.R). The CV reads the same tab with the same
+# cleaning step (grants_clean), so the total and every amount match the CV.
+# Newest grants first. The first `n_first` rows show at once; the rest open in
+# place with the "See all" button (the .more block in _theme/theme.scss).
+source("../R/site-data.R")
+g <- site_grants()
+if (is.null(g$rows))
+  stop("No funding data yet. Run  Rscript R/update-data.R  from the project root.")
+n_first <- 3
+
+d   <- g$rows
+yrs <- regmatches(as.character(d$period), gregexpr("[0-9]{4}", as.character(d$period)))
+end <- vapply(yrs, function(x) if (length(x)) max(as.numeric(x)) else NA_real_, numeric(1))
+beg <- vapply(yrs, function(x) if (length(x)) min(as.numeric(x)) else NA_real_, numeric(1))
+d   <- d[order(-end, -beg, -d$budget), , drop = FALSE]      # latest end year, then latest start, then size
+
+roles <- c("PI" = "Principal investigator", "Co-PI" = "Co-principal investigator", "Co-I" = "Co-investigator")
+role  <- ifelse(d$my_role %in% names(roles), roles[as.character(d$my_role)], as.character(d$my_role))
+rows  <- sprintf(paste0(
+  '        <div class="pg-row">\n',
+  '          <span class="r-years">%s</span>\n',
+  '          <span class="r-title">%s</span>\n',
+  '          <span class="r-detail">%s<small>%s</small></span>\n',
+  '          <span class="r-amt">%s</span>\n',
+  '        </div>'),
+  esc(d$period), md_inline(d$title), esc(role), md_inline(d$sponsor), usd(d$budget))
+
+n      <- length(rows)
+n_more <- max(0, n - n_first)
+first  <- paste(rows[seq_len(min(n, n_first))], collapse = "\n")
+more   <- if (n_more > 0) sprintf(paste0(
+  '\n        <div class="pg-rows pg-rows--amt more__rows" id="funding-more" hidden>\n%s\n        </div>\n',
+  '        <button class="more__btn" type="button" aria-expanded="false" aria-controls="funding-more" ',
+  'data-open="See all %d grants" data-close="Show fewer grants">\n',
+  '          <span class="more__label">See all %d grants</span>\n',
+  '          <span class="more__note">%d earlier %s</span>\n',
+  '          <svg class="more__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path class="v" d="M12 5v14"/></svg>\n',
+  '        </button>'),
+  paste(rows[(n_first + 1):n], collapse = "\n"), n, n, n_more, if (n_more == 1) "grant" else "grants") else ""
+
+cat(sprintf(paste0(
+  '```{=html}\n',
+  '  <section class="pg-part hue-cy pg-part--split" id="funding">\n',
+  '    <div class="pg-part__head">\n',
+  '      <div class="pg-part__name"><span class="pg-num">04</span><h2 class="pg-sectitle">Research funding</h2></div>\n',
+  '      <span class="pg-secsub">%d %s</span>\n',
+  '    </div>\n',
+  '    <div class="pg-part__body">\n',
+  '      <div class="fig"><span class="fig-num">%s</span><span class="fig-label">in research funding%s</span></div>\n',
+  '      <div class="more">\n',
+  '        <div class="pg-rows pg-rows--amt">\n%s\n        </div>%s\n',
+  '      </div>\n',
+  '    </div>\n',
+  '  </section>\n',
+  '```\n'),
+  n, if (n == 1) "grant" else "grants",
+  usd(g$total), if (is.na(g$since)) "" else paste(" since", g$since),
+  first, more))
+```
+
+```{r}
+#| echo: false
+#| output: asis
+# Honours, straight from the `awards` tab of the Google Sheet through the shared
+# data layer (R/site-data.R). The CV reads the same tab with the same cleaning
+# step (awards_clean), so both list the same awards in the same order.
+# In the Sheet, `description` is "Name of the award, who gave it": the text up
+# to the first comma is the title of the row and the rest is the detail (the CV
+# sets the same part in bold). `note` adds one more sentence in grey.
+# The links under a row are not typed in the Sheet. A row with an `id` gets a
+# "Certificate" link when img/awards/<id>-certificate.jpg exists, and a "Photo"
+# link when img/awards/<id>-photo.jpg exists (award_files in R/site-data.R).
+# Several files of one kind carry a label, <id>-certificate-2013-14.jpg, and
+# each gets its own link.
+# `url` adds a link to a page about the award on another site.
+source("../R/site-data.R")
+a <- site_awards()
+if (is.null(a) || nrow(a) == 0)
+  stop("No awards data yet. Run  Rscript R/update-data.R  from the project root.")
+
+# The rows and their links come from award_rows_html() in R/site-data.R. Home calls the
+# same function, so an award reads the same on both pages. A link to a picture opens in
+# the picture viewer on this page (data-lb, script in _theme/site.html).
+rows <- award_rows_html(a, up = "../")                                        # "../": from this page to the project root
+
+n <- nrow(a)
+cat(sprintf(paste0(
+  '```{=html}\n',
+  '  <section class="pg-part hue-in pg-part--split" id="honours">\n',
+  '    <div class="pg-part__head">\n',
+  '      <div class="pg-part__name"><span class="pg-num">05</span><h2 class="pg-sectitle">Honours</h2></div>\n',
+  '      <span class="pg-secsub">%d %s</span>\n',
+  '    </div>\n',
+  '    <div class="pg-part__body">\n',
+  '      <div class="pg-rows pg-rows--dated">\n%s\n      </div>\n',
+  '    </div>\n',
+  '  </section>\n',
+  '```\n'),
+  n, if (n == 1) "award" else "awards", paste(rows, collapse = "\n")))
+```
+
+```{=html}
+  <section class="pg-part hue-te pg-part--split" id="networks">
+    <div class="pg-part__head">
+      <div class="pg-part__name"><span class="pg-num">06</span><h2 class="pg-sectitle">Networks</h2></div>
+      <span class="pg-secsub">2 communities</span>
+    </div>
+    <div class="pg-part__body">
+      <div class="pg-rows pg-rows--dated">
+        <div class="pg-row">
+          <span class="r-years">2024-now</span>
+          <span class="r-title">Founder, MIDVIE</span>
+          <span class="r-detail"><a class="il" href="https://midvie.github.io" target="_blank" rel="noopener">Modelling Infectious Diseases in Vietnam</a></span>
+        </div>
+        <div class="pg-row">
+          <span class="r-years">2023-now</span>
+          <span class="r-title">Co-founder, MIDSEA early-career community</span>
+          <span class="r-detail"><a class="il" href="https://midsea.network/" target="_blank" rel="noopener">Modelling Infectious Diseases in South East Asia</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pg-part hue-ma" id="adventures">
+    <div class="pg-part__head">
+      <div class="pg-part__line">
+        <div class="pg-part__name"><span class="pg-num">07</span><h2 class="pg-sectitle">Adventures</h2></div>
+        <span class="pg-secsub">Where the work has taken me</span>
+      </div>
+    </div>
+    <p class="panel__text">I'm a regular guy from a developing country, where going abroad once felt like a dream. Research changed that. Every highlighted country is a conference, workshop, or collaboration the work has taken me to. Jump to a region below, or tap a marker to zoom in (tap the sea to zoom back out).</p>
+    <div class="ab-mapwrap">
+      <div class="ab-top">
+        <div class="ab-regions scroll-x" id="ab-regions"></div>
+        <div class="ab-legend"><span><i class="v"></i>Visited</span><span><i class="h"></i>Home</span></div>
+      </div>
+      <div class="ab-map" id="ab-map">
+        <div class="ab-hint">Hover or tap a marker &middot; tap the sea to reset</div>
+        <div class="ab-mapctrl"><button id="ab-zin" aria-label="Zoom in">+</button><button id="ab-zout" aria-label="Zoom out">&minus;</button><button id="ab-zreset" aria-label="Reset view">&#8962;</button><button id="ab-zfull" aria-label="Full screen"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3 H3 V7 M13 3 H17 V7 M17 13 V17 H13 M3 13 V17 H7"/></svg></button></div>
+        <div class="ab-info" id="ab-info"></div>
+      </div>
+    </div>
+  </section>
+  <nav class="pg-next hue-in" aria-label="Next page">
+    <a href="../research/index.html">
+      <span class="nx-main"><span class="nx-label">Next page</span><span class="nx-title">Research</span></span>
+      <span class="nx-text">Vaccination and population immunity, turning routine data into models of outbreak risk.</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+    </a>
+  </nav>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+/* ---- Adventures map (D3 choropleth, theme-following, responsive, touch-friendly) ---- */
+(function () {
+  if (!window.d3) return;
+  var geoEl = document.getElementById('geo-data'), trvEl = document.getElementById('travel-data');
+  if (!geoEl || !trvEl) return;
+  var GEO = JSON.parse(geoEl.textContent), TRAVEL = JSON.parse(trvEl.textContent);
+
+  // group trips by country (iso3)
+  var COUNTRIES = {};
+  TRAVEL.trips.forEach(function (t) {
+    if (!COUNTRIES[t.iso3]) COUNTRIES[t.iso3] = { country: t.country, iso3: t.iso3, coords: t.coords, trips: [] };
+    COUNTRIES[t.iso3].trips.push(t);
+  });
+  Object.keys(COUNTRIES).forEach(function (k) {
+    var c = COUNTRIES[k];
+    c.trips.sort(function (a, b) { return b.year - a.year; });
+    // pin the country's marker at the city visited most often (ties go to the most recent)
+    var tally = {}, best = null;
+    c.trips.forEach(function (t) { tally[t.city] = (tally[t.city] || 0) + 1; });
+    c.trips.forEach(function (t) { if (!best || tally[t.city] > tally[best.city]) best = t; });
+    c.coords = best.coords;
+  });
+  var VISITED = {}; Object.keys(COUNTRIES).forEach(function (k) { VISITED[k] = true; });
+  var HOME_ISO = TRAVEL.home.iso3;
+
+  // drop Antarctica so the map frames only the inhabited world (no empty band)
+  var landFeatures = GEO.features.filter(function (d) { return d.properties.ISO3 !== 'ATA'; });
+  var landFC = { type: 'FeatureCollection', features: landFeatures };
+
+  var W = 1000, H = 460, stage = document.getElementById('ab-map'), info = document.getElementById('ab-info');
+  var proj = d3.geoNaturalEarth1();
+  var pathGen = d3.geoPath(proj);
+  var svg = d3.select(stage).insert('svg', '.ab-hint').attr('role', 'img').attr('aria-label', 'World map of countries visited');
+  var g = svg.append('g');
+  var sphere = g.append('path').attr('class', 'ab-sphere');
+  var grat = g.append('path').attr('class', 'ab-grat');
+
+  var featByIso = {};
+  var countrySel = g.append('g').selectAll('path').data(landFeatures).join('path')
+    .attr('class', function (d) { var i = d.properties.ISO3; return i === HOME_ISO ? 'ab-country home' : (VISITED[i] ? 'ab-country visited' : 'ab-country'); })
+    .each(function (d) { var i = d.properties.ISO3; if (VISITED[i] || i === HOME_ISO) featByIso[i] = d; })
+    .on('click', function (e, d) { var i = d.properties.ISO3;
+      if (i === HOME_ISO) { e.stopPropagation(); selectHome(); }
+      else if (VISITED[i]) { e.stopPropagation(); selectCountry(COUNTRIES[i]); } })
+    .on('pointerenter', function (e, d) { var i = d.properties.ISO3; if (e.pointerType !== 'mouse') return;
+      if (i === HOME_ISO) { clearTimeout(hideT); showHome(); }
+      else if (VISITED[i]) { clearTimeout(hideT); showInfo(COUNTRIES[i]); } })
+    .on('pointerleave', function (e) { if (e.pointerType === 'mouse') scheduleRestore(); });
+
+  // markers: home first, then each visited country
+  var markers = [{ iso: '__home', coords: TRAVEL.home.coords, home: true }];
+  Object.keys(COUNTRIES).forEach(function (iso) { markers.push({ iso: iso, coords: COUNTRIES[iso].coords, home: false }); });
+  var haloG = g.append('g'), dotsG = g.append('g'), hitG = g.append('g');
+  var halo = haloG.append('circle').attr('class', 'ab-halo');
+  var dotSel = dotsG.selectAll('circle').data(markers).join('circle')
+    .attr('class', function (d) { return d.home ? 'ab-dot home' : 'ab-dot'; });
+  // invisible, generous hit targets on top (so tiny countries like Singapore are easy to hover/tap)
+  var hitSel = hitG.selectAll('circle').data(markers).join('circle').attr('class', 'ab-hit')
+    .on('click', function (e, d) { e.stopPropagation(); if (d.home) { selectHome(); } else { selectCountry(COUNTRIES[d.iso]); } })
+    .on('pointerenter', function (e, d) { if (e.pointerType === 'mouse') { clearTimeout(hideT); if (d.home) showHome(); else showInfo(COUNTRIES[d.iso]); } })
+    .on('pointerleave', function (e) { if (e.pointerType === 'mouse') scheduleRestore(); });
+
+  var baseR = 6, curK = 1, selected = null, hideT, fullMode = false;
+  var zoom = d3.zoom().scaleExtent([1, 9])
+    .filter(function (e) {
+      if (e.type === 'wheel') return fullMode || e.ctrlKey; // inline: ctrl/cmd+scroll or pinch; fullscreen: free wheel
+      if (e.type === 'dblclick') return false;
+      if (e.pointerType && e.pointerType !== 'mouse') return fullMode; // touch pans only in fullscreen (else the page scrolls)
+      return !e.button;
+    })
+    .on('zoom', function (e) {
+      g.attr('transform', e.transform); curK = e.transform.k; var r = baseR / curK;
+      dotSel.attr('r', function (d) { return d.home ? r * 1.05 : r; });
+      hitSel.attr('r', baseR * 2.4 / curK);
+      halo.attr('r', r * 1.05);
+    });
+  svg.call(zoom).on('dblclick.zoom', null);
+
+  function layout() {
+    var rw = stage.clientWidth || 1000, pad = 10;
+    proj.fitWidth(1000 - pad * 2, landFC);               // scale to fit the inhabited world to a working width
+    var b = pathGen.bounds(landFC), t = proj.translate();
+    proj.translate([t[0] - b[0][0] + pad, t[1] - b[0][1] + pad]); // move the land's top-left to (pad,pad)
+    var b2 = pathGen.bounds(landFC);
+    W = Math.ceil(b2[1][0] + pad); H = Math.ceil(b2[1][1] + pad);  // viewBox hugs the land: no empty Antarctic band
+    svg.attr('viewBox', '0 0 ' + W + ' ' + H);
+    sphere.attr('d', pathGen({ type: 'Sphere' }));
+    grat.attr('d', pathGen(d3.geoGraticule10()));
+    countrySel.attr('d', pathGen);
+    baseR = (rw < 640 ? 9 : 6) * W / rw;                 // markers a constant, finger-sized SCREEN size
+    function px(d, i) { return proj([d.coords[1], d.coords[0]])[i]; }
+    dotSel.attr('cx', function (d) { return px(d, 0); }).attr('cy', function (d) { return px(d, 1); }).attr('r', function (d) { return d.home ? baseR * 1.05 : baseR; });
+    hitSel.attr('cx', function (d) { return px(d, 0); }).attr('cy', function (d) { return px(d, 1); }).attr('r', baseR * 2.4);
+    var hp = proj([TRAVEL.home.coords[1], TRAVEL.home.coords[0]]);
+    halo.attr('cx', hp[0]).attr('cy', hp[1]).attr('r', baseR * 1.05);
+    zoom.translateExtent([[0, 0], [W, H]]);
+    svg.call(zoom.transform, d3.zoomIdentity); curK = 1;
+  }
+  layout();
+  var rT; window.addEventListener('resize', function () { clearTimeout(rT); rT = setTimeout(layout, 180); }, { passive: true });
+
+  // click on sea / empty resets, but not after a drag
+  var downXY = null, moved = false;
+  svg.on('pointerdown.guard', function (e) { downXY = [e.clientX, e.clientY]; moved = false; });
+  svg.on('pointermove.guard', function (e) { if (downXY && Math.hypot(e.clientX - downXY[0], e.clientY - downXY[1]) > 6) moved = true; });
+  svg.on('click.guard', function () { if (!moved && curK > 1.05) resetZoom(); });
+
+  function transformTo(cx, cy, k) { svg.transition().duration(820).call(zoom.transform, d3.zoomIdentity.translate(W / 2, H / 2).scale(k).translate(-cx, -cy)); }
+  function zoomToFeature(feat) {
+    var b = pathGen.bounds(feat), dx = b[1][0] - b[0][0], dy = b[1][1] - b[0][1];
+    var k = Math.max(1.6, Math.min(8, 0.7 / Math.max(dx / W, dy / H)));
+    transformTo((b[0][0] + b[1][0]) / 2, (b[0][1] + b[1][1]) / 2, k);
+  }
+  function zoomToCoord(coords, k) { var p = proj([coords[1], coords[0]]); transformTo(p[0], p[1], k || 4); }
+  function zoomToBBox(b) {
+    var xs = [], ys = [], nx = 8, ny = 8, i, j, p;
+    for (i = 0; i <= nx; i++) for (j = 0; j <= ny; j++) { p = proj([b[0] + (b[2] - b[0]) * i / nx, b[1] + (b[3] - b[1]) * j / ny]); xs.push(p[0]); ys.push(p[1]); }
+    var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs), y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
+    var k = Math.max(1.2, Math.min(8, 0.9 / Math.max((x1 - x0) / W, (y1 - y0) / H)));
+    transformTo((x0 + x1) / 2, (y0 + y1) / 2, k);
+  }
+  function resetZoom() { svg.transition().duration(700).call(zoom.transform, d3.zoomIdentity); selected = null; clearTimeout(hideT); hideInfo(); setRegion('world'); }
+  function selectCountry(c) { if (!c) return; selected = c; clearTimeout(hideT); showInfo(c); var f = featByIso[c.iso3]; if (f) zoomToFeature(f); else zoomToCoord(c.coords, 5); }
+  function selectHome() { selected = 'home'; clearTimeout(hideT); showHome(); var f = featByIso[HOME_ISO]; if (f) zoomToFeature(f); else zoomToCoord(TRAVEL.home.coords, 4); }
+  function showInfo(c) { info.innerHTML = '<h4>' + c.country + '</h4>' + c.trips.map(function (t) { return '<div class="r"><b>' + t.year + '</b> &middot; ' + t.city + ', ' + t.event + '</div>'; }).join(''); info.classList.add('show'); }
+  function showHome() { info.innerHTML = '<h4>' + TRAVEL.home.country + '</h4><div class="r"><b>Home</b> &middot; ' + TRAVEL.home.city + ', ' + TRAVEL.home.note + '</div>'; info.classList.add('show'); }
+  function hideInfo() { info.classList.remove('show'); }
+  function scheduleRestore() { clearTimeout(hideT); hideT = setTimeout(restoreInfo, 90); }
+  function restoreInfo() { if (selected === 'home') { showHome(); } else if (selected) { showInfo(selected); } else { hideInfo(); } }
+
+  // region navigation
+  var REGIONS = [
+    { id: 'world', label: 'World' },
+    { id: 'home', label: 'Home', coords: TRAVEL.home.coords, k: 4 },
+    { id: 'sea', label: 'Southeast Asia', bbox: [92, -11, 142, 24] },
+    { id: 'eu', label: 'Europe', bbox: [-12, 35, 30, 60] },
+    { id: 'na', label: 'North America', bbox: [-130, 12, -60, 55] }
+  ];
+  var regWrap = document.getElementById('ab-regions');
+  REGIONS.forEach(function (rg) {
+    var b = document.createElement('button'); b.className = 'ab-region' + (rg.id === 'world' ? ' active' : ''); b.textContent = rg.label; b.dataset.region = rg.id;
+    b.addEventListener('click', function () {
+      setRegion(rg.id);
+      if (rg.id === 'world') { resetZoom(); }
+      else if (rg.bbox) { selected = null; clearTimeout(hideT); zoomToBBox(rg.bbox); hideInfo(); }
+      else if (rg.coords) { selectHome(); }
+    });
+    regWrap.appendChild(b);
+  });
+  function setRegion(id) {
+    regWrap.querySelectorAll('.ab-region').forEach(function (b) { b.classList.toggle('active', b.dataset.region === id); });
+    // on a phone the buttons are one line that scrolls sideways: keep the active one in view
+    var on = regWrap.querySelector('.ab-region.active');
+    if (on && regWrap.scrollWidth > regWrap.clientWidth) {
+      var o = regWrap.getBoundingClientRect(), r = on.getBoundingClientRect();
+      if (r.left < o.left + 6 || r.right > o.right - 36) regWrap.scrollLeft += r.left - o.left - 18;
+    }
+  }
+
+  document.getElementById('ab-zin').onclick = function () { svg.transition().duration(300).call(zoom.scaleBy, 1.6); };
+  document.getElementById('ab-zout').onclick = function () { svg.transition().duration(300).call(zoom.scaleBy, 1 / 1.6); };
+  document.getElementById('ab-zreset').onclick = resetZoom;
+
+  // fullscreen map (CSS overlay, works on every phone; enables touch pan/zoom while open)
+  var fullBtn = document.getElementById('ab-zfull');
+  var EXPAND = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3 H3 V7 M13 3 H17 V7 M17 13 V17 H13 M3 13 V17 H7"/></svg>';
+  var CLOSE = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M5 5 L15 15 M15 5 L5 15"/></svg>';
+  function setFull(on) {
+    fullMode = on;
+    stage.classList.toggle('is-full', on);
+    document.documentElement.style.overflow = on ? 'hidden' : '';
+    fullBtn.innerHTML = on ? CLOSE : EXPAND;
+    fullBtn.setAttribute('aria-label', on ? 'Exit full screen' : 'Full screen');
+    requestAnimationFrame(layout);
+  }
+  fullBtn.onclick = function () { setFull(!fullMode); };
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && fullMode) setFull(false); });
+})();
+});
+</script>
+```

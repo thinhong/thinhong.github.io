@@ -7,10 +7,14 @@ author:
   - name: Thinh Ong
     url: https://thinhong.github.io
     orcid: 0000-0001-6772-9291
-image: /img/blog-art/cover-leadership-2.svg
-image-alt: "Giant clock face in matte blues, matching this post's banner"
-title-block-banner: "url(/img/blog-art/banner-chair-meeting.svg)"
-title-block-banner-color: white
+image: /img/blog-art/cover-chair-meeting.svg
+image-alt: "Six interlocking fine circles around a table, with a seat at each outer point"
+title-block-banner: "url(/img/blog-art/cover-chair-meeting.svg)"   # same file as image: one cover per post
+# Link previews (LinkedIn, X, Messenger) cannot show an SVG, so they get a JPEG copy of the cover.
+open-graph:
+  image: /img/blog-art/cover-chair-meeting.jpg
+twitter-card:
+  image: /img/blog-art/cover-chair-meeting.jpg
 citation:
   url: https://drthinhong.com/blog/chair-a-meeting/
 aliases:

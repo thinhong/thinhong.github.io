@@ -1,0 +1,1350 @@
+---
+title: "Equation discovery: SINDy and global modelling"
+description: "Two ways to get differential equations back from time series, stepped through on the Lorenz system."
+date: 2026-11-12
+categories: [modelling, today I learned]   # topic first, then the tag
+author:
+  - name: Thinh Ong
+    url: https://thinhong.github.io
+    orcid: 0000-0001-6772-9291
+image: /img/blog-art/cover-equation-discovery.svg
+image-alt: "A fine ink line traces the two wings of the Lorenz system on a pale blue ground, with a dot where the line ends"
+title-block-banner: "url(/img/blog-art/cover-equation-discovery.svg)"   # same file as image: one cover per post
+# Link previews (LinkedIn, X, Messenger) cannot show an SVG, so they get a JPEG copy of the cover.
+open-graph:
+  image: /img/blog-art/cover-equation-discovery.jpg
+twitter-card:
+  image: /img/blog-art/cover-equation-discovery.jpg
+citation:
+  url: https://drthinhong.com/blog/equation-discovery/
+# The figures run in the reader's browser (Observable JS). equation-discovery.js holds both methods,
+# and /js/viz.js is the site's figure kit (see "Interactive figures" in STYLE-GUIDE.md).
+resources:
+  - equation-discovery.js
+execute:
+  echo: false
+# Quarto counts the hidden figure code as reading text (it says 69 min). The page shows about
+# 2,000 words, plus the step texts in the figures: about 12 minutes at Quarto's 200 words a minute.
+reading-minutes: 12
+draft: false
+---
+
+Today I learned about equation discovery from Quynh Anh's presentation ([her code](https://github.com/quingzz/equation_discovery_ppt)). The goal is to recover differential equations from time series. The data matrix $X$ goes in, with one row per time point and one column per variable. A system $dX/dt = F(X)$ comes out.
+
+Both methods in the talk, SINDy and global modelling, are regression methods. They follow the same plan: compute the derivatives, propose candidate terms, fit each derivative as a weighted sum of the terms, and check the result by simulation. They differ in how they choose the terms. The figures follow the order of her slides and run both methods in the browser on noise-free data.
+
+## The test case: the Lorenz system
+
+$$
+\begin{aligned}
+\frac{dx}{dt} &= \sigma (y - x) \\
+\frac{dy}{dt} &= x (\rho - z) - y \\
+\frac{dz}{dt} &= x y - \beta z
+\end{aligned}
+$$
+
+with $\sigma = 10$, $\rho = 28$, $\beta = 8/3$ and start $(10, 10, 10)$ (Lorenz 1963). Written out, the three equations have 7 terms. The question is whether each method can find these 7 terms from the three time series alone.
+
+```{ojs}
+import {
+  simulateLorenz, prepareData, polyTerms, termLabel, evalTerms, gramSystem, lsSubset,
+  stlsq, stlsqSteps, backwardElimination, combineLadders, simulatePoly, dataStats,
+  makeOverlapScorer, runCandidate, OUTCOMES, equationTex, lorenzTrueCoefs, logspace, thin, extent
+} from "./equation-discovery.js"
+import { tokens, watchTheme, timeColor, timeGradient, motion, makeCard, button, segmented, legend, watchWidth } from "../../js/viz.js"
+```
+
+```{ojs}
+VARS = ["x", "y", "z"]
+EQS = ["dx/dt", "dy/dt", "dz/dt"]
+DOTS = ["ẋ", "ẏ", "ż"]
+lorenz = simulateLorenz({ dt: 0.01, tEnd: 100, substeps: 10 })
+base = prepareData(lorenz.t, lorenz.X, { win: 9, order: 4 })
+// the stretch of data drawn in the column figures: 4 time units, every second point
+WIN = d3.range(996, 1397, 2)
+// one library for both methods: all polynomials up to degree 2, with the constant
+lib = {
+  const terms = polyTerms(3, 2, true);
+  const cols = evalTerms(terms, base.X);
+  const sys = gramSystem(cols, base.dX);
+  const all = terms.map((_, i) => i);
+  return {
+    terms, cols, sys,
+    labels: terms.map((t) => termLabel(t)),
+    factors: terms.map((t) => t.flatMap((p, j) => Array(p).fill(j))),
+    truth: lorenzTrueCoefs(terms),
+    lsCoef: sys.eqs.map((q) => lsSubset(sys.G, q.b, all)),
+    ladders: sys.eqs.map((q) => backwardElimination(sys.G, q.b, q.yy))
+  };
+}
+gp = ({ terms: lib.terms, labels: lib.labels, truth: lib.truth, ladders: lib.ladders, models: combineLadders(lib.ladders, 6, 11) })
+// every GPoM candidate, simulated once
+gpRuns = {
+  const stats = dataStats(base.X);
+  const scorer = makeOverlapScorer(base.X, 0, 2);
+  return gp.models.map((m) => {
+    const coefs = m.steps.map((j, q) => gp.ladders[q][j].coef);
+    const { outcome, path } = runCandidate(gp.terms, coefs, base.X, { stats, scorer, keep: 700 });
+    return { ...m, coefs, outcome, path };
+  });
+}
+```
+
+```{ojs}
+// colours come from the site theme; this cell runs again when the reader switches light or dark,
+// and every figure that uses them redraws
+VIZ = Generators.observe((notify) => watchTheme(() => notify(tokens())))
+MAIN = VIZ.main
+NOW = VIZ.now
+ATTN = VIZ.attn
+TIME = VIZ.time
+outcomeColor = (o) => VIZ.cat[OUTCOMES.indexOf(o)]
+function fmtNum(c) {
+  if (c === 0) return "0";
+  const a = Math.abs(c);
+  const s = a >= 100 ? a.toFixed(1) : a >= 1 ? a.toFixed(2) : a >= 0.01 ? a.toFixed(3) : a.toExponential(0);
+  return (c < 0 ? "-" : "") + s;
+}
+function fmtLambda(l) {
+  return l < 0.01 ? l.toFixed(4) : l < 1 ? l.toFixed(3) : l.toFixed(2);
+}
+function fmtTick(d) {
+  return d >= 1000 || d < 0.01 ? `1e${Math.round(Math.log10(d))}` : String(d);
+}
+function fmtScore(s) {
+  return s >= 1000 || s < 0.01 ? s.toExponential(0).replace("+", "") : String(Number(s.toPrecision(2)));
+}
+function fmtPct(r) {
+  const p = 100 * r;
+  return (p < 1 ? p.toFixed(2) : p < 10 ? p.toFixed(1) : p.toFixed(0)) + "%";
+}
+function termName(i) {
+  return lib.labels[i] === "1" ? "the constant" : lib.labels[i];
+}
+function compactTex(lhs, terms, coef, cut = 0.01, digits = 4) {
+  const big = Float64Array.from(coef, (c) => (Math.abs(c) >= cut ? c : 0));
+  const nTiny = Array.from(coef).filter((c) => c !== 0 && Math.abs(c) < cut).length;
+  const s = equationTex(lhs, terms, big, { digits });
+  return nTiny > 0 ? `${s} + \\cdots \\;(${nTiny}\\ \\text{tiny terms})` : s;
+}
+function alignedTex(lines) {
+  return `\\begin{aligned} ${lines.map((s) => s.replace(" = ", " &= ")).join(" \\\\ ")} \\end{aligned}`;
+}
+function sameTerms(coef, truth) {
+  return Array.from(coef).every((c, i) => (c !== 0) === (truth[i] !== 0));
+}
+TRUE_TEX = [
+  "\\frac{dx}{dt} = -10\\,x + 10\\,y",
+  "\\frac{dy}{dt} = 28\\,x - y - x z",
+  "\\frac{dz}{dt} = -2.667\\,z + x y"
+]
+SINDY_STAGES = [
+  { label: "1 Compute dX/dt", short: "dX/dt" },
+  { label: "2 Propose terms Θ(X)", short: "Θ(X)" },
+  { label: "3 Fit the weights Ξ", short: "Fit Ξ" },
+  { label: "4 Simulate", short: "Simulate" }
+]
+GPOM_STAGES = [
+  { label: "1 Compute dX/dt", short: "dX/dt" },
+  { label: "2 Polynomials of degree 2", short: "Degree 2" },
+  { label: "3 Prune each equation", short: "Prune" },
+  { label: "4 Combine and simulate", short: "Combine" }
+]
+// The steps of a method as a row of boxes, drawn above a card's toolbar.
+// set([i, ...]) fills the boxes of the steps that the figure is showing.
+function pipeline(card, stages) {
+  const box = document.createElement("div");
+  box.style.margin = "0.1rem 0 0.8rem";
+  card.root.insertBefore(box, card.toolbar);
+  let active = [], sel = null;
+  function set(a, animate = true) {
+    active = a;
+    if (!sel) return;
+    const on = (i) => a.includes(i);
+    sel.select("rect").transition().duration(motion(animate ? 300 : 0))
+      .attr("fill", (d, i) => (on(i) ? VIZ.wash : VIZ.bg))
+      .attr("stroke", (d, i) => (on(i) ? MAIN : VIZ.rule))
+      .attr("stroke-width", (d, i) => (on(i) ? 1.6 : 1));
+    sel.select("text").attr("font-weight", (d, i) => (on(i) ? 700 : 500)).style("fill", (d, i) => (on(i) ? VIZ.ink : VIZ.muted));
+  }
+  function draw(w) {
+    box.innerHTML = "";
+    const narrow = w < 560;
+    const n = stages.length, gap = narrow ? 12 : 22, h = 30;
+    const bw = (w - gap * (n - 1)) / n;
+    const svg = d3.select(box).append("svg").attr("class", "viz-svg").attr("width", w).attr("height", h);
+    for (let i = 1; i < n; i++) {
+      const x1 = i * (bw + gap) - 3, x0 = x1 - gap + 6;
+      svg.append("line").attr("x1", x0).attr("x2", x1 - 5).attr("y1", h / 2).attr("y2", h / 2).attr("stroke", VIZ.grey).attr("stroke-width", 1.2);
+      svg.append("path").attr("d", `M${x1 - 6},${h / 2 - 3.5}L${x1},${h / 2}L${x1 - 6},${h / 2 + 3.5}Z`).attr("fill", VIZ.grey);
+    }
+    sel = svg.selectAll("g.stage").data(stages).join("g").attr("class", "stage").attr("transform", (d, i) => `translate(${i * (bw + gap)},0)`);
+    sel.append("rect").attr("x", 0.5).attr("y", 0.5).attr("width", bw - 1).attr("height", h - 1);
+    sel.append("text").attr("x", bw / 2).attr("y", h / 2).attr("dy", "0.35em").attr("text-anchor", "middle")
+      .attr("font-size", narrow ? 10.5 : 11.5).text((d) => (narrow ? d.short : d.label));
+    set(active, false);
+  }
+  return { draw, set };
+}
+// Back, Next, Restart and Play for a figure that runs in steps.
+// go(k, animate) draws step k; count() is the number of steps.
+function stepper({ count, go, label = null, interval = 1300, invalidation }) {
+  let k = 0, timer = null;
+  const counter = html`<span class="viz-readout"></span>`;
+  const back = button("◀ Back", () => to(k - 1));
+  const next = button("Next ▶", () => to(k + 1));
+  const restart = button("Restart", () => { stop(); to(0); });
+  const play = button("▶ Play", () => (timer ? stop() : start()));
+  function refresh() {
+    const n = count();
+    back.disabled = restart.disabled = k === 0;
+    next.disabled = k >= n - 1;
+    counter.textContent = label ? label(k) : `step ${k + 1} of ${n}`;
+  }
+  function to(j, animate = true) {
+    k = Math.max(0, Math.min(count() - 1, j));
+    go(k, animate);
+    refresh();
+  }
+  function stop() {
+    clearInterval(timer);
+    timer = null;
+    play.textContent = "▶ Play";
+  }
+  function start() {
+    if (k >= count() - 1) to(0);
+    play.textContent = "❚❚ Pause";
+    timer = setInterval(() => (k >= count() - 1 ? stop() : to(k + 1)), interval);
+  }
+  if (invalidation) invalidation.then(stop);
+  return { node: html`<div class="viz-btns">${back}${next}${restart}${play}</div>`, counter, to, stop, refresh, get k() { return k; } };
+}
+// One column per candidate term, shared by the SINDy and GPoM figures.
+// Top: the term over 4 time units (time runs down). Middle: one bar per term
+// on a log scale. Bottom: one row per model.
+function termBoard(container, { width, nRows, rowTitle, domain, ticks, axisLabel, rightW = 0, rightTitle = "" }) {
+  container.innerHTML = "";
+  const n = lib.labels.length;
+  const narrow = width < 440;
+  const mL = narrow ? 44 : 58;
+  const right = Math.max(rightW, 26);
+  const colW = Math.max(20, Math.min(52, Math.floor((width - mL - right) / n)));
+  const showVals = colW >= 34;
+  const W = mL + n * colW + right;
+  const stripH = narrow ? 44 : 60, barH = narrow ? 112 : 140, rowH = narrow ? 17 : 20;
+  const yHead = 12, yTick = 23;
+  const yS0 = 30, yS1 = yS0 + stripH;
+  const yB0 = yS1 + 32, yB1 = yB0 + barH;
+  const yR0 = yB1 + 28;
+  const H = yR0 + nRows * rowH + 6;
+  const svg = d3.select(container).append("svg").attr("class", "viz-svg").attr("width", W).attr("height", H);
+  const colX = (i) => mL + i * colW;
+  const cx = (i) => colX(i) + colW / 2;
+  const idx = d3.range(n);
+  const heads = svg.append("g").selectAll("text").data(idx).join("text")
+    .attr("x", cx).attr("y", yHead).attr("text-anchor", "middle").attr("font-weight", 650).text((i) => lib.labels[i]);
+  const checks = svg.append("g").selectAll("text").data(idx).join("text")
+    .attr("x", cx).attr("y", yTick).attr("text-anchor", "middle").attr("class", "viz-small viz-muted");
+  const yT = d3.scaleLinear().domain([base.t[WIN[0]], base.t[WIN[WIN.length - 1]]]).range([yS0 + 3, yS1 - 3]);
+  const scale = lib.cols.map((c) => d3.max(WIN, (k) => Math.abs(c[k])) || 1);
+  const stripBox = svg.append("g").selectAll("rect").data(idx).join("rect")
+    .attr("x", (i) => colX(i) + 3).attr("y", yS0).attr("width", colW - 6).attr("height", stripH).attr("fill", "none").attr("stroke", VIZ.rule);
+  const stripPath = svg.append("g").selectAll("path").data(idx).join("path")
+    .attr("fill", "none").attr("stroke-width", 1.1).attr("stroke", VIZ.faint)
+    .attr("d", (i) => {
+      const xs = d3.scaleLinear().domain([-1, 1]).range([colX(i) + 5, colX(i) + colW - 5]);
+      return d3.line().x((k) => xs(lib.cols[i][k] / scale[i])).y((k) => yT(base.t[k]))(WIN);
+    });
+  svg.append("text").attr("x", mL - 8).attr("y", (yS0 + yS1) / 2).attr("dy", "0.35em").attr("text-anchor", "end").attr("class", "viz-small viz-muted").text("Θ(X)");
+  const y = d3.scaleLog().domain(domain).range([yB1, yB0]).clamp(true);
+  const shade = svg.append("rect").attr("x", mL).attr("width", n * colW).attr("y", yB1).attr("height", 0).attr("fill", VIZ.wash);
+  svg.append("g").attr("class", "viz-grid").attr("transform", `translate(${mL},0)`)
+    .call(d3.axisLeft(y).tickValues(ticks).tickFormat(fmtTick).tickSize(-(n * colW)));
+  svg.append("text").attr("x", mL).attr("y", yB0 - 14).attr("class", "viz-small viz-muted").text(axisLabel);
+  const bars = svg.append("g").selectAll("rect").data(idx).join("rect")
+    .attr("x", (i) => colX(i) + 5).attr("width", colW - 10).attr("y", yB1).attr("height", 0).attr("fill", VIZ.faint);
+  const ghosts = svg.append("g").selectAll("rect").data(idx).join("rect")
+    .attr("x", (i) => colX(i) + 5).attr("width", colW - 10).attr("y", yB1).attr("height", 0)
+    .attr("fill", "none").attr("stroke", VIZ.grey).attr("stroke-width", 1.2).attr("stroke-dasharray", "3,2").attr("opacity", 0);
+  const vals = svg.append("g").selectAll("text").data(idx).join("text")
+    .attr("x", cx).attr("y", yB1 - 4).attr("text-anchor", "middle").attr("class", "viz-small");
+  const rule = svg.append("line").attr("x1", mL).attr("x2", mL + n * colW).attr("y1", yB1).attr("y2", yB1)
+    .attr("stroke", VIZ.ink).attr("stroke-width", 1.4).attr("stroke-dasharray", "5,3").attr("opacity", 0);
+  const ruleLabel = svg.append("text").attr("x", mL + n * colW + 5).attr("y", yB1).attr("dy", "0.35em").attr("font-weight", 700).attr("opacity", 0);
+  svg.append("text").attr("x", mL - 8).attr("y", yR0 - 9).attr("text-anchor", "end").attr("class", "viz-small viz-muted").text(rowTitle);
+  if (rightTitle) svg.append("text").attr("x", mL + n * colW + 10).attr("y", yR0 - 9).attr("class", "viz-small viz-muted").text(rightTitle);
+  const rowMark = svg.append("rect").attr("x", Math.max(0, mL - 40)).attr("y", yR0).attr("width", W - Math.max(0, mL - 40)).attr("height", rowH).attr("fill", VIZ.wash).attr("opacity", 0);
+  const rowsG = svg.append("g");
+  function setHeads(trueMask) {
+    checks.text((i) => (trueMask[i] ? "✓" : ""));
+  }
+  // states[i]: "on" (in the model), "off" (removed) or "flag" (about to drop out)
+  function setStrips(color, states, animate = true) {
+    const t = svg.transition().duration(motion(animate ? 450 : 0));
+    stripPath.transition(t).attr("stroke", (i) => (states[i] === "off" ? VIZ.faint : states[i] === "flag" ? ATTN : color));
+    stripBox.attr("stroke-dasharray", (i) => (states[i] === "flag" ? "3,2" : null))
+      .transition(t).attr("stroke", (i) => (states[i] === "flag" ? VIZ.grey : VIZ.rule)).attr("stroke-width", (i) => (states[i] === "flag" ? 1.4 : 1));
+    heads.transition(t).style("fill", (i) => (states[i] === "off" ? VIZ.grey : VIZ.ink));
+  }
+  // list[i]: { v (bar height, 0 for none), text, color, flag, ghost (a dashed outline at this height) }
+  function setBars(list, { threshold = null, label = "", animate = true } = {}) {
+    const t = svg.transition().duration(motion(animate ? 550 : 0));
+    const top = (d) => (d.v > 0 ? y(d.v) : yB1);
+    bars.transition(t).attr("y", (i) => top(list[i])).attr("height", (i) => yB1 - top(list[i]))
+      .attr("fill", (i) => (list[i].flag ? ATTN : list[i].color || VIZ.faint));
+    ghosts.attr("y", (i) => (list[i].ghost > 0 ? y(list[i].ghost) : yB1)).attr("height", (i) => (list[i].ghost > 0 ? yB1 - y(list[i].ghost) : 0))
+      .transition(t).attr("opacity", (i) => (list[i].ghost > 0 ? 0.9 : 0));
+    vals.text((i) => (list[i].text && (showVals || list[i].flag) ? list[i].text : "")).attr("font-weight", (i) => (list[i].flag ? 700 : 400))
+      .transition(t).attr("y", (i) => (list[i].v > 0 ? y(list[i].v) : list[i].ghost > 0 ? y(list[i].ghost) : yB1) - 4);
+    if (threshold !== null) {
+      shade.transition(t).attr("y", y(threshold)).attr("height", yB1 - y(threshold));
+      rule.transition(t).attr("y1", y(threshold)).attr("y2", y(threshold)).attr("opacity", 1);
+      ruleLabel.text(label).transition(t).attr("y", y(threshold)).attr("opacity", 1);
+    }
+  }
+  // list[r]: { label, cells: [{ fill, opacity, stroke, dash, text } or {}], right: { bar, barMax, text }, future }
+  function setRows(list, { current = null, fresh = null } = {}) {
+    rowsG.selectAll("*").remove();
+    list.forEach((r, j) => {
+      const yr = yR0 + j * rowH;
+      const g = rowsG.append("g");
+      g.append("text").attr("x", mL - 8).attr("y", yr + rowH / 2).attr("dy", "0.35em").attr("text-anchor", "end")
+        .attr("class", "viz-small").attr("opacity", r.future ? 0.35 : 1).text(r.label);
+      if (r.future) return;
+      r.cells.forEach((c, i) => {
+        g.append("rect").attr("x", colX(i) + 2).attr("y", yr + 2).attr("width", colW - 4).attr("height", rowH - 4)
+          .attr("fill", c.fill || "none").attr("fill-opacity", c.fill ? (c.opacity != null ? c.opacity : 0.25) : 0)
+          .attr("stroke", c.stroke || (c.fill ? "none" : VIZ.rule)).attr("stroke-width", c.stroke ? 1.3 : 1).attr("stroke-dasharray", c.dash || null);
+        if (c.text && showVals) g.append("text").attr("x", cx(i)).attr("y", yr + rowH / 2).attr("dy", "0.35em").attr("text-anchor", "middle").attr("font-size", 9.5).text(c.text);
+      });
+      if (r.right) {
+        const xr = mL + n * colW + 10;
+        g.append("rect").attr("x", xr).attr("y", yr + 5).attr("height", rowH - 10).attr("width", Math.max(1.5, r.right.bar)).attr("fill", VIZ.grey);
+        g.append("text").attr("x", xr + r.right.barMax + 5).attr("y", yr + rowH / 2).attr("dy", "0.35em").attr("class", "viz-small").text(r.right.text);
+      }
+      if (j === fresh) g.attr("opacity", 0).transition().duration(motion(450)).attr("opacity", 1);
+    });
+    if (current === null) rowMark.attr("opacity", 0);
+    else rowMark.attr("opacity", 1).transition().duration(motion(300)).attr("y", yR0 + current * rowH);
+  }
+  return { node: svg.node(), colW, showVals, setHeads, setStrips, setBars, setRows };
+}
+```
+
+::: {.viz-wide}
+```{ojs}
+{
+  const T = 30;
+  const idx = thin(Math.round(T / 0.01) + 1, 1500);
+  const tt = idx.map((i) => lorenz.t[i]);
+  const XX = VARS.map((_, j) => idx.map((i) => lorenz.X[j][i]));
+  const full = thin(lorenz.t.length, 4000).map((i) => [lorenz.X[0][i], lorenz.X[2][i]]);
+  let tNow = 8, frame = null, draw = () => {};
+  const { root, toolbar, body } = makeCard(
+    "The data",
+    "Three time series from the Lorenz system, and the same run drawn in the plane of x and z. Press Play or drag the slider: the dot in the plane marks the same moment as the vertical line on the time series."
+  );
+  const slider = html`<input type="range" class="viz-range" min="0" max="${T}" step="0.01">`;
+  slider.value = tNow;
+  const readout = html`<span class="viz-readout"></span>`;
+  const stop = () => {
+    if (frame) cancelAnimationFrame(frame);
+    frame = null;
+    play.textContent = "▶ Play";
+  };
+  const play = button("▶ Play", () => {
+    if (frame) return stop();
+    if (tNow >= T - 0.01) tNow = 0;
+    play.textContent = "❚❚ Pause";
+    const tick = () => {
+      tNow = Math.min(T, tNow + 0.05);
+      slider.value = tNow;
+      draw();
+      if (tNow < T) frame = requestAnimationFrame(tick);
+      else stop();
+    };
+    frame = requestAnimationFrame(tick);
+  });
+  slider.oninput = () => {
+    stop();
+    tNow = +slider.value;
+    draw();
+  };
+  toolbar.append(play, slider, readout);
+  invalidation.then(stop);
+  watchWidth(root, (w) => {
+    body.innerHTML = "";
+    const wide = w >= 680;
+    const wTs = wide ? Math.floor((w - 26) * 0.6) : w;
+    const wPh = wide ? w - 26 - wTs : Math.min(w, 380);
+    const left = html`<div class="viz-col"></div>`;
+    body.append(left);
+    const x = d3.scaleLinear().domain([0, T]).range([36, wTs - 10]);
+    const panels = VARS.map((v, j) => {
+      const last = j === 2, h = last ? 112 : 86, mB = last ? 30 : 4;
+      const y = d3.scaleLinear().domain(extent(lorenz.X[j])).nice().range([h - mB, 8]);
+      const svg = d3.create("svg").attr("class", "viz-svg").attr("width", wTs).attr("height", h);
+      svg.append("g").attr("class", "viz-grid").attr("transform", "translate(36,0)").call(d3.axisLeft(y).ticks(3).tickSize(-(wTs - 46)));
+      if (last) {
+        svg.append("g").attr("transform", `translate(0,${h - mB})`).call(d3.axisBottom(x).ticks(6).tickSizeOuter(0));
+        svg.append("text").attr("x", wTs - 10).attr("y", h - 2).attr("text-anchor", "end").attr("class", "viz-small viz-muted").text("time");
+      }
+      svg.append("text").attr("x", 42).attr("y", 18).attr("class", "viz-name").text(v);
+      const line = d3.line().x((_, i) => x(tt[i])).y((d) => y(d));
+      svg.append("path").attr("d", line(XX[j])).attr("class", "viz-faint");
+      const clip = DOM.uid("clip");
+      const rect = svg.append("clipPath").attr("id", clip.id).append("rect").attr("x", 0).attr("y", 0).attr("height", h);
+      const timeStroke = timeGradient(svg.node(), x(0), x(T), TIME);
+      svg.append("path").attr("d", line(XX[j])).attr("class", "viz-strong").style("stroke", timeStroke).attr("clip-path", clip);
+      const cursor = svg.append("line").attr("y1", 6).attr("y2", h - mB).attr("stroke", NOW).attr("stroke-width", 1.4);
+      left.append(svg.node());
+      return { rect, cursor };
+    });
+    const hPh = wide ? 284 : 300;
+    const ph = d3.create("svg").attr("class", "viz-svg").attr("width", wPh).attr("height", hPh);
+    const xp = d3.scaleLinear().domain([-22, 22]).range([34, wPh - 8]);
+    const zp = d3.scaleLinear().domain([0, 52]).range([hPh - 30, 8]);
+    ph.append("g").attr("class", "viz-grid").attr("transform", "translate(34,0)").call(d3.axisLeft(zp).ticks(5).tickSize(-(wPh - 42)));
+    ph.append("g").attr("transform", `translate(0,${hPh - 30})`).call(d3.axisBottom(xp).ticks(5).tickSizeOuter(0));
+    ph.append("text").attr("x", wPh - 8).attr("y", hPh - 2).attr("text-anchor", "end").attr("class", "viz-small viz-muted").text("x");
+    ph.append("text").attr("x", 40).attr("y", 18).attr("class", "viz-name").text("z");
+    ph.append("path").attr("d", d3.line().x((d) => xp(d[0])).y((d) => zp(d[1]))(full)).attr("class", "viz-faint");
+    // the trail is drawn in short pieces, each in the colour of its time
+    const step = tt[1] - tt[0];
+    const C = 25;
+    const pts = tt.map((_, i) => [xp(XX[0][i]), zp(XX[2][i])]);
+    const pieces = d3.range(0, tt.length - 1, C).map((s) =>
+      ph.append("path").attr("class", "viz-strong").style("stroke", timeColor(((s + C / 2) * step) / T, TIME)));
+    const dot = ph.append("circle").attr("r", 6).attr("stroke", NOW).attr("stroke-width", 1.6);
+    body.append(ph.node());
+    draw = () => {
+      const k = Math.min(tt.length - 1, Math.round(tNow / step));
+      for (const p of panels) {
+        p.rect.attr("width", x(tNow));
+        p.cursor.attr("x1", x(tNow)).attr("x2", x(tNow));
+      }
+      pieces.forEach((piece, c) => {
+        const s = c * C;
+        piece.attr("d", s >= k ? null : d3.line()(pts.slice(s, Math.min(k, s + C) + 1)));
+      });
+      dot.attr("cx", xp(XX[0][k])).attr("cy", zp(XX[2][k])).attr("fill", timeColor(tNow / T, TIME));
+      readout.textContent = `time ${tNow.toFixed(1)}`;
+    };
+    draw();
+  }, invalidation);
+  return root;
+}
+```
+:::
+
+## The shared idea: regression on candidate terms
+
+Both methods turn the problem into a regression. The outcome is the derivative of each variable. The predictors are candidate terms computed from the data, such as $x$, $xz$ or $z^2$. The figure builds this regression one piece at a time.
+
+::: {.viz-wide}
+```{ojs}
+{
+  const n = lib.labels.length;
+  const t0 = base.t[WIN[0]], t1 = base.t[WIN[WIN.length - 1]];
+  const scaleOf = (arr) => d3.max(WIN, (i) => Math.abs(arr[i])) || 1;
+  const dScale = base.dX.map(scaleOf), lScale = lib.cols.map(scaleOf);
+  const XPOS = [1, 2, 3]; // x, y and z are columns 1 to 3 of the library
+  const NEW = d3.range(n).filter((k) => !XPOS.includes(k));
+  const STEPS = [
+    { stage: [], title: "The data X", text: "Each column is one variable over 4 time units, with time running down. Together the columns form the data matrix X, with one row per time point. Point at the columns to choose a moment." },
+    { stage: [0], title: "Step 1: compute dX/dt", text: "The derivative is the slope of each series. A Savitzky-Golay filter estimates it from a few neighbouring points. The short dark line on each series is the slope at the chosen moment." },
+    { stage: [1], title: "Step 2: propose candidate terms Θ(X)", text: "Θ(X) holds every term that the equations might use: here all polynomials in x, y and z up to degree 2, which gives 10 columns. Each column is computed from the data. For example, the column xz is x times z at every time point." },
+    { stage: [2], title: "Step 3: set up the regression", text: "Each derivative should be a weighted sum of the candidate terms: dX/dt ≈ Θ(X) Ξ. The weights Ξ are unknown. There is one column of weights per equation." },
+    { stage: [2], title: "Least squares fills in Ξ", text: "Least squares picks the weights that bring each weighted sum closest to its derivative. All 30 weights come out non-zero, although the true system has only 7 terms. Point at a moment to check the sum." }
+  ];
+  let e = 1, step = 0, prev = 0, tCur = 12.2, width = 0, narrow = false, render = () => {};
+  const card = makeCard(
+    "Steps 1 and 2: from time series to a regression",
+    "Press Next to build the regression piece by piece, or Play to watch it. The boxes above show where each piece sits in the method."
+  );
+  const { root, toolbar, body } = card;
+  const pipe = pipeline(card, SINDY_STAGES);
+  const st = stepper({
+    count: () => STEPS.length,
+    go: (k, animate) => { prev = step; step = k; render(animate); },
+    interval: 3400,
+    invalidation
+  });
+  toolbar.append(
+    st.node, st.counter,
+    segmented(EQS, EQS[e], (v) => { e = EQS.indexOf(v); if (narrow) draw(); else render(false); }, "Equation")
+  );
+  function draw() {
+    body.innerHTML = "";
+    const w = width;
+    const wide = w >= 780;
+    const sideW = wide ? 270 : Math.min(w, 460);
+    const mW = wide ? w - sideW - 26 : w;
+    // on a narrow screen only the chosen equation is drawn, so the figure fits
+    narrow = mW < 470;
+    const eqIdx = narrow ? [e] : [0, 1, 2];
+    const nE = eqIdx.length;
+    const cellW = narrow ? 46 : 42, labW = narrow ? 22 : 28, symW = narrow ? 16 : 22;
+    const fixed = 18 + 2 * symW + labW + nE * cellW + 2;
+    const stripW = Math.max(14, Math.min(34, Math.floor((mW - fixed) / (n + nE))));
+    const H = 312, top = 34, bottom = 46;
+    const xD = 18, xL = xD + nE * stripW + symW, xX = xL + n * stripW + symW + labW;
+    const svgW = xX + nE * cellW + 2;
+    const plotH = H - top - bottom;
+    const yT = d3.scaleLinear().domain([t0, t1]).range([top, H - bottom]);
+    const svg = d3.create("svg").attr("class", "viz-svg").attr("width", svgW).attr("height", H).style("touch-action", "pan-y").style("cursor", "crosshair");
+    svg.append("text").attr("x", 6).attr("y", top + plotH / 2).attr("transform", `rotate(90, 6, ${top + plotH / 2})`).attr("text-anchor", "middle").attr("class", "viz-small viz-muted").text("time →");
+    const short = stripW < 30;
+    const strip = (x0, arr, sc, label, color) => {
+      const g = svg.append("g");
+      const box = g.append("rect").attr("x", x0 + 1).attr("y", top).attr("width", stripW - 2).attr("height", plotH).attr("fill", "none").attr("stroke", VIZ.rule);
+      const xs = d3.scaleLinear().domain([-1, 1]).range([x0 + 3, x0 + stripW - 3]);
+      const path = g.append("path").attr("d", d3.line().x((i) => xs(arr[i] / sc)).y((i) => yT(base.t[i]))(WIN)).attr("fill", "none").attr("stroke", color).attr("stroke-width", 1.2);
+      const lab = g.append("text").attr("x", x0 + stripW / 2).attr("y", top - 9).attr("text-anchor", "middle").attr("font-weight", 650).text(label);
+      const dot = g.append("circle").attr("r", 2.6).attr("fill", NOW);
+      return { g, box, path, lab, xs, arr, sc, dot };
+    };
+    const dStrips = eqIdx.map((j, p) => strip(xD + p * stripW, base.dX[j], dScale[j], short ? DOTS[j] : EQS[j], MAIN));
+    const lStrips = lib.labels.map((l, k) => strip(xL + k * stripW, lib.cols[k], lScale[k], l, XPOS.includes(k) ? MAIN : VIZ.ink));
+    const tangents = XPOS.map(() => svg.append("line").attr("stroke", NOW).attr("stroke-width", 2).attr("stroke-linecap", "round").attr("opacity", 0));
+    const approx = svg.append("text").attr("x", xD + nE * stripW + symW / 2).attr("y", top + plotH / 2).attr("dy", "0.35em").attr("text-anchor", "middle").attr("font-size", 20).style("fill", VIZ.muted).text("≈");
+    const times = svg.append("text").attr("x", xL + n * stripW + symW / 2).attr("y", top + plotH / 2).attr("dy", "0.35em").attr("text-anchor", "middle").attr("font-size", 18).style("fill", VIZ.muted).text("×");
+    const capY = H - bottom + 17, sizeY = capY + 14;
+    const caption = (x, text, cls = "viz-small viz-muted") => svg.append("text").attr("x", x).attr("y", capY).attr("text-anchor", "middle").attr("class", cls).text(text);
+    const capD = caption(xD + (nE * stripW) / 2, narrow ? "" : "dX/dt");
+    const capX = caption(xL + 2.5 * stripW, "X: the data");
+    const capL = caption(xL + (n * stripW) / 2, "Θ(X): 10 candidate terms");
+    const capW = caption(xX + (nE * cellW) / 2, "Ξ: weights");
+    const sizes = [
+      svg.append("text").attr("x", xD + (nE * stripW) / 2).attr("y", sizeY).attr("text-anchor", "middle").attr("class", "viz-small viz-muted").text(`T × ${nE}`),
+      svg.append("text").attr("x", xL + (n * stripW) / 2).attr("y", sizeY).attr("text-anchor", "middle").attr("class", "viz-small viz-muted").text(`T × ${n}`),
+      svg.append("text").attr("x", xX + (nE * cellW) / 2).attr("y", sizeY).attr("text-anchor", "middle").attr("class", "viz-small viz-muted").text(`${n} × ${nE}`)
+    ];
+    const rowH = plotH / n;
+    const gX = svg.append("g");
+    eqIdx.forEach((j, p) => gX.append("text").attr("x", xX + p * cellW + cellW / 2).attr("y", top - 9).attr("text-anchor", "middle").attr("font-weight", 650).text(short ? DOTS[j] : EQS[j]));
+    lib.labels.forEach((l, i) => gX.append("text").attr("x", xX - 6).attr("y", top + i * rowH + rowH / 2).attr("dy", "0.35em").attr("text-anchor", "end").attr("class", "viz-small").text(l));
+    const cells = [];
+    lib.labels.forEach((l, i) => eqIdx.forEach((j, p) => cells.push({ i, j, p })));
+    const cellRects = gX.selectAll("rect.cell").data(cells).join("rect").attr("class", "cell")
+      .attr("x", (d) => xX + d.p * cellW + 1).attr("y", (d) => top + d.i * rowH + 1).attr("width", cellW - 2).attr("height", rowH - 2)
+      .attr("fill", MAIN).attr("fill-opacity", 0.06);
+    const cellText = gX.selectAll("text.val").data(cells).join("text").attr("class", "val viz-small")
+      .attr("x", (d) => xX + d.p * cellW + cellW / 2).attr("y", (d) => top + d.i * rowH + rowH / 2).attr("dy", "0.35em").attr("text-anchor", "middle");
+    const colBox = gX.append("rect").attr("y", top).attr("width", cellW).attr("height", n * rowH).attr("fill", "none").attr("stroke", VIZ.ink).attr("stroke-width", 1.5);
+    const cursor = svg.append("line").attr("stroke", NOW).attr("stroke-width", 1.2);
+    const side = html`<div class="viz-side" style="width:${sideW}px"></div>`;
+    body.append(html`<div style="max-width:100%;overflow-x:auto">${svg.node()}</div>`, side);
+    const sTitle = html`<div style="font-weight:700;color:${VIZ.ink};margin-bottom:0.2rem"></div>`;
+    const sText = html`<div class="viz-explain"></div>`;
+    const sExtra = html`<div></div>`;
+    side.append(sTitle, sText, sExtra);
+    const shadeOf = (c) => (c === 0 ? 0.03 : Math.min(0.5, Math.max(0.07, 0.07 + 0.055 * (Math.log10(Math.abs(c)) + 6))));
+    let M = 1;
+    const bar = (p) => {
+      const half = 34, len = Math.min(half, (Math.abs(p) / M) * half);
+      return html`<span class="viz-mbar"><i style="left:${p >= 0 ? half : half - len}px;width:${Math.max(len, 0.5)}px;background:${MAIN}"></i></span>`;
+    };
+    const signed = (p) => (p >= 0 ? "+ " : "- ") + Math.abs(p).toFixed(1);
+    function updateSide(i) {
+      const t = base.t[i].toFixed(2);
+      sExtra.innerHTML = "";
+      if (step === 0) {
+        sExtra.append(html`<table class="viz-receipt"><tr class="viz-r-target"><td colspan="2">Row of X at time ${t}</td></tr>${VARS.map((v, j) => html`<tr><td>${v}</td><td class="num">${base.X[j][i].toFixed(2)}</td></tr>`)}</table>`);
+      } else if (step === 1) {
+        sExtra.append(html`<table class="viz-receipt"><tr class="viz-r-target"><td colspan="2">Slopes at time ${t}</td></tr>${EQS.map((q, j) => html`<tr style="font-weight:${j === e ? 650 : 400}"><td>${q}</td><td class="num">${base.dX[j][i].toFixed(2)}</td></tr>`)}</table>`);
+      } else if (step === 2) {
+        const ex = [4, 6, 0].map((k) => {
+          const f = lib.factors[k];
+          const val = lib.cols[k][i];
+          return html`<tr><td>${lib.labels[k]}</td><td class="viz-r-val">${f.length ? f.map((v) => base.X[v][i].toFixed(1)).join(" × ") : "always 1"}</td><td class="num">${val.toFixed(1)}</td></tr>`;
+        });
+        sExtra.append(html`<table class="viz-receipt"><tr class="viz-r-target"><td colspan="3">Three columns at time ${t}</td></tr>${ex}</table>`);
+      } else if (step === 3) {
+        sExtra.append(html`<div class="viz-note">T is the number of time points (${base.t.length.toLocaleString("en-GB")} here). So dX/dt is T × 3, Θ(X) is T × 10, and Ξ is 10 × 3: 30 unknown weights.</div>`);
+      } else {
+        const W = lib.lsCoef[e];
+        const terms = lib.labels.map((l, k) => ({ l, c: W[k], v: lib.cols[k][i], p: W[k] * lib.cols[k][i] }));
+        const big = terms.filter((d) => Math.abs(d.c) >= 0.01);
+        const tiny = terms.filter((d) => d.c !== 0 && Math.abs(d.c) < 0.01);
+        const target = base.dX[e][i], sum = d3.sum(terms, (d) => d.p);
+        M = Math.max(...big.map((d) => Math.abs(d.p)), Math.abs(target), 1);
+        sExtra.append(html`<table class="viz-receipt">
+          <tr class="viz-r-target"><td colspan="2">${EQS[e]} at time ${t}</td><td class="num">${target.toFixed(1)}</td><td>${bar(target)}</td></tr>
+          ${big.map((d) => html`<tr><td>${fmtNum(d.c)} × ${d.l}</td><td class="viz-r-val">${d.l} = ${d.v.toFixed(1)}</td><td class="num">${signed(d.p)}</td><td>${bar(d.p)}</td></tr>`)}
+          ${tiny.length ? html`<tr class="viz-r-tiny"><td colspan="2">${tiny.length} tiny terms</td><td class="num">${signed(d3.sum(tiny, (d) => d.p))}</td><td></td></tr>` : ""}
+          <tr class="viz-r-sum"><td colspan="2">weighted sum</td><td class="num">${sum.toFixed(1)}</td><td>${bar(sum)}</td></tr>
+        </table>`);
+      }
+    }
+    function setCursor() {
+      const i = Math.max(0, Math.min(base.t.length - 1, Math.round((tCur - base.t[0]) / 0.01)));
+      const yy = yT(base.t[i]);
+      const left = step >= 1 ? xD : xL + stripW;
+      const right = step >= 2 ? xL + n * stripW : xL + 4 * stripW;
+      cursor.attr("x1", left).attr("x2", right).attr("y1", yy).attr("y2", yy);
+      for (const s of [...dStrips, ...lStrips]) s.dot.attr("cx", s.xs(s.arr[i] / s.sc)).attr("cy", yy);
+      tangents.forEach((tg, v) => {
+        const L = lStrips[v + 1];
+        // slope on screen: horizontal pixels per vertical pixel
+        const k = ((base.dX[v][i] / L.sc) * ((stripW - 6) / 2)) / (plotH / (t1 - t0));
+        const len = 13, nrm = Math.hypot(k, 1);
+        const ux = (k / nrm) * len, uy = len / nrm;
+        const px = L.xs(L.arr[i] / L.sc);
+        tg.attr("x1", px - ux).attr("x2", px + ux).attr("y1", yy - uy).attr("y2", yy + uy).attr("opacity", step === 1 ? 1 : 0);
+      });
+      updateSide(i);
+    }
+    render = (animate) => {
+      const s = STEPS[step];
+      const forward = animate && step > prev;
+      pipe.set(s.stage, animate);
+      sTitle.textContent = s.title;
+      sText.textContent = s.text;
+      const dur = motion(animate ? 450 : 0);
+      // the derivatives: drawn from top to bottom when they first appear
+      dStrips.forEach((d) => {
+        d.g.interrupt().attr("opacity", step >= 1 ? 1 : 0);
+        if (forward && step === 1) {
+          const len = d.path.node().getTotalLength();
+          d.path.attr("stroke-dasharray", `${len} ${len}`).attr("stroke-dashoffset", len)
+            .transition().duration(motion(1100)).attr("stroke-dashoffset", 0)
+            .on("end", () => d.path.attr("stroke-dasharray", null));
+        }
+      });
+      // the library: x, y and z are the data; the other columns appear one by one, each after its factors flash
+      lStrips.forEach((L, k) => {
+        const isX = XPOS.includes(k);
+        L.path.transition().duration(dur).attr("stroke", isX && step < 2 ? MAIN : VIZ.ink);
+        if (!isX) L.g.interrupt().attr("opacity", step >= 2 ? 1 : 0);
+      });
+      if (forward && step === 2) {
+        NEW.forEach((k, m) => {
+          const delay = motion(380) * m;
+          lStrips[k].g.attr("opacity", 0).transition().delay(delay).duration(motion(320)).attr("opacity", 1);
+          lib.factors[k].forEach((v) => {
+            lStrips[v + 1].box.transition().delay(delay).duration(motion(140)).attr("stroke", NOW).attr("stroke-width", 2.2)
+              .transition().duration(motion(320)).attr("stroke", VIZ.rule).attr("stroke-width", 1);
+          });
+        });
+      }
+      capX.attr("opacity", step < 2 ? 1 : 0);
+      capL.attr("opacity", step >= 2 ? 1 : 0);
+      capD.attr("opacity", step >= 1 ? 1 : 0);
+      capW.attr("opacity", step >= 3 ? 1 : 0);
+      sizes.forEach((sz) => sz.attr("opacity", step >= 3 ? 1 : 0));
+      approx.transition().duration(dur).attr("opacity", step >= 3 ? 1 : 0);
+      times.transition().duration(dur).attr("opacity", step >= 3 ? 1 : 0);
+      gX.transition().duration(dur).attr("opacity", step >= 3 ? 1 : 0);
+      cellText.attr("font-weight", (d) => (d.j === e ? 700 : 400));
+      if (step >= 4) {
+        cellText.text((d) => fmtNum(lib.lsCoef[d.j][d.i]));
+        cellRects.transition().duration(dur).attr("fill-opacity", (d) => shadeOf(lib.lsCoef[d.j][d.i]));
+        if (forward) cellText.attr("opacity", 0).transition().delay((d) => motion(70) * d.i).duration(motion(300)).attr("opacity", 1);
+        else cellText.interrupt().attr("opacity", 1);
+      } else {
+        cellText.interrupt().attr("opacity", 1).text("?");
+        cellRects.transition().duration(dur).attr("fill-opacity", 0.06);
+      }
+      colBox.attr("x", xX + eqIdx.indexOf(e) * cellW).attr("opacity", step >= 4 ? 1 : 0);
+      setCursor();
+    };
+    svg.on("pointermove pointerdown", (event) => {
+      const [, py] = d3.pointer(event);
+      if (py < top || py > H - bottom) return;
+      tCur = yT.invert(py);
+      setCursor();
+    });
+    render(false);
+  }
+  watchWidth(root, (w) => { width = w; pipe.draw(w); draw(); }, invalidation);
+  st.refresh();
+  return root;
+}
+```
+:::
+
+## SINDy
+
+SINDy (Brunton, Proctor and Kutz 2016) assumes that most weights in $\Xi$ are exactly zero. It finds them with sequentially thresholded least squares: fit, set every weight smaller than a threshold $\lambda$ to zero, refit with the terms that are left, and repeat until no weight is below $\lambda$. The derivatives come from a Savitzky-Golay filter (Savitzky and Golay 1964), as in the talk, and $\lambda = 0.1$ as in her code.
+
+::: {.viz-wide}
+```{ojs}
+viewof sindyLambda = {
+  let lambda = 0.1, e = 0, width = 0, render = () => {};
+  let seq = [], firstOf = [], finals = [];
+  function build() {
+    seq = [];
+    firstOf = [];
+    finals = [];
+    lib.sys.eqs.forEach((q, j) => {
+      const r = stlsq(lib.sys.G, q.b, q.yy, lambda);
+      finals.push(r);
+      const steps = stlsqSteps(r.history);
+      firstOf.push(seq.length);
+      steps.forEach((s, k) => seq.push({ ...s, e: j, k, nk: steps.length, hist: r.history }));
+    });
+  }
+  build();
+  const card = makeCard(
+    "Step 3 with SINDy: keep only the large weights",
+    "Press Next to run the algorithm on one equation at a time, or Play to run all three. The columns of Θ(X) are on top and their weights below, as bars on a log scale. The dashed line is λ. Watch dz/dt: it needs a second pass. Drag λ on the small chart to change it."
+  );
+  const { root, toolbar, body } = card;
+  root.value = lambda;
+  const pipe = pipeline(card, SINDY_STAGES);
+  pipe.set([2], false);
+  const st = stepper({
+    count: () => seq.length,
+    go: (k, animate) => render(k, animate),
+    label: (k) => `${EQS[seq[k].e]}: step ${seq[k].k + 1} of ${seq[k].nk}`,
+    interval: 1300,
+    invalidation
+  });
+  const eqSeg = segmented(EQS, EQS[e], (v) => { st.stop(); st.to(firstOf[EQS.indexOf(v)], false); }, "Equation");
+  toolbar.append(eqSeg, st.node, st.counter);
+  function setLambda(l) {
+    if (l === lambda) return;
+    lambda = l;
+    const cur = e;
+    build();
+    root.value = lambda;
+    root.dispatchEvent(new Event("input", { bubbles: true }));
+    st.stop();
+    st.to(firstOf[cur], false);
+  }
+  function lambdaRuler(box, rw, eq) {
+    box.innerHTML = "";
+    const q = lib.sys.eqs[eq];
+    const curve = logspace(1e-3, 30, 121).map((l) => {
+      const r = stlsq(lib.sys.G, q.b, q.yy, l);
+      return { l, n: r.active.length, ok: sameTerms(r.coef, lib.truth[eq]) };
+    });
+    const rh = 94, mL = 28, mR = 12, mT = 12, mB = 22;
+    const xr = d3.scaleLog().domain([1e-3, 30]).range([mL, rw - mR]).clamp(true);
+    const yr = d3.scaleLinear().domain([0, 10]).range([rh - mB, mT]);
+    const svg = d3.select(box).append("svg").attr("class", "viz-svg").attr("width", rw).attr("height", rh).style("touch-action", "none").style("cursor", "ew-resize");
+    const ok = curve.filter((d) => d.ok);
+    if (ok.length) {
+      svg.append("rect").attr("x", xr(ok[0].l)).attr("width", xr(ok[ok.length - 1].l) - xr(ok[0].l)).attr("y", mT).attr("height", rh - mT - mB).attr("fill", VIZ.wash);
+      svg.append("text").attr("x", xr(ok[0].l) + 3).attr("y", mT + 10).attr("class", "viz-small viz-muted").text("true terms only");
+    }
+    svg.append("g").attr("transform", `translate(0,${rh - mB})`).call(d3.axisBottom(xr).tickValues([0.001, 0.01, 0.1, 1, 10]).tickFormat((d) => String(d)).tickSizeOuter(0));
+    svg.append("g").attr("transform", `translate(${mL},0)`).call(d3.axisLeft(yr).tickValues([0, 5, 10]).tickSizeOuter(0));
+    svg.append("text").attr("x", rw - mR).attr("y", mT + 10).attr("text-anchor", "end").attr("class", "viz-small viz-muted").text("terms kept");
+    svg.append("path").attr("d", d3.line().curve(d3.curveStepAfter).x((d) => xr(d.l)).y((d) => yr(d.n))(curve)).attr("fill", "none").attr("stroke", MAIN).attr("stroke-width", 1.8);
+    const hl = svg.append("line").attr("y1", mT).attr("y2", rh - mB).attr("stroke", NOW).attr("stroke-width", 1.5);
+    const hc = svg.append("circle").attr("r", 6).attr("fill", NOW);
+    const place = (l) => {
+      const k = stlsq(lib.sys.G, q.b, q.yy, l).active.length;
+      hl.attr("x1", xr(l)).attr("x2", xr(l));
+      hc.attr("cx", xr(l)).attr("cy", yr(k));
+    };
+    place(lambda);
+    const drag = (event) => {
+      const [px] = d3.pointer(event, svg.node());
+      const l = Number(xr.invert(Math.max(mL, Math.min(rw - mR, px))).toPrecision(2));
+      place(l);
+      setLambda(l);
+    };
+    svg.on("pointerdown", (event) => { svg.node().setPointerCapture(event.pointerId); drag(event); });
+    svg.on("pointermove", (event) => { if (event.buttons) drag(event); });
+  }
+  function draw() {
+    body.innerHTML = "";
+    const w = width;
+    const wide = w >= 680;
+    const sideW = wide ? (w >= 800 ? 270 : 240) : Math.min(w, 520);
+    const bW = wide ? w - sideW - 26 : w;
+    const boardBox = html`<div style="max-width:100%;overflow-x:auto"></div>`;
+    const side = html`<div class="viz-side" style="width:${sideW}px"></div>`;
+    body.append(boardBox, side);
+    const board = termBoard(boardBox, {
+      width: bW, nRows: 4, rowTitle: "pass",
+      domain: [1e-6, 300], ticks: [1e-6, 1e-4, 1e-2, 1, 100],
+      axisLabel: "size of each weight (log scale)"
+    });
+    const rulerTitle = html`<div class="viz-side-title"></div>`;
+    const rulerBox = html`<div></div>`;
+    const algo = html`<ol class="viz-algo">
+      <li>Fit least squares with the active terms</li>
+      <li>Compare each weight with λ</li>
+      <li>Set the ones smaller than λ to zero</li>
+      <li>Repeat until none is smaller than λ</li>
+    </ol>`;
+    const explain = html`<div class="viz-explain"></div>`;
+    const found = html`<div class="viz-math" style="font-size:0.8rem"></div>`;
+    side.append(rulerTitle, rulerBox, html`<div class="viz-side-title">Algorithm</div>`, algo, explain, html`<div class="viz-side-title">Equations found</div>`, found);
+    const lines = algo.querySelectorAll("li");
+    let rulerEq = -1;
+    render = (pos, animate) => {
+      const s = seq[pos];
+      if (s.e !== e) {
+        e = s.e;
+        eqSeg.set(EQS[e]);
+      }
+      if (rulerEq !== e) {
+        rulerEq = e;
+        lambdaRuler(rulerBox, sideW, e);
+      }
+      rulerTitle.textContent = `Threshold λ = ${fmtLambda(lambda)} (drag to change)`;
+      const color = MAIN;
+      const kept = s.active;
+      const flagged = s.kind === "compare" ? s.below : [];
+      const zeroed = s.kind === "zero" ? s.below : [];
+      board.setHeads(Array.from(lib.truth[e], (c) => c !== 0));
+      board.setStrips(color, lib.labels.map((_, i) => (flagged.includes(i) ? "flag" : kept.includes(i) ? "on" : "off")), animate);
+      const before = s.hist[s.pass].coef;
+      board.setBars(lib.labels.map((_, i) => {
+        if (zeroed.includes(i)) return { v: 0, text: "0", ghost: Math.abs(before[i]) };
+        if (!kept.includes(i)) return { v: 0, text: "" };
+        return { v: Math.abs(s.coef[i]), text: fmtNum(s.coef[i]), color, flag: flagged.includes(i) };
+      }), { threshold: lambda, label: "λ", animate });
+      const rows = s.hist.slice(0, s.pass + 1).map((h, p) => ({
+        label: String(p + 1),
+        cells: lib.labels.map((_, i) => {
+          if (!h.active.includes(i)) return {};
+          const hit = h.below.includes(i) && (p < s.pass || s.kind === "compare" || s.kind === "zero");
+          return hit
+            ? { fill: ATTN, opacity: 1, stroke: VIZ.grey, dash: "3,2", text: fmtNum(h.coef[i]) }
+            : { fill: color, opacity: 0.3, text: fmtNum(h.coef[i]) };
+        })
+      }));
+      board.setRows(rows.slice(-4), { current: Math.min(s.pass, 3), fresh: animate && s.kind === "fit" ? Math.min(s.pass, 3) : null });
+      lines.forEach((li, j) => li.classList.toggle("now", j === { fit: 0, compare: 1, zero: 2, stop: 3, empty: 3 }[s.kind]));
+      const list = (ix) => ix.map((i) => termName(i)).join(", ");
+      let text = "";
+      if (s.kind === "fit" && s.pass === 0) {
+        text = `<b>Pass 1 for ${EQS[e]}.</b> Least squares with all ${kept.length} terms. Every weight comes out non-zero.`;
+      } else if (s.kind === "fit") {
+        const old = s.hist[s.pass - 1].coef;
+        const fell = kept.filter((i) => Math.abs(old[i]) >= lambda && Math.abs(s.coef[i]) < lambda);
+        text = `<b>Pass ${s.pass + 1}.</b> Least squares again, with the ${kept.length} ${kept.length === 1 ? "term" : "terms"} left. Refitting changes the weights.`;
+        if (fell.length) {
+          const i = fell[0];
+          const nm = termName(i);
+          text += ` Without the removed terms, the best weight for ${nm} is ${fmtNum(s.coef[i])} instead of ${fmtNum(old[i])}, so it is now below λ.`;
+        }
+      } else if (s.kind === "compare") {
+        text = `Compare each weight with λ = ${fmtLambda(lambda)}. ${flagged.length === 1 ? "One weight is" : `${flagged.length} weights are`} smaller (pale blue): ${list(flagged)}.`;
+      } else if (s.kind === "zero") {
+        text = `Set ${flagged.length === 1 ? "it" : "them"} to zero. ${zeroed.length === 1 ? "Its column leaves" : "Their columns leave"} the model, and ${kept.length} ${kept.length === 1 ? "term is" : "terms are"} left.`;
+      } else if (s.kind === "stop") {
+        text = `No weight is smaller than λ, so the loop stops for ${EQS[e]}. ${sameTerms(s.coef, lib.truth[e]) ? "These are exactly the true terms (✓)." : "These are not the true terms (✓)."}`;
+      } else {
+        text = "Every weight fell below λ, so no term is left. λ is too large.";
+      }
+      explain.innerHTML = text;
+      const done = (j) => j < e || (j === e && (s.kind === "stop" || s.kind === "empty"));
+      found.innerHTML = "";
+      found.append(tex.block`${alignedTex(EQS.map((_, j) => (done(j) ? equationTex(VARS[j], lib.terms, finals[j].coef, { digits: 3 }) : `\\frac{d${VARS[j]}}{dt} = \\;?`)))}`);
+    };
+    render(st.k, false);
+  }
+  watchWidth(root, (w) => { width = w; pipe.draw(w); draw(); }, invalidation);
+  st.refresh();
+  return root;
+}
+```
+:::
+
+Her slides include the constant term in the library, so the figures do too. With it, $dz/dt$ needs a second pass. Her SINDy code leaves the constant out, and then $dz/dt$ needs only one pass. Both give the same model.
+
+::: {.viz-wide}
+```{ojs}
+{
+  const lambda = sindyLambda;
+  const coefs = lib.sys.eqs.map((q) => stlsq(lib.sys.G, q.b, q.yy, lambda).coef);
+  const T = 30, h = 0.01, nT = Math.round(T / h) + 1;
+  const run = simulatePoly(lib.terms, coefs, base.X.map((v) => v[0]), { h, tEnd: T });
+  const outcome = runCandidate(lib.terms, coefs, base.X, { h: 0.02, tEnd: 100, keep: 10 }).outcome;
+  const off = base.offset;
+  const dataAt = (j, i) => lorenz.X[j][i + off];
+  const nModel = Math.min(nT, run.nValid);
+  let tNow = T, frame = null, draw = () => {};
+  const card = makeCard(
+    "Step 4: simulate the SINDy model",
+    `The equations found with λ = ${fmtLambda(lambda)} (change λ in the figure above), simulated from the first data point. Press Play to run the model and the data side by side.`
+  );
+  const { root, toolbar, body } = card;
+  const pipe = pipeline(card, SINDY_STAGES);
+  pipe.set([3], false);
+  const slider = html`<input type="range" class="viz-range" min="0" max="${T}" step="0.01">`;
+  slider.value = tNow;
+  const readout = html`<span class="viz-readout"></span>`;
+  const stop = () => {
+    if (frame) cancelAnimationFrame(frame);
+    frame = null;
+    play.textContent = "▶ Play";
+  };
+  const play = button("▶ Play", () => {
+    if (frame) return stop();
+    if (tNow >= T - 0.01) tNow = 0;
+    play.textContent = "❚❚ Pause";
+    const tick = () => {
+      tNow = Math.min(T, tNow + 0.04);
+      slider.value = tNow;
+      draw();
+      if (tNow < T) frame = requestAnimationFrame(tick);
+      else stop();
+    };
+    frame = requestAnimationFrame(tick);
+  });
+  slider.oninput = () => {
+    stop();
+    tNow = +slider.value;
+    draw();
+  };
+  toolbar.append(play, slider, readout, legend([["data", VIZ.grey], ["SINDy model", MAIN]]));
+  invalidation.then(stop);
+  watchWidth(root, (w) => {
+    pipe.draw(w);
+    body.innerHTML = "";
+    const wide = w >= 640;
+    const wPh = wide ? Math.floor((w - 26) * 0.42) : Math.min(w, 380);
+    const wR = wide ? w - 26 - wPh : w;
+    const hPh = wide ? Math.max(280, Math.min(340, wPh)) : 280;
+    const ph = d3.create("svg").attr("class", "viz-svg").attr("width", wPh).attr("height", hPh);
+    const xp = d3.scaleLinear().domain([-22, 22]).range([34, wPh - 8]);
+    const zp = d3.scaleLinear().domain([0, 52]).range([hPh - 30, 8]);
+    ph.append("g").attr("class", "viz-grid").attr("transform", "translate(34,0)").call(d3.axisLeft(zp).ticks(5).tickSize(-(wPh - 42)));
+    ph.append("g").attr("transform", `translate(0,${hPh - 30})`).call(d3.axisBottom(xp).ticks(5).tickSizeOuter(0));
+    ph.append("text").attr("x", wPh - 8).attr("y", hPh - 2).attr("text-anchor", "end").attr("class", "viz-small viz-muted").text("x");
+    ph.append("text").attr("x", 40).attr("y", 18).attr("class", "viz-name").text("z");
+    const clip = DOM.uid("clip");
+    ph.append("clipPath").attr("id", clip.id).append("rect").attr("x", 34).attr("y", 0).attr("width", wPh - 42).attr("height", hPh - 30);
+    const dataPts = d3.range(0, nT, 2).map((i) => [xp(dataAt(0, i)), zp(dataAt(2, i))]);
+    const modelPts = d3.range(0, nModel, 2).map((i) => [xp(run.X[0][i]), zp(run.X[2][i])]);
+    ph.append("path").attr("d", d3.line()(dataPts)).attr("class", "viz-faint").attr("stroke-opacity", 0.55);
+    const dataTrail = ph.append("path").attr("fill", "none").attr("stroke", VIZ.grey).attr("stroke-width", 1);
+    const modelTrail = ph.append("path").attr("fill", "none").attr("stroke", MAIN).attr("stroke-width", 1.1).attr("clip-path", clip);
+    const dataDot = ph.append("circle").attr("r", 4.5).attr("fill", VIZ.muted);
+    const modelDot = ph.append("circle").attr("r", 4.5).attr("fill", MAIN).attr("clip-path", clip);
+    const right = html`<div class="viz-col" style="width:${wR}px"></div>`;
+    body.append(ph.node(), right);
+    const foundTex = coefs.map((k, j) => compactTex(VARS[j], lib.terms, k));
+    const rhs = (s) => s.slice(s.indexOf(" = ") + 3);
+    if (wR >= 420) {
+      right.append(html`<div class="viz-math"><table class="viz-receipt" style="width:auto">
+        <tr class="viz-r-target"><td></td><td>True system</td><td>Found by SINDy</td></tr>
+        ${[0, 1, 2].map((j) => html`<tr><td>${EQS[j]}</td><td>${tex`${rhs(TRUE_TEX[j])}`}</td><td>${tex`${rhs(foundTex[j])}`}</td></tr>`)}
+      </table></div>`);
+    } else {
+      right.append(
+        html`<div class="viz-side-title">True system</div>`, html`<div class="viz-math">${tex.block`${alignedTex(TRUE_TEX)}`}</div>`,
+        html`<div class="viz-side-title">Found by SINDy</div>`, html`<div class="viz-math">${tex.block`${alignedTex(foundTex)}`}</div>`
+      );
+    }
+    const hT = 150;
+    const ts = d3.create("svg").attr("class", "viz-svg").attr("width", wR).attr("height", hT);
+    const xt = d3.scaleLinear().domain([0, T]).range([34, wR - 8]);
+    const yt = d3.scaleLinear().domain([-20, 20]).range([hT - 26, 6]);
+    ts.append("g").attr("class", "viz-grid").attr("transform", "translate(34,0)").call(d3.axisLeft(yt).ticks(4).tickSize(-(wR - 42)));
+    ts.append("g").attr("transform", `translate(0,${hT - 26})`).call(d3.axisBottom(xt).ticks(6).tickSizeOuter(0));
+    ts.append("text").attr("x", wR - 8).attr("y", hT - 1).attr("text-anchor", "end").attr("class", "viz-small viz-muted").text("time");
+    ts.append("text").attr("x", 40).attr("y", 16).attr("class", "viz-name").text("x");
+    const clip2 = DOM.uid("clip");
+    ts.append("clipPath").attr("id", clip2.id).append("rect").attr("x", 34).attr("y", 0).attr("width", wR - 42).attr("height", hT - 26);
+    const xData = ts.append("path").attr("fill", "none").attr("stroke", VIZ.grey).attr("stroke-width", 1.2);
+    const xModel = ts.append("path").attr("fill", "none").attr("stroke", MAIN).attr("stroke-width", 1.2).attr("clip-path", clip2);
+    const tCursor = ts.append("line").attr("y1", 6).attr("y2", hT - 26).attr("stroke", NOW).attr("stroke-width", 1.4);
+    right.append(ts.node());
+    const note = outcome === OUTCOMES[0]
+      ? "The two runs agree for a while and then drift apart, because the system is chaotic. Their shapes on the left still match."
+      : `This model does not reproduce the data (its run ${outcome === OUTCOMES[4] ? "leaves the data range" : outcome === OUTCOMES[3] ? "settles to a point" : "ends up elsewhere"}). With this λ, true terms were removed.`;
+    right.append(html`<div class="viz-note">${note}</div>`);
+    draw = () => {
+      const k = Math.min(nT - 1, Math.round(tNow / h));
+      const km = Math.min(k, nModel - 1);
+      const idx = (m) => d3.range(0, m + 1, 2);
+      dataTrail.attr("d", d3.line()(idx(k).map((i) => [xp(dataAt(0, i)), zp(dataAt(2, i))])));
+      modelTrail.attr("d", d3.line()(idx(km).map((i) => [xp(run.X[0][i]), zp(run.X[2][i])])));
+      dataDot.attr("cx", xp(dataAt(0, k))).attr("cy", zp(dataAt(2, k)));
+      modelDot.attr("cx", xp(run.X[0][km])).attr("cy", zp(run.X[2][km]));
+      xData.attr("d", d3.line()(idx(k).map((i) => [xt(i * h), yt(dataAt(0, i))])));
+      xModel.attr("d", d3.line()(idx(km).map((i) => [xt(i * h), yt(run.X[0][i])])));
+      tCursor.attr("x1", xt(tNow)).attr("x2", xt(tNow));
+      readout.textContent = `time ${tNow.toFixed(1)}`;
+    };
+    draw();
+  }, invalidation);
+  return root;
+}
+```
+:::
+
+With $\lambda = 0.1$ the model follows the data for about 7 time units. For a chaotic system that is expected even with almost exact coefficients, so I compare the shape of the attractor.
+
+## Global modelling with GPoM
+
+Global modelling (Gouesbet and Letellier 1994) starts from the same regression. The R package GPoM implements it (Mangiarotti et al. 2012; Mangiarotti and Huc 2019). Her slides describe it as the same general idea as SINDy, with a different way of choosing the terms:
+
+- There is no threshold. For each equation, GPoM removes one term at a time, the one whose removal increases the error the least, and keeps every model along the way.
+- Whole systems are judged by simulation. GPoM was designed with chaotic systems in mind, so it checks whether each candidate system reproduces the long-term behaviour of the data (the attractor).
+
+It also assumes that polynomials can describe the system. You choose their degree (here 2, which gives the same 10 terms) and the range for the total number of terms in the system.
+
+::: {.viz-wide}
+```{ojs}
+{
+  let e = 1, width = 0, render = () => {};
+  const card = makeCard(
+    "Step 3 with GPoM: remove one term at a time",
+    "Press Next or Play. The bars show how much the error would grow if each term were removed. GPoM removes the term with the smallest bar (pale blue), refits, and keeps the new model as a row below. The fit error stays small until a true term (✓) is removed."
+  );
+  const { root, toolbar, body } = card;
+  const pipe = pipeline(card, GPOM_STAGES);
+  pipe.set([2], false);
+  const L = () => gp.ladders[e];
+  const st = stepper({ count: () => L().length, go: (k, animate) => render(k, animate), invalidation });
+  toolbar.append(
+    segmented(EQS, EQS[e], (v) => { e = EQS.indexOf(v); st.stop(); draw(); st.to(0, false); }, "Equation"),
+    st.node, st.counter
+  );
+  function draw() {
+    body.innerHTML = "";
+    const w = width;
+    const wide = w >= 720;
+    const sideW = wide ? (w >= 820 ? 260 : 230) : Math.min(w, 560);
+    const bW = wide ? w - sideW - 26 : w;
+    const lad = L();
+    const truth = Array.from(lib.truth[e], (c) => c !== 0);
+    const nTrue = truth.filter(Boolean).length;
+    const rightW = bW < 440 ? 66 : 84;
+    const boardBox = html`<div style="max-width:100%;overflow-x:auto"></div>`;
+    const side = html`<div class="viz-side" style="width:${sideW}px"></div>`;
+    body.append(boardBox, side);
+    const board = termBoard(boardBox, {
+      width: bW, nRows: lad.length, rowTitle: "terms",
+      domain: [1e-7, 1e8], ticks: [1e-6, 1e-3, 1, 1e3, 1e6],
+      axisLabel: "increase of the error if the term is removed (log scale)",
+      rightW, rightTitle: "fit error"
+    });
+    const barMax = rightW - 50;
+    const ex = d3.scaleLog().domain([1e-4, 1]).range([0, barMax]).clamp(true);
+    const algo = html`<ol class="viz-algo">
+      <li>Fit least squares with the remaining terms</li>
+      <li>For each term, compute how much the error grows without it</li>
+      <li>Remove the term with the smallest increase</li>
+      <li>Repeat until one term is left, keeping every model</li>
+    </ol>`;
+    const explain = html`<div class="viz-explain"></div>`;
+    side.append(
+      html`<div class="viz-side-title">Algorithm</div>`, algo, explain,
+      legend([["in the model", MAIN], ["removed next", ATTN]]),
+      html`<div class="viz-note">Each row is one model, and GPoM keeps them all. Empty cells are removed terms. ✓ marks the true terms. Fit error is the size of the residuals relative to the derivative.</div>`
+    );
+    const lines = algo.querySelectorAll("li");
+    render = (k, animate) => {
+      const m = lad[k];
+      board.setHeads(truth);
+      board.setStrips(MAIN, lib.labels.map((_, i) => (i === m.next ? "flag" : m.active.includes(i) ? "on" : "off")), animate);
+      board.setBars(lib.labels.map((_, i) => {
+        if (!m.active.includes(i)) return { v: 0, text: "" };
+        const sc = m.scores.get(i);
+        return { v: Math.max(sc, 1.2e-7), text: fmtScore(sc), color: MAIN, flag: i === m.next };
+      }), { animate });
+      board.setRows(lad.map((mm, r) => (r > k
+        ? { label: String(mm.active.length), future: true }
+        : {
+            label: String(mm.active.length),
+            cells: lib.labels.map((_, i) => (mm.active.includes(i)
+              ? (i === mm.next
+                ? { fill: ATTN, opacity: 1, stroke: VIZ.grey, dash: "3,2", text: fmtNum(mm.coef[i]) }
+                : { fill: MAIN, opacity: 0.3, text: fmtNum(mm.coef[i]) })
+              : {})),
+            right: { bar: ex(mm.relErr), barMax, text: fmtPct(mm.relErr) }
+          })), { current: k, fresh: animate ? k : null });
+      lines.forEach((li, j) => li.classList.toggle("now", m.next === null ? j === 3 : j === 2));
+      if (m.next === null) {
+        explain.innerHTML = `<b>1 term left.</b> The sequence is complete: ${lad.length} nested models, all kept for the next step.`;
+      } else {
+        const exact = m.active.length === nTrue && m.active.every((i) => truth[i]);
+        explain.innerHTML = `<b>Model with ${m.active.length} terms.</b> ${exact ? "These are exactly the true terms. " : ""}Removing <b>${termName(m.next)}</b> increases the error the least, so it goes next.${truth[m.next] ? " It is a true term, so the fit error of the next model jumps." : ""}`;
+      }
+    };
+  }
+  watchWidth(root, (w) => { width = w; pipe.draw(w); draw(); st.to(st.k, false); }, invalidation);
+  return root;
+}
+```
+:::
+
+Each equation now has a sequence of 10 nested models. GPoM builds candidate systems by taking one model from each sequence. It keeps the combinations whose total number of terms lies between `nPmin` and `nPmax`. The talk's code used 6 and 11, which gives 155 candidates.
+
+::: {.viz-wide}
+```{ojs}
+{
+  const TOTALS = d3.range(6, 12);
+  const byTotal = new Map(TOTALS.map((t) => [t, gpRuns.filter((c) => c.nTerms === t)]));
+  const firstGood = (t) => (byTotal.get(t).find((c) => c.outcome === OUTCOMES[0]) || byTotal.get(t)[0]).id;
+  const bg = thin(base.t.length, 700).map((i) => [base.X[0][i], base.X[2][i]]);
+  let total = 6, pick = firstGood(6), width = 0, draw = () => {};
+  const card = makeCard(
+    "Step 4 with GPoM: combine one model per equation, then simulate",
+    "Choose the total number of terms, or click a bar. Each candidate takes one model from each equation's sequence, so the three counts add up to the total. Every candidate is simulated for 100 time units (grey: the data). Click a candidate to see how it is built."
+  );
+  const { root, toolbar, body } = card;
+  const pipe = pipeline(card, GPOM_STAGES);
+  pipe.set([3], false);
+  const setTotal = (t) => {
+    total = t;
+    pick = firstGood(t);
+    totalSeg.set(t);
+    draw();
+  };
+  const totalSeg = segmented(TOTALS, total, (v) => setTotal(v), "Total terms");
+  toolbar.append(totalSeg, legend(OUTCOMES.map((o) => [o, outcomeColor(o)])));
+  draw = () => {
+    body.innerHTML = "";
+    const w = width;
+    const wide = w >= 660;
+    const sideW = wide ? Math.min(320, Math.floor(w * 0.38)) : w;
+    const leftW = wide ? w - sideW - 26 : w;
+    const left = html`<div class="viz-col" style="width:${leftW}px"></div>`;
+    const side = html`<div class="viz-side" style="width:${sideW}px"></div>`;
+    body.append(left, side);
+    // how many candidates each total gives, and how they end
+    const oh = 136, oT = 30, oB = 24;
+    const ov = d3.create("svg").attr("class", "viz-svg").attr("width", leftW).attr("height", oh);
+    const xb = d3.scaleBand().domain(TOTALS).range([30, leftW - 4]).paddingInner(0.3).paddingOuter(0.1);
+    const yb = d3.scaleLinear().domain([0, 45]).range([oh - oB, oT]);
+    ov.append("rect").attr("x", xb(total) - (xb.step() * xb.paddingInner()) / 2).attr("width", xb.step()).attr("y", 14).attr("height", oh - oB - 14).attr("fill", VIZ.wash);
+    ov.append("g").attr("class", "viz-grid").attr("transform", "translate(30,0)").call(d3.axisLeft(yb).tickValues([0, 15, 30, 45]).tickSize(-(leftW - 34)));
+    ov.append("g").attr("transform", `translate(0,${oh - oB})`).call(d3.axisBottom(xb).tickSizeOuter(0));
+    ov.append("text").attr("x", 0).attr("y", 9).attr("class", "viz-small viz-muted").text("candidates for each total number of terms");
+    TOTALS.forEach((t) => {
+      const list = byTotal.get(t);
+      let acc = 0;
+      OUTCOMES.forEach((o) => {
+        const k = list.filter((c) => c.outcome === o).length;
+        if (!k) return;
+        ov.append("rect").attr("x", xb(t)).attr("width", xb.bandwidth()).attr("y", yb(acc + k)).attr("height", yb(acc) - yb(acc + k)).attr("fill", outcomeColor(o));
+        acc += k;
+      });
+      const good = list.filter((c) => c.outcome === OUTCOMES[0]).length;
+      ov.append("text").attr("x", xb(t) + xb.bandwidth() / 2).attr("y", yb(list.length) - 4).attr("text-anchor", "middle")
+        .attr("class", "viz-small").attr("font-weight", t === total ? 700 : 400).text(`${good} of ${list.length}`);
+      ov.append("rect").attr("x", xb(t) - 4).attr("width", xb.bandwidth() + 8).attr("y", 0).attr("height", oh).attr("fill", "transparent")
+        .style("cursor", "pointer").on("click", () => setTotal(t));
+    });
+    left.append(ov.node());
+    // the candidates for the chosen total
+    const cands = byTotal.get(total);
+    const want = cands.length <= 15 ? 92 : cands.length <= 28 ? 78 : 66;
+    const size = Math.max(52, Math.min(want, Math.floor((leftW - 8 * 4) / 5)));
+    const perRow = Math.max(1, Math.floor((leftW + 4) / (size + 6)));
+    const grid = html`<div class="viz-thumbs" style="grid-template-columns: repeat(${perRow}, ${size + 2}px); justify-content: start;"></div>`;
+    const hh = Math.round(size * 0.78);
+    const xs = d3.scaleLinear().domain([-25, 25]).range([2, size - 2]);
+    const zs = d3.scaleLinear().domain([-2, 52]).range([hh - 2, 2]);
+    const thumbs = cands.map((c) => {
+      const svg = d3.create("svg").attr("class", "viz-svg").attr("width", size).attr("height", hh);
+      const clip = DOM.uid("clip");
+      svg.append("clipPath").attr("id", clip.id).append("rect").attr("width", size).attr("height", hh);
+      svg.append("path").attr("d", d3.line().x((d) => xs(d[0])).y((d) => zs(d[1]))(bg)).attr("class", "viz-faint").attr("stroke-opacity", 0.25);
+      svg.append("path").attr("d", d3.line().x((d) => xs(d.x)).y((d) => zs(d.z))(c.path)).attr("fill", "none").attr("stroke", outcomeColor(c.outcome)).attr("stroke-width", 0.8).attr("clip-path", clip);
+      if (c.outcome === OUTCOMES[3] && c.path.length) {
+        const q = c.path[c.path.length - 1];
+        svg.append("circle").attr("cx", xs(q.x)).attr("cy", zs(q.z)).attr("r", 2.6).attr("fill", outcomeColor(c.outcome));
+      }
+      svg.append("text").attr("x", size - 4).attr("y", hh - 4).attr("text-anchor", "end").attr("class", "viz-small viz-muted").text(c.perEq.join("+"));
+      const el = html`<button type="button" class="viz-thumb" title="Model ${c.id}: ${c.perEq.join(" + ")} terms, ${c.outcome}">${svg.node()}<span class="viz-tag">#${c.id}</span></button>`;
+      el.classList.toggle("on", c.id === pick);
+      el.onclick = () => {
+        pick = c.id;
+        thumbs.forEach((t) => t.el.classList.toggle("on", t.id === pick));
+        showDetail(true);
+      };
+      return { el, id: c.id };
+    });
+    thumbs.forEach((t) => grid.append(t.el));
+    left.append(html`<div class="viz-side-title" style="margin-top:0.5rem">The ${cands.length} candidates with ${total} terms, numbered as in GPoM (counts per equation at the bottom right)</div>`, grid);
+    // the chosen candidate: one row from each equation's sequence
+    const head = html`<div></div>`;
+    const cs = Math.max(5, Math.min(8, Math.floor((sideW - 34) / 33)));
+    const lw = 10 * cs, gapL = Math.max(10, Math.min(36, Math.floor((sideW - 3 * lw - 6) / 2))), lh = 10 * cs;
+    const lad = d3.create("svg").attr("class", "viz-svg").attr("width", 3 * lw + 2 * gapL + 4).attr("height", lh + 36);
+    const marks = [], cells = [], counts = [];
+    [0, 1, 2].forEach((j) => {
+      const g = lad.append("g").attr("transform", `translate(${2 + j * (lw + gapL)},18)`);
+      g.append("text").attr("x", lw / 2).attr("y", -6).attr("text-anchor", "middle").attr("font-weight", 650).attr("class", "viz-small").text(EQS[j]);
+      const data = [];
+      gp.ladders[j].forEach((m, r) => m.active.forEach((i) => data.push({ r, i })));
+      cells[j] = g.selectAll("rect.c").data(data).join("rect").attr("class", "c")
+        .attr("x", (d) => d.i * cs + 0.5).attr("y", (d) => d.r * cs + 0.5).attr("width", cs - 1).attr("height", cs - 1).attr("fill", MAIN).attr("fill-opacity", 0.16);
+      marks[j] = g.append("rect").attr("x", -2).attr("y", -2).attr("width", lw + 3).attr("height", cs + 3).attr("fill", "none").attr("stroke", VIZ.ink).attr("stroke-width", 1.4);
+      counts[j] = g.append("text").attr("x", lw / 2).attr("y", lh + 14).attr("text-anchor", "middle").attr("class", "viz-small viz-muted");
+    });
+    const cmp = html`<div class="viz-note"></div>`;
+    const math = html`<div class="viz-math" style="font-size:${sideW >= 320 ? 0.8 : 0.72}rem"></div>`;
+    const plotBox = html`<div></div>`;
+    side.append(head, html`<div class="viz-side-title">One model from each equation's sequence (rows: 10 terms at the top, 1 at the bottom)</div>`, lad.node(), cmp, math, plotBox);
+    function showDetail(animate) {
+      const c = gpRuns.find((d) => d.id === pick);
+      const dur = motion(animate ? 380 : 0);
+      head.innerHTML = "";
+      head.append(html`<div style="font-weight:700;color:${VIZ.ink}">Model ${c.id}: ${c.perEq.join(" + ")} = ${c.nTerms} terms</div>`, legend([[c.outcome, outcomeColor(c.outcome)]]));
+      [0, 1, 2].forEach((j) => {
+        const r = c.steps[j];
+        marks[j].transition().duration(dur).attr("y", r * cs - 2);
+        cells[j].transition().duration(dur).attr("fill-opacity", (d) => (d.r === r ? 1 : 0.16));
+        counts[j].text(`${c.perEq[j]} ${c.perEq[j] === 1 ? "term" : "terms"}`);
+      });
+      const notes = [];
+      [0, 1, 2].forEach((j) => {
+        const k = c.coefs[j];
+        const missing = lib.labels.filter((_, i) => lib.truth[j][i] !== 0 && k[i] === 0);
+        const extra = lib.labels.map((l, i) => ({ l, v: k[i], i })).filter((d) => lib.truth[j][d.i] === 0 && d.v !== 0);
+        if (missing.length) notes.push(`${EQS[j]} has no ${missing.join(" or ")} term`);
+        if (extra.length) notes.push(`${EQS[j]} has the extra ${extra.length === 1 ? "term" : "terms"} ${extra.map((d) => `${d.l} (${fmtNum(d.v)})`).join(", ")}`);
+      });
+      cmp.textContent = notes.length ? `Compared with the true system: ${notes.join("; ")}.` : "These are exactly the terms of the true system.";
+      math.innerHTML = "";
+      math.append(tex.block`${alignedTex(c.coefs.map((k, j) => compactTex(VARS[j], gp.terms, k, 0.01, 3)))}`);
+      plotBox.innerHTML = "";
+      const pw = Math.min(sideW, 360), phh = Math.round(pw * 0.7);
+      const svg = d3.create("svg").attr("class", "viz-svg").attr("width", pw).attr("height", phh);
+      const xp = d3.scaleLinear().domain([-25, 25]).range([30, pw - 6]);
+      const zp = d3.scaleLinear().domain([-2, 52]).range([phh - 24, 6]);
+      svg.append("g").attr("class", "viz-grid").attr("transform", "translate(30,0)").call(d3.axisLeft(zp).ticks(4).tickSize(-(pw - 36)));
+      svg.append("g").attr("transform", `translate(0,${phh - 24})`).call(d3.axisBottom(xp).ticks(5).tickSizeOuter(0));
+      const clip = DOM.uid("clip");
+      svg.append("clipPath").attr("id", clip.id).append("rect").attr("x", 30).attr("y", 0).attr("width", pw - 36).attr("height", phh - 24);
+      svg.append("path").attr("d", d3.line().x((d) => xp(d[0])).y((d) => zp(d[1]))(bg)).attr("class", "viz-faint").attr("stroke-opacity", 0.5);
+      const path = svg.append("path").attr("d", d3.line().x((d) => xp(d.x)).y((d) => zp(d.z))(c.path)).attr("fill", "none").attr("stroke", outcomeColor(c.outcome)).attr("stroke-width", 0.9).attr("clip-path", clip);
+      if (c.outcome === OUTCOMES[3] && c.path.length) {
+        const q = c.path[c.path.length - 1];
+        svg.append("circle").attr("cx", xp(q.x)).attr("cy", zp(q.z)).attr("r", 4).attr("fill", outcomeColor(c.outcome));
+      }
+      plotBox.append(svg.node());
+      if (animate && dur > 0) {
+        const len = path.node().getTotalLength();
+        path.attr("stroke-dasharray", `${len} ${len}`).attr("stroke-dashoffset", len)
+          .transition().duration(motion(1400)).ease(d3.easeLinear).attr("stroke-dashoffset", 0)
+          .on("end", () => path.attr("stroke-dasharray", null));
+      }
+    }
+    showDetail(false);
+  };
+  watchWidth(root, (w) => { width = w; pipe.draw(w); draw(); }, invalidation);
+  return root;
+}
+```
+:::
+
+GPoM labels each simulated candidate as 0 (diverges, leaves the data range or stops at a fixed point), -1 (periodic cycle) or 1 (unclassified), and leaves the final choice to the user. The colours above come from my own simpler rules. In this example, a candidate reproduces the attractor exactly when every equation keeps at least 2 terms. Model 5 is the smallest one that works, but its $dy/dt$ has no $y$ term. Model 18 has exactly the true terms. In the talk's code, checking the plots by eye gave nine good models: 5, 15, 18, 19, 30, 33, 37, 38 and 39. My version also flags model 34, and more models with 9 to 11 terms.
+
+## SINDy and GPoM side by side
+
+|  | SINDy | GPoM |
+|---|---|---|
+| How terms leave | Every weight smaller than $\lambda$ is set to zero, then the model is refitted | The term whose removal increases the error the least leaves, one at a time |
+| What comes out | One model per equation | A sequence of models per equation, combined into many candidate systems |
+| How a model is judged | By its fit to the derivatives; simulation is an extra check | By simulation: does it reproduce the attractor? |
+| What you choose | $\lambda$ | The polynomial degree, the range of total terms, and the final model |
+
+## Key things to remember
+
+- The library must contain the true terms. No threshold can add a missing term.
+- Derivatives come first. These data are noise-free; with real data, noise in the derivatives is the main difficulty.
+- SINDy compares each weight with $\lambda$. Refitting changes the weights that are left, so a later pass can remove more terms (the constant in $dz/dt$ here).
+- Too small a $\lambda$ keeps junk terms, and too large a $\lambda$ removes true ones. Scan $\lambda$ and look for a range where the chosen terms stay the same.
+- GPoM compares the terms with each other, keeps every model in the sequence, and judges whole systems by simulating them. You set the range for the total number of terms.
+- Several models can reproduce the same data. Model 5 has no $y$ term in $dy/dt$ and still reproduces the attractor. Choosing among such models needs other reasons: fewer terms, prediction tests, or knowledge of the system.
+- For a chaotic system, compare attractors, not exact paths.
+- A model that reproduces the data is a hypothesis about the mechanism, not proof of it.
+- GPoM is the R package for global modelling. PySINDy is a Python package for SINDy (de Silva et al. 2020).
+
+::: {.callout-note collapse="true" icon=false}
+## R code (shortened from the talk)
+
+The SINDy part (steps 1 to 3) was checked in R with a simple stand-in for `drvSucc()`, and it returns the exact Lorenz coefficients. The GPoM calls have not been run here; they use the same functions and settings as the talk's code.
+
+```r
+library(tidyverse)
+library(deSolve)
+library(GPoM)
+
+# Simulate the Lorenz system (the talk used odin2 and dust2)
+lorenz <- function(t, s, p) {
+  with(as.list(c(s, p)), list(c(
+    sigma * (y - x),
+    x * (rho - z) - y,
+    x * y - beta * z
+  )))
+}
+lrz <- ode(
+  y = c(x = 10, y = 10, z = 10), times = seq(0, 100, by = 0.001),
+  func = lorenz, parms = c(sigma = 10, rho = 28, beta = 8 / 3)
+) |>
+  as.data.frame() |>
+  rename(t = time)
+
+# Step 1: derivatives with a Savitzky-Golay filter
+deriv <- c("x", "y", "z") |>
+  set_names() |>
+  map(\(v) drvSucc(lrz$t, lrz[[v]], nDeriv = 1))
+dxdt <- map(deriv, \(d) d$seriesDeriv[, 2])  # column 2 is the first derivative
+t_keep <- deriv$x$tout                       # the filter drops points at each end
+
+# Step 2: library of candidate terms (degree 2, with the constant as in the slides;
+# the talk's SINDy code leaves the constant out and finds the same model)
+theta <- lrz |>
+  filter(t %in% t_keep) |>
+  transmute(const = 1, x, y, z,
+            x2 = x^2, xy = x * y, xz = x * z,
+            y2 = y^2, yz = y * z, z2 = z^2)
+
+# Step 3: sequentially thresholded least squares
+stlsq <- function(theta, dxdt, lambda = 0.1, max_iter = 100) {
+  theta <- as.matrix(theta)
+  coefs <- rep(1, ncol(theta))  # start with every term active
+  for (i in seq_len(max_iter)) {
+    active <- which(coefs != 0)
+    if (length(active) == 0) break
+    fit <- qr.solve(theta[, active, drop = FALSE], dxdt)
+    small <- abs(fit) < lambda
+    coefs[active] <- if_else(small, 0, fit)
+    if (!any(small)) break
+  }
+  set_names(coefs, colnames(theta))
+}
+sindy_coefs <- map(dxdt, \(d) stlsq(theta, d, lambda = 0.1))
+
+# Step 4: simulate with GPoM::numicano().
+# GPoM orders the 10 terms of a degree 2 model in 3 variables as
+# 1, z, z^2, y, yz, y^2, x, xz, xy, x^2
+gpom_order <- c("const", "z", "z2", "y", "yz", "y2", "x", "xz", "xy", "x2")
+K <- sapply(sindy_coefs, \(k) k[gpom_order])
+sim <- numicano(nVar = 3, dMax = 2, KL = K,
+                onestep = 0.001, Istep = 1e5,
+                v0 = c(10, 10, 10), method = "rk4")
+
+# Global modelling with GPoM
+gp <- gPoMo(as.matrix(lrz[, c("x", "y", "z")]), tin = lrz$t,
+            dMax = 2, nS = c(1, 1, 1),
+            nPmin = 6, nPmax = 11,
+            IstepMin = 500, IstepMax = 5000,
+            show = 0, verbose = FALSE)
+table(gp$okMod)  # 0 = diverged, -1 = periodic, 1 = unclassified
+visuEq(gp$models$mToTest5, nVar = 3, dMax = 2,
+       substit = c("x", "y", "z"), approx = TRUE)
+```
+
+The figures use [`equation-discovery.js`](equation-discovery.js), a short JavaScript version of both methods. It follows the talk's code and the GPoM source, but the outcome labels in the last figure use my own simpler rules.
+:::
+
+## References
+
+::: {.refs}
+
+- Brunton SL, Proctor JL, Kutz JN (2016). Discovering governing equations from data by sparse identification of nonlinear dynamical systems. *Proceedings of the National Academy of Sciences* 113(15): 3932-3937. <https://doi.org/10.1073/pnas.1517384113>
+- de Silva BM, Champion K, Quade M, Loiseau J-C, Kutz JN, Brunton SL (2020). PySINDy: a Python package for the sparse identification of nonlinear dynamical systems from data. *Journal of Open Source Software* 5(49): 2104. <https://doi.org/10.21105/joss.02104>
+- Gouesbet G, Letellier C (1994). Global vector-field reconstruction by using a multivariate polynomial L2 approximation on nets. *Physical Review E* 49(6): 4955-4972. <https://doi.org/10.1103/PhysRevE.49.4955>
+- Lorenz EN (1963). Deterministic nonperiodic flow. *Journal of the Atmospheric Sciences* 20(2): 130-141. <https://doi.org/10.1175/1520-0469(1963)020%3C0130:DNF%3E2.0.CO;2>
+- Mangiarotti S, Coudret R, Drapeau L, Jarlan L (2012). Polynomial search and global modeling: two algorithms for modeling chaos. *Physical Review E* 86(4): 046205. <https://doi.org/10.1103/PhysRevE.86.046205>
+- Mangiarotti S, Huc M (2019). Can the original equations of a dynamical system be retrieved from observational time series? *Chaos* 29(2): 023133. <https://doi.org/10.1063/1.5081448>
+- Savitzky A, Golay MJE (1964). Smoothing and differentiation of data by simplified least squares procedures. *Analytical Chemistry* 36(8): 1627-1639. <https://doi.org/10.1021/ac60214a047>
+
+:::

@@ -6,267 +6,189 @@ page-layout: full
 toc: false
 comments: false
 anchor-sections: false
+body-classes: hue-bl
+execute:
+  echo: false
+  warning: false
+  message: false
 ---
 
 ```{r}
 #| echo: false
-#| output: asis
 #| warning: false
 #| message: false
-# Citation indices (shared with the research page through the same 24h cache)
-# and the package count (written by the software page) so the homepage numbers
-# stay consistent and auto-update, with safe fallbacks if a source is missing.
-sch <- tryCatch({ source("code/scholar.R"); get_scholar_indices(cache = "research/.scholar-cache.json") },
-                error = function(e) list(citations = 313L, hindex = 8L))
-npkg <- tryCatch(as.integer(readLines("code/.pkg-count", n = 1)), error = function(e) NA_integer_)
-if (length(npkg) != 1 || is.na(npkg) || npkg <= 0) npkg <- 6L
-cat(sprintf('<script>window.SCHOLAR={citations:%d,hindex:%d};window.PKGCOUNT=%d;</script>',
-            as.integer(sch$citations), as.integer(sch$hindex), as.integer(npkg)))
+# The three figures come from the shared data layer (R/site-data.R), the same
+# data the CV is built from: citations from Google Scholar, the article count
+# from the Zotero collection, the package count from the Sheet. Nothing is typed
+# by hand here. A figure with no data yet is left out.
+source("R/site-data.R")
+num <- site_numbers()
 ```
 
 ```{=html}
-<section class="home-hero">
-  <span class="atmo a1" aria-hidden="true"></span>
-  <span class="atmo a2" aria-hidden="true"></span>
-  <div class="folio-hero">
-    <span class="fh-glow" aria-hidden="true"></span>
-    <div class="fh-side fh-left">
-      <p class="fh-name">THINH ONG <span class="fh-dot"></span></p>
-      <div class="fh-word"><span class="fw-thin" data-text="MEDICAL">MEDICAL</span><span class="fw-fill" data-text="DOCTOR">DOCTOR</span></div>
+<div class="pg">
+
+  <section class="hm-hero">
+    <div class="hm-hero__main">
+      <div class="hm-hero__top">
+        <p class="pg-eyebrow rise">Medical doctor and mathematical modeller</p>
+        <h1 class="pg-title rise d1">I model how infections spread, so that public health can act <em>earlier.</em></h1>
+      </div>
+      <div class="hm-info rise d2">
+        <div class="hue-in"><span class="k">Currently</span><span class="v">DPhil researcher, University of Oxford</span></div>
+        <div class="hue-te"><span class="k">Based in</span><span class="v">Ho Chi Minh City, Vietnam</span></div>
+        <div class="hue-ma"><span class="k">Links</span><span class="v v--links"><a href="cv/cv.html" target="_blank" rel="noopener">CV</a><a href="https://scholar.google.com/citations?user=PkfvVs0AAAAJ" target="_blank" rel="noopener">Scholar</a><a href="mailto:ongphucthinh@gmail.com">Email</a></span></div>
+      </div>
     </div>
-    <figure class="fh-photo">
-      <span class="fh-plate" aria-hidden="true"></span>
-      <img src="profile.png" alt="Thinh Ong">
-      <span class="fh-hi">Hi</span>
+    <figure class="hm-portrait rise d1">
+      <div class="mat"><img src="img/portrait.jpg" alt="Portrait of Thinh Ong" width="760" height="1043" fetchpriority="high"></div>
+      <figcaption><b>Thinh Ong</b><span>Ho Chi Minh City and Oxford</span></figcaption>
     </figure>
-    <div class="fh-side fh-right">
-      <div class="fh-word"><span class="fw-thin" data-text="MATHEMATICAL">MATHEMATICAL</span><span class="fw-fill" data-text="MODELLER">MODELLER</span></div>
-      <div class="fh-below">
-        <p class="fh-tag">A medical doctor and PhD in infectious disease modelling trained at the University of Oxford.</p>
-        <div class="fh-links">
-          <a href="cv/cv.html" target="_blank" rel="noopener"><i class="bi bi-file-earmark-text"></i> View my CV</a>
-          <a href="https://scholar.google.com/citations?user=PkfvVs0AAAAJ"><i class="bi bi-mortarboard"></i> Scholar</a>
-          <a href="mailto:ongphucthinh@gmail.com"><i class="bi bi-envelope"></i> Email</a>
-        </div>
+  </section>
+
+  <section class="hm-affil" aria-label="Affiliations">
+    <span class="k">Affiliations</span>
+    <div class="hm-affil__logos">
+      <span class="logo"><img src="img/affiliations/oxford.jpg" alt="University of Oxford" width="32" height="32" style="--hn: 32" loading="lazy" decoding="async"></span>
+      <span class="logo"><img src="img/affiliations/oucru.png" alt="Oxford University Clinical Research Unit" width="34" height="34" style="--hn: 34" loading="lazy" decoding="async"></span>
+      <span class="logo"><img src="img/affiliations/midsea.svg" alt="MIDSEA" width="100" height="20" style="--hn: 20" loading="lazy" decoding="async"></span>
+      <span class="logo"><img src="img/affiliations/mah.png" alt="Measles Analytics Hub" width="36" height="30" style="--hn: 30" loading="lazy" decoding="async"></span>
+      <span class="logo"><img src="img/affiliations/midvie.svg" alt="Modelling Infectious Diseases in Vietnam" width="57" height="20" style="--hn: 20" loading="lazy" decoding="async"></span>
+    </div>
+  </section>
+
+  <section class="hm-sec" id="works">
+    <div class="hm-sec__line"><h2>Selected works</h2><span>2024 to 2026</span></div>
+    <div class="pg-rows pg-rows--ink">
+      <a class="pg-row hue-in" href="https://doi.org/10.3201/eid3110.250234" target="_blank" rel="noopener">
+        <span class="r-n">01</span>
+        <span class="r-title r-title--lg">A measles immunity gap, caught before the outbreak</span>
+        <span class="r-sub">
+          <span class="r-pill"><span class="pill">Paper, first author</span></span>
+          <span class="r-meta">Emerging Infectious Diseases</span>
+          <span class="r-year">2025</span>
+        </span>
+        <svg class="r-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+      <a class="pg-row hue-cy" href="https://doi.org/10.1111/2041-210X.70256" target="_blank" rel="noopener">
+        <span class="r-n">02</span>
+        <span class="r-title r-title--lg">denim, a compartmental modelling engine</span>
+        <span class="r-sub">
+          <span class="r-pill"><span class="pill">R package and paper</span></span>
+          <span class="r-meta">Methods in Ecology and Evolution</span>
+          <span class="r-year">2026</span>
+        </span>
+        <svg class="r-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+      <a class="pg-row hue-in" href="https://doi.org/10.1136/bmjgh-2025-019111" target="_blank" rel="noopener">
+        <span class="r-n">03</span>
+        <span class="r-title r-title--lg">Modelling capacity for the global south</span>
+        <span class="r-sub">
+          <span class="r-pill"><span class="pill">Paper, co-author</span></span>
+          <span class="r-meta">BMJ Global Health</span>
+          <span class="r-year">2025</span>
+        </span>
+        <svg class="r-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+      <a class="pg-row hue-in" href="https://doi.org/10.1016/j.vaccine.2026.128375" target="_blank" rel="noopener">
+        <span class="r-n">04</span>
+        <span class="r-title r-title--lg">Infants under six months, most at risk</span>
+        <span class="r-sub">
+          <span class="r-pill"><span class="pill">Paper, joint first author</span></span>
+          <span class="r-meta">Vaccine</span>
+          <span class="r-year">2026</span>
+        </span>
+        <svg class="r-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+      <a class="pg-row hue-ma" href="research/index.html#advisory">
+        <span class="r-n">05</span>
+        <span class="r-title r-title--lg">Capacity building with Ho Chi Minh City CDC</span>
+        <span class="r-sub">
+          <span class="r-pill"><span class="pill">Advisory</span></span>
+          <span class="r-meta">Ho Chi Minh City</span>
+          <span class="r-year">2024 to now</span>
+        </span>
+        <svg class="r-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+    </div>
+  </section>
+```
+
+```{r}
+#| echo: false
+#| output: asis
+figs <- c(stat_html("Citations", num$citations, "in"),
+          stat_html("Peer-reviewed articles", num$articles, "te"),
+          stat_html("Open-source packages", num$software, "ma"))
+figs <- figs[nzchar(figs)]
+if (length(figs))
+  cat("```{=html}\n<section class=\"hm-figs\" aria-label=\"Key figures\">\n",
+      paste(figs, collapse = "\n"), "\n</section>\n```\n", sep = "")
+```
+
+```{=html}
+  <section class="hm-sec">
+    <div class="panel panel--tint hue-te">
+      <span class="panel__label">Impact, Ho Chi Minh City, 2024</span>
+      <div class="panel__body">
+        <p class="panel__lead">Seroprevalence modelling informed the Department of Health's decision to declare a measles outbreak and design the reactive vaccination campaign.</p>
+        <p class="panel__text">The work was recognised as one of the city's top ten medical achievements of 2024. Since then I have trained the city CDC's in-house modelling team, which now runs outbreak analyses independently.</p>
       </div>
     </div>
-  </div>
+  </section>
+```
 
-  <div class="hero-affil reveal r5">
-    <span class="affil-cap">Affiliations</span>
-    <div class="logo-marquee">
-      <div class="lm-track">
-        <img src="img/affiliations/oxford.jpg" alt="University of Oxford">
-        <img src="img/affiliations/oucru.png" alt="Oxford University Clinical Research Unit">
-        <img src="img/affiliations/midsea.svg" alt="MIDSEA">
-        <img src="img/affiliations/mah.png" alt="Measles Analytics Hub">
-        <img src="img/affiliations/midvie.svg" alt="Modelling Infectious Diseases in Vietnam">
-        <img src="img/affiliations/oxford.jpg" alt="" aria-hidden="true">
-        <img src="img/affiliations/oucru.png" alt="" aria-hidden="true">
-        <img src="img/affiliations/midsea.svg" alt="" aria-hidden="true">
-        <img src="img/affiliations/mah.png" alt="" aria-hidden="true">
-        <img src="img/affiliations/midvie.svg" alt="" aria-hidden="true">
-        <img src="img/affiliations/oxford.jpg" alt="" aria-hidden="true">
-        <img src="img/affiliations/oucru.png" alt="" aria-hidden="true">
-        <img src="img/affiliations/midsea.svg" alt="" aria-hidden="true">
-        <img src="img/affiliations/mah.png" alt="" aria-hidden="true">
-        <img src="img/affiliations/midvie.svg" alt="" aria-hidden="true">
-        <img src="img/affiliations/oxford.jpg" alt="" aria-hidden="true">
-        <img src="img/affiliations/oucru.png" alt="" aria-hidden="true">
-        <img src="img/affiliations/midsea.svg" alt="" aria-hidden="true">
-        <img src="img/affiliations/mah.png" alt="" aria-hidden="true">
-        <img src="img/affiliations/midvie.svg" alt="" aria-hidden="true">
-      </div>
-    </div>
-  </div>
+```{r}
+#| echo: false
+#| output: asis
+# Honours on Home: a short selection from the `awards` tab of the Google Sheet,
+# through the same cleaning step as the About page and the CV (awards_clean in
+# R/site-data.R). A row shows here when its cell in the column `home` holds a
+# mark (an x, or a ticked box). With no mark at all, the three newest show.
+# The rows are the same block as on About, with the same links to the certificate
+# and the photo (award_rows_html in R/site-data.R). A link to a picture opens in
+# the picture viewer on this page (data-lb, script in _theme/site.html). The link
+# under the list leads to the full list on About.
+a <- site_awards()
+h <- awards_home(a)
+if (!is.null(h) && nrow(h) > 0) {
+  rows <- award_rows_html(h, up = "", indent = "      ")                      # "": Home is at the project root
+  cat(sprintf(paste0(
+    '```{=html}\n',
+    '  <section class="hm-sec hue-in" id="honours">\n',
+    '    <div class="hm-sec__line"><h2>Honours</h2><span>%s</span></div>\n',
+    '    <div class="pg-rows pg-rows--dated">\n%s\n    </div>\n',
+    '    <div class="pg-links"><a class="tl" href="about/index.html#honours">All %d honours',
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>\n',
+    '  </section>\n',
+    '```\n'),
+    if (nrow(h) < nrow(a)) "Selected" else "", paste(rows, collapse = "\n"), nrow(a)))
+}
+```
 
-  <a class="scroll-cue" href="#work" aria-label="Scroll to selected work">
-    <span class="scroll-cue-label">Selected work</span>
-    <span class="scroll-cue-icon"><i class="bi bi-chevron-down"></i></span>
-  </a>
-</section>
-
-<section class="section-work" id="work">
-  <div class="sec-head">
-    <h2 class="sec-title on-scroll"><span class="sec-dot"></span>Selected work</h2>
-    <span class="sec-rule" aria-hidden="true"></span>
-  </div>
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="fg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#5fa6c6"></stop><stop offset=".5" stop-color="#7d92d6"></stop><stop offset="1" stop-color="#e0896a"></stop></linearGradient></defs></svg>
-  <div class="bento">
-    <div class="tile t-stats">
-      <span class="tk"><i class="bi bi-graph-up-arrow"></i> Research impact</span>
-      <div class="stat-row">
-        <div class="stat"><b class="ct" data-key="citations" data-fallback="313">0</b><span>Citations</span></div>
-        <div class="stat"><b class="ct" data-key="hindex" data-fallback="8">0</b><span>h-index</span></div>
-        <div class="stat"><b class="ct" data-key="packages" data-fallback="6">0</b><span>software</span></div>
-      </div>
-      <p class="stat-foot">A <b>medical doctor</b> and <b>infectious disease modeller</b>, turning routine data into outbreak decisions.</p>
-    </div>
-
-    <a class="tile t-feature" href="https://doi.org/10.3201/eid3110.250234" target="_blank" rel="noopener">
-      <span class="tk"><i class="bi bi-star-fill"></i> First author &middot; Emerg Infect Dis 2025</span>
-      <h3 class="tname">A measles immunity gap, caught before the outbreak</h3>
-      <p class="tdesc">Integrating routine data to quantify population immunity and flag rising outbreak risk early.</p>
-      <span class="tgo">Read the paper <i class="bi bi-arrow-right"></i></span>
-      <svg class="feat-art" viewBox="0 0 240 150" aria-hidden="true"><g class="grid"><line x1="0" y1="118" x2="240" y2="118"></line><line x1="0" y1="66" x2="240" y2="66"></line></g><path d="M6,140 C50,134 70,120 96,64 C112,30 124,14 150,14 C178,14 196,96 210,118 L234,118" stroke="url(#fg)"></path><circle cx="150" cy="14" r="4" fill="#e0896a"></circle></svg>
+```{=html}
+  <nav class="hm-links" aria-label="Sections">
+    <a class="hm-link hue-in" href="research/index.html">
+      <span class="nx-title">Research</span>
+      <span class="nx-text">Vaccination and population immunity, turning routine data into models of outbreak risk.</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
     </a>
-
-    <a class="tile t-denim" href="https://thinhong.github.io/denim" target="_blank" rel="noopener">
-      <span class="ti"><i class="bi bi-box"></i></span>
-      <span class="tk">Open source</span>
-      <h3 class="tname">denim, a compartmental modelling engine</h3>
-      <p class="tdesc">First-author R package for fast epidemic simulation.</p>
-      <span class="tgo">Explore the package <i class="bi bi-arrow-right"></i></span>
+    <a class="hm-link hue-te" href="teaching/index.html">
+      <span class="nx-title">Teaching</span>
+      <span class="nx-text">Short courses, workshops and talks on disease modelling, statistics and R.</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
     </a>
-
-    <a class="tile t-hcdc" href="research/index.qmd">
-      <span class="ti"><i class="bi bi-diagram-3"></i></span>
-      <span class="tk">Real-world impact</span>
-      <h3 class="tname">Ho Chi Minh City CDC</h3>
-      <p class="tdesc">Training their in-house team to model outbreaks.</p>
-      <span class="tgo">How I advise <i class="bi bi-arrow-right"></i></span>
+    <a class="hm-link hue-cy" href="software/index.html">
+      <span class="nx-title">Software</span>
+      <span class="nx-text">Open-source R packages for modelling, biostatistics and bioinformatics.</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
     </a>
-
-    <a class="tile t-nav c1" href="research/index.qmd">
-      <span class="ti"><i class="bi bi-graph-up"></i></span>
-      <span class="tname">Research</span>
-      <i class="bi bi-arrow-right arr"></i>
+    <a class="hm-link hue-ma" href="blog/index.html">
+      <span class="nx-title">Blog</span>
+      <span class="nx-text">A place to think out loud about disease modelling, code and the work of science.</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
     </a>
-    <a class="tile t-nav c2" href="teaching/index.qmd">
-      <span class="ti"><i class="bi bi-mortarboard"></i></span>
-      <span class="tname">Teaching</span>
-      <i class="bi bi-arrow-right arr"></i>
-    </a>
-    <a class="tile t-nav wide c3" href="software/index.qmd">
-      <span class="ti"><i class="bi bi-braces"></i></span>
-      <span class="tname">Software &middot; <span class="pkgn">6</span> open-source packages</span>
-      <i class="bi bi-arrow-right arr"></i>
-    </a>
-  </div>
-</section>
+  </nav>
 
-<script>
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var els = document.querySelectorAll('.on-scroll');
-  if (!reduce && 'IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
-      });
-    }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
-    els.forEach(function (el) { io.observe(el); });
-  } else {
-    els.forEach(function (el) { el.classList.add('in'); });
-  }
-
-  // Selected work bento: staggered reveal + count-up
-  var tiles = [].slice.call(document.querySelectorAll('.section-work .tile'));
-  if (!reduce && 'IntersectionObserver' in window) {
-    var tio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          var el = en.target;
-          el.classList.add('in');
-          el.addEventListener('transitionend', function clr(e) { if (e.propertyName === 'opacity') { el.style.transitionDelay = '0s'; el.removeEventListener('transitionend', clr); } });
-          tio.unobserve(el);
-        }
-      });
-    }, { threshold: 0.18 });
-    tiles.forEach(function (el, i) { el.style.transitionDelay = (i * 0.06) + 's'; tio.observe(el); });
-  } else {
-    tiles.forEach(function (el) { el.classList.add('in'); });
-  }
-  function workTarget(el) {
-    var S = window.SCHOLAR || {}, k = el.getAttribute('data-key');
-    if (k === 'citations' && S.citations) return +S.citations;
-    if (k === 'hindex' && S.hindex) return +S.hindex;
-    if (k === 'packages' && window.PKGCOUNT) return +window.PKGCOUNT;
-    return parseInt(el.getAttribute('data-fallback'), 10) || 0;
-  }
-  function workCount(el) { var to = workTarget(el); if (reduce) { el.textContent = to; return; } var n = 0, step = Math.max(1, Math.round(to / 26)); var t = setInterval(function () { n += step; if (n >= to) { n = to; clearInterval(t); } el.textContent = n; }, 38); }
-  var pkgn = document.querySelector('.section-work .pkgn');
-  if (pkgn && window.PKGCOUNT) pkgn.textContent = window.PKGCOUNT;
-  var cts = [].slice.call(document.querySelectorAll('.section-work .ct'));
-  if ('IntersectionObserver' in window) {
-    var cio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { workCount(en.target); cio.unobserve(en.target); } });
-    }, { threshold: 0.6 });
-    cts.forEach(function (el) { cio.observe(el); });
-  } else { cts.forEach(workCount); }
-
-  // Hero: kinetic type. The four words are split into letters that rise in on
-  // load; a colour sheen ripples through DOCTOR then MODELLER now and then;
-  // hover (desktop) or tap (touch) runs a letter wave; Hi wobbles on tap.
-  // All hidden pre-entrance states hang off .k, added only here, so a stale
-  // render (old markup or old JS) still shows a fully visible static hero.
-  var hero = document.querySelector('.folio-hero');
-  if (hero && !reduce) {
-    var hoverFine = window.matchMedia && window.matchMedia('(hover: hover)').matches;
-    var kwords = [].slice.call(hero.querySelectorAll('.fw-thin, .fw-fill'));
-    var kdelays = ['0.3s', '0.42s', '0.56s', '0.68s'];
-    kwords.forEach(function (w, wi) {
-      var text = w.textContent;
-      w.setAttribute('role', 'text');
-      w.setAttribute('aria-label', text);
-      w.textContent = '';
-      for (var i = 0; i < text.length; i++) {
-        var s = document.createElement('span');
-        s.className = 'ch';
-        s.textContent = text.charAt(i);
-        s.setAttribute('aria-hidden', 'true');
-        s.style.setProperty('--i', i);
-        s.style.setProperty('--d', kdelays[wi] || '0s');
-        w.appendChild(s);
-      }
-    });
-    function wave(w) {
-      if (!w || w.classList.contains('waverun') || w.classList.contains('sheenrun')) return;
-      w.classList.add('waverun');
-      setTimeout(function () { w.classList.remove('waverun'); }, w.children.length * 26 + 700);
-    }
-    if (hoverFine) {
-      kwords.forEach(function (w) {
-        w.addEventListener('pointerenter', function () { wave(w); });
-      });
-    } else {
-      [].slice.call(hero.querySelectorAll('.fh-word')).forEach(function (b) {
-        b.addEventListener('pointerdown', function (e) {
-          if (e.target.closest('a')) return;
-          wave(b.querySelector('.fw-fill'));
-        });
-      });
-    }
-    // sheen only while the hero is on screen and the tab is visible
-    var heroVis = true;
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (en) {
-        heroVis = en[en.length - 1].isIntersecting;
-      }, { threshold: 0.15 }).observe(hero);
-    }
-    var sheens = [].slice.call(hero.querySelectorAll('.fw-fill')), si = 0;
-    setInterval(function () {
-      if (document.hidden || !heroVis || !sheens.length) return;
-      var w = sheens[si % sheens.length]; si++;
-      if (w.classList.contains('waverun')) return;
-      w.classList.add('sheenrun');
-      setTimeout(function () { w.classList.remove('sheenrun'); }, w.children.length * 42 + 1050);
-    }, 4600);
-    var hi = hero.querySelector('.fh-hi');
-    if (hi) {
-      hi.addEventListener('pointerdown', function () {
-        hi.classList.remove('wob'); void hi.offsetWidth; hi.classList.add('wob');
-        if (!hoverFine) hi.classList.toggle('show');
-      });
-    }
-    document.addEventListener('visibilitychange', function () {
-      document.body.classList.toggle('tab-hidden', document.hidden);
-    });
-    hero.classList.add('k');
-    requestAnimationFrame(function () { hero.classList.add('play'); });
-  } else if (hero) {
-    hero.classList.add('play');
-  }
-})();
-</script>
+</div>
 ```

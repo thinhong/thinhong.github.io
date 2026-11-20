@@ -3,24 +3,31 @@
 # cv/build-cv.R - Build the CV (cv/cv.html + cv/cv.pdf) from the Google
 # Sheet + Zotero, in the Scholarly design.
 #
+# The data comes from R/site-data.R, the same data layer the website pages use,
+# so the CV and the site always show the same figures. This script only turns
+# that data into the CV.
+#
 # This is NOT wired into Quarto. There is deliberately no `pre-render:` hook in
 # _quarto.yml, so rendering or previewing a page can never start a CV build. You
 # run this yourself, whenever you actually want a new CV:
 #
 #     Rscript cv/build-cv.R          # rebuild cv.html + cv.pdf from fresh data
-#     quarto publish gh-pages        # then publish (ships whatever was built)
+#     bash deploy.sh                 # or: refresh data, rebuild the CV only if
+#                                    # something changed, render, publish
 #
-# So the publish flow is two commands, on purpose. An earlier version tried to be
+# An earlier version tried to be
 # clever and hang the build off Quarto's pre-render hook, gated by an environment
 # variable. That gate silently failed open and rebuilt the CV on every single
 # render (see the note on QUARTO_PROJECT_* at the gate below), which is exactly
 # the problem this file no longer has.
 #
 # Environment variables:
-#   CV_SKIP=1      do nothing at all
-#   CV_FORCE=1     rebuild + refetch even if the cache is fresh
-#   CV_SKIP_PDF=1  rebuild cv.html only (accepting a possibly stale pdf)
-#   CV_BUILD=1     only meaningful if the pre-render hook is ever restored
+#   CV_SKIP=1        do nothing at all
+#   CV_FORCE=1       rebuild + refetch even if the cache is fresh
+#   CV_IF_CHANGED=1  skip the build when the data, the template and this script
+#                    are the same as at the last build (deploy.sh sets this)
+#   CV_SKIP_PDF=1    rebuild cv.html only (accepting a possibly stale pdf)
+#   CV_BUILD=1       only meaningful if the pre-render hook is ever restored
 #
 # Requirements:
 #   * R packages: googlesheets4, dplyr, stringr, lubridate, httr,
@@ -29,7 +36,7 @@
 #   * Chrome or Edge installed (pagedown uses it to print the PDF)
 #   * ZOTERO_API_KEY / ZOTERO_USER_ID / ZOTERO_COLLECTION_KEY in .Renviron
 #   * Google auth is only needed if the Sheet is not link-viewable;
-#     in that case the cached gargle token for my_email is used.
+#     in that case the cached gargle token for the email in R/site-data.R is used.
 # =====================================================================
 
 ## ---------------- fast gate: is a build even wanted? (runs before anything loads) ----------------
@@ -55,21 +62,17 @@ if (in_quarto && !want_build) {
 }
 
 suppressPackageStartupMessages({
-  library(googlesheets4); library(dplyr); library(stringr); library(lubridate)
+  library(dplyr); library(stringr); library(lubridate)
 })
 
 ## ---------------- config ----------------
-cv_url     <- "https://docs.google.com/spreadsheets/d/1ecqMkclPn-lhzgGHw2UTueiKkjTxuoAvJjpFKs3Jtm4/edit?usp=sharing"
-tab_names  <- c("edu", "employ", "grants", "awards", "team", "policy", "engagement",
-                "teaching", "talks", "service", "software")
+# The Sheet address, the tab names, the Scholar profile and the cache all live in
+# R/site-data.R now (shared with the website). Only CV-specific settings stay here.
 template   <- "cv/cv-template.html"
 out_html   <- "cv/cv.html"
 out_pdf    <- "cv/cv.pdf"
-cache_file <- "cv/.cv-cache.rds"
-cache_ttl  <- 24                      # hours
-my_email   <- "ongphucthinh@gmail.com"
+stamp_file <- "cv/.cv-built"          # signature of the last successful build (not in git)
 own_name   <- "Ong T"                 # surname + leading initial(s); bolded in the reference list
-scholar_url <- "https://scholar.google.com/citations?user=PkfvVs0AAAAJ&hl=en"
 
 # Columns each tab must provide. Checked up front so a renamed column fails with a
 # clear message instead of a cryptic error deep inside a build_* function.
@@ -87,6 +90,8 @@ required_cols <- list(
   software = c("year", "name", "summary", "url_github")
 )
 # optional columns: filled in with NA if the Sheet does not have them yet
+# (the optional columns of `awards`, which are note, id, url and link_text, are
+# handled by awards_clean() in R/site-data.R)
 # `link_text` overrides the wording of a row's link ("News article", "Recording", ...)
 optional_cols <- list(talks      = c("location", "url", "link_text"),
                       service    = c("location", "url", "link_text"),
@@ -97,6 +102,11 @@ optional_cols <- list(talks      = c("location", "url", "link_text"),
 if (!file.exists("_quarto.yml") || !file.exists(template))
   stop("Run this from the project root, e.g.  Rscript cv/build-cv.R")
 
+# The shared data layer: site_data(), grants_clean(), plus the small text helpers
+# esc(), md_inline() and to_date() that the website pages use too.
+source("R/site-data.R")
+scholar_url <- site_config$scholar_url
+
 ## ---------------- data-refresh policy (past the gate, so a build is wanted) ----------------
 # in_quarto was set at the gate above. full_render tells a whole-site render or
 # publish (fresh fetch) apart from a single-file render (reuse cached data unless
@@ -105,126 +115,15 @@ full_render <- nzchar(Sys.getenv("QUARTO_PROJECT_RENDER_ALL"))
 forced      <- nzchar(Sys.getenv("CV_FORCE"))
 have_out    <- file.exists(out_html) && file.exists(out_pdf)
 
-## ---------------- data fetch (cached) ----------------
-`%or%` <- function(a, b) if (is.null(a) || length(a) == 0 || is.na(a[1])) b else a
-
-# read_sheet returns list-columns for mixed-type cells; flatten to character
-flatten_cols <- function(df) {
-  df[] <- lapply(df, function(col) {
-    if (!is.list(col)) return(col)
-    vapply(col, function(v) {
-      if (is.null(v) || length(v) == 0 || all(is.na(v))) NA_character_ else as.character(v[[1]])
-    }, character(1))
-  })
-  df
-}
-
-fetch_tabs <- function() {
-  read_one <- function(s) flatten_cols(suppressMessages(read_sheet(ss = cv_url, sheet = s)))
-  gs4_deauth()                                       # works if the Sheet is link-viewable
-  tabs <- try(setNames(lapply(tab_names, read_one), tab_names), silent = TRUE)
-  if (inherits(tabs, "try-error")) {
-    message("cv: public read failed, signing in to Google instead ...")
-    gs4_auth(my_email)
-    tabs <- setNames(lapply(tab_names, read_one), tab_names)
-  }
-  tabs
-}
-
-# "LastName Initials" for every author; institutional authors keep their name
-process_authors <- function(creators) {
-  a <- creators[creators$creatorType == "author", , drop = FALSE]
-  if (nrow(a) == 0) return(NA_character_)
-  one <- vapply(seq_len(nrow(a)), function(i) {
-    ln <- if ("lastName" %in% names(a)) a$lastName[i] else NA
-    if (is.na(ln %or% NA)) return((if ("name" %in% names(a)) a$name[i] else NA) %or% "")
-    ini <- paste0(substr(unlist(strsplit(a$firstName[i] %or% "", "[- ]")), 1, 1), collapse = "")
-    trimws(paste(ln, ini))
-  }, character(1))
-  paste(one[nzchar(one)], collapse = ", ")
-}
-
+## ---------------- small data helpers ----------------
 ensure_cols <- function(df, cols) {
   for (cl in cols) if (!cl %in% names(df)) df[[cl]] <- NA_character_
   df
 }
 
-fetch_pubs <- function() {
-  key <- Sys.getenv("ZOTERO_API_KEY"); usr <- Sys.getenv("ZOTERO_USER_ID"); col <- Sys.getenv("ZOTERO_COLLECTION_KEY")
-  if (!nzchar(key) || !nzchar(usr) || !nzchar(col))
-    stop("ZOTERO_API_KEY / ZOTERO_USER_ID / ZOTERO_COLLECTION_KEY missing from .Renviron")
-  url <- sprintf("https://api.zotero.org/users/%s/collections/%s/items", usr, col)
-  pages <- list(); start <- 0
-  repeat {                                            # Zotero caps limit at 100: paginate
-    r <- httr::GET(url, query = list(format = "json", limit = 100, start = start),
-                   httr::add_headers("Zotero-API-Key" = key), httr::timeout(60))
-    if (httr::status_code(r) != 200) stop("Zotero API returned ", httr::status_code(r))
-    d <- jsonlite::fromJSON(httr::content(r, "text", encoding = "UTF-8"))$data
-    if (is.null(d) || !is.data.frame(d) || nrow(d) == 0) break
-    pages[[length(pages) + 1]] <- d
-    if (nrow(d) < 100) break
-    start <- start + 100
-  }
-  z <- dplyr::bind_rows(pages)
-  if (nrow(z) == 0) stop("the Zotero collection came back empty")
-  z <- ensure_cols(z, c("itemType", "title", "date", "journalAbbreviation",
-                        "publicationTitle", "volume", "issue", "pages", "DOI"))
-  z$authors <- if ("creators" %in% names(z)) {
-    vapply(z$creators, function(cr)
-      if (is.data.frame(cr) && nrow(cr) > 0) process_authors(cr) else NA_character_,
-      character(1))
-  } else NA_character_
-  z[, c("itemType", "authors", "title", "date", "journalAbbreviation",
-        "publicationTitle", "volume", "issue", "pages", "DOI")]
-}
-
-get_data <- function(refresh) {
-  cache <- if (file.exists(cache_file)) readRDS(cache_file) else NULL
-  if (!refresh && !is.null(cache)) {
-    age <- as.numeric(difftime(Sys.time(), cache$fetched_at, units = "hours"))
-    if (age < cache_ttl) {
-      message(sprintf("cv: using cached data (%.1f h old). CV_FORCE=1 for a fresh fetch.", age))
-      return(cache)
-    }
-  }
-  message("cv: fetching the Google Sheet + Zotero ...")
-  dat <- tryCatch(
-    list(fetched_at = Sys.time(), tabs = fetch_tabs(), pubs = fetch_pubs()),
-    error = function(e) { message("cv: FETCH FAILED - ", conditionMessage(e)); NULL })
-  if (!is.null(dat)) { saveRDS(dat, cache_file); return(dat) }
-  if (!is.null(cache)) {
-    message("cv: *** USING STALE CACHED DATA from ", format(cache$fetched_at),
-            " - the published CV may be out of date. ***")
-    return(cache)
-  }
-  NULL
-}
-
 ## ---------------- small HTML helpers ----------------
-esc <- function(x) {
-  x <- ifelse(is.na(x), "", as.character(x))
-  x <- gsub("&", "&amp;",  x, fixed = TRUE)
-  x <- gsub("<", "&lt;",   x, fixed = TRUE)
-  x <- gsub(">", "&gt;",   x, fixed = TRUE)
-  x <- gsub('"', "&quot;", x, fixed = TRUE)
-  gsub("'", "&#39;", x, fixed = TRUE)
-}
-# Inline mini-markdown for FREE-TEXT cells (policy, grants, awards, teaching,
-# software, team next-destination). Escapes real HTML FIRST, then allows a tiny,
-# safe markup set so a Google-Sheet cell can carry emphasis and links:
-#   **bold**      -> <strong>              *italic*  -> <em>
-#   [label](url)  -> <a href="url">label</a>   (only http / https / mailto URLs)
-# Anything that is not one of these exact patterns is left as typed, so a stray
-# "*" or "(2020-2023)" in ordinary prose is safe. Vectorised over a column.
-# Convention: a URL may not contain a space or a ")"; put bold INSIDE the link
-# label, e.g.  [**top ten achievements of 2024**](https://example.com/x).
-md_inline <- function(x) {
-  x <- esc(x)                                                              # 1) neutralise real HTML
-  x <- gsub("\\[([^\\]]+)\\]\\((https?://[^) ]+|mailto:[^) ]+)\\)",
-            '<a href="\\2">\\1</a>', x, perl = TRUE)                       # 2) [label](url)
-  x <- gsub("\\*\\*([^*]+)\\*\\*", "<strong>\\1</strong>", x, perl = TRUE) # 3) **bold**
-  gsub("\\*([^*]+)\\*", "<em>\\1</em>", x, perl = TRUE)                    # 4) *italic* (after bold)
-}
+# esc() and md_inline() (the mini-markdown for free-text cells: **bold**, *italic*,
+# [label](url)) are defined in R/site-data.R, because the website uses them too.
 # Close a fragment with a full stop, unless it already ends in sentence punctuation.
 # Stops a title like "Is this a good journal?" coming out as "journal?."
 end_dot <- function(x) {
@@ -235,11 +134,7 @@ clean <- function(x) {                       # NA, "", "null", "0" -> "" (metada
   x <- ifelse(is.na(x), "", as.character(x))
   ifelse(x %in% c("null", "0"), "", x)
 }
-to_date <- function(x) {
-  if (inherits(x, "Date"))   return(x)
-  if (inherits(x, "POSIXt")) return(as.Date(x))
-  suppressWarnings(ymd(substr(as.character(x), 1, 10)))
-}
+# to_date() is defined in R/site-data.R.
 strip_scheme <- function(u) sub("/+$", "", sub("^https?://", "", u))
 # Links show a short, consistent LABEL rather than a raw address. This CV is read
 # on screen, so a link only has to be clickable; a printed address is noise, and a
@@ -384,12 +279,12 @@ build_experience <- function(d) {
 }
 
 build_grants <- function(d) {
-  d$budget <- suppressWarnings(as.numeric(d$budget_total_usd))
-  d$odate  <- to_date(d$outcome)
+  # budget, outcome date, total and first year come from grants_clean() in
+  # R/site-data.R, the same function the About page uses, so both show one total
+  g <- grants_clean(d)
+  d <- g$rows; total <- g$total; since <- g$since
   d$role   <- factor(d$my_role, levels = c("PI", "Co-PI", "Co-I"))
   d <- d[order(d$role, -as.numeric(d$odate), na.last = TRUE), , drop = FALSE]
-  total <- sum(d$budget, na.rm = TRUE)
-  since <- suppressWarnings(min(year(d$odate), na.rm = TRUE))
   lead  <- sprintf('<p class="cv-lead">Secured $%s in research grants%s.</p>',
                    format(round(total), big.mark = ",", trim = TRUE, scientific = FALSE),
                    if (is.finite(since)) paste0(" since ", since) else "")
@@ -404,8 +299,35 @@ build_grants <- function(d) {
 }
 
 build_awards <- function(d) {
-  d <- sort_by_when(d, "date")   # sort on the column that is actually displayed
-  rows <- sprintf('<tr><td class="c-when">%s</td><td>%s</td></tr>', esc(d$date), lead_bold(d$description))
+  # title, detail, note, links and the order come from awards_clean() in
+  # R/site-data.R, the same function the About page uses, so both list the same
+  # awards in the same order. The title is `description` up to its first comma
+  # and is set in bold. `note` adds one more sentence. A row whose `id` has a
+  # scan in img/awards/ gets a "Certificate" link to that file on the website,
+  # and `url` adds a link to a page on another site. The photo of the ceremony
+  # is for the website only: the CV does not link to it.
+  a <- awards_clean(d)
+  if (is.null(a)) stop("cv: the 'awards' tab is empty or has no date / description columns.", call. = FALSE)
+  base <- site_url()
+  # one link for each scan: "Certificate", or "Certificate 2013-14, 2015-16" for several
+  cert <- vapply(a$cert, function(f) {
+    if (!length(f) || !nzchar(base)) return("")
+    w <- award_link_words(f, "Certificate")
+    paste0(" ", paste(sprintf('<a href="%s">%s</a>', esc(paste0(base, "/", f)), esc(w$text)), collapse = ", "))
+  }, character(1))
+  lab  <- ifelse(a$is_file, link_label(a$url, "Certificate", a$link_text),
+                            link_label(a$url, "Website", a$link_text))
+  link <- paste0(cert,
+                 ifelse(nzchar(a$url), sprintf(' <a href="%s">%s</a>', esc(a$url), esc(lab)), ""))
+  linked <- nzchar(link)
+  more   <- nzchar(a$note) | linked            # something follows: close the first part with a full stop
+  title  <- ifelse(more & !nzchar(a$detail), end_dot(a$title), a$title)
+  detail <- ifelse(more, end_dot(a$detail), a$detail)
+  main <- paste0('<span class="t">', md_inline(title), '</span>',
+                 ifelse(nzchar(detail), paste0(", ", md_inline(detail)), ""))
+  note <- ifelse(nzchar(a$note),
+                 paste0(' <span class="cv-meta">', md_inline(ifelse(linked, end_dot(a$note), a$note)), '</span>'), "")   # a full stop only before a link
+  rows <- sprintf('<tr><td class="c-when">%s</td><td>%s%s%s</td></tr>', esc(a$date), main, note, link)
   section("Awards and honours", table_plain(rows))
 }
 
@@ -582,9 +504,18 @@ build_publications <- function(p) {
 }
 
 ## ---------------- assemble ----------------
-refresh <- full_render || !in_quarto || forced
-dat <- get_data(refresh)
-if (is.null(dat)) {
+# Run by hand: fetch fresh data. Run with CV_IF_CHANGED (deploy.sh, right after
+# R/update-data.R): use what is saved, and only fetch if it is older than a day.
+if_changed <- nzchar(Sys.getenv("CV_IF_CHANGED")) && !forced
+refresh    <- (full_render || !in_quarto || forced) && !if_changed
+dat <- site_data(if (refresh) "force" else "auto", sources = c("tabs", "pubs"))
+for (s in c("tabs", "pubs")) {
+  age <- .sd_hours(dat$fetched[[s]])
+  if (!is.null(dat[[s]]) && age > site_config$ttl_hours)
+    message("cv: *** USING STALE CACHED DATA (", .sd_labels[[s]], ", ",
+            format(dat$fetched[[s]], "%Y-%m-%d"), ") - the published CV may be out of date. ***")
+}
+if (is.null(dat$tabs) || is.null(dat$pubs)) {
   if (have_out) {
     message("cv: *** KEEPING the existing cv.html / cv.pdf (no data available). They may be STALE. ***")
     quit(save = "no")
@@ -593,6 +524,22 @@ if (is.null(dat)) {
 }
 
 check_columns(dat$tabs)
+
+# Signature of everything the CV is made from. With CV_IF_CHANGED set, an
+# unchanged signature means the existing cv.html / cv.pdf are already right, so
+# the heavy part (Chrome printing the PDF) is skipped.
+cv_signature <- function() {
+  tmp <- tempfile(); on.exit(unlink(tmp))
+  # the names of the award files count too: a new scan adds a link without any change in the Sheet
+  saveRDS(list(tabs = dat$tabs, pubs = dat$pubs, award_files = sort(list.files(award_dir))), tmp, compress = FALSE)
+  paste(tools::md5sum(c(tmp, template, "cv/build-cv.R", "R/site-data.R")), collapse = "-")
+}
+signature <- cv_signature()
+if (if_changed && have_out && file.exists(stamp_file) &&
+    identical(readLines(stamp_file, n = 1, warn = FALSE), signature)) {
+  message("cv: up to date (data, template and script unchanged since the last build). Not rebuilt.")
+  quit(save = "no")
+}
 
 message("cv: building sections ...")
 # Order is deliberate: lead with what is rare at this career stage (funded as PI,
@@ -674,4 +621,6 @@ if (nzchar(Sys.getenv("CV_SKIP_PDF"))) {
          "Check that Chrome and 'pagedown' are available, or rerun with CV_SKIP_PDF=1 if you accept that.")
   }
 }
+# record what this build was made from (only reached when every step above worked)
+if (!nzchar(Sys.getenv("CV_SKIP_PDF"))) writeLines(signature, stamp_file)
 message("cv: done.")

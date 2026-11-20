@@ -1,0 +1,17 @@
+<script>
+// Applied in <head> before paint so there is no flash of the wrong theme.
+// Default is LIGHT for first-time visitors; a manual toggle choice is remembered.
+(function () {
+  try {
+    var saved = localStorage.getItem('theme');
+    var mode = saved || 'light';
+    document.documentElement.setAttribute('data-theme', mode);
+    document.documentElement.setAttribute('data-bs-theme', mode);
+  } catch (e) {}
+})();
+</script>
+<noscript><style>
+/* Without JavaScript the "see more" button cannot work, so show every row. */
+.more__rows[hidden] { display: flex !important; }
+.more__btn { display: none !important; }
+</style></noscript>

@@ -1,20 +1,30 @@
 project:
   type: website
-  # NO pre-render hook on purpose. The CV is built by running cv/build-cv.R by
-  # hand, so rendering or previewing a page can never trigger a Google Sheets +
-  # Zotero refetch and a Chrome PDF print. cv/cv.html and cv/cv.pdf below are
-  # still copied into the site as resources; they are just not regenerated here.
+  # Pages only. Notes such as README.md and STYLE-GUIDE.md are not published.
+  render:
+    - "*.qmd"
+  # NO pre-render hook on purpose. A render never builds the CV (Chrome PDF
+  # print). The CV is built by  Rscript cv/build-cv.R  or by  bash deploy.sh,
+  # which rebuilds it only when its data changed. cv/cv.html and cv/cv.pdf below
+  # are copied into the site as resources.
+  # The figures on the pages come from R/site-data.R (Sheet, Zotero, Scholar),
+  # which refreshes its cache by itself when it is older than a day.
   resources:
     - CNAME
     - img/blog-art
+    - js            # figure kit for posts with interactive figures (js/viz.js)
     - img/og-default.png
+    - img/awards    # award certificates that About links to
     - cv/cv.html
     - cv/cv.pdf
   output-dir: docs
 
 website:
   site-url: https://drthinhong.com
+  # The picture shown when a link to the site is shared (LinkedIn, X, Messenger).
+  # Used by every page that does not set its own `image:`. Must be PNG or JPEG, not SVG.
   image: /img/og-default.png
+  image-alt: "Thinh Ong, medical doctor and mathematical modeller. I model how infections spread, so that public health can act earlier."
   open-graph: true
   twitter-card: true
   favicon: logo-icon.svg
@@ -22,7 +32,9 @@ website:
   back-to-top-navigation: true
   navbar:
     logo: logo-icon.svg
-    left:
+    logo-alt: "Thinh Ong logo"
+    title: "Thinh Ong"
+    right:
       - text: About
         href: about/index.qmd
       - text: Research
@@ -33,11 +45,12 @@ website:
         href: software/index.qmd
       - text: Blog
         href: blog/index.qmd
-    right:
-      - icon: github
-        href: https://github.com/thinhong
-      - icon: linkedin
-        href: https://www.linkedin.com/in/thinh-ong
+      - text: Contact
+        href: mailto:ongphucthinh@gmail.com
+  page-footer:
+    left: "Thinh Ong"
+    center: "[ongphucthinh@gmail.com](mailto:ongphucthinh@gmail.com)"
+    right: "[GitHub](https://github.com/thinhong) [LinkedIn](https://www.linkedin.com/in/thinh-ong)"
   comments:
     giscus:
       repo: thinhong/thinhong.github.io
@@ -45,15 +58,15 @@ website:
         
 format:
   html:
-    theme: [cosmo, theme.scss]
+    theme: [cosmo, _theme/theme.scss]
     include-in-header:
       - text: |
           <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-          <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-      - theme-init.html
+          <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+      - _theme/theme-init.html
     include-after-body:
-      - theme-toggle.html
-      - nav-contact.html
+      - _theme/theme-toggle.html
+      - _theme/site.html
 
 

@@ -1,5 +1,7 @@
 ---
 title: "Academic writing"
+image: /img/og-default.png   # link preview picture (the site default; without this line Quarto picks the first image on the page)
+body-classes: hue-te
 bibliography: references.bib
 toc: true
 ---
