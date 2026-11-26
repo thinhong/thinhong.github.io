@@ -17,6 +17,7 @@ project:
     - img/awards    # award certificates that About links to
     - cv/cv.html
     - cv/cv.pdf
+    - cv/fonts      # the two typefaces of the CV (cv.html loads them from here)
   output-dir: docs
 
 website:

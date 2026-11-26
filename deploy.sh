@@ -11,7 +11,7 @@
 #    Scholar and saves them in data/site-data.rds. The pages and the CV both read
 #    that file, so every figure on the site is current at deploy time.
 # 2. The CV, only if needed.  cv/build-cv.R rebuilds cv.html + cv.pdf when the
-#    data, the template or the script changed since the last build. If nothing
+#    data, the template, the fonts or the script changed since the last build. If nothing
 #    changed, the heavy step (Chrome printing the PDF) is skipped.
 # 3. Render to docs/, only what changed.  R/render-plan.R compares every source
 #    file with its record of the last render and lists the pages that depend on
@@ -67,7 +67,7 @@ else
   Rscript R/update-data.R
   took "data"; t0=$SECONDS
 
-  echo "==> 2/4 CV: rebuilding only if its data, template or script changed ..."
+  echo "==> 2/4 CV: rebuilding only if its data, template, fonts or script changed ..."
   CV_IF_CHANGED=1 Rscript cv/build-cv.R
   took "CV"; t0=$SECONDS
 fi

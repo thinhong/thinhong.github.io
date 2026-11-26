@@ -681,15 +681,9 @@ html.lb-open #quarto-back-to-top, html.lb-open body > .theme-toggle { margin-rig
 //  5. Home
 // ============================================================
 // The hero is sized to fit the first screen of a laptop together with the affiliations line.
-// - The headline is a full sentence, so it is set smaller than the one-word titles of the
-//   other pages (--fs-h1).
-// - Small screens: the portrait is a small photo with the name beside it, at the very top,
-//   so the face is in view before any scrolling. `order` moves it there; the markup keeps
-//   the headline first for screen readers.
-// - From 700px: statement left, portrait right in a column of fixed, modest width.
-.hm-hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px clamp(32px, 5vw, 80px); padding: clamp(16px, 2.6vw, 36px) 0 clamp(26px, 3.4vw, 44px); }
-.hm-hero__main { min-width: 0; display: flex; flex-direction: column; justify-content: space-between; gap: clamp(24px, 3.2vw, 40px); container: hero / inline-size; }
-.hm-hero__top { display: flex; flex-direction: column; gap: clamp(12px, 1.8vw, 22px); }
+// The headline is a full sentence, so it is set smaller than the one-word titles of the other
+// pages (--fs-h1). The two layouts are built differently, so each has its own block below.
+.hm-hero { display: grid; padding: clamp(16px, 2.6vw, 36px) 0 clamp(26px, 3.4vw, 44px); }
 .hm-hero .pg-title { max-width: 12.5em; font-size: clamp(1.9rem, 4.3vw, 3.75rem); font-weight: 300; line-height: 1.08; letter-spacing: -.03em; }   // 12.5em: three even lines at every width
 .hm-hero .pg-title em { font-style: normal; color: var(--brand); }
 // three cells: side by side when this column is 640px or wider (each cell then has room for
@@ -701,23 +695,43 @@ html.lb-open #quarto-back-to-top, html.lb-open body > .theme-toggle { margin-rig
 .hm-info .v { font-size: 15.5px; line-height: 1.45; color: var(--ink); }
 .hm-info .v a { display: inline-flex; align-items: center; min-height: 44px; margin-right: 16px; background-image: linear-gradient(currentColor, currentColor); background-size: 100% 1px; background-position: 0 calc(100% - 10px); background-repeat: no-repeat; }
 .hm-info .v--links { margin-top: -6px; white-space: nowrap; }
-// (figure.hm-portrait, not .hm-portrait: Quarto adds the class "figure", which sets its own display)
-figure.hm-portrait { order: -1; min-width: 0; margin: 0; display: flex; align-items: center; gap: 16px; }
-.hm-portrait .mat { flex: none; width: 112px; padding: 7px; background: var(--in-bg); }
+.hm-portrait .mat { background: var(--in-bg); }
 .hm-portrait img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 18%; }
-.hm-portrait figcaption { min-width: 0; display: flex; flex-direction: column; gap: 3px; font-size: var(--fs-label); color: var(--muted); }
-.hm-portrait figcaption b { font-size: var(--fs-small); font-weight: 500; color: var(--ink); }
-.hm-portrait figcaption b, .hm-portrait figcaption span { overflow-wrap: anywhere; }
+.hm-portrait figcaption { min-width: 0; display: flex; font-size: var(--fs-label); color: var(--muted); }
+.hm-portrait figcaption b { font-weight: 500; color: var(--ink); }
+
+// Below 700px: name, place and role at the left, a small photo at the right edge, then the
+// headline and the details. The face is in view before any scrolling and the row uses the
+// full width. The wrappers are switched off (display: contents) so that the name, the role,
+// the photo, the headline and the details are all cells of one grid. The markup keeps its
+// order for screen readers.
+// (figure.hm-portrait, not .hm-portrait: Quarto adds the class "figure", which sets its own display.)
+@media (max-width: 699.98px) {
+  .hm-hero__main, .hm-hero__top, figure.hm-portrait { display: contents; }
+  .hm-hero { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "name photo" "role photo" "title title" "info info"; column-gap: 16px; }
+  .hm-portrait figcaption { grid-area: name; align-self: end; flex-direction: column; gap: 3px; padding-bottom: 6px; overflow-wrap: anywhere; }
+  .hm-portrait figcaption b { font-size: var(--fs-small); }
+  .hm-hero .pg-eyebrow { grid-area: role; align-self: start; }
+  .hm-portrait .mat { grid-area: photo; width: 112px; padding: 7px; }
+  .hm-hero .pg-title { grid-area: title; margin-top: 22px; }
+  .hm-info { grid-area: info; margin-top: 26px; }
+}
+// The photo and the name lose the entrance of their wrapper (it has no box now): give it back.
+@media (max-width: 699.98px) and (prefers-reduced-motion: no-preference) {
+  .hm-portrait .mat, .hm-portrait figcaption { animation: rise 1s var(--ease) .1s both; }
+}
+// From 700px: headline and details left, portrait right in a column of fixed, modest width.
 @media (min-width: 700px) {
-  .hm-hero { grid-template-columns: minmax(0, 1fr) clamp(230px, 26vw, 330px); }
+  .hm-hero { grid-template-columns: minmax(0, 1fr) clamp(230px, 26vw, 330px); gap: clamp(32px, 5vw, 80px); }
+  .hm-hero__main { min-width: 0; display: flex; flex-direction: column; justify-content: space-between; gap: clamp(24px, 3.2vw, 40px); container: hero / inline-size; }
+  .hm-hero__top { display: flex; flex-direction: column; gap: clamp(12px, 1.8vw, 22px); }
   .hm-hero .pg-title { font-weight: 200; }
-  figure.hm-portrait { order: 0; flex-direction: column; align-items: stretch; gap: 12px; }
-  .hm-portrait .mat { width: auto; padding: clamp(12px, 1.6vw, 22px); }
+  figure.hm-portrait { min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  .hm-portrait .mat { padding: clamp(12px, 1.6vw, 22px); }
   // name left, place right. When the column is too narrow for both, the place goes under the
   // name as a whole (neither is broken in the middle).
-  .hm-portrait figcaption { flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; }
+  .hm-portrait figcaption { flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; }
   .hm-portrait figcaption b, .hm-portrait figcaption span { white-space: nowrap; }
-  .hm-portrait figcaption b { font-size: inherit; }
 }
 // The logos always stay on ONE line. Below 460px of room they shrink together (sizes in cqi,
 // a share of the logo row's own width), so a logo never drops to a second line.
@@ -728,6 +742,13 @@ figure.hm-portrait { order: -1; min-width: 0; margin: 0; display: flex; align-it
 .hm-affil__logos { align-self: stretch; min-width: 0; display: flex; flex-wrap: nowrap; align-items: center; gap: 16px; gap: min(5.2cqi, 56px); container: logos / inline-size; }
 .hm-affil span.logo { flex: none; display: inline-flex; align-items: center; height: 44px; height: min(44px, 9.6cqi); padding: 0 8px; padding: 0 min(8px, 1.74cqi); background: #ffffff; }
 .hm-affil img { display: block; width: auto; height: min(calc(var(--hn, 24) * 1px), calc(var(--hn, 24) * .2174cqi)); }
+// Dark mode: no white tiles behind the logos. A logo that is hard to read on a dark page has a
+// "-dark" twin file (img.on-dark beside img.on-light in the markup) and the page shows the
+// one that fits the mode. Both are loading="lazy", so the hidden one is not downloaded.
+.hm-affil img.on-dark { display: none; }
+html[data-theme="dark"] .hm-affil span.logo { background: transparent; }
+html[data-theme="dark"] .hm-affil img.on-light { display: none; }
+html[data-theme="dark"] .hm-affil img.on-dark { display: block; }
 @media (min-width: 640px) {
   .hm-affil { flex-direction: row; align-items: center; padding: 20px 0; }
   .hm-affil__logos { flex: 1 1 0; align-self: auto; }

@@ -95,7 +95,7 @@ the Zotero keys in `.Renviron` (`ZOTERO_API_KEY`, `ZOTERO_USER_ID`,
 _quarto.yml          site settings: menu, footer, fonts, what is rendered
 index.qmd            Home
 about/  research/  teaching/  software/  blog/  slides/     the pages (folder = URL)
-cv/                  CV builder (build-cv.R, cv-template.html); cv.html and cv.pdf are generated
+cv/                  CV builder (build-cv.R, cv-template.html, fonts/); cv.html and cv.pdf are generated
 R/                   R code shared by pages and the CV
   site-data.R          the one data layer (Sheet, Zotero, Scholar, cache)
   update-data.R        fetch fresh data now

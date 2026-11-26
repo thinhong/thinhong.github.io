@@ -48,12 +48,14 @@ num <- site_numbers()
 
   <section class="hm-affil" aria-label="Affiliations">
     <span class="k">Affiliations</span>
+    <!-- A logo that is hard to read on a dark page has a "-dark" twin: the page shows
+         img.on-light or img.on-dark to fit the mode. A logo with one <img> shows in both. -->
     <div class="hm-affil__logos">
       <span class="logo"><img src="img/affiliations/oxford.jpg" alt="University of Oxford" width="32" height="32" style="--hn: 32" loading="lazy" decoding="async"></span>
-      <span class="logo"><img src="img/affiliations/oucru.png" alt="Oxford University Clinical Research Unit" width="34" height="34" style="--hn: 34" loading="lazy" decoding="async"></span>
-      <span class="logo"><img src="img/affiliations/midsea.svg" alt="MIDSEA" width="100" height="20" style="--hn: 20" loading="lazy" decoding="async"></span>
-      <span class="logo"><img src="img/affiliations/mah.png" alt="Measles Analytics Hub" width="36" height="30" style="--hn: 30" loading="lazy" decoding="async"></span>
-      <span class="logo"><img src="img/affiliations/midvie.svg" alt="Modelling Infectious Diseases in Vietnam" width="57" height="20" style="--hn: 20" loading="lazy" decoding="async"></span>
+      <span class="logo"><img class="on-light" src="img/affiliations/oucru.png" alt="Oxford University Clinical Research Unit" width="34" height="34" style="--hn: 34" loading="lazy" decoding="async"><img class="on-dark" src="img/affiliations/oucru-dark.png" alt="Oxford University Clinical Research Unit" width="34" height="34" style="--hn: 34" loading="lazy" decoding="async"></span>
+      <span class="logo"><img class="on-light" src="img/affiliations/midsea.svg" alt="MIDSEA" width="100" height="20" style="--hn: 20" loading="lazy" decoding="async"><img class="on-dark" src="img/affiliations/midsea-dark.svg" alt="MIDSEA" width="100" height="20" style="--hn: 20" loading="lazy" decoding="async"></span>
+      <span class="logo"><img class="on-light" src="img/affiliations/mah.png" alt="Measles Analytics Hub" width="36" height="30" style="--hn: 30" loading="lazy" decoding="async"><img class="on-dark" src="img/affiliations/mah-dark.png" alt="Measles Analytics Hub" width="36" height="30" style="--hn: 30" loading="lazy" decoding="async"></span>
+      <span class="logo"><img class="on-light" src="img/affiliations/midvie.svg" alt="Modelling Infectious Diseases in Vietnam" width="57" height="20" style="--hn: 20" loading="lazy" decoding="async"><img class="on-dark" src="img/affiliations/midvie-dark.svg" alt="Modelling Infectious Diseases in Vietnam" width="57" height="20" style="--hn: 20" loading="lazy" decoding="async"></span>
     </div>
   </section>
 

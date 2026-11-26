@@ -38,7 +38,7 @@
 #   7. A page (.qmd)                          -> that page
 #   8. A file in a page's folder (image, .bib, data)
 #                                             -> that page
-#   9. Any other file (img/, js/, cv/cv.html, cv/cv.pdf, ...):
+#   9. Any other file (img/, js/, cv/cv.html, cv/cv.pdf, cv/fonts/, ...):
 #      named in the site settings             -> every page
 #      otherwise                              -> copied into docs/ if it is
 #                                                published; pages that name it
@@ -221,7 +221,7 @@ if (forced) {
 
   no_effect <- paste0("^(README|STYLE-GUIDE)\\.md$|^(deploy|render)\\.sh$|^\\.git[a-z]+$|\\.Rproj$",
                       "|^\\.nojekyll$|^_publish\\.yml$|^_page-template\\.qmd$",
-                      "|(^|/)_template[^/]*/|^cv/(?!cv\\.(html|pdf)$)|^R/(render-plan|update-data)\\.R$")
+                      "|(^|/)_template[^/]*/|^cv/(?!cv\\.(html|pdf)$|fonts/)|^R/(render-plan|update-data)\\.R$")
   site_wide <- "^_quarto[^/]*\\.yml$|^_theme/|^_extensions/|^_brand\\.yml$|^_variables\\.yml$|^logo-icon\\.svg$"
   # files a page only links to: a new copy in docs/ is enough, the page itself does not change
   link_only <- "\\.(html?|pdf|js|mjs|css|map|woff2?|ttf|otf|ico|zip|docx?|pptx?|xlsx?|mp4|webm|mp3)$"

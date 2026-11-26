@@ -97,6 +97,7 @@ colour-blind readers (see "Figure colours" below). Pages never use them.
 One typeface: **Manrope** (weights 200, 300, 400, 500, 600), loaded in
 `_quarto.yml`. Hierarchy comes from size and weight only. There is no second
 font, no uppercase labels and no letter-spaced labels. Headings use sentence case.
+The CV is the one exception: its text is in a serif (see "The CV").
 
 | Token | Value | Use for |
 |---|---|---|
@@ -143,7 +144,7 @@ set width. Inside one layout, each piece has its own column.
 | Methods | 1, 2 or 4 columns | 600px and 1180px |
 | Cards | picture left and text right, one card per line; 3 columns | 900px |
 | Facts | list with the label left and the value right; one line of equal columns | 1000px |
-| Home hero (`.hm-hero`) | a small photo with the name beside it, then the headline and the details; headline and details left, portrait right in a column of 230px to 330px | 700px |
+| Home hero (`.hm-hero`) | name, place and role at the left with a small photo at the right edge, then the headline and the details; headline and details left, portrait right in a column of 230px to 330px | 700px |
 | Home hero details (`.hm-info`) | stacked; 3 columns | hero text column 640px |
 | Home figures | stacked; 3 columns | 600px |
 | Home affiliations | label above the logos; label beside the logos. The logos are always one line and shrink together on small phones | 640px |
@@ -531,6 +532,47 @@ the page loads: the script starts when the globe is near the screen, or when
 the browser is idle. Keep these when you change the script, and test the change
 on a real phone.
 
+## The CV
+
+The CV (`cv/cv.html` and `cv/cv.pdf`) is not a Quarto page. `cv/build-cv.R`
+builds it from `cv/cv-template.html`, which carries its own small stylesheet. The
+design is a blend: an academic CV inside the website's frame.
+
+**From the website.** The neutral tokens and the five hues, with the same values
+in light and dark. Manrope for the name (weight 200), the section headings
+(weight 300) and the dates. A 2px rule in a hue above each heading, sentence
+case. The light / dark choice: the CV reads and writes the same `theme` key, so
+it always agrees with the site.
+
+**From the academic CV.** The text is in **EB Garamond** (400, 500, 600 and
+their italics). This is the one place on the site with a second typeface. Italics
+carry journals, events and funders. Bold carries the role or the title of a row.
+
+The CV is kept simple, so a reader is at ease. Rules of the CV:
+
+- Colour has one job: the short rule above each heading. The first section takes
+  the logo blue. The rest cycle teal, mauve, cyan, indigo. Indigo comes last
+  here, so it does not sit right under the blue of the first section. Headings
+  and text stay in the neutral tones.
+- No section numbers, no dots, no icons beside links, no abbreviations ("PI" is
+  written as "Principal investigator").
+- Every section is the same list: the date on the left, the entry on the right,
+  and at most one figure at the right end of a row (an amount, a number of
+  people). Do not add a table with more columns.
+- Every link has the link colour (`--link`) and a 1px underline. A link must
+  stay easy to spot on paper and without colour.
+- Every size inside `.cv` is in `em`. One font size sets the whole scale: 18px on
+  a screen, 17px on a phone, 12pt on paper. Do not set a font size in px or rem
+  inside `.cv`.
+- Paper is always light. The dark tokens sit inside `@media screen`.
+- No motion. Hover changes a colour at once, and `:active` dims the element.
+- On a touch screen each contact link is 44px tall. Below 600px the rows stack:
+  the date sits above its entry, and a figure moves to the end of the date line.
+- The footer of each sheet (name, month of the build, page number) comes from the
+  `@page` rule, so it uses the CV's own font.
+- Both typefaces are files in `cv/fonts/`. Everything `cv.html` loads must sit
+  inside `cv/`: the PDF build stops on a file it cannot get (see `cv/README.md`).
+
 ## Rules
 
 - A `<section>` with an `id` that is a flex or grid box needs `:target::before { content: none; }`
@@ -542,7 +584,8 @@ on a real phone.
   it per page. If two pages need the same new piece, add it to the system once.
 - Small coloured text uses the text tone (`--hue-fg`). Line tones are for
   graphics and large figures.
-- One typeface, sentence case, no uppercase labels.
+- One typeface, sentence case, no uppercase labels. (The CV adds a serif for its
+  text, see "The CV".)
 - Figures use `--fs-fig`. Nothing larger.
 - Motion uses `--ease` and animates `opacity` and `transform` only. Hover effects
   go inside `@media (hover: hover)` so taps stay clean on touch screens, and every
@@ -560,6 +603,12 @@ on a real phone.
 - Each logo in the Home affiliation row carries its height as a number,
   `style="--hn: 32"`, next to its `width` and `height`. The row uses it to
   shrink all logos together on small phones.
+- The affiliation logos have no white tile in dark mode. A logo that is hard to
+  read on a dark page (dark text, or a white background in the file) needs a
+  second file, `name-dark.png` or `name-dark.svg`, in `img/affiliations/`. Put
+  both in the same `<span class="logo">`: `<img class="on-light" ...>` then
+  `<img class="on-dark" ...>`, both with `loading="lazy"`. A logo with its own
+  background (the Oxford square) keeps one `<img>` and shows in both modes.
 - The Home hero stays modest. On a laptop (about 1190 x 690) the hero and the
   affiliations line fit in the first screen, and on a phone the photo is in
   view before any scrolling. Check both after a change to the hero.
@@ -592,6 +641,7 @@ on a real phone.
 | `blog/_template-til/` | Copy-paste scaffold for a Today I learned note |
 | `js/viz.js` | Figure kit for posts with interactive figures |
 | `img/blog-art/` | Blog covers, one per post, plus one default per topic |
+| `cv/cv-template.html`, `cv/build-cv.R`, `cv/fonts/` | The CV: its design and header, the script that builds every section, and its two typefaces |
 
 Reference pages: Research (rows and panels), Teaching (cards) and About (split
 parts). When in doubt, match what they do.
